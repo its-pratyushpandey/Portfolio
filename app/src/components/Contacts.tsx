@@ -62,7 +62,7 @@ const Contact: React.FC = () => {
       </div>
       <footer className="mt-20 border-t border-gray-200 pt-8">
         <div className="container mx-auto px-4 text-center">
-          <p className="text-[#3949ab]">© 2025 MANISH RAJ. All rights reserved.</p>
+          <p className="text-[#3949ab]">© 2025 Pratyush Kumar Pandey. All rights reserved.</p>
           <p className="text-[#3949ab] mt-2">Designed and coded with ❤️</p>
         </div>
       </footer>

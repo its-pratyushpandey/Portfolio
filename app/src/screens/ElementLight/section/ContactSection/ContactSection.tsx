@@ -381,7 +381,7 @@ export const ContactSection = (): JSX.Element => {
 
                 <div className="inline-flex flex-col h-[32.19px] items-start relative">
                   <div className="relative w-fit mt-[-1.00px] font-manishraj-netlify-app-inter-extra-bold-upper font-[number:var(--manishraj-netlify-app-inter-extra-bold-upper-font-weight)] text-manishrajnetlifyappblack text-[length:var(--manishraj-netlify-app-inter-extra-bold-upper-font-size)] tracking-[var(--manishraj-netlify-app-inter-extra-bold-upper-letter-spacing)] leading-[var(--manishraj-netlify-app-inter-extra-bold-upper-line-height)] whitespace-nowrap [font-style:var(--manishraj-netlify-app-inter-extra-bold-upper-font-style)]">
-                    MANISH RAJ
+                    Pratyush Kumar Pandey
                   </div>
                 </div>
               </div>
@@ -409,7 +409,7 @@ export const ContactSection = (): JSX.Element => {
             >
               <div className="inline-flex pl-0 pr-2 py-0 relative flex-col items-start">
                 <div className="inline-flex flex-col items-center pl-[18.53px] pr-[18.55px] py-0 relative">
-                  <div className="relative w-fit mt-[-1.00px] font-manishraj-netlify-app-semantic-button-upper font-[number:var(--manishraj-netlify-app-semantic-button-upper-font-weight)] text-manishrajnetlifyappblack text-[length:var(--manishraj-netlify-app-semantic-button-upper-font-size)] text-center tracking-[var(--manishraj-netlify-app-semantic-button-upper-letter-spacing)] leading-[var(--manishraj-netlify-app-semantic-button-upper-line-height)] [font-style:var(--manishraj-netlify-app-semantic-button-upper-font-style)]">
+                  <div className="relative w-fit mt-[-1.00px] font-manishraj-netlify-app-semantic-button-upper font-[number:var(--manishraj-netlify-app-semantic-button-upper-font-weight)] text-manishrajnetlifyappblack text-[length:var(--manishraj-netlify-app-semantic-button-upper-font-size] text-center tracking-[var(--manishraj-netlify-app-semantic-button-upper-letter-spacing)] leading-[var(--manishraj-netlify-app-semantic-button-upper-line-height)] [font-style:var(--manishraj-netlify-app-semantic-button-upper-font-style)]">
                     BACK TO
                     <br />
                     TOP

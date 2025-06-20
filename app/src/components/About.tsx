@@ -20,7 +20,7 @@ const About: React.FC = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <img src="https://c.animaapp.com/mc46fmevF9sLme/img/manish-s-profile-picture.png" alt="Manish Raj" className="rounded-lg shadow-lg" />
+            <img src="https://c.animaapp.com/mc46fmevF9sLme/img/manish-s-profile-picture.png" alt="Pratyush Kumar Pandey" className="rounded-lg shadow-lg" />
           </motion.div>
           <motion.div 
             className="md:w-1/2"

@@ -147,70 +147,58 @@ export const AboutMeSection = (): JSX.Element => {
             src="https://c.animaapp.com/mc46fmevF9sLme/img/mask-group-3.svg"
           />
 <div className="flex flex-col md:flex-row gap-10">
-<div className="flex-1">
-<div className="w-full h-[1360px] rounded-md bg-cover bg-center bg-[url(https://c.animaapp.com/mc46fmevF9sLme/img/manish-s-profile-picture.png)]" />
-</div>
-<div className="flex-1 flex flex-col gap-10">
-<div>
-<h2 className="font-normal text-[70px] tracking-[-2.16px] leading-[90px] text-manishrajnetlifyappblack">
-A brief intro, who am I?
-                </h2>
-</div>
-<div className="flex flex-col gap-10">
-<p className="font-normal text-[32.5px] leading-10 text-manishrajnetlifyappblack">
-I am a student, developer, and a pre-final year
-                  <br />
-undergrad pursuing a degree in Bachelor&#39;s in
-                  <br />
-Computer Science and Engineering from K L Deemed
-                  <br />
-to be University, India.
-                </p>
-<p className="font-normal text-[31.5px] leading-10 text-manishrajnetlifyappblack">
-I am passionate about problem solving, web
-                  <br />
-development, and design. I am artistic, creative, and a<br />
-problem solver. I love to design and code.💙
-                </p>
-<p className="font-normal text-[31.8px] leading-10 text-manishrajnetlifyappblack">
-I am good at krafting solutions, critical thinking, and
-                  <br />
-have a good understanding of data structures and
-                  <br />
-algorithms. I have gained a hand full of experience in
-                  <br />
-full-stack web development using SpringBoot with
-                  <br />
-React, MERN stack &amp; Python Django. Currently I am
-                  <br />
-diving deep into Computer Science fundamentals in
-                  <br />
-3rd year of my undergraduation.
-                </p>
-<p className="font-normal text-[31.4px] leading-10 text-manishrajnetlifyappblack">
-I love to sketch, paint, and read books. In my leisure
-                  <br />
-time I like to stay updated on new tech and review
-                  <br />
-books on my{" "}
-                  <a href="https://www.instagram.com/aka_thelostbookmark/" rel="noopener noreferrer" target="_blank" className="underline">
-Instagram
-                  </a>
-{" "}and share my insights on
-                  <a
-                    href="https://www.youtube.com/channel/UCmhi2NSl9RdC5biFARM3nsw"
-                    rel="noopener noreferrer"
-                    target="_blank"
-                    className="underline"
-                  >
-<br />
-YouTube{" "}
-                  </a>
-📸
-                </p>
-</div>
-</div>
-</div>
+  {/* Swap: Text first, then image */}
+  <div className="flex-1 flex flex-col gap-10">
+    <div>
+      <h2 className="font-normal text-[70px] tracking-[-2.16px] leading-[90px] text-manishrajnetlifyappblack">
+        A brief intro, who am I?
+      </h2>
+    </div>
+    <div className="flex flex-col gap-10">
+      <p className="font-normal text-[32.5px] leading-10 text-manishrajnetlifyappblack">
+        I am a student, developer, and a pre-final year<br />
+        undergrad pursuing a degree in Bachelor&#39;s in<br />
+        Computer Science and Engineering from K L Deemed<br />
+        to be University, India.
+      </p>
+      <p className="font-normal text-[31.5px] leading-10 text-manishrajnetlifyappblack">
+        I am passionate about problem solving, web<br />
+        development, and design. I am artistic, creative, and a<br />
+        problem solver. I love to design and code.💙
+      </p>
+      <p className="font-normal text-[31.8px] leading-10 text-manishrajnetlifyappblack">
+        I am good at krafting solutions, critical thinking, and<br />
+        have a good understanding of data structures and<br />
+        algorithms. I have gained a hand full of experience in<br />
+        full-stack web development using SpringBoot with<br />
+        React, MERN stack &amp; Python Django. Currently I am<br />
+        diving deep into Computer Science fundamentals in<br />
+        3rd year of my undergraduation.
+      </p>
+      <p className="font-normal text-[31.4px] leading-10 text-manishrajnetlifyappblack">
+        I love to sketch, paint, and read books. In my leisure<br />
+        time I like to stay updated on new tech and review<br />
+        books on my {" "}
+        <a href="https://www.instagram.com/aka_thelostbookmark/" rel="noopener noreferrer" target="_blank" className="underline">
+          Instagram
+        </a>
+        {" "}and share my insights on
+        <a
+          href="https://www.youtube.com/channel/UCmhi2NSl9RdC5biFARM3nsw"
+          rel="noopener noreferrer"
+          target="_blank"
+          className="underline"
+        >
+          <br />
+          YouTube{" "}
+        </a>
+        📸
+      </p>
+    </div>
+  </div>
+  <div className="flex-1">
+    <div className="w-full h-[1360px] rounded-md bg-cover bg-center bg-[url(https://c.animaapp.com/mc46fmevF9sLme/img/manish-s-profile-picture.png)]" />
+  </div>
 </div>
 {/* Skills Section */}
         <div className="mt-40 flex flex-col gap-10">
@@ -348,7 +336,7 @@ and have used them in my projects.
 </div>
 {/* Experience Details */}
             <div className="w-2/3">
-<Card className="p-10 bg-manishrajnetlifyappsail-30 border border-[#90c9f833] backdrop-blur-sm">
+<Card className="p-10 bg-manishrajnetlifyappsail-30 backdrop-blur-sm">
 <CardContent className="p-0 space-y-8">
 <div className="flex justify-between items-start">
 <div className="flex flex-col gap-1">
@@ -651,8 +639,7 @@ impact.
 <div className="bg-manishrajnetlifyappsapphire">
 <div className="bg-manishrajnetlifyappblack">
 <div className="relative w-[832px] h-[468px]">
-<div className="w-[832px] absolute top-0 left
-                                <div className="w-[832px] absolute top-0 left-0 flex flex-col items-start justify-center">
+<div className="w-[832px] absolute top-0 left-0 flex flex-col items-start justify-center">
 <div className="flex-1 w-full">
 <div className="relative max-w-[832px] w-[832px] h-[468px] bg-cover bg-center bg-[url(https://c.animaapp.com/mc46fmevF9sLme/img/projectposter1-hzfo1fsm-png.png)]" />
 </div>

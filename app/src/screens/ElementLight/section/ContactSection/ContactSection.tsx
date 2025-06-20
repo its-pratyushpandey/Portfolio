@@ -359,7 +359,7 @@ export const ContactSection = (): JSX.Element => {
         </div>
 
         {/* Footer */}
-        <footer className="flex flex-col items-start pt-px pb-0 px-0 relative self-stretch w-full border-t [border-top-style:solid] border-[#bbddfa80]">
+        <footer className="flex flex-col items-start pt-px pb-0 px-0 relative self-stretch w-full [border-top-style:solid] border-[#bbddfa80]">
           <div className="flex items-end justify-between pt-[15.1px] pb-4 px-0 relative self-stretch w-full">
             <div className="flex w-full md:w-[1062px] items-start justify-between pr-[2.27e-13px] pl-0 py-0 relative">
               <div className="inline-flex items-end relative self-stretch">

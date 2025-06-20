@@ -15,12 +15,12 @@ const About: React.FC = () => {
         </motion.h2>
         <div className="flex flex-col md:flex-row items-center gap-12">
           <motion.div 
-            className="md:w-1/2"
+            className="md:w-1/2 flex justify-center"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <img src="https://c.animaapp.com/mc46fmevF9sLme/img/manish-s-profile-picture.png" alt="Pratyush Kumar Pandey" className="rounded-lg shadow-lg" />
+            <img src="/profile.jpg" alt="Pratyush Kumar Pandey" className="rounded-lg shadow-lg w-60 h-auto object-contain" />
           </motion.div>
           <motion.div 
             className="md:w-1/2"

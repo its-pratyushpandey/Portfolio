@@ -48,7 +48,7 @@ export const ElementLight = (): JSX.Element => {
                 <img
                   className="relative w-full h-48"
                   alt="Mask group"
-                  src="https://c.animaapp.com/mc46fmevF9sLme/img/mask-group.svg"
+                  src="https://drive.google.com/uc?export=view&id=1zao1OpajYz4syInvI4wqZcsLcsXTj5AV"
                 />
               </div>
               <div className="inline-flex flex-col items-start pt-0 pb-4 px-0 relative flex-[0_0_auto]">
@@ -61,7 +61,7 @@ export const ElementLight = (): JSX.Element => {
               <img
                 className="relative w-full h-48"
                 alt="Mask group"
-                src="https://c.animaapp.com/mc46fmevF9sLme/img/mask-group-7.svg"
+                src="/profile.jpg"
               />
             </div>
           </div>

@@ -296,7 +296,6 @@ const Projects: React.FC = () => {
           ) : (
             filteredProjects.map((project, idx) => {
               const [isPlaying, setIsPlaying] = useState(false);
-              // Track hover state for each project
               const [isHovered, setIsHovered] = useState(false);
               return (
                 <motion.div
@@ -309,7 +308,7 @@ const Projects: React.FC = () => {
                   viewport={{ once: true, amount: 0.3 }}
                   transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.8, ease: 'easeOut' }}
                 >
-                  {/* Parallax image with video on click */}
+                  {/* Parallax image with video on click and 3D tilt on hover */}
                   <motion.div
                     id={`project-img-container-${idx}`}
                     className="flex-1 flex items-center justify-center p-8 relative group"
@@ -318,6 +317,12 @@ const Projects: React.FC = () => {
                     viewport={{ once: true }}
                     tabIndex={0}
                     style={{ cursor: project.videoDemo ? 'pointer' : 'default' }}
+                    onMouseMove={e => {
+                      if (!isPlaying) handleMouseMove(e, idx);
+                    }}
+                    onMouseLeave={() => {
+                      if (!isPlaying) handleMouseLeave(idx);
+                    }}
                   >
                     {isPlaying && project.videoDemo ? (
                       <motion.video
@@ -331,7 +336,7 @@ const Projects: React.FC = () => {
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={shouldReduceMotion ? { duration: 0 } : { delay: 0.3, duration: 0.7 }}
-                        onClick={e => { e.stopPropagation(); setIsPlaying(false); }}
+                        onClick={e => { e.stopPropagation(); setIsPlaying(false); handleMouseLeave(idx); }}
                       />
                     ) : (
                       <motion.img

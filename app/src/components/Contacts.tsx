@@ -47,7 +47,7 @@ const Contact: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          Let's Connect
+          Get in Touch
         </motion.h2>
         <div className="max-w-2xl mx-auto">
           <p className="text-lg text-center text-[#3949ab] mb-8">
@@ -56,6 +56,7 @@ const Contact: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {contactInfo.map((item, index) => (
               <ContactItem key={index} {...item} />
+              
             ))}
           </div>
         </div>

@@ -655,12 +655,13 @@ const Projects: React.FC = () => {
           )}
         </AnimatePresence>
         {/* View More Projects Button */}
-        <div className="fixed bottom-4 right-4 z-20">
+        <div className="w-full flex justify-center mt-16 md:mt-24">
           <a
             href="https://manishraj.netlify.app/projectsarchive"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-[#201d66] text-white px-6 py-3 rounded-full text-lg hover:bg-[#3949ab] shadow-lg transition-colors focus:outline-none focus:ring-2 focus:ring-[#201d66] focus:ring-offset-2"
+            className="inline-block bg-[#201d66] text-white px-8 py-3 rounded-full text-lg md:text-xl font-semibold border-2 border-[#80deea] shadow-lg hover:bg-[#3949ab] hover:text-[#e3f2fd] transition-all focus:outline-none focus:ring-2 focus:ring-[#201d66]"
+            style={{ minWidth: 220 }}
             aria-label="View more projects in new tab"
           >
             View More Projects

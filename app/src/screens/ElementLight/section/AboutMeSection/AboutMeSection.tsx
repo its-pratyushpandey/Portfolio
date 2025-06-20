@@ -621,11 +621,11 @@ impact.
 <div className="w-[640px]">
 <div className="flex items-center">
 <div>
-<span className="text-[224px] leading-[224px] font-normal text-manishrajnetlifyappsail whitespace-nowrap">0</span>
+<span className="text-[224px] leading-[224px] font-normal text-manishrajappsail whitespace-nowrap">0</span>
 </div>
 <div className="relative w-[187px] h-56">
 <div className="w-[187px] -top-[15px] relative opacity-[0.23]">
-<span className="text-[212px] leading-[224px] font-normal text-manishrajnetlifyappsail whitespace-nowrap">2.</span>
+<span className="text-[212px] leading-[224px] font-normal text-manishrajappsail whitespace-nowrap">2.</span>
 </div>
 </div>
 </div>
@@ -817,7 +817,6 @@ Package
 </div>
 </div>
 </div>
-</div>
 {/* Additional Projects */}
           <div className="relative w-full h-[3769px]">
 <img
@@ -968,23 +967,6 @@ Machine Learning • NLP • API • Web Development
 </div>
 </div>
 </div>
-{/* View More Projects Button */}
-            <div className="flex justify-center absolute w-[1696px] top-[3678px] left-0">
-<Button 
-                className="px-[18px] py-[10px] text-[33px] font-light text-manishrajnetlifyappspray border-2 border-[#80deea] rounded-full bg-transparent"
-                asChild
-              >
-<a
-                  href="https://manishraj.netlify.app/projectsarchive"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-View More Projects
-                </a>
-</Button>
-</div>
-</div>
-</div>
 {/* Certificates Section */}
         <div className="mt-40 h-[700px] relative">
 <div className="w-full">
@@ -1092,20 +1074,7 @@ Verify Credentials
 </div>
 </Card>
 </div>
-{/* View All Certificates Button */}
-          <div className="flex justify-center absolute w-[1696px] top-[609px] left-0">
-<Button 
-              className="px-[18px] py-[10px] text-[32px] font-light text-manishrajnetlifyappspray border-2 border-[#80deea] rounded-full bg-transparent"
-              asChild
-            >
-<a
-                href="https://manishraj.netlify.app/certificatesList"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-View All Certificates
-              </a>
-</Button>
+</div>
 </div>
 </div>
 </div>

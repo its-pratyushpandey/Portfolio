@@ -227,30 +227,52 @@ const Certificates: React.FC = () => {
               whileHover={{ scale: 1.03, boxShadow: '0 8px 32px 0 rgba(32,29,102,0.13)' }}
               transition={{ duration: 0.5, ease: 'easeOut' }}
             >
-              <Card className="h-full flex flex-col shadow-xl border border-[#e3f2fd] bg-white/90 hover:shadow-2xl transition-all cursor-pointer" onClick={() => setModalCert(certificate)} tabIndex={0} aria-label={`View details for ${certificate.title}`}> 
+              <Card className="h-full flex flex-col shadow-xl border border-[#e3f2fd] bg-white/90 hover:shadow-2xl transition-all cursor-pointer group relative overflow-hidden"
+                onClick={() => setModalCert(certificate)}
+                tabIndex={0}
+                aria-label={`View details for ${certificate.title}`}
+                onMouseMove={e => handleMouseMove(e, idx)}
+                onMouseLeave={() => handleMouseLeave(idx)}
+              >
+                {/* Glare effect for 3D tilt */}
+                <div id={`cert-glare-${idx}`} className="absolute inset-0 pointer-events-none z-10 transition-opacity duration-300 opacity-0" style={{ borderRadius: 'inherit' }} />
                 <CardHeader className="flex flex-col items-center p-6 pb-2">
                   <img
+                    id={`cert-img-${idx}`}
                     src={certificate.image}
                     alt={certificate.title}
-                    className="w-28 h-28 object-contain rounded-xl border border-[#e3f2fd] bg-[#f5f5f5] mb-4 shadow"
+                    className="w-28 h-28 object-contain rounded-xl border border-[#e3f2fd] bg-[#f5f5f5] mb-4 shadow transition-transform duration-300 group-hover:scale-105"
                   />
-                  <CardTitle className="text-lg font-bold text-[#201d66] text-center mb-1">{certificate.title}</CardTitle>
+                  <CardTitle className="text-lg font-bold text-[#201d66] text-center mb-1 flex items-center gap-2">
+                    {getTypeIcon(certificate.type)}
+                    {certificate.title}
+                  </CardTitle>
                   <CardDescription className="flex items-center gap-2 justify-center mb-2">
-                    <span className="inline-flex items-center gap-1 bg-[#e3f2fd] text-[#3949ab] px-3 py-1 rounded-full text-xs font-medium shadow">{getTypeIcon(certificate.type)}{certificate.type}</span>
-                    <span className="bg-[#201d66] text-white text-xs px-2 py-0.5 rounded-full font-semibold shadow">{certificate.year}</span>
+                    <span className="inline-flex items-center gap-1 bg-[#e3f2fd] text-[#3949ab] px-3 py-1 rounded-full text-xs font-medium shadow">
+                      {getTypeIcon(certificate.type)}{certificate.type}
+                    </span>
+                    <span className="bg-[#201d66] text-white text-xs px-2 py-0.5 rounded-full font-semibold shadow flex items-center gap-1">
+                      <svg className="w-4 h-4 inline-block mr-1" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                      {certificate.year}
+                    </span>
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="flex-1 flex flex-col items-center justify-center">
-                  <span className="text-[#3949ab] text-sm font-medium mb-2">{certificate.issuer}</span>
+                  <span className="text-[#3949ab] text-sm font-medium mb-2 flex items-center gap-1">
+                    <svg className="w-4 h-4 inline-block mr-1" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M16 7a4 4 0 01-8 0"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h0a4 4 0 014 4v2"/></svg>
+                    {certificate.issuer}
+                  </span>
                 </CardContent>
-                <CardFooter className="flex flex-col items-center gap-2">
+                <CardFooter className="flex flex-col items-center gap-2 mt-auto">
                   <a
                     href={certificate.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block bg-[#201d66] text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-[#3949ab] transition shadow focus:outline-none focus:ring-2 focus:ring-[#201d66]"
+                    className="inline-flex items-center gap-2 bg-[#201d66] text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-[#3949ab] transition shadow focus:outline-none focus:ring-2 focus:ring-[#201d66]"
                     onClick={e => e.stopPropagation()}
+                    aria-label={`Verify credentials for ${certificate.title}`}
                   >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M9 12l2 2l4-4"/><circle cx="12" cy="12" r="10"/></svg>
                     Verify Credentials
                   </a>
                 </CardFooter>

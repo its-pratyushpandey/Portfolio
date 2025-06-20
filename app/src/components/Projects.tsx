@@ -51,19 +51,29 @@ const Projects: React.FC = () => {
     sectionRefs.current[idx]?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  // Responsive parallax effect
+  // Responsive parallax effect with 3D tilt and shadow
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement, MouseEvent>, idx: number) => {
     const img = document.getElementById(`project-img-${idx}`);
     if (img) {
       const { left, top, width, height } = img.getBoundingClientRect();
-      const x = ((e.clientX - left) / width - 0.5) * 16;
-      const y = ((e.clientY - top) / height - 0.5) * 16;
-      img.style.transform = `scale(1.03) rotateY(${-x}deg) rotateX(${y}deg)`;
+      const x = ((e.clientX - left) / width - 0.5) * 2; // -1 to 1
+      const y = ((e.clientY - top) / height - 0.5) * 2; // -1 to 1
+      const rotateY = -x * 15; // max 15deg
+      const rotateX = y * 15;  // max 15deg
+      const shadowX = -x * 30; // max 30px
+      const shadowY = y * 30;  // max 30px
+      img.style.transform = `perspective(800px) scale(1.04) rotateY(${rotateY}deg) rotateX(${rotateX}deg)`;
+      img.style.boxShadow = `${shadowX}px ${shadowY}px 40px 0px rgba(32,29,102,0.18), 0 8px 32px 0 rgba(32,29,102,0.10)`;
+      img.style.transition = 'transform 0.2s cubic-bezier(.25,.8,.25,1), box-shadow 0.2s cubic-bezier(.25,.8,.25,1)';
     }
   };
   const handleMouseLeave = (idx: number) => {
     const img = document.getElementById(`project-img-${idx}`);
-    if (img) img.style.transform = '';
+    if (img) {
+      img.style.transform = '';
+      img.style.boxShadow = '';
+      img.style.transition = 'transform 0.5s cubic-bezier(.25,.8,.25,1), box-shadow 0.5s cubic-bezier(.25,.8,.25,1)';
+    }
   };
 
   // Progress bar
@@ -142,7 +152,7 @@ const Projects: React.FC = () => {
                 id={`project-img-${idx}`}
                 src={project.image}
                 alt={project.title}
-                className="w-full max-w-lg h-auto rounded-2xl shadow-2xl object-contain border-4 border-[#e3f2fd] bg-white transition-transform duration-300 cursor-pointer hover:scale-105 group-hover:shadow-[0_8px_32px_0_rgba(32,29,102,0.15)]"
+                className="w-full max-w-lg h-auto rounded-2xl shadow-2xl object-contain border-4 border-[#e3f2fd] bg-white transition-transform duration-300 cursor-pointer hover:scale-105 group-hover:shadow-[0_8px_32px_0_rgba(32,29,102,0.15)] parallax-img"
                 onMouseMove={e => handleMouseMove(e, idx)}
                 onMouseLeave={() => handleMouseLeave(idx)}
                 onClick={() => setModalProject(project)}
@@ -228,12 +238,24 @@ const Projects: React.FC = () => {
               initial={{ scale: 0.8, opacity: 0, y: 100 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.8, opacity: 0, y: 100 }}
-              transition={{ duration: 0.4 }}
+              transition={{ duration: 0.4, type: 'spring', stiffness: 180, damping: 18 }}
               onClick={e => e.stopPropagation()}
             >
-              <img src={modalProject.image} alt={modalProject.title} className="w-full h-48 object-contain rounded-xl mb-4 bg-[#e3f2fd]" />
-              <h3 className="text-3xl font-bold text-[#201d66] mb-2">{modalProject.title}</h3>
-              <p className="text-lg text-[#3949ab] mb-2">{modalProject.description}</p>
+              <motion.img
+                src={modalProject.image}
+                alt={modalProject.title}
+                className="w-full h-48 object-contain rounded-xl mb-4 bg-[#e3f2fd]"
+                initial={{ scale: 0.95, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.95, opacity: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+              />
+              <motion.h3 className="text-3xl font-bold text-[#201d66] mb-2" initial={{ y: 30, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.15 }}>
+                {modalProject.title}
+              </motion.h3>
+              <motion.p className="text-lg text-[#3949ab] mb-2" initial={{ y: 30, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.18 }}>
+                {modalProject.description}
+              </motion.p>
               <div className="flex flex-wrap gap-2 mb-2">
                 {modalProject.tags.map((tag, i) => (
                   <span key={i} className="bg-[#e3f2fd] text-[#3949ab] px-3 py-1 rounded-full text-sm font-medium shadow">
@@ -241,7 +263,9 @@ const Projects: React.FC = () => {
                   </span>
                 ))}
               </div>
-              <p className="text-[#201d66]/80 mb-4">{modalProject.details}</p>
+              <motion.p className="text-[#201d66]/80 mb-4" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.22 }}>
+                {modalProject.details}
+              </motion.p>
               <a
                 href={modalProject.link}
                 target="_blank"
@@ -282,6 +306,10 @@ const Projects: React.FC = () => {
         @keyframes gradientMove {
           0% { background-position: 0% 50%, 100% 50%; }
           100% { background-position: 100% 50%, 0% 50%; }
+        }
+        .parallax-img {
+          will-change: transform, box-shadow;
+          backface-visibility: hidden;
         }
       `}</style>
     </section>

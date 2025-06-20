@@ -307,12 +307,15 @@ const Certificates: React.FC = () => {
             </motion.div>
           )}
         </AnimatePresence>
-        <div className="fixed bottom-4 right-4 z-20">
+        {/* View All Certificates Button - Only in Certificates Section */}
+        <div className="flex justify-center w-full mt-12">
           <a
             href="https://manishraj.netlify.app/certificatesList"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-[#201d66] text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-[#3949ab] shadow-lg transition"
+            className="inline-block px-8 py-3 rounded-full text-lg font-semibold border-2 border-[#80deea] text-[#201d66] bg-white shadow-lg hover:bg-[#e3f2fd] hover:text-[#3949ab] transition-all focus:outline-none focus:ring-2 focus:ring-[#201d66]"
+            style={{ minWidth: 220 }}
+            aria-label="View all certificates"
           >
             View All Certificates
           </a>

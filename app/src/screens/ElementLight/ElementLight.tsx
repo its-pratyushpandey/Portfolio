@@ -70,6 +70,9 @@ export const ElementLight = (): JSX.Element => {
           <AboutMeSection />
           <SkillsSection />
 
+          {/* Let's Connect Section - Professional, Responsive, Animated */}
+          <ContactSection />
+
           {/* Footer component */}
           <div className="flex flex-col w-full items-start">
             <img className="relative w-full h-[153.59px]" alt="Component" />
@@ -80,9 +83,6 @@ export const ElementLight = (): JSX.Element => {
             />
           </div>
         </div>
-
-        {/* Contact section */}
-        <ContactSection />
       </div>
 
       {/* Blue dot indicator */}

@@ -7,7 +7,7 @@ import About from './components/About';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Certificates from './components/Certificates';
-import Contact from './components/Contacts';
+import { ContactSection } from './screens/ElementLight/section/ContactSection/ContactSection';
 
 interface SectionProps {
   children: ReactNode;
@@ -69,7 +69,7 @@ const App: React.FC = () => {
       <Section><Skills /></Section>
       <Section><Projects /></Section>
       <Section><Certificates /></Section>
-      <Section><Contact /></Section>
+      <Section><ContactSection /></Section>
     </div>
   );
 };

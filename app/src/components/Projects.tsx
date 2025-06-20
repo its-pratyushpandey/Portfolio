@@ -295,6 +295,7 @@ const Projects: React.FC = () => {
             </div>
           ) : (
             filteredProjects.map((project, idx) => {
+              const [isPlaying, setIsPlaying] = useState(false);
               // Track hover state for each project
               const [isHovered, setIsHovered] = useState(false);
               return (
@@ -308,32 +309,29 @@ const Projects: React.FC = () => {
                   viewport={{ once: true, amount: 0.3 }}
                   transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.8, ease: 'easeOut' }}
                 >
-                  {/* Parallax image with video on hover */}
+                  {/* Parallax image with video on click */}
                   <motion.div
                     id={`project-img-container-${idx}`}
                     className="flex-1 flex items-center justify-center p-8 relative group"
                     initial={{ opacity: 0, x: 80 }}
                     whileInView={{ opacity: 1, x: 0, transition: shouldReduceMotion ? { duration: 0 } : { delay: 0.2, duration: 0.7 } }}
                     viewport={{ once: true }}
-                    onMouseEnter={() => setIsHovered(true)}
-                    onMouseLeave={() => handleMouseLeave(idx)}
                     tabIndex={0}
-                    onFocus={() => setIsHovered(true)}
-                    onBlur={() => setIsHovered(false)}
                     style={{ cursor: project.videoDemo ? 'pointer' : 'default' }}
                   >
-                    {isHovered && project.videoDemo ? (
+                    {isPlaying && project.videoDemo ? (
                       <motion.video
                         src={project.videoDemo}
                         autoPlay
                         muted
                         loop
                         playsInline
-                        className="w-full max-w-lg h-auto rounded-2xl shadow-2xl object-contain border-4 border-[#e3f2fd] bg-black transition-transform duration-300 group-hover:shadow-[0_8px_32px_0_rgba(32,29,102,0.15)] parallax-img focus:outline-none focus:ring-2 focus:ring-[#201d66] focus:ring-offset-2"
+                        className="w-full max-w-lg h-auto rounded-2xl shadow-2xl object-contain border-4 border-[#e3f2fd] bg-black transition-transform duration-300 parallax-img focus:outline-none focus:ring-2 focus:ring-[#201d66] focus:ring-offset-2"
                         style={{ minHeight: '320px', background: '#000' }}
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={shouldReduceMotion ? { duration: 0 } : { delay: 0.3, duration: 0.7 }}
+                        onClick={e => { e.stopPropagation(); setIsPlaying(false); }}
                       />
                     ) : (
                       <motion.img
@@ -343,13 +341,11 @@ const Projects: React.FC = () => {
                         className="w-full max-w-lg h-auto rounded-2xl shadow-2xl object-contain border-4 border-[#e3f2fd] bg-white transition-transform duration-300 cursor-pointer hover:scale-105 group-hover:shadow-[0_8px_32px_0_rgba(32,29,102,0.15)] parallax-img focus:outline-none focus:ring-2 focus:ring-[#201d66] focus:ring-offset-2"
                         tabIndex={0}
                         aria-label={`Play video demo for ${project.title}`}
-                        onMouseMove={e => handleMouseMove(e, idx)}
-                        onMouseLeave={() => handleMouseLeave(idx)}
-                        onClick={() => project.videoDemo ? setVideoModal(project.videoDemo) : setModalProject(project)}
+                        onClick={() => setIsPlaying(true)}
                         onKeyDown={e => {
                           if (e.key === 'Enter' || e.key === ' ') {
                             e.preventDefault();
-                            project.videoDemo ? setVideoModal(project.videoDemo) : setModalProject(project);
+                            setIsPlaying(true);
                           }
                         }}
                         whileHover={shouldReduceMotion ? {} : { scale: 1.05, rotate: 1 }}
@@ -713,7 +709,7 @@ const MobileProjectCard: React.FC<MobileProjectCardProps> = ({ project, setModal
         tabIndex={0}
         style={{ cursor: project.videoDemo ? 'pointer' : 'default' }}
       >
-        {isHovered && project.videoDemo ? (
+        {isHovered && project.videoDemo && false ? (
           <motion.video
             src={project.videoDemo}
             autoPlay

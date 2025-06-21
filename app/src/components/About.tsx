@@ -31,7 +31,7 @@ const About: React.FC = () => {
               </motion.p>
             
               <div className="flex gap-4 mt-4">
-                <a href="mailto:manish__raj@outlook.com" target="_blank" rel="noopener noreferrer" className="text-[#201d66] hover:text-[#3949ab] text-2xl transition-colors"><FaEnvelope /></a>
+                <a href="mailto:2300030557@kluniversity.in" target="_blank" rel="noopener noreferrer" className="text-[#201d66] hover:text-[#3949ab] text-2xl transition-colors"><FaEnvelope /></a>
                 <a href="https://github.com/its-pratyushpandey" target="_blank" rel="noopener noreferrer" className="text-[#201d66] hover:text-[#3949ab] text-2xl transition-colors"><FaGithub /></a>
                 <a href="https://www.linkedin.com/in/pratyush-pandey1/" target="_blank" rel="noopener noreferrer" className="text-[#201d66] hover:text-[#3949ab] text-2xl transition-colors"><FaLinkedin /></a>
                 <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="text-[#201d66] hover:text-[#3949ab] text-2xl transition-colors"><FaFileAlt /></a>

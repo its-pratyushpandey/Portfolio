@@ -53,12 +53,12 @@ const digitalSpaces = [
   {
     icon: "https://c.animaapp.com/mc46fmevF9sLme/img/component-2-20.svg",
     text: "Github",
-    url: "https://github.com/manishraj27",
+    url: "https://github.com/its-pratyushpandey",
   },
   {
     icon: "https://c.animaapp.com/mc46fmevF9sLme/img/component-2-19.svg",
     text: "LinkedIn",
-    url: "https://www.linkedin.com/in/manishraj27",
+    url: "https://www.linkedin.com/in/pratyush-pandey1/",
   },
   {
     icon: "https://c.animaapp.com/mc46fmevF9sLme/img/component-2-17.svg",
@@ -71,17 +71,17 @@ const profiles = [
   {
     icon: "https://c.animaapp.com/mc46fmevF9sLme/img/component-2-5.svg",
     text: "HackerRank",
-    url: "https://www.hackerrank.com/profile/manish_raj27",
+    url: "https://www.hackerrank.com/profile/@klu2300030557",
   },
   {
     icon: "https://c.animaapp.com/mc46fmevF9sLme/img/component-2-11.svg",
     text: "CodeChef",
-    url: "https://www.codechef.com/users/manishraj_27",
+    url: "https://www.codechef.com/users/kl_2300030557",
   },
   {
     icon: "https://c.animaapp.com/mc46fmevF9sLme/img/component-2-3.svg",
     text: "Leetcode",
-    url: "https://leetcode.com/manish_raj27/",
+    url: "https://leetcode.com/klu2300030557/",
   },
 ];
 

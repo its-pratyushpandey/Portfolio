@@ -16,8 +16,8 @@ interface ContactItemProps {
 const contactInfo: ContactItem[] = [
   { icon: 'https://c.animaapp.com/mc46fmevF9sLme/img/component-2-37.svg', text: 'pratyush.me.ai@gmail.com', link: 'mailto:pratyush.me.ai@gmail.com' },
   { icon: 'https://c.animaapp.com/mc46fmevF9sLme/img/component-2-45.svg', text: 'Bento', link: 'https://bento.me/manishraj' },
-  { icon: 'https://c.animaapp.com/mc46fmevF9sLme/img/component-2-20.svg', text: 'Github', link: 'https://github.com/manishraj27' },
-  { icon: 'https://c.animaapp.com/mc46fmevF9sLme/img/component-2-19.svg', text: 'LinkedIn', link: 'https://www.linkedin.com/in/manishraj27' },
+  { icon: 'https://c.animaapp.com/mc46fmevF9sLme/img/component-2-20.svg', text: 'Github', link: 'https://github.com/its-pratyushpandey' },
+  { icon: 'https://c.animaapp.com/mc46fmevF9sLme/img/component-2-19.svg', text: 'LinkedIn', link: 'https://www.linkedin.com/in/pratyush-pandey1/' },
   { icon: 'https://c.animaapp.com/mc46fmevF9sLme/img/component-2-9.svg', text: 'X [Twitter]', link: 'https://x.com/manish_rraaj' },
   { icon: 'https://c.animaapp.com/mc46fmevF9sLme/img/component-2-17.svg', text: 'YouTube', link: 'https://www.youtube.com/channel/UCmhi2NSl9RdC5biFARM3nsw' },
 ];

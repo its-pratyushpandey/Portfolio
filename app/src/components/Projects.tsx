@@ -3,6 +3,7 @@ import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { useSwipeable } from '../lib/swipeable';
 import { ArrowTopRightOnSquareIcon, EyeIcon, InformationCircleIcon } from '@heroicons/react/24/outline';
 import { FaGithub } from 'react-icons/fa';
+import { useProjectsDarkMode } from '../theme/ProjectsDarkModeContext';
 
 interface Project {
   title: string;
@@ -105,6 +106,7 @@ const Projects: React.FC = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false); // For mobile sidebar
   const shouldReduceMotionRaw = useReducedMotion();
   const shouldReduceMotion = !!shouldReduceMotionRaw; // always boolean
+  const { dark, setDark } = useProjectsDarkMode();
 
   // Micro-interaction config for motion buttons
   const microInteraction = shouldReduceMotion
@@ -196,9 +198,24 @@ const Projects: React.FC = () => {
   const getMotion = (motionProps: any) => shouldReduceMotion ? { ...motionProps, transition: { duration: 0 } } : motionProps;
 
   return (
-    <section className="relative py-20 bg-[#f5f5f5]">
+    <section className={`relative py-20 transition-colors duration-500 ${dark ? 'dark bg-darkBg' : 'bg-[#f5f5f5]'}`}> 
       {/* Floating/Drifting Decorative Elements */}
       <FloatingDecorations />
+      {/* Dark mode toggle button */}
+      <button
+        className={`fixed top-6 right-6 z-50 flex items-center gap-2 px-4 py-2 rounded-full shadow-lg border border-[#3949ab] bg-white/90 dark:bg-darkCard dark:text-darkText dark:border-darkAccent transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-[#201d66]`}
+        onClick={() => setDark(!dark)}
+        aria-label={dark ? 'Switch to light mode' : 'Switch to dark mode'}
+      >
+        <span className="font-semibold text-base">{dark ? 'Light' : 'Dark'} Mode</span>
+        <svg width="22" height="22" fill="none" viewBox="0 0 24 24">
+          {dark ? (
+            <path d="M12 3v1m0 16v1m8.66-13.66l-.71.71M4.05 19.07l-.71.71m16.97 0l-.71-.71M4.05 4.93l-.71-.71M21 12h1M2 12H1" stroke="#3949ab" strokeWidth="2" strokeLinecap="round"/>
+          ) : (
+            <circle cx="12" cy="12" r="5" stroke="#3949ab" strokeWidth="2"/>
+          )}
+        </svg>
+      </button>
       <div className="relative z-10 container mx-auto px-4">
         {/* Sidebar toggle for mobile */}
         <div className="md:hidden fixed top-4 left-4 z-50">

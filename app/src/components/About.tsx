@@ -43,7 +43,7 @@ const About: React.FC = () => {
               <div className="flex gap-4 mt-4">
                 <a href="mailto:manish__raj@outlook.com" target="_blank" rel="noopener noreferrer" className="text-[#201d66] hover:text-[#3949ab] text-2xl"><FaEnvelope /></a>
                 <a href="https://github.com/its-pratyushpandey" target="_blank" rel="noopener noreferrer" className="text-[#201d66] hover:text-[#3949ab] text-2xl"><FaGithub /></a>
-                <a href="https://www.linkedin.com/in/pratyushpandey27/" target="_blank" rel="noopener noreferrer" className="text-[#201d66] hover:text-[#3949ab] text-2xl"><FaLinkedin /></a>
+                <a href="https://www.linkedin.com/in/pratyush-pandey1/" target="_blank" rel="noopener noreferrer" className="text-[#201d66] hover:text-[#3949ab] text-2xl"><FaLinkedin /></a>
                 <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="text-[#201d66] hover:text-[#3949ab] text-2xl"><FaFileAlt /></a>
               </div>
             </div>

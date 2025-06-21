@@ -11,6 +11,7 @@ import { ContactSection } from './screens/ElementLight/section/ContactSection/Co
 import { ExperienceSection } from './screens/ElementLight/section/ExperienceSection/ExperienceSection';
 import { BlogSection } from './screens/ElementLight/section/BlogSection/BlogSection';
 import { HowICanHelpSection } from './screens/ElementLight/section/HowICanHelpSection/HowICanHelpSection';
+import { ProjectsDarkModeProvider } from './theme/ProjectsDarkModeContext';
 
 interface SectionProps {
   children: ReactNode;
@@ -71,7 +72,9 @@ const App: React.FC = () => {
       <Section><About /></Section>
       <Section><HowICanHelpSection /></Section>
       <Section><Skills /></Section>
-      <Section><Projects /></Section>
+      <ProjectsDarkModeProvider>
+        <Section><Projects /></Section>
+      </ProjectsDarkModeProvider>
       <Section><Certificates /></Section>
       <Section><ExperienceSection /></Section>
       <Section><BlogSection /></Section>

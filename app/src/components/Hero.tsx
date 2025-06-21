@@ -145,8 +145,6 @@ const Hero: React.FC = () => {
           </motion.a>
           <motion.a
             href="https://github.com/its-pratyushpandey"
-            target="_blank"
-            rel="noopener noreferrer"
             className="bg-white border border-[#201d66] text-[#201d66] px-6 py-3 rounded-full text-lg hover:bg-[#201d66] hover:text-white transition shadow-lg"
             whileHover={{ scale: 1.08 }}
             whileTap={{ scale: 0.96 }}
@@ -155,7 +153,7 @@ const Hero: React.FC = () => {
             GitHub
           </motion.a>
           <motion.a
-            href="https://www.linkedin.com/in/pratyushpandey27/"
+            href="https://www.linkedin.com/in/pratyush-pandey1/"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-white border border-[#201d66] text-[#201d66] px-6 py-3 rounded-full text-lg hover:bg-[#201d66] hover:text-white transition shadow-lg"

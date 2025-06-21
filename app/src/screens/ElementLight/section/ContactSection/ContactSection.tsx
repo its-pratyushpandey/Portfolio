@@ -135,7 +135,7 @@ export const ContactSection = (): JSX.Element => {
           className="text-4xl md:text-6xl font-bold text-[#201d66] text-center mb-2 drop-shadow-lg"
           variants={itemVariants}
         >
-          Let&#39;s Connect
+       Contact
         </motion.h2>
         <motion.p
           className="text-lg md:text-2xl text-[#3949ab] text-center mb-8 max-w-2xl"

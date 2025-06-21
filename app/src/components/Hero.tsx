@@ -1,5 +1,5 @@
-import React, { useRef, useState } from 'react';
-import { motion, useMotionValue, useTransform, AnimatePresence } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 // Animation variants similar to ExperienceSection
 const sectionVariants = {
@@ -55,26 +55,7 @@ const FloatingDecorations: React.FC = () => (
 );
 
 const Hero: React.FC = () => {
-  // 3D tilt effect for heading
-  const heroRef = useRef<HTMLDivElement>(null);
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-  const rotateX = useTransform(y, [0, 1], [0, 18]);
-  const rotateY = useTransform(x, [0, 1], [0, -18]);
   const [showDetails, setShowDetails] = useState(false);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    const rect = heroRef.current?.getBoundingClientRect();
-    if (!rect) return;
-    const px = (e.clientX - rect.left) / rect.width;
-    const py = (e.clientY - rect.top) / rect.height;
-    x.set(px);
-    y.set(py);
-  };
-  const handleMouseLeave = () => {
-    x.set(0.5);
-    y.set(0.5);
-  };
 
   return (
     <section
@@ -84,9 +65,6 @@ const Hero: React.FC = () => {
       <FloatingDecorations />
       <motion.div
         className="text-center flex flex-col items-center justify-center gap-6 relative z-10 w-full max-w-4xl px-4 md:px-0"
-        ref={heroRef}
-        onMouseMove={handleMouseMove}
-        onMouseLeave={handleMouseLeave}
         variants={sectionVariants}
         initial="hidden"
         animate="visible"
@@ -108,7 +86,6 @@ const Hero: React.FC = () => {
         </motion.h2>
         <motion.h1
           className="text-4xl md:text-6xl font-bold text-[#201d66] mb-2 flex items-center justify-center gap-3"
-          style={{ rotateX, rotateY }}
           variants={itemVariants}
           tabIndex={0}
         >

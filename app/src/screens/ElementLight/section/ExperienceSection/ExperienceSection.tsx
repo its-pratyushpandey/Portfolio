@@ -79,7 +79,7 @@ export const ExperienceSection = (): JSX.Element => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          Experience
+          My Journey
         </motion.h2>
         {/* Timeline */}
         <motion.div

@@ -177,9 +177,19 @@ const Certificates: React.FC = () => {
   // ...existing code for swipeable if you want to add...
   const [gridView, setGridView] = useState(true); // Option to toggle grid/list if needed
   return (
-    <section className="relative py-20 bg-[#f5f5f5]">
+    <section className="relative py-20 bg-[#f5f5f5]" id="certificates">
       <FloatingDecorations />
       <div className="relative z-10 container mx-auto px-4">
+        {/* Section Heading - Premium Style */}
+        <motion.h2
+          className="text-5xl md:text-6xl font-bold text-[#201d66] mb-12 drop-shadow-lg flex items-center justify-center gap-4"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          <svg className="w-10 h-10 md:w-14 md:h-14 text-[#80deea]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M12 2l2.09 6.26L20 9.27l-5 3.64L16.18 20 12 16.77 7.82 20 9 12.91l-5-3.64 5.91-.01z"/></svg>
+          Certificates
+        </motion.h2>
         {/* Filters */}
         <div className="flex flex-wrap gap-4 justify-center mb-10 mt-16">
           <select

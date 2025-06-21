@@ -8,6 +8,8 @@ import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Certificates from './components/Certificates';
 import { ContactSection } from './screens/ElementLight/section/ContactSection/ContactSection';
+import { ExperienceSection } from './screens/ElementLight/section/ExperienceSection/ExperienceSection';
+import { BlogSection } from './screens/ElementLight/section/BlogSection/BlogSection';
 
 interface SectionProps {
   children: ReactNode;
@@ -46,9 +48,9 @@ const App: React.FC = () => {
   useEffect(() => {
     // Smooth scrolling
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
+      anchor.addEventListener('click', (e) => {
         e.preventDefault();
-        const href = this.getAttribute('href');
+        const href = (e.currentTarget as HTMLAnchorElement).getAttribute('href');
         if (href) {
           const element = document.querySelector(href);
           if (element) {
@@ -69,6 +71,8 @@ const App: React.FC = () => {
       <Section><Skills /></Section>
       <Section><Projects /></Section>
       <Section><Certificates /></Section>
+      <Section><ExperienceSection /></Section>
+      <Section><BlogSection /></Section>
       <Section><ContactSection /></Section>
     </div>
   );

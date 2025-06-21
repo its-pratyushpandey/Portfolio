@@ -3,16 +3,20 @@ import { Button } from "../../components/ui/button";
 import { AboutMeSection } from "./sections/AboutMeSection/AboutMeSection";
 import { ContactSection } from "./sections/ContactSection";
 import { SkillsSection } from "./sections/SkillsSection/SkillsSection";
+import { ExperienceSection } from "./section/ExperienceSection/ExperienceSection";
+import { BlogSection } from "./section/BlogSection/BlogSection";
+import { HowICanHelpSection } from "./section/HowICanHelpSection/HowICanHelpSection";
 
 // Navigation links data
 const navigationLinks = [
-  { text: "About", href: "https://manishraj.netlify.app/#aboutme" },
-  { text: "Skills", href: "https://manishraj.netlify.app/#skills" },
-  { text: "Projects", href: "https://manishraj.netlify.app/#works" },
-  { text: "Experience", href: "https://manishraj.netlify.app/#experience" },
+  { text: "About", href: "#aboutme" },
+  { text: "Skills", href: "#skills" },
+  { text: "Projects", href: "#works" },
+  { text: "Experience", href: "#experience" },
+  { text: "Blog", href: "#blog" },
   {
     text: "Certifications",
-    href: "https://manishraj.netlify.app/#certifications",
+    href: "#certifications",
   },
 ];
 
@@ -69,7 +73,9 @@ export const ElementLight = (): JSX.Element => {
           {/* Main content sections */}
           <AboutMeSection />
           <SkillsSection />
-
+          <HowICanHelpSection />
+          <ExperienceSection />
+          <BlogSection />
           {/* Let's Connect Section - Professional, Responsive, Animated */}
           <ContactSection />
 

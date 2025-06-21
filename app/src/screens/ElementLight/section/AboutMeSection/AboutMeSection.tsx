@@ -389,17 +389,17 @@ export const AboutMeSection = (): JSX.Element => {
               {timelineItems.map((item, index) => (
                 <motion.div
                   key={index}
-                  className={`absolute left-0 w-full rounded-xl p-5 ${item.highlighted ? 'bg-[#b3e5fc]/40 shadow-lg' : 'bg-[#e3f2fd]/60'}`}
+                  className={`absolute left-0 w-full rounded-xl p-5 ${item.highlighted ? 'bg-[#b3e5fc]/40 shadow-lg border-l-4 border-[#201d66]' : 'bg-[#e3f2fd]/60 border-l-2 border-[#201d66]/30'}`}
                   style={{ top: index * 112 + (index > 0 ? 20 : 0) }}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
                 >
                   <div className="flex items-center gap-3">
-                    <span className={`text-[38px] leading-[57px] ${item.highlighted ? 'text-[#201d66]' : 'text-[#3949ab] opacity-70'}`}>{item.id}</span>
+                    <span className={`text-[38px] leading-[57px] font-bold ${item.highlighted ? 'text-[#201d66]' : 'text-[#3949ab] opacity-70'}`}>{item.id}</span>
                     <div className="flex flex-col gap-1">
-                      <h4 className={`text-[23px] tracking-[-0.72px] leading-9 font-medium ${item.highlighted ? 'text-[#201d66]' : 'text-[#3949ab]'}`}>{item.title}</h4>
-                      <p className="text-base text-[#3949ab]">{item.period}</p>
+                      <h4 className={`text-[23px] tracking-[-0.72px] leading-9 font-semibold ${item.highlighted ? 'text-[#201d66]' : 'text-[#3949ab]'}`}>{item.title}</h4>
+                      <p className="text-base text-[#201d66] font-medium">{item.period}</p>
                     </div>
                   </div>
                 </motion.div>

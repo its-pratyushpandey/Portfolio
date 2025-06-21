@@ -70,7 +70,7 @@ const Hero: React.FC = () => {
         animate="visible"
       >
         <motion.h2
-          className="text-lg md:text-2xl text-[#3949ab] font-medium mb-2 flex items-center justify-center gap-2"
+          className="text-lg md:text-2xl text-[#201d66] font-semibold mb-2 flex items-center justify-center gap-2 drop-shadow-sm"
           variants={itemVariants}
         >
           <motion.span
@@ -85,7 +85,7 @@ const Hero: React.FC = () => {
           Hey I'M
         </motion.h2>
         <motion.h1
-          className="text-4xl md:text-6xl font-bold text-[#201d66] mb-2 flex items-center justify-center gap-3"
+          className="text-4xl md:text-6xl font-bold text-[#201d66] mb-2 flex items-center justify-center gap-3 drop-shadow-md"
           variants={itemVariants}
           tabIndex={0}
         >
@@ -114,7 +114,7 @@ const Hero: React.FC = () => {
         >
           <motion.a
             href="#contact"
-            className="bg-[#201d66] text-white px-6 py-3 rounded-full text-lg hover:bg-[#3949ab] transition shadow-lg"
+            className="bg-[#201d66] text-white px-6 py-3 rounded-full text-lg hover:bg-[#3949ab] transition shadow-lg font-semibold"
             whileHover={{ scale: 1.08 }}
             whileTap={{ scale: 0.96 }}
           >
@@ -122,7 +122,7 @@ const Hero: React.FC = () => {
           </motion.a>
           <motion.a
             href="https://github.com/its-pratyushpandey"
-            className="bg-white border border-[#201d66] text-[#201d66] px-6 py-3 rounded-full text-lg hover:bg-[#201d66] hover:text-white transition shadow-lg"
+            className="bg-white border-2 border-[#201d66] text-[#201d66] px-6 py-3 rounded-full text-lg hover:bg-[#201d66] hover:text-white hover:bg-[#3949ab] transition shadow-lg font-semibold"
             whileHover={{ scale: 1.08 }}
             whileTap={{ scale: 0.96 }}
           >
@@ -133,7 +133,7 @@ const Hero: React.FC = () => {
             href="https://www.linkedin.com/in/pratyush-pandey1/"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-white border border-[#201d66] text-[#201d66] px-6 py-3 rounded-full text-lg hover:bg-[#201d66] hover:text-white transition shadow-lg"
+            className="bg-white border-2 border-[#201d66] text-[#201d66] px-6 py-3 rounded-full text-lg hover:bg-[#201d66] hover:text-white hover:bg-[#3949ab] transition shadow-lg font-semibold"
             whileHover={{ scale: 1.08 }}
             whileTap={{ scale: 0.96 }}
           >
@@ -144,7 +144,7 @@ const Hero: React.FC = () => {
             href="/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-white border border-[#201d66] text-[#201d66] px-6 py-3 rounded-full text-lg hover:bg-[#201d66] hover:text-white transition shadow-lg"
+            className="bg-white border-2 border-[#201d66] text-[#201d66] px-6 py-3 rounded-full text-lg hover:bg-[#201d66] hover:text-white hover:bg-[#3949ab] transition shadow-lg font-semibold"
             whileHover={{ scale: 1.08 }}
             whileTap={{ scale: 0.96 }}
           >

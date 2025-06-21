@@ -42,7 +42,7 @@ export const SkillsSection = (): JSX.Element => {
                 <>
                   <div className="inline-flex flex-col items-start">
                     <div
-                      className={`relative w-fit mt-[-1.00px] [font-family:'Inter',Helvetica] font-normal ${index % 5 === 0 ? skillsData[0].highlightColors[0] : skillsData[0].highlightColors[1]} ${skillsData[0].fontSize} tracking-[-3.00px] leading-[60px] whitespace-nowrap`}
+                      className={`relative w-fit mt-[-1.00px] [font-family:'Inter',Helvetica] font-bold text-[#201d66] ${skillsData[0].fontSize} tracking-[-3.00px] leading-[60px] whitespace-nowrap`}
                     >
                       {skillsData[0].word}
                     </div>
@@ -72,7 +72,7 @@ export const SkillsSection = (): JSX.Element => {
                 <>
                   <div className="inline-flex flex-col items-start">
                     <div
-                      className={`relative w-fit mt-[-1.00px] [font-family:'Inter',Helvetica] font-normal ${index === 4 ? skillsData[1].highlightColors[1] : skillsData[1].highlightColors[0]} ${skillsData[1].fontSize} tracking-[-3.00px] leading-[60px] whitespace-nowrap`}
+                      className={`relative w-fit mt-[-1.00px] [font-family:'Inter',Helvetica] font-bold text-[#201d66] ${skillsData[1].fontSize} tracking-[-3.00px] leading-[60px] whitespace-nowrap`}
                     >
                       {skillsData[1].word}
                     </div>
@@ -102,7 +102,7 @@ export const SkillsSection = (): JSX.Element => {
                 <>
                   <div className="inline-flex flex-col items-start">
                     <div
-                      className={`relative w-fit mt-[-1.00px] [font-family:'Inter',Helvetica] font-normal ${index % 5 === 0 ? skillsData[2].highlightColors[0] : skillsData[2].highlightColors[1]} ${skillsData[2].fontSize} tracking-[-3.00px] leading-[60px] whitespace-nowrap`}
+                      className={`relative w-fit mt-[-1.00px] [font-family:'Inter',Helvetica] font-bold text-[#201d66] ${skillsData[2].fontSize} tracking-[-3.00px] leading-[60px] whitespace-nowrap`}
                     >
                       {skillsData[2].word}
                     </div>

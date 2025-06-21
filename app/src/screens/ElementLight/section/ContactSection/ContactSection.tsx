@@ -150,7 +150,7 @@ export const ContactSection = (): JSX.Element => {
         >
           {/* Left: Socials and Profiles */}
           <motion.div
-            className="flex-1 flex flex-col items-center gap-10 bg-white/80 rounded-3xl shadow-2xl p-8 backdrop-blur-md border border-[#e3f2fd]"
+            className="flex-1 flex flex-col items-center gap-10 bg-white/80 rounded-3xl shadow-2xl p-8 backdrop-blur-md border border-[#201d66]/20"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}

@@ -23,94 +23,77 @@ const navigationLinks = [
 export const ElementLight = (): JSX.Element => {
   return (
     <div
-      className="flex flex-col w-full items-start relative bg-manishrajnetlifyappwhite"
+      className="flex flex-col w-full min-h-screen items-start relative bg-gradient-to-br from-[#f5f5f5] to-[#e3f2fd] text-[#201d66] font-inter"
       data-model-id="2:273"
     >
-      <div className="flex flex-col items-start relative w-full bg-manishrajnetlifyapphawkes-blue">
-        <div className="relative w-full bg-manishrajnetlifyapphawkes-blue">
-          {/* Hero section with background image */}
-          <div className="flex w-full h-[1200px] items-center justify-center relative">
-            <div className="relative w-[1056px] h-[864px] mx-auto rounded-md overflow-hidden">
-              <div className="relative w-[1162px] h-[950px] top-[-43px] left-[-53px] rounded-md opacity-50 bg-[url(https://c.animaapp.com/mc46fmevF9sLme/img/abstract-cubic-background-image-.png)] bg-cover bg-[50%_50%]" />
-            </div>
-
-            {/* Scroll indicator */}
-            <div className="inline-flex flex-col items-center justify-center gap-[21.05px] py-0 px-[7px] absolute bottom-4 right-10">
-              <div className="inline-flex flex-col items-start relative rotate-90">
-                <div className="relative w-fit [font-family:'Inter',Helvetica] font-normal text-manishrajnetlifyappblack text-[16.2px] tracking-[0] leading-[26.4px] whitespace-nowrap">
-                  scroll
-                </div>
-              </div>
-              <div className="relative w-10 h-1 overflow-hidden rotate-90">
-                <div className="relative h-px left-10 bg-manishrajnetlifyapplucky-point" />
-              </div>
-            </div>
-
-            {/* Hero content */}
-            <div className="flex flex-col items-center relative flex-1 grow">
-              <div className="inline-flex flex-col items-start pt-0 pb-4 px-0 relative flex-[0_0_auto]">
-                <img
-                  className="relative w-full h-48"
-                  alt="Mask group"
-                  src="https://drive.google.com/uc?export=view&id=1zao1OpajYz4syInvI4wqZcsLcsXTj5AV"
-                />
-              </div>
-              <div className="inline-flex flex-col items-start pt-0 pb-4 px-0 relative flex-[0_0_auto]">
-                <img
-                  className="relative w-full h-48"
-                  alt="Mask group"
-                  src="https://c.animaapp.com/mc46fmevF9sLme/img/mask-group-2.svg"
-                />
-              </div>
-              <img
-                className="relative w-full h-48"
-                alt="Mask group"
-                src="/profile.jpg"
-              />
-            </div>
-          </div>
-
-          {/* Main content sections */}
-          <AboutMeSection />
-          <SkillsSection />
-          <HowICanHelpSection />
-          <ExperienceSection />
-          <BlogSection />
-          {/* Let's Connect Section - Professional, Responsive, Animated */}
-          <ContactSection />
-
-          {/* Footer component */}
-          <div className="flex flex-col w-full items-start">
-            <img className="relative w-full h-[153.59px]" alt="Component" />
-            <img
-              className="relative w-full flex-[0_0_auto] mt-[-153.28px]"
-              alt="Container"
-              src="https://c.animaapp.com/mc46fmevF9sLme/img/container.svg"
-            />
+      {/* Hero Section */}
+      <section className="w-full flex flex-col items-center justify-center min-h-[90vh] pt-32 pb-16 px-4 md:px-0 relative bg-gradient-to-br from-[#f5f5f5] to-[#e3f2fd] overflow-hidden">
+        <div className="absolute inset-0 z-0 bg-gradient-to-br from-[#e3f2fd] to-[#b3e5fc] opacity-60" style={{ backgroundAttachment: 'fixed' }} />
+        <div className="relative z-10 flex flex-col items-center w-full max-w-4xl mx-auto gap-6">
+          <img
+            className="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-[#201d66] shadow-lg object-cover mb-4"
+            alt="Profile"
+            src="/profile.jpg"
+          />
+          <h1 className="text-4xl md:text-6xl font-extrabold text-[#201d66] text-center drop-shadow-md leading-tight">Pratyush Kumar Pandey</h1>
+          <h2 className="text-xl md:text-2xl text-[#3949ab] font-semibold text-center mb-2">Full Stack Developer | UI/UX Designer</h2>
+          <div className="flex flex-col md:flex-row items-center gap-4 justify-center mt-4">
+            <a
+              href="#contact"
+              className="bg-[#201d66] text-white px-6 py-3 rounded-full text-lg hover:bg-[#3949ab] transition shadow-lg font-semibold"
+            >
+              Get in Touch
+            </a>
+            <a
+              href="https://github.com/its-pratyushpandey"
+              className="bg-white border-2 border-[#201d66] text-[#201d66] px-6 py-3 rounded-full text-lg hover:bg-[#201d66] hover:text-white hover:bg-[#3949ab] transition shadow-lg font-semibold"
+              target="_blank" rel="noopener noreferrer"
+            >
+              GitHub
+            </a>
           </div>
         </div>
+      </section>
+      {/* Main content sections */}
+      <AboutMeSection />
+      <SkillsSection />
+      <HowICanHelpSection />
+      <ExperienceSection />
+      <BlogSection />
+      <ContactSection />
+      {/* Footer component */}
+      <div className="flex flex-col w-full items-start mt-8">
+        <img className="relative w-full h-[153.59px]" alt="Component" />
+        <img
+          className="relative w-full flex-[0_0_auto] mt-[-153.28px]"
+          alt="Container"
+          src="https://c.animaapp.com/mc46fmevF9sLme/img/container.svg"
+        />
       </div>
-
       {/* Blue dot indicator */}
-      <div className="fixed w-3 h-3 top-0 -left-1.5 bg-manishrajnetlifyappcornflower-blue rounded-[33554400px]" />
-
+      <div className="fixed w-3 h-3 top-0 -left-1.5 bg-[#201d66] rounded-full shadow-lg border-2 border-white z-50" />
       {/* Header navigation */}
-      <header className="flex w-full items-center justify-between px-5 py-3 fixed top-0 left-0 bg-manishrajnetlifyapphawkes-blue z-10">
-        {/* Logo */}
+      <header className="flex w-full items-center justify-between px-5 py-3 fixed top-0 left-0 bg-white/80 backdrop-blur-md shadow-md z-20 border-b border-[#201d66]/10">
+        {/* Logo and Brand Name */}
         <div className="inline-flex flex-col items-start relative flex-[0_0_auto]">
           <img
             className="relative w-[121px] h-[45px]"
             alt="Logo"
             src="https://c.animaapp.com/mc46fmevF9sLme/img/component-2-21.svg"
           />
+          <span
+            className="mt-1 text-2xl font-extrabold tracking-wide bg-gradient-to-r from-[#201d66] via-[#3949ab] to-[#80deea] bg-clip-text text-transparent drop-shadow-sm select-none"
+            style={{ fontFamily: 'Inter, Helvetica, Arial, sans-serif', letterSpacing: '0.05em' }}
+          >
+            TechVerse
+          </span>
         </div>
-
         {/* Navigation links */}
-        <div className="inline-flex items-center gap-7 relative flex-[0_0_auto]">
+        <nav className="inline-flex items-center gap-7 relative flex-[0_0_auto]">
           {navigationLinks.map((link, index) => (
             <a
               key={index}
-              className="relative w-fit [font-family:'Inter',Helvetica] font-normal text-manishrajnetlifyappblack text-[16px] tracking-[0] leading-[26.4px] whitespace-nowrap"
+              className="relative w-fit font-semibold text-[#201d66] hover:text-[#3949ab] transition-colors text-[16px] leading-[26.4px] whitespace-nowrap"
               href={link.href}
               rel="noopener noreferrer"
               target="_blank"
@@ -118,14 +101,12 @@ export const ElementLight = (): JSX.Element => {
               {link.text}
             </a>
           ))}
-
-          {/* Call to action button */}
           <Button
-            className="inline-flex items-center justify-center px-8 py-3 bg-manishrajnetlifyapplucky-point rounded-[33554400px] hover:bg-opacity-90 transition-colors"
+            className="inline-flex items-center justify-center px-8 py-3 bg-[#201d66] text-white rounded-full hover:bg-[#3949ab] transition-colors shadow-lg font-semibold text-base"
             asChild
           >
             <a
-              className="w-fit text-manishrajnetlifyappsail text-[15.125px] font-normal whitespace-nowrap"
+              className="w-fit text-white text-[15.125px] font-semibold whitespace-nowrap"
               href="https://manishraj.netlify.app/contact"
               rel="noopener noreferrer"
               target="_blank"
@@ -133,7 +114,7 @@ export const ElementLight = (): JSX.Element => {
               Let&#39;s Talk.
             </a>
           </Button>
-        </div>
+        </nav>
       </header>
     </div>
   );

@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { Card, CardContent } from "../../../../components/ui/card";
 import { Badge } from "../../../../components/ui/badge";
-import { Separator } from "../../../../components/ui/separator";
+import { Separator } from "../../../../components/ui/seperator";
 import { Button } from "../../../../components/ui/button";
 import { motion, useMotionValue, useTransform } from "framer-motion";
 import { FaDownload, FaEnvelope, FaStar, FaAward, FaUserGraduate, FaPaintBrush, FaBookOpen, FaMusic } from 'react-icons/fa';
@@ -249,17 +249,19 @@ export const AboutMeSection = (): JSX.Element => {
             </motion.div>
             <div className="flex gap-4 mt-8">
               <motion.a
-                href="/resume.pdf"
+                href="/presume.pdf"
                 download
                 className="inline-flex items-center gap-2 bg-[#201d66] text-white px-6 py-3 rounded-full text-lg font-semibold shadow-lg hover:bg-[#3949ab] transition focus:outline-none focus:ring-2 focus:ring-[#201d66]"
                 {...microInteraction}
+                title="Download Resume (PDF)"
               >
                 <FaDownload className="w-5 h-5" /> Download Resume
               </motion.a>
               <motion.a
-                href="mailto:pratyush.me.ai@gmail.com"
+                href="mailto:2300030557@kluniversity.in"
                 className="inline-flex items-center gap-2 bg-[#e3f2fd] text-[#201d66] px-6 py-3 rounded-full text-lg font-semibold shadow-lg hover:bg-[#b3e5fc] transition focus:outline-none focus:ring-2 focus:ring-[#201d66]"
                 {...microInteraction}
+                title="Contact Me"
               >
                 <FaEnvelope className="w-5 h-5" /> Contact Me
               </motion.a>

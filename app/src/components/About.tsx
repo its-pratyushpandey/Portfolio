@@ -19,14 +19,13 @@ const About: React.FC = () => {
           >
             <div className="space-y-6">
               <motion.p className="text-lg md:text-xl text-[#201d66] font-medium" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.3 }}>
-            I am a third-year B.Tech student in Computer Science and Engineering at K L Deemed to be University, India, with a strong interest in full-stack and cross-platform development. I have hands-on experience in modern technologies including React, React Native, Next.js, Express.js, TypeScript, Django, and Spring Boot.
+            I am a third-year B.Tech student in Computer Science and Engineering at KL University, India, with a strong interest in full-stack and cross-platform development. I have hands-on experience in modern technologies including React, React Native, Next.js, Express.js, TypeScript, Django, and Spring Boot.
               </motion.p>
               <motion.p className="text-lg md:text-xl text-[#201d66] font-medium" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.4 }}>
-               My skillset covers both web and mobile app development, backed by a solid understanding of data structures, algorithms, and system design. I enjoy crafting efficient, scalable solutions with a focus on clean design and user experience.
+I specialize in web and app development, supported by a strong foundation in data structures, algorithms, and system design, with a focus on building efficient and user-centric solutions.
               </motion.p>
               <motion.p className="text-lg md:text-xl text-[#201d66] font-medium" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.5 }}>
-             Outside of tech, I’m passionate about art, content creation, and continuous learning. I regularly share insights on new technologies and book reviews through Instagram and YouTube.
-
+Outside of academics and technology, I pursue creative and recreational interests that contribute to a balanced lifestyle. I’m passionate about cricket and running, which help build discipline and focus, while music serves as a source of relaxation and inspiration in my day-to-day routine.
 
               </motion.p>
             
@@ -34,7 +33,7 @@ const About: React.FC = () => {
                 <a href="mailto:2300030557@kluniversity.in" target="_blank" rel="noopener noreferrer" className="text-[#201d66] hover:text-[#3949ab] text-2xl transition-colors"><FaEnvelope /></a>
                 <a href="https://github.com/its-pratyushpandey" target="_blank" rel="noopener noreferrer" className="text-[#201d66] hover:text-[#3949ab] text-2xl transition-colors"><FaGithub /></a>
                 <a href="https://www.linkedin.com/in/pratyush-pandey1/" target="_blank" rel="noopener noreferrer" className="text-[#201d66] hover:text-[#3949ab] text-2xl transition-colors"><FaLinkedin /></a>
-                <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="text-[#201d66] hover:text-[#3949ab] text-2xl transition-colors"><FaFileAlt /></a>
+                <a href="/presume.pdf" target="_blank" rel="noopener noreferrer" className="text-[#201d66] hover:text-[#3949ab] text-2xl transition-colors" title="View Resume (PDF)"><FaFileAlt /></a>
               </div>
             </div>
           </motion.div>

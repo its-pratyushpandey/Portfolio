@@ -100,7 +100,7 @@ const Hero: React.FC = () => {
         >
           <span className="inline-flex items-center gap-2">
             <svg className="w-6 h-6 text-[#201d66]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422A12.083 12.083 0 0112 21.5a12.083 12.083 0 01-6.16-10.922L12 14z"/></svg>
-            Full Stack Developer | UI/UX Designer
+            Software Developer | Full Stack Developer
           </span>
         </motion.p>
         <motion.div
@@ -136,12 +136,13 @@ const Hero: React.FC = () => {
             LinkedIn
           </motion.a>
           <motion.a
-            href="/resume.pdf"
+            href="/presume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-white border-2 border-[#201d66] text-[#201d66] px-6 py-3 rounded-full text-lg hover:bg-[#201d66] hover:text-white hover:bg-[#3949ab] transition shadow-lg font-semibold"
             whileHover={{ scale: 1.08 }}
             whileTap={{ scale: 0.96 }}
+            title="View Resume (PDF)"
           >
             <svg className="w-6 h-6 inline-block mr-2" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M12 4v16m8-8H4"/></svg>
             Resume

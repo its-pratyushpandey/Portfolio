@@ -31,7 +31,7 @@ export const ElementLight = (): JSX.Element => {
         <div className="absolute inset-0 z-0 bg-gradient-to-br from-[#e3f2fd] to-[#b3e5fc] opacity-60" style={{ backgroundAttachment: 'fixed' }} />
         <div className="relative z-10 flex flex-col items-center w-full max-w-4xl mx-auto gap-6">
           <img
-            className="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-[#201d66] shadow-lg object-cover mb-4"
+            className="w-40 h-40 md:w-56 md:h-56 rounded-full border-4 border-[#201d66] shadow-lg object-cover mb-4"
             alt="Profile"
             src="/profile.jpg"
           />

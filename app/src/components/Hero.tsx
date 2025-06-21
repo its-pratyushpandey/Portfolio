@@ -89,14 +89,9 @@ const Hero: React.FC = () => {
           variants={itemVariants}
           tabIndex={0}
         >
-          <motion.span
-            className="inline-flex items-center justify-center bg-[#e3f2fd] rounded-full p-2 shadow-lg"
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ delay: 0.3, duration: 0.5 }}
-          >
-            <svg className="w-8 h-8 text-[#201d66]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M12 2l2.09 6.26L20 9.27l-5 3.64L16.18 20 12 16.77 7.82 20 9 12.91l-5-3.64 5.91-.01z"/></svg>
-          </motion.span>
+         
+           
+
           Pratyush Kumar Pandey
         </motion.h1>
         <motion.p
@@ -165,15 +160,7 @@ const Hero: React.FC = () => {
             </motion.div>
           )}
         </AnimatePresence>
-        <motion.button
-          className="mt-4 px-5 py-2 bg-[#3949ab] text-white rounded-full shadow hover:bg-[#201d66] transition text-base md:text-lg"
-          onClick={() => setShowDetails((v) => !v)}
-          variants={itemVariants}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.97 }}
-        >
-          {showDetails ? 'Hide Intro' : 'Show Intro'}
-        </motion.button>
+        
       </motion.div>
     </section>
   );

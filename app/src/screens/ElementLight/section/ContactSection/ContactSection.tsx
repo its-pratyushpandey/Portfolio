@@ -62,16 +62,17 @@ const digitalSpaces = [
   },
   {
     icon: "https://c.animaapp.com/mc46fmevF9sLme/img/component-2-17.svg",
-    text: "YouTube",
-    url: "https://www.youtube.com/channel/UCmhi2NSl9RdC5biFARM3nsw",
+    text: "Code with fun",
+    url: "https://www.youtube.com/@codewithfunn",
   },
+  
 ];
 
 const profiles = [
   {
     icon: "https://c.animaapp.com/mc46fmevF9sLme/img/component-2-5.svg",
     text: "HackerRank",
-    url: "https://www.hackerrank.com/profile/@klu2300030557",
+    url: "https://www.hackerrank.com/klu2300030557", // Updated to correct link
   },
   {
     icon: "https://c.animaapp.com/mc46fmevF9sLme/img/component-2-11.svg",

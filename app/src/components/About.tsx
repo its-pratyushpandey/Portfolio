@@ -19,20 +19,17 @@ const About: React.FC = () => {
           >
             <div className="space-y-6">
               <motion.p className="text-lg md:text-xl text-[#201d66] font-medium" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.3 }}>
-                I am a student, developer, and a pre-final year undergrad pursuing a degree in Bachelor's in Computer Science and Engineering from K L Deemed to be University, India.
+            I am a third-year B.Tech student in Computer Science and Engineering at K L Deemed to be University, India, with a strong interest in full-stack and cross-platform development. I have hands-on experience in modern technologies including React, React Native, Next.js, Express.js, TypeScript, Django, and Spring Boot.
               </motion.p>
               <motion.p className="text-lg md:text-xl text-[#201d66] font-medium" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.4 }}>
-                I am passionate about problem solving, web development, and design. I am artistic, creative, and a problem solver. I love to design and code.💙
+               My skillset covers both web and mobile app development, backed by a solid understanding of data structures, algorithms, and system design. I enjoy crafting efficient, scalable solutions with a focus on clean design and user experience.
               </motion.p>
               <motion.p className="text-lg md:text-xl text-[#201d66] font-medium" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.5 }}>
-                I am good at krafting solutions, critical thinking, and have a good understanding of data structures and algorithms. I have gained a hand full of experience in full-stack web development using SpringBoot with React, MERN stack & Python Django.
+             Outside of tech, I’m passionate about art, content creation, and continuous learning. I regularly share insights on new technologies and book reviews through Instagram and YouTube.
+
+
               </motion.p>
-              <motion.p className="text-lg md:text-xl text-[#201d66] font-medium" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.6 }}>
-                I love to sketch, paint, and read books. In my leisure time I like to stay updated on new tech and review books on my{' '}
-                <a href="https://www.instagram.com/aka_thelostbookmark/" target="_blank" rel="noopener noreferrer" className="text-[#201d66] underline font-semibold">Instagram</a>{' '}
-                and share my insights on{' '}
-                <a href="https://www.youtube.com/channel/UCmhi2NSl9RdC5biFARM3nsw" target="_blank" rel="noopener noreferrer" className="text-[#201d66] underline font-semibold">YouTube</a> 📸
-              </motion.p>
+            
               <div className="flex gap-4 mt-4">
                 <a href="mailto:manish__raj@outlook.com" target="_blank" rel="noopener noreferrer" className="text-[#201d66] hover:text-[#3949ab] text-2xl transition-colors"><FaEnvelope /></a>
                 <a href="https://github.com/its-pratyushpandey" target="_blank" rel="noopener noreferrer" className="text-[#201d66] hover:text-[#3949ab] text-2xl transition-colors"><FaGithub /></a>
@@ -41,25 +38,30 @@ const About: React.FC = () => {
               </div>
             </div>
           </motion.div>
-          {/* Image on the right with animation */}
+          {/* Image on the right with animation and name caption */}
           <motion.div 
-            className="md:w-1/2 flex justify-center order-1 md:order-2 mb-8 md:mb-0"
+            className="md:w-1/2 flex flex-col items-center justify-center order-1 md:order-2 mb-8 md:mb-0"
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.4 }}
             whileHover={{ scale: 1.05 }}
           >
-            <motion.img 
-              src="/profile.jpg" 
-              alt="Pratyush Kumar Pandey" 
-              className="rounded-xl object-contain shadow-xl border-0 max-w-full h-auto md:w-[320px] md:h-[400px] w-48 h-64 transition-all duration-300 bg-white dark:bg-darkCard"
-              style={{ objectFit: 'contain', border: 'none' }}
-              initial={{ scale: 0.95, opacity: 0 }}
-              whileInView={{ scale: 1, opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.5 }}
-            />
+            <div className="relative flex flex-col items-center">
+              <motion.img 
+                src="/profile.jpg" 
+                alt="Pratyush Kumar Pandey" 
+                className="rounded-2xl object-cover shadow-2xl border-4 border-[#e3f2fd] max-w-full h-auto md:w-[480px] md:h-[560px] w-80 h-96 transition-all duration-300 bg-white dark:bg-darkCard hover:shadow-[0_8px_32px_rgba(32,29,102,0.18)] hover:scale-105"
+                style={{ objectFit: 'cover', border: '4px solid #e3f2fd' }}
+                initial={{ scale: 0.95, opacity: 0 }}
+                whileInView={{ scale: 1, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, delay: 0.5 }}
+              />
+              <span className="mt-4 text-xl md:text-2xl font-bold text-[#201d66] bg-white/80 dark:bg-darkCard/80 px-4 py-2 rounded-lg shadow-md border border-[#e3f2fd] backdrop-blur-sm -translate-y-4">
+                Pratyush Kumar Pandey
+              </span>
+            </div>
           </motion.div>
         </div>
       </div>

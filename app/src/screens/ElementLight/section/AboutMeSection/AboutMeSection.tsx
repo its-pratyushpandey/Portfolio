@@ -226,39 +226,44 @@ export const AboutMeSection = (): JSX.Element => {
         {/* Intro Section with 3D tilt and animated buttons */}
         <div className="flex flex-col md:flex-row gap-10 items-center mb-20">
           <div className="flex-1 flex flex-col gap-10">
-            <motion.div
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7, ease: 'easeOut' }}
+            {/* Animated Section Heading */}
+            <motion.h2
+              className="font-normal text-[48px] md:text-[70px] tracking-[-2.16px] leading-[1.1] text-[#201d66] mb-6"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="font-normal text-[48px] md:text-[70px] tracking-[-2.16px] leading-[1.1] text-manishrajnetlifyappblack mb-6">
-                A brief intro, who am I?
-              </h2>
-              <div className="flex flex-col gap-6 text-[22px] md:text-[32px] text-manishrajnetlifyappblack">
-                <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}>I am a student, developer, and a pre-final year undergrad pursuing a degree in Computer Science and Engineering from K L Deemed to be University, India.</motion.p>
-                <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}>I am passionate about problem solving, web development, and design. I am artistic, creative, and a problem solver. I love to design and code.💙</motion.p>
-                <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}>I am good at crafting solutions, critical thinking, and have a good understanding of data structures and algorithms. I have gained experience in full-stack web development using SpringBoot with React, MERN stack & Python Django. Currently I am diving deep into CS fundamentals in 3rd year of my undergraduation.</motion.p>
-                <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}>I love to sketch, paint, and read books. In my leisure time I like to stay updated on new tech and review books on my <a href="https://www.instagram.com/aka_thelostbookmark/" rel="noopener noreferrer" target="_blank" className="underline">Instagram</a> and share my insights on <a href="https://www.youtube.com/channel/UCmhi2NSl9RdC5biFARM3nsw" rel="noopener noreferrer" target="_blank" className="underline">YouTube</a> 📸</motion.p>
-              </div>
-              <div className="flex gap-4 mt-8">
-                <motion.a
-                  href="/resume.pdf"
-                  download
-                  className="inline-flex items-center gap-2 bg-[#201d66] text-white px-6 py-3 rounded-full text-lg font-semibold shadow-lg hover:bg-[#3949ab] transition focus:outline-none focus:ring-2 focus:ring-[#201d66]"
-                  {...microInteraction}
-                >
-                  <FaDownload className="w-5 h-5" /> Download Resume
-                </motion.a>
-                <motion.a
-                  href="mailto:pratyush.me.ai@gmail.com"
-                  className="inline-flex items-center gap-2 bg-[#e3f2fd] text-[#201d66] px-6 py-3 rounded-full text-lg font-semibold shadow-lg hover:bg-[#b3e5fc] transition focus:outline-none focus:ring-2 focus:ring-[#201d66]"
-                  {...microInteraction}
-                >
-                  <FaEnvelope className="w-5 h-5" /> Contact Me
-                </motion.a>
-              </div>
+              A brief intro, who am I?
+            </motion.h2>
+            <motion.div
+              className="flex flex-col gap-6 text-[22px] md:text-[32px] text-[#3949ab] mt-2 pl-2 border-l-4 border-[#201d66] bg-[#f5f5f5]/80 rounded-lg py-4 px-6 shadow-sm"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: 'easeOut' }}
+              viewport={{ once: true }}
+            >
+              <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}>I am a student, developer, and a pre-final year undergrad pursuing a degree in Computer Science and Engineering from K L Deemed to be University, India.</motion.p>
+              <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}>I am passionate about problem solving, web development, and design. I am artistic, creative, and a problem solver. I love to design and code.💙</motion.p>
+              <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}>I am good at crafting solutions, critical thinking, and have a good understanding of data structures and algorithms. I have gained experience in full-stack web development using SpringBoot with React, MERN stack & Python Django. Currently I am diving deep into CS fundamentals in 3rd year of my undergraduation.</motion.p>
+              <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}>I love to sketch, paint, and read books. In my leisure time I like to stay updated on new tech and review books on my <a href="https://www.instagram.com/aka_thelostbookmark/" rel="noopener noreferrer" target="_blank" className="underline">Instagram</a> and share my insights on <a href="https://www.youtube.com/channel/UCmhi2NSl9RdC5biFARM3nsw" rel="noopener noreferrer" target="_blank" className="underline">YouTube</a> 📸</motion.p>
             </motion.div>
+            <div className="flex gap-4 mt-8">
+              <motion.a
+                href="/resume.pdf"
+                download
+                className="inline-flex items-center gap-2 bg-[#201d66] text-white px-6 py-3 rounded-full text-lg font-semibold shadow-lg hover:bg-[#3949ab] transition focus:outline-none focus:ring-2 focus:ring-[#201d66]"
+                {...microInteraction}
+              >
+                <FaDownload className="w-5 h-5" /> Download Resume
+              </motion.a>
+              <motion.a
+                href="mailto:pratyush.me.ai@gmail.com"
+                className="inline-flex items-center gap-2 bg-[#e3f2fd] text-[#201d66] px-6 py-3 rounded-full text-lg font-semibold shadow-lg hover:bg-[#b3e5fc] transition focus:outline-none focus:ring-2 focus:ring-[#201d66]"
+                {...microInteraction}
+              >
+                <FaEnvelope className="w-5 h-5" /> Contact Me
+              </motion.a>
+            </div>
           </div>
           <motion.div
             ref={profileRef}
@@ -301,7 +306,7 @@ export const AboutMeSection = (): JSX.Element => {
             </motion.div>
           ))}
         </div>
-        {/* Skills Section with animated badges */}
+        {/* Skills Section with animated badges and timeline style */}
         <div className="mt-32 flex flex-col gap-20">
           <motion.h3
             className="text-4xl md:text-5xl font-bold text-[#201d66] mb-10 flex items-center gap-3"
@@ -309,92 +314,67 @@ export const AboutMeSection = (): JSX.Element => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <svg className="w-8 h-8 text-[#80deea]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="M12 6v6l4 2" /></svg>
             My Skills
           </motion.h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            {/* Programming Languages */}
-            <motion.div
-              className="bg-white/80 rounded-2xl shadow-xl p-8 flex flex-col gap-6 border border-[#e3f2fd]"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              whileHover={{ scale: 1.03, boxShadow: '0 8px 32px 0 rgba(32,29,102,0.13)' }}
-              transition={{ duration: 0.5, ease: 'easeOut' }}
-            >
-              <h4 className="text-2xl font-semibold text-[#201d66] mb-2 flex items-center gap-2">
-                <svg className="w-6 h-6 text-[#3949ab]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M16 7a4 4 0 01-8 0"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 004-4h0a4 4 0 004 4v2"/></svg>
-                Programming Languages
-              </h4>
-              <div className="flex flex-wrap gap-3">
-                {programmingLanguages.map((lang, i) => (
-                  <motion.span
-                    key={lang}
-                    className="bg-[#e3f2fd] text-[#3949ab] px-4 py-2 rounded-full text-base font-medium shadow"
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.3, delay: i * 0.1 }}
+          <motion.div
+            className="relative flex flex-col gap-20 w-full before:absolute before:left-6 before:top-0 before:bottom-0 before:w-1 before:bg-gradient-to-b before:from-[#b3e5fc] before:to-[#201d66] before:rounded-full"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{
+              hidden: { opacity: 0, y: 60 },
+              visible: {
+                opacity: 1,
+                y: 0,
+                transition: {
+                  staggerChildren: 0.15,
+                  duration: 0.8,
+                  when: "beforeChildren",
+                },
+              },
+            }}
+          >
+            {specialties.map((spec, idx) => (
+              <motion.div
+                key={spec.id}
+                className="relative flex flex-col md:flex-row md:items-center gap-8 group px-0 md:px-8"
+                variants={{
+                  hidden: { opacity: 0, y: 30 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+                }}
+                tabIndex={0}
+              >
+                {/* Timeline Dot */}
+                <span className="absolute left-0 top-8 md:top-1/2 md:-translate-y-1/2 w-6 h-6 rounded-full bg-white border-4 border-[#201d66] flex items-center justify-center shadow-lg z-10"></span>
+                {/* Specialty Content */}
+                <div className="ml-14 flex-1 flex flex-col gap-3 bg-transparent rounded-none shadow-none px-0 py-0 transition-transform duration-300 group-hover:scale-[1.01] group-focus:scale-[1.01]">
+                  <div className="flex flex-col md:flex-row md:items-center md:gap-6 flex-wrap">
+                    <span className="text-2xl md:text-3xl font-semibold text-[#201d66]">{spec.title}</span>
+                  </div>
+                  <motion.p
+                    className="mt-2 pl-2 border-l-4 border-[#201d66] bg-[#f5f5f5]/80 rounded-lg py-3 px-4 text-[#3949ab] text-base md:text-lg shadow-sm"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
                   >
-                    {lang}
-                  </motion.span>
-                ))}
-              </div>
-            </motion.div>
-            {/* Tech Stacks */}
-            <motion.div
-              className="bg-white/80 rounded-2xl shadow-xl p-8 flex flex-col gap-6 border border-[#e3f2fd]"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              whileHover={{ scale: 1.03, boxShadow: '0 8px 32px 0 rgba(32,29,102,0.13)' }}
-              transition={{ duration: 0.5, ease: 'easeOut' }}
-            >
-              <h4 className="text-2xl font-semibold text-[#201d66] mb-2 flex items-center gap-2">
-                <svg className="w-6 h-6 text-[#3949ab]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>
-                Tech Stacks
-              </h4>
-              <div className="flex flex-wrap gap-3">
-                {techStacks.map((tech, i) => (
-                  <motion.span
-                    key={tech}
-                    className="bg-[#e3f2fd] text-[#3949ab] px-4 py-2 rounded-full text-base font-medium shadow"
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.3, delay: i * 0.1 }}
-                  >
-                    {tech}
-                  </motion.span>
-                ))}
-              </div>
-            </motion.div>
-            {/* Toolbox */}
-            <motion.div
-              className="bg-white/80 rounded-2xl shadow-xl p-8 flex flex-col gap-6 border border-[#e3f2fd]"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              whileHover={{ scale: 1.03, boxShadow: '0 8px 32px 0 rgba(32,29,102,0.13)' }}
-              transition={{ duration: 0.5, ease: 'easeOut' }}
-            >
-              <h4 className="text-2xl font-semibold text-[#201d66] mb-2 flex items-center gap-2">
-                <svg className="w-6 h-6 text-[#3949ab]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 3v4"/><path d="M8 3v4"/></svg>
-                Toolbox
-              </h4>
-              <div className="flex flex-wrap gap-3">
-                {toolbox.map((tool, i) => (
-                  <motion.span
-                    key={tool}
-                    className="bg-[#e3f2fd] text-[#3949ab] px-4 py-2 rounded-full text-base font-medium shadow"
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.3, delay: i * 0.1 }}
-                  >
-                    {tool}
-                  </motion.span>
-                ))}
-              </div>
-            </motion.div>
-          </div>
+                    {spec.description}
+                  </motion.p>
+                  <div className="flex flex-wrap gap-3 mt-2">
+                    {spec.skills.map((skill, i) => (
+                      <span
+                        key={i}
+                        className="bg-[#e3f2fd] text-[#3949ab] px-3 py-1 rounded-full text-xs md:text-sm font-medium border border-[#b3e5fc] cursor-pointer"
+                        tabIndex={0}
+                        aria-label={skill}
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
         {/* Timeline & Experience Section with motion */}
         <div className="mt-32 flex flex-col md:flex-row gap-16">

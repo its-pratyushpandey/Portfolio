@@ -1,5 +1,23 @@
-import React, { useRef } from 'react';
-import { motion, useMotionValue, useTransform } from 'framer-motion';
+import React, { useRef, useState } from 'react';
+import { motion, useMotionValue, useTransform, AnimatePresence } from 'framer-motion';
+
+// Animation variants similar to ExperienceSection
+const sectionVariants = {
+  hidden: { opacity: 0, y: 60 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      staggerChildren: 0.15,
+      duration: 0.8,
+      when: 'beforeChildren',
+    },
+  },
+};
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+};
 
 const FloatingDecorations: React.FC = () => (
   <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
@@ -43,6 +61,7 @@ const Hero: React.FC = () => {
   const y = useMotionValue(0);
   const rotateX = useTransform(y, [0, 1], [0, 18]);
   const rotateY = useTransform(x, [0, 1], [0, -18]);
+  const [showDetails, setShowDetails] = useState(false);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     const rect = heroRef.current?.getBoundingClientRect();
@@ -58,19 +77,23 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center bg-[url('https://c.animaapp.com/mc46fmevF9sLme/img/abstract-cubic-background-image-.png')] bg-cover bg-center relative overflow-hidden">
+    <section
+      id="hero"
+      className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#f5f5f5] to-[#e3f2fd] relative overflow-hidden"
+    >
       <FloatingDecorations />
-      <div
-        className="text-center flex flex-col items-center justify-center gap-6 relative z-10"
+      <motion.div
+        className="text-center flex flex-col items-center justify-center gap-6 relative z-10 w-full max-w-4xl px-4 md:px-0"
         ref={heroRef}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
+        variants={sectionVariants}
+        initial="hidden"
+        animate="visible"
       >
         <motion.h2
           className="text-lg md:text-2xl text-[#3949ab] font-medium mb-2 flex items-center justify-center gap-2"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          variants={itemVariants}
         >
           <motion.span
             initial={{ rotate: -10 }}
@@ -86,9 +109,7 @@ const Hero: React.FC = () => {
         <motion.h1
           className="text-4xl md:text-6xl font-bold text-[#201d66] mb-2 flex items-center justify-center gap-3"
           style={{ rotateX, rotateY }}
-          initial={{ opacity: 0, y: 20, scale: 0.95 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 0.7, delay: 0.2 }}
+          variants={itemVariants}
           tabIndex={0}
         >
           <motion.span
@@ -103,9 +124,7 @@ const Hero: React.FC = () => {
         </motion.h1>
         <motion.p
           className="text-xl md:text-2xl text-[#3949ab] mb-8"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.4 }}
+          variants={itemVariants}
         >
           <span className="inline-flex items-center gap-2">
             <svg className="w-6 h-6 text-[#201d66]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422A12.083 12.083 0 0112 21.5a12.083 12.083 0 01-6.16-10.922L12 14z"/></svg>
@@ -114,9 +133,7 @@ const Hero: React.FC = () => {
         </motion.p>
         <motion.div
           className="flex flex-col md:flex-row items-center gap-4 justify-center"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.6 }}
+          variants={itemVariants}
         >
           <motion.a
             href="#contact"
@@ -160,7 +177,29 @@ const Hero: React.FC = () => {
             Resume
           </motion.a>
         </motion.div>
-      </div>
+        {/* Animated details toggle for demonstration, similar to ExperienceSection */}
+        <AnimatePresence>
+          {showDetails && (
+            <motion.div
+              className="mt-8 bg-[#f5f5f5]/80 rounded-lg py-4 px-6 text-[#3949ab] text-base md:text-lg shadow-sm border-l-4 border-[#201d66]"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 20 }}
+            >
+              Welcome to my portfolio! I am passionate about building beautiful, performant web applications and delivering great user experiences.
+            </motion.div>
+          )}
+        </AnimatePresence>
+        <motion.button
+          className="mt-4 px-5 py-2 bg-[#3949ab] text-white rounded-full shadow hover:bg-[#201d66] transition text-base md:text-lg"
+          onClick={() => setShowDetails((v) => !v)}
+          variants={itemVariants}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.97 }}
+        >
+          {showDetails ? 'Hide Intro' : 'Show Intro'}
+        </motion.button>
+      </motion.div>
     </section>
   );
 };

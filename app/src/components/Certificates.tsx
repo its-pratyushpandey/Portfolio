@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from './ui/card';
+import { Card, CardHeader, CardTitle, CardContent } from './ui/card';
 
 interface Certificate {
   title: string;
@@ -98,6 +98,23 @@ const FloatingDecorations: React.FC = () => (
   </div>
 );
 
+const sectionVariants = {
+  hidden: { opacity: 0, y: 60 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      staggerChildren: 0.12,
+      duration: 0.8,
+      when: 'beforeChildren',
+    },
+  },
+};
+const cardVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+};
+
 const Certificates: React.FC = () => {
   const [selectedType, setSelectedType] = useState<string>('All');
   const [search, setSearch] = useState('');
@@ -177,21 +194,25 @@ const Certificates: React.FC = () => {
   // ...existing code for swipeable if you want to add...
   const [gridView, setGridView] = useState(true); // Option to toggle grid/list if needed
   return (
-    <section className="relative py-20 bg-[#f5f5f5]" id="certificates">
-      <FloatingDecorations />
-      <div className="relative z-10 container mx-auto px-4">
-        {/* Section Heading - Premium Style */}
+    <section
+      className="relative min-h-screen flex flex-col justify-center items-center py-20 bg-gradient-to-br from-[#f5f5f5] to-[#e3f2fd] overflow-x-hidden"
+      id="certificates"
+    >
+      {/* Parallax/Gradient Background */}
+      <div
+        className="absolute inset-0 z-0 bg-gradient-to-br from-[#e3f2fd] to-[#b3e5fc] opacity-60 animate-gradient-move"
+        style={{ backgroundAttachment: 'fixed' }}
+      />
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4">
         <motion.h2
-          className="text-5xl md:text-6xl font-bold text-[#201d66] mb-12 drop-shadow-lg flex items-center justify-center gap-4"
+          className="text-4xl md:text-5xl font-bold text-[#201d66] mb-16 text-center pt-10"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true }}
         >
-          <svg className="w-10 h-10 md:w-14 md:h-14 text-[#80deea]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M12 2l2.09 6.26L20 9.27l-5 3.64L16.18 20 12 16.77 7.82 20 9 12.91l-5-3.64 5.91-.01z"/></svg>
           Certificates
         </motion.h2>
-        {/* Filters */}
-        <div className="flex flex-wrap gap-4 justify-center mb-10 mt-16">
+        <div className="flex flex-wrap gap-4 justify-center mb-10 mt-4">
           <select
             className="px-4 py-2 rounded-full border border-[#b0bec5] bg-white text-[#201d66] focus:outline-none focus:ring-2 focus:ring-[#201d66]"
             value={selectedType}
@@ -223,73 +244,60 @@ const Certificates: React.FC = () => {
             style={{ minWidth: 220 }}
           />
         </div>
-        {/* Card Grid for Certificates */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-          {filtered.length === 0 && (
-            <div className="col-span-full text-center text-[#b0bec5] text-lg py-12">No certificates found.</div>
-          )}
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8"
+          variants={sectionVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
           {filtered.map((certificate, idx) => (
             <motion.div
               key={certificate.title}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              whileHover={{ scale: 1.03, boxShadow: '0 8px 32px 0 rgba(32,29,102,0.13)' }}
-              transition={{ duration: 0.5, ease: 'easeOut' }}
+              variants={cardVariants}
+              whileHover={{ scale: 1.04, boxShadow: '0 8px 32px 0 rgba(32,29,102,0.13)' }}
+              transition={{ duration: 0.3, ease: 'easeOut' }}
+              tabIndex={0}
+              aria-label={certificate.title}
+              className="focus:ring-2 focus:ring-[#201d66] focus:outline-none"
+              onClick={() => setModalCert(certificate)}
+              style={{ cursor: 'pointer' }}
             >
-              <Card className="h-full flex flex-col shadow-xl border border-[#e3f2fd] bg-white/90 hover:shadow-2xl transition-all cursor-pointer group relative overflow-hidden"
-                onClick={() => setModalCert(certificate)}
-                tabIndex={0}
-                aria-label={`View details for ${certificate.title}`}
-                onMouseMove={e => handleMouseMove(e, idx)}
-                onMouseLeave={() => handleMouseLeave(idx)}
-              >
-                {/* Glare effect for 3D tilt */}
-                <div id={`cert-glare-${idx}`} className="absolute inset-0 pointer-events-none z-10 transition-opacity duration-300 opacity-0" style={{ borderRadius: 'inherit' }} />
-                <CardHeader className="flex flex-col items-center p-6 pb-2">
+              <Card className="bg-white/90 shadow-xl hover:shadow-2xl transition rounded-2xl border border-[#e3f2fd] h-full flex flex-col">
+                <CardHeader className="flex flex-col items-center justify-center gap-2 p-6 pb-2">
                   <img
-                    id={`cert-img-${idx}`}
                     src={certificate.image}
                     alt={certificate.title}
-                    className="w-28 h-28 object-contain rounded-xl border border-[#e3f2fd] bg-[#f5f5f5] mb-4 shadow transition-transform duration-300 group-hover:scale-105"
+                    className="w-24 h-24 object-contain rounded-xl border border-[#e3f2fd] bg-[#f5f5f5] mb-2"
                   />
-                  <CardTitle className="text-lg font-bold text-[#201d66] text-center mb-1 flex items-center gap-2">
-                    {getTypeIcon(certificate.type)}
+                  <CardTitle className="text-lg font-semibold text-[#201d66] text-center">
                     {certificate.title}
                   </CardTitle>
-                  <CardDescription className="flex items-center gap-2 justify-center mb-2">
-                    <span className="inline-flex items-center gap-1 bg-[#e3f2fd] text-[#3949ab] px-3 py-1 rounded-full text-xs font-medium shadow">
-                      {getTypeIcon(certificate.type)}{certificate.type}
-                    </span>
-                    <span className="bg-[#201d66] text-white text-xs px-2 py-0.5 rounded-full font-semibold shadow flex items-center gap-1">
-                      <svg className="w-4 h-4 inline-block mr-1" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                      {certificate.year}
-                    </span>
-                  </CardDescription>
+                  <div className="flex items-center gap-2 text-sm text-[#3949ab] mt-1">
+                    {getTypeIcon(certificate.type)}
+                    <span>{certificate.type}</span>
+                    <span className="mx-1">•</span>
+                    <span>{certificate.year}</span>
+                  </div>
                 </CardHeader>
-                <CardContent className="flex-1 flex flex-col items-center justify-center">
-                  <span className="text-[#3949ab] text-sm font-medium mb-2 flex items-center gap-1">
-                    <svg className="w-4 h-4 inline-block mr-1" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M16 7a4 4 0 01-8 0"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h0a4 4 0 014 4v2"/></svg>
+                <CardContent className="flex-1 flex flex-col items-center justify-center p-4">
+                  <div className="text-center text-[#3949ab] text-sm line-clamp-3 mb-2">
                     {certificate.issuer}
-                  </span>
-                </CardContent>
-                <CardFooter className="flex flex-col items-center gap-2 mt-auto">
+                  </div>
                   <a
                     href={certificate.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-[#201d66] text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-[#3949ab] transition shadow focus:outline-none focus:ring-2 focus:ring-[#201d66]"
+                    className="inline-block mt-2 bg-[#201d66] text-white px-4 py-1.5 rounded-full text-sm font-semibold hover:bg-[#3949ab] transition"
                     onClick={e => e.stopPropagation()}
-                    aria-label={`Verify credentials for ${certificate.title}`}
                   >
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M9 12l2 2l4-4"/><circle cx="12" cy="12" r="10"/></svg>
-                    Verify Credentials
+                    Verify
                   </a>
-                </CardFooter>
+                </CardContent>
               </Card>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
         {/* Modal for certificate details (unchanged) */}
         <AnimatePresence>
           {modalCert && (
@@ -309,23 +317,19 @@ const Certificates: React.FC = () => {
                 exit={{ scale: 0.95, opacity: 0 }}
                 onClick={e => e.stopPropagation()}
               >
-                <button
-                  className="absolute top-4 right-4 text-[#201d66] bg-[#e3f2fd] rounded-full w-10 h-10 flex items-center justify-center hover:bg-[#b0bec5] focus:outline-none focus:ring-2 focus:ring-[#201d66]"
-                  onClick={() => setModalCert(null)}
-                  aria-label="Close details"
-                >
-                  <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12" stroke="#201d66" strokeWidth="2" strokeLinecap="round"/></svg>
-                </button>
                 <img
                   src={modalCert.image}
                   alt={modalCert.title}
                   className="w-40 h-40 object-contain mb-4 rounded-xl border border-[#e3f2fd] bg-[#f5f5f5]"
                 />
-                <h3 className="text-2xl font-bold text-[#201d66] mb-2 text-center">{modalCert.title}</h3>
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#e3f2fd] text-2xl border border-[#b0bec5]">{getTypeIcon(modalCert.type)}</span>
-                  <span className="bg-[#201d66] text-white text-xs px-3 py-1 rounded-full font-semibold shadow">{modalCert.year}</span>
-                  <span className="text-[#3949ab] text-sm font-medium ml-2">{modalCert.issuer}</span>
+                  {getTypeIcon(modalCert.type)}
+                  <span className="text-[#3949ab] font-medium">{modalCert.type}</span>
+                  <span className="mx-1">•</span>
+                  <span className="text-[#201d66]">{modalCert.year}</span>
+                </div>
+                <div className="text-center text-[#3949ab] text-base font-semibold mb-2">
+                  {modalCert.issuer}
                 </div>
                 <a
                   href={modalCert.link}
@@ -355,6 +359,15 @@ const Certificates: React.FC = () => {
         <style>{`
           .no-scrollbar::-webkit-scrollbar { display: none; }
           .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+          @keyframes gradient-move {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+          }
+          .animate-gradient-move {
+            background-size: 200% 200%;
+            animation: gradient-move 8s ease-in-out infinite;
+          }
         `}</style>
       </div>
     </section>

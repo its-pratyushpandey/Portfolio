@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 
 const experiences = [
@@ -38,53 +38,64 @@ const experiences = [
   }
 ];
 
-export const ExperienceSection = (): JSX.Element => (
-  <section className="w-full py-20 bg-[#f5f5f5]">
-    <div className="container mx-auto px-4 max-w-5xl">
-      <motion.h2
-        className="text-4xl md:text-5xl font-bold text-[#201d66] mb-12 text-center"
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-      >
-        Professional Experience
-      </motion.h2>
-      <div className="flex flex-col gap-10">
-        {experiences.map((exp, idx) => (
-          <motion.div
-            key={idx}
-            className="bg-white/90 rounded-2xl shadow-xl p-8 border border-[#e3f2fd]"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            whileHover={{ scale: 1.02, boxShadow: '0 8px 32px 0 rgba(32,29,102,0.13)' }}
-            transition={{ duration: 0.5, ease: 'easeOut' }}
-          >
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-2">
-              <div className="flex flex-col">
-                <span className="text-2xl font-semibold text-[#201d66]">{exp.company}</span>
-                <span className="text-lg text-[#3949ab]">{exp.role}</span>
+export const ExperienceSection = (): JSX.Element => {
+  const [hoverIdx, setHoverIdx] = useState<number | null>(null);
+
+  return (
+    <section id="experience" className="w-full min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-[#f5f5f5] to-[#e3f2fd] py-20">
+      <div className="container mx-auto px-4 max-w-4xl w-full">
+        <motion.h2
+          className="text-4xl md:text-5xl font-bold text-[#201d66] mb-16 text-center"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          Experience
+        </motion.h2>
+        <div className="flex flex-col gap-8 w-full">
+          {experiences.map((exp, idx) => (
+            <div
+              key={idx}
+              className="w-full border-b border-[#e3f2fd] pb-6 mb-6 last:mb-0 last:pb-0 last:border-b-0 group"
+              onMouseEnter={() => setHoverIdx(idx)}
+              onMouseLeave={() => setHoverIdx(null)}
+              tabIndex={0}
+              onFocus={() => setHoverIdx(idx)}
+              onBlur={() => setHoverIdx(null)}
+            >
+              <div className="w-full flex flex-col md:flex-row md:items-center md:gap-8 text-left px-2 md:px-8 py-4 md:py-6 cursor-pointer transition-colors group-hover:bg-[#f5f5f5] focus:bg-[#f5f5f5]">
+                <span className="text-2xl md:text-3xl font-semibold text-[#201d66]">{exp.company}</span>
+                <span className="text-lg md:text-xl text-[#3949ab] md:ml-4">{exp.role}</span>
+                <span className="text-base md:text-lg text-[#201d66] font-medium md:ml-4">{exp.period}</span>
+                <span className="text-sm md:text-base text-[#3949ab] md:ml-4">{exp.location}</span>
               </div>
-              <div className="flex flex-col md:items-end">
-                <span className="text-base text-[#201d66] font-medium">{exp.period}</span>
-                <span className="text-sm text-[#3949ab]">{exp.location}</span>
-              </div>
+              <motion.div
+                initial={{ height: 0, opacity: 0 }}
+                animate={hoverIdx === idx ? { height: 'auto', opacity: 1 } : { height: 0, opacity: 0 }}
+                transition={{ duration: 0.4, ease: 'easeInOut' }}
+                className="overflow-hidden px-2 md:px-8"
+              >
+                {hoverIdx === idx && (
+                  <div>
+                    <ul className="list-disc pl-5 text-[#3949ab] mb-3 mt-2">
+                      {exp.description.map((desc, i) => (
+                        <li key={i} className="mb-1 text-base md:text-lg">{desc}</li>
+                      ))}
+                    </ul>
+                    <div className="flex flex-wrap gap-2 mt-2">
+                      {exp.tech.map((tech, i) => (
+                        <span key={i} className="bg-[#e3f2fd] text-[#3949ab] px-3 py-1 rounded-full text-xs md:text-sm font-medium border border-[#b3e5fc]">{tech}</span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </motion.div>
             </div>
-            <ul className="list-disc pl-5 text-[#3949ab] mb-3">
-              {exp.description.map((desc, i) => (
-                <li key={i} className="mb-1 text-base">{desc}</li>
-              ))}
-            </ul>
-            <div className="flex flex-wrap gap-2 mt-2">
-              {exp.tech.map((tech, i) => (
-                <span key={i} className="bg-[#e3f2fd] text-[#3949ab] px-3 py-1 rounded-full text-xs font-medium border border-[#b3e5fc]">{tech}</span>
-              ))}
-            </div>
-          </motion.div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default ExperienceSection;

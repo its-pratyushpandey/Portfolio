@@ -25,7 +25,7 @@ const helpItems = [
 ];
 
 export const HowICanHelpSection = (): JSX.Element => (
-  <section className="w-full py-20 bg-gradient-to-br from-[#f5f5f5] to-[#e3f2fd]">
+  <section id="how-i-can-help" className="w-full py-20 bg-gradient-to-br from-[#f5f5f5] to-[#e3f2fd]">
     <div className="container mx-auto px-4 max-w-5xl">
       <motion.h2
         className="text-4xl md:text-5xl font-bold text-[#201d66] mb-12 text-center"

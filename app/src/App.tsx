@@ -10,6 +10,7 @@ import Certificates from './components/Certificates';
 import { ContactSection } from './screens/ElementLight/section/ContactSection/ContactSection';
 import { ExperienceSection } from './screens/ElementLight/section/ExperienceSection/ExperienceSection';
 import { BlogSection } from './screens/ElementLight/section/BlogSection/BlogSection';
+import { HowICanHelpSection } from './screens/ElementLight/section/HowICanHelpSection/HowICanHelpSection';
 
 interface SectionProps {
   children: ReactNode;
@@ -68,6 +69,7 @@ const App: React.FC = () => {
       <Header />
       <Hero />
       <Section><About /></Section>
+      <Section><HowICanHelpSection /></Section>
       <Section><Skills /></Section>
       <Section><Projects /></Section>
       <Section><Certificates /></Section>

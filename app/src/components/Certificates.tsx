@@ -13,30 +13,29 @@ interface Certificate {
 
 const certificates: Certificate[] = [
   {
-    title: 'Oracle Certified Professional : Java SE 11 Developer',
-    image: 'https://c.animaapp.com/mc46fmevF9sLme/img/oracle-certified-professional--java-se-11-developer.png',
+    title: 'Accenture Developer Virtual Experience',
+    image: '/accenture.png', // Updated to match public folder
     year: '2024',
-    link: 'https://catalog-education.oracle.com/pls/certview/sharebadge',
-    type: 'Programming',
-    issuer: 'Oracle',
+    link: '/Accenture.pdf',
+    type: 'Other',
+    issuer: 'Accenture',
   },
   {
-    title: 'Postman API Fundamentals Student Expert',
-    image: 'https://c.animaapp.com/mc46fmevF9sLme/img/postman-api-fundamentals-student-expert.png',
+    title: 'Aviatrix Certified Engineer (ACE) Multicloud Network Associate',
+    image: '/Aviatrix.png', // Updated to match public folder (case-sensitive)
     year: '2024',
-    link: 'https://badgr.com/public/assertions/A3hUtfzgReGKmgt12TX-ew',
-    type: 'API',
-    issuer: 'Postman',
+    link: '/Aviatrix.pdf',
+    type: 'Cloud',
+    issuer: 'Aviatrix',
   },
   {
-    title: 'GitHub Foundations',
-    image: 'https://c.animaapp.com/mc46fmevF9sLme/img/github-foundations.png',
+    title: 'Salesforce Developer Virtual Internship',
+    image: '/salesforce.png', // Updated to match public folder
     year: '2024',
-    link: 'https://www.credly.com/badges/a8d9b534-63c4-48d2-a8f7-5c5c280b83d5/public_url',
-    type: 'Version Control',
-    issuer: 'GitHub',
+    link: '/Salesforce.pdf',
+    type: 'Cloud',
+    issuer: 'Salesforce',
   },
-  // Add more certificates as needed
 ];
 
 const typeOptions = [

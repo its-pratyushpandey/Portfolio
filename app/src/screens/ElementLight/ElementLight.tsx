@@ -36,7 +36,7 @@ export const ElementLight = (): JSX.Element => {
             src="/profile.jpg"
           />
           <h1 className="text-4xl md:text-6xl font-extrabold text-[#201d66] text-center drop-shadow-md leading-tight">Pratyush Kumar Pandey</h1>
-          <h2 className="text-xl md:text-2xl text-[#3949ab] font-semibold text-center mb-2">Full Stack Developer | UI/UX Designer</h2>
+          <h2 className="text-xl md:text-2xl text-[#3949ab] font-semibold text-center mb-2">Software Developer | Full Stack Developer</h2>
           <div className="flex flex-col md:flex-row items-center gap-4 justify-center mt-4">
             <a
               href="#contact"

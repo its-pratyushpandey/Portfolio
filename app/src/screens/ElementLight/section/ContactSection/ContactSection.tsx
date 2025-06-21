@@ -116,7 +116,7 @@ export const ContactSection = (): JSX.Element => {
   return (
     <motion.section
       id="contact"
-      className="w-full min-h-screen flex flex-col justify-center items-center relative overflow-hidden px-0 py-0"
+      className="w-full min-h-screen flex flex-col justify-center items-center relative overflow-hidden px-4 py-0 bg-gradient-to-br from-[#f5f5f5] to-[#e3f2fd]"
       initial="hidden"
       animate="visible"
       variants={containerVariants}
@@ -132,42 +132,42 @@ export const ContactSection = (): JSX.Element => {
         variants={itemVariants}
       >
         <motion.h2
-          className="text-4xl md:text-6xl font-bold text-[#201d66] text-center mb-2 drop-shadow-lg"
+          className="text-4xl md:text-6xl font-extrabold text-[#201d66] text-center mb-2 drop-shadow-lg relative"
           variants={itemVariants}
         >
-       Contact
+          Let's Connect
+          <span className="block mx-auto mt-2 h-1 w-16 md:w-24 bg-gradient-to-r from-[#201d66] via-[#3949ab] to-[#80deea] rounded-full animate-pulse"></span>
         </motion.h2>
         <motion.p
-          className="text-lg md:text-2xl text-[#3949ab] text-center mb-8 max-w-2xl"
+          className="text-lg md:text-2xl text-[#3949ab] text-center mb-8 max-w-2xl font-medium"
           variants={itemVariants}
         >
-          I&#39;m always open to new opportunities, collaborations, or just a
-          friendly chat about technology and design.
+          Whether it's a new opportunity, collaboration, or a chat about tech and design—I’d love to hear from you.
         </motion.p>
         <motion.div
-          className="w-full flex flex-col md:flex-row justify-center items-stretch gap-12 max-w-6xl"
+          className="w-full flex flex-col md:flex-row justify-center items-stretch gap-8 md:gap-12 max-w-6xl"
           variants={itemVariants}
         >
           {/* Left: Socials and Profiles */}
           <motion.div
-            className="flex-1 flex flex-col items-center gap-10 bg-white/80 rounded-3xl shadow-2xl p-8 backdrop-blur-md border border-[#201d66]/20"
+            className="flex-1 flex flex-col items-center gap-10 bg-white/90 rounded-2xl shadow-xl p-6 md:p-8 backdrop-blur-md border border-[#201d66]/15 min-w-[280px]"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={containerVariants}
           >
             <motion.div className="w-full" variants={itemVariants}>
-              <h3 className="text-xl md:text-2xl font-semibold text-[#201d66] mb-2 text-center">
+              <h3 className="text-lg md:text-2xl font-semibold text-[#201d66] mb-2 text-center tracking-wide">
                 Digital Spaces
               </h3>
-              <div className="flex flex-wrap justify-center gap-4 mb-6">
+              <div className="flex flex-wrap justify-center gap-3 md:gap-4 mb-6">
                 {digitalSpaces.map((item, idx) => (
                   <motion.a
                     key={idx}
                     href={item.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-[#3949ab] hover:text-[#201d66] text-lg md:text-xl transition group"
+                    className="flex items-center gap-2 text-[#3949ab] hover:text-[#201d66] text-base md:text-xl transition group px-3 py-2 rounded-lg hover:bg-[#e3f2fd] focus:outline-none focus:ring-2 focus:ring-[#3949ab]"
                     whileHover="hover"
                     initial="rest"
                     animate="rest"
@@ -178,23 +178,23 @@ export const ContactSection = (): JSX.Element => {
                       className="w-7 h-7 drop-shadow-md"
                       variants={iconVariants}
                     />
-                    <span className="group-hover:underline">{item.text}</span>
+                    <span className="group-hover:underline font-medium">{item.text}</span>
                   </motion.a>
                 ))}
               </div>
             </motion.div>
             <motion.div className="w-full" variants={itemVariants}>
-              <h3 className="text-xl md:text-2xl font-semibold text-[#201d66] mb-2 text-center">
+              <h3 className="text-lg md:text-2xl font-semibold text-[#201d66] mb-2 text-center tracking-wide">
                 Profiles
               </h3>
-              <div className="flex flex-wrap justify-center gap-4 mb-6">
+              <div className="flex flex-wrap justify-center gap-3 md:gap-4 mb-6">
                 {profiles.map((item, idx) => (
                   <motion.a
                     key={idx}
                     href={item.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-[#3949ab] hover:text-[#201d66] text-lg md:text-xl transition group"
+                    className="flex items-center gap-2 text-[#3949ab] hover:text-[#201d66] text-base md:text-xl transition group px-3 py-2 rounded-lg hover:bg-[#e3f2fd] focus:outline-none focus:ring-2 focus:ring-[#3949ab]"
                     whileHover="hover"
                     initial="rest"
                     animate="rest"
@@ -205,7 +205,7 @@ export const ContactSection = (): JSX.Element => {
                       className="w-7 h-7 drop-shadow-md"
                       variants={iconVariants}
                     />
-                    <span className="group-hover:underline">{item.text}</span>
+                    <span className="group-hover:underline font-medium">{item.text}</span>
                   </motion.a>
                 ))}
               </div>
@@ -213,7 +213,7 @@ export const ContactSection = (): JSX.Element => {
             <motion.div className="flex flex-col items-center gap-4 mt-2" variants={itemVariants}>
               <motion.a
                 href={contactData.email.url}
-                className="flex items-center gap-3 text-[#201d66] hover:text-[#3949ab] text-base md:text-lg font-medium transition group"
+                className="flex items-center gap-3 text-[#201d66] hover:text-[#3949ab] text-base md:text-lg font-medium transition group px-3 py-2 rounded-lg hover:bg-[#e3f2fd] focus:outline-none focus:ring-2 focus:ring-[#3949ab]"
                 whileHover="hover"
                 initial="rest"
                 animate="rest"
@@ -230,7 +230,7 @@ export const ContactSection = (): JSX.Element => {
                 href={contactData.location.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 text-[#201d66] hover:text-[#3949ab] text-base md:text-lg transition group"
+                className="flex items-center gap-3 text-[#201d66] hover:text-[#3949ab] text-base md:text-lg transition group px-3 py-2 rounded-lg hover:bg-[#e3f2fd] focus:outline-none focus:ring-2 focus:ring-[#3949ab]"
                 whileHover="hover"
                 initial="rest"
                 animate="rest"
@@ -248,14 +248,14 @@ export const ContactSection = (): JSX.Element => {
 
           {/* Right: Contact Form */}
           <motion.div
-            className="flex-1 flex flex-col justify-center items-center bg-white/90 rounded-3xl shadow-2xl p-8 backdrop-blur-md border border-[#e3f2fd] relative"
+            className="flex-1 flex flex-col justify-center items-center bg-white/95 rounded-2xl shadow-xl p-6 md:p-8 backdrop-blur-md border border-[#e3f2fd] min-w-[280px]"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={containerVariants}
           >
             <motion.h3
-              className="text-xl md:text-2xl font-semibold text-[#201d66] mb-6 text-center"
+              className="text-lg md:text-2xl font-semibold text-[#201d66] mb-6 text-center tracking-wide"
               variants={itemVariants}
             >
               Contact Form
@@ -363,7 +363,7 @@ export const ContactSection = (): JSX.Element => {
                   {/* Submit Button */}
                   <motion.button
                     type="submit"
-                    className="bg-[#201d66] text-white rounded-lg px-6 py-3 text-lg font-semibold hover:bg-[#3949ab] transition shadow-md relative overflow-hidden"
+                    className="bg-[#201d66] text-white rounded-lg px-6 py-3 text-lg font-semibold hover:bg-[#3949ab] transition shadow-md relative overflow-hidden focus:outline-none focus:ring-2 focus:ring-[#3949ab]"
                     whileHover={{ scale: 1.07, boxShadow: "0 8px 24px #3949ab33" }}
                     whileTap={{ scale: 0.97 }}
                     variants={itemVariants}

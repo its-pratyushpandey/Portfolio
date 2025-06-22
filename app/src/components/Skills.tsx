@@ -79,6 +79,7 @@ const skillCategories: SkillCategory[] = [
   },
 ];
 
+// Section entrance animation variants (already present, but ensure usage)
 const sectionVariants = {
   hidden: { opacity: 0, y: 60 },
   visible: {
@@ -92,8 +93,8 @@ const sectionVariants = {
   },
 };
 const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 };
 
 const getDotCount = (level: number) => Math.round(level / 20);
@@ -195,26 +196,49 @@ export const Skills: React.FC = () => {
   };
 
   return (
-    <section id="skills" className="w-full min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-[#f5f5f5] to-[#e3f2fd] py-0 relative overflow-x-hidden">
+    <section
+      id="skills"
+      className="w-full min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-[#f5f5f5] to-[#e3f2fd] py-0 relative overflow-x-hidden"
+    >
       {/* Parallax background */}
       <div className="absolute inset-0 z-0 bg-gradient-to-br from-[#e3f2fd] to-[#b3e5fc] opacity-60" style={{ backgroundAttachment: 'fixed' }} />
       <div className="w-full max-w-7xl mx-auto px-2 md:px-8 relative z-10">
-        <motion.h2 className="text-4xl md:text-5xl font-bold text-[#201d66] mb-12 text-center pt-10" initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>{t.title}</motion.h2>
+        <motion.h2
+          className="text-4xl md:text-5xl font-bold text-[#201d66] mb-12 text-center pt-10"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          {t.title}
+        </motion.h2>
         {/* Category Tabs */}
-        <div className="flex flex-wrap justify-center gap-4 mb-8">
+        <motion.div
+          className="flex flex-wrap justify-center gap-4 mb-8"
+          initial="hidden"
+          whileInView="visible"
+          variants={sectionVariants}
+          viewport={{ once: true }}
+        >
           {t.categories.map((cat, idx) => (
-            <button
+            <motion.button
               key={cat}
-              className={`px-6 py-2 rounded-full font-semibold border transition-colors duration-200 text-sm md:text-base shadow-sm flex items-center gap-2 ${selectedCategory === idx ? 'bg-[#201d66] text-white border-[#201d66]' : 'bg-white text-[#201d66] border-[#b3e5fc] hover:bg-[#e3f2fd]'}`}
+              className={`px-6 py-2 rounded-full font-semibold border transition-colors duration-200 text-sm md:text-base shadow-sm ${selectedCategory === idx ? 'bg-[#201d66] text-white border-[#201d66]' : 'bg-white text-[#201d66] border-[#b3e5fc] hover:bg-[#e3f2fd]'}`}
               onClick={() => setSelectedCategory(idx)}
               aria-label={`Show ${cat} skills`}
+              variants={itemVariants}
             >
               {cat}
-            </button>
+            </motion.button>
           ))}
-        </div>
+        </motion.div>
         {/* Skills List - Responsive Grid/Carousel */}
-        <motion.div className="w-full" variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+        <motion.div
+          className="w-full"
+          variants={sectionVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
           {/* Mobile: horizontal scroll, Desktop: grid */}
           <div className="block md:hidden">
             <div className="flex gap-4 overflow-x-auto pb-2 snap-x snap-mandatory" role="list">

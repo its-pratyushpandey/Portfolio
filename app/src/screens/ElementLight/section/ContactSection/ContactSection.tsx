@@ -136,7 +136,7 @@ export const ContactSection = (): JSX.Element => {
           className="text-4xl md:text-6xl font-extrabold text-[#201d66] text-center mb-2 drop-shadow-lg relative"
           variants={itemVariants}
         >
-          Let's Connect
+        Get in Touch
           <span className="block mx-auto mt-2 h-1 w-16 md:w-24 bg-gradient-to-r from-[#201d66] via-[#3949ab] to-[#80deea] rounded-full animate-pulse"></span>
         </motion.h2>
         <motion.p
@@ -159,7 +159,7 @@ export const ContactSection = (): JSX.Element => {
           >
             <motion.div className="w-full" variants={itemVariants}>
               <h3 className="text-lg md:text-2xl font-semibold text-[#201d66] mb-2 text-center tracking-wide">
-                Digital Spaces
+              Connect with Me
               </h3>
               <div className="flex flex-wrap justify-center gap-3 md:gap-4 mb-6">
                 {digitalSpaces.map((item, idx) => (
@@ -186,7 +186,7 @@ export const ContactSection = (): JSX.Element => {
             </motion.div>
             <motion.div className="w-full" variants={itemVariants}>
               <h3 className="text-lg md:text-2xl font-semibold text-[#201d66] mb-2 text-center tracking-wide">
-                Profiles
+                Where I Solve
               </h3>
               <div className="flex flex-wrap justify-center gap-3 md:gap-4 mb-6">
                 {profiles.map((item, idx) => (

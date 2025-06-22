@@ -62,7 +62,7 @@ export const HowICanHelpSection = (): JSX.Element => (
 				whileInView={{ opacity: 1, y: 0 }}
 				viewport={{ once: true }}
 			>
-				How I Can Help You
+			My Expertise
 			</motion.h2>
 			{/* Timeline style layout, no cards */}
 			<motion.div

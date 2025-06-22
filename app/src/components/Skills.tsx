@@ -8,16 +8,54 @@ interface SkillCategory {
 
 const skillCategories: SkillCategory[] = [
   {
-    title: 'Programming Languages',
-    skills: ['Java', 'C', 'Python', 'JavaScript'],
+    title: 'Languages I Code In',
+    skills: ['Java', 'C++', 'JavaScript'],
   },
   {
-    title: 'Tech Stacks',
-    skills: ['SpringBoot', 'MySQL', 'ReactJS', 'NodeJS', 'ExpressJS', 'MongoDB', 'Django', 'PostgreSQL', 'Git'],
+    title: 'Core Technologies',
+    skills: [
+  'ReactJS',
+  'NextJS',
+  'React Native',
+  'Typescript',
+  'NodeJS',
+  'ExpressJS',
+  'SpringBoot',
+  'REST API',
+  'WebSockets',
+  'OOP',
+  'MongoDB',
+  'MySQL',
+  'Firebase',
+  'AWS',
+  'NLP',
+  'Git',
+  'Redux'
+  
+]
   },
   {
-    title: 'Toolbox',
-    skills: ['Figma', 'GSAP', 'TailwindCSS', 'ShadCN', 'Firebase', 'UI/UX Design'],
+    title: 'Developer Tools',
+    skills: [
+  'TailwindCSS',
+  'Firebase',
+  'GitHub',
+  'GitLab',
+  'VS Code',
+  'Cursor AI',
+  'IntelliJ IDEA',
+  'Render',
+  'DataGrip',
+  'Postman',
+  'Framer Motion',
+  'Prettier',
+  'Notion',
+  'Heroku',
+  'Microsoft Azure',
+  'DigitalOcean',
+  'Namecheap'
+]
+
   },
 ];
 

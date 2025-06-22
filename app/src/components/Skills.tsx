@@ -1,5 +1,8 @@
 import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
+// Icon imports
+import { FaJava, FaReact, FaNodeJs, FaAws, FaGitAlt, FaGithub, FaGitlab, FaDatabase, FaPython, FaJs, FaHtml5, FaCss3Alt, FaTools, FaCogs, FaCloud, FaCode, FaTerminal, FaVial, FaRocket, FaRegFileCode, FaRegKeyboard, FaRegObjectGroup, FaRegDotCircle } from 'react-icons/fa';
+import { SiCplusplus, SiTypescript, SiRedux, SiMongodb, SiMysql, SiFirebase, SiNextdotjs, SiSpringboot, SiExpress, SiTailwindcss, SiVercel, SiHeroku, SiDigitalocean, SiNotion, SiPrettier, SiFramer, SiPostman, SiIntellijidea, SiRender, SiDatagrip, SiNamecheap } from 'react-icons/si';
 
 const translations = {
   en: {
@@ -125,6 +128,49 @@ const skillCertifications: Record<string, { url: string }> = {
   // ...add more as needed
 };
 
+// Icon mapping for skills (refined for a more professional, consistent look)
+const skillIcons: Record<string, React.ReactNode> = {
+  'Java': <FaJava className="text-[#e76f00] group-hover:text-[#3949ab] transition-colors duration-300" />,
+  'C++': <SiCplusplus className="text-[#00599c] group-hover:text-[#3949ab] transition-colors duration-300" />,
+  'JavaScript': <FaJs className="text-[#f7df1e] group-hover:text-[#3949ab] transition-colors duration-300" />,
+  'Typescript': <SiTypescript className="text-[#3178c6] group-hover:text-[#3949ab] transition-colors duration-300" />,
+  'ReactJS': <FaReact className="text-[#61dafb] group-hover:text-[#3949ab] transition-colors duration-300" />,
+  'NextJS': <SiNextdotjs className="text-[#000] dark:text-[#fff] group-hover:text-[#3949ab] transition-colors duration-300" />,
+  'React Native': <FaReact className="text-[#61dafb] group-hover:text-[#3949ab] transition-colors duration-300" />,
+  'NodeJS': <FaNodeJs className="text-[#3c873a] group-hover:text-[#3949ab] transition-colors duration-300" />,
+  'ExpressJS': <SiExpress className="text-[#000] dark:text-[#fff] group-hover:text-[#3949ab] transition-colors duration-300" />,
+  'SpringBoot': <SiSpringboot className="text-[#6db33f] group-hover:text-[#3949ab] transition-colors duration-300" />,
+  'REST API': <FaRegFileCode className="text-[#3949ab] group-hover:text-[#43a047] transition-colors duration-300" />,
+  'WebSockets': <FaCloud className="text-[#3949ab] group-hover:text-[#43a047] transition-colors duration-300" />,
+  'OOP': <FaRegObjectGroup className="text-[#3949ab] group-hover:text-[#43a047] transition-colors duration-300" />,
+  'MongoDB': <SiMongodb className="text-[#47a248] group-hover:text-[#3949ab] transition-colors duration-300" />,
+  'MySQL': <SiMysql className="text-[#00758f] group-hover:text-[#3949ab] transition-colors duration-300" />,
+  'Firebase': <SiFirebase className="text-[#ffca28] group-hover:text-[#3949ab] transition-colors duration-300" />,
+  'AWS': <FaAws className="text-[#ff9900] group-hover:text-[#3949ab] transition-colors duration-300" />,
+  'NLP': <FaRegDotCircle className="text-[#3949ab] group-hover:text-[#43a047] transition-colors duration-300" />,
+  'Git': <FaGitAlt className="text-[#f34f29] group-hover:text-[#3949ab] transition-colors duration-300" />,
+  'Redux': <SiRedux className="text-[#764abc] group-hover:text-[#3949ab] transition-colors duration-300" />,
+  'TailwindCSS': <SiTailwindcss className="text-[#38bdf8] group-hover:text-[#3949ab] transition-colors duration-300" />,
+  'GitHub': <FaGithub className="text-[#181717] group-hover:text-[#3949ab] transition-colors duration-300" />,
+  'GitLab': <FaGitlab className="text-[#fc6d26] group-hover:text-[#3949ab] transition-colors duration-300" />,
+  'VS Code': <FaRegKeyboard className="text-[#007acc] group-hover:text-[#3949ab] transition-colors duration-300" />,
+  'Cursor AI': <FaRegDotCircle className="text-[#3949ab] group-hover:text-[#43a047] transition-colors duration-300" />,
+  'IntelliJ IDEA': <SiIntellijidea className="text-[#000] dark:text-[#fff] group-hover:text-[#3949ab] transition-colors duration-300" />,
+  'Render': <SiRender className="text-[#3949ab] group-hover:text-[#43a047] transition-colors duration-300" />,
+  'DataGrip': <SiDatagrip className="text-[#21d789] group-hover:text-[#3949ab] transition-colors duration-300" />,
+  'Postman': <SiPostman className="text-[#ff6c37] group-hover:text-[#3949ab] transition-colors duration-300" />,
+  'Framer Motion': <SiFramer className="text-[#0055ff] group-hover:text-[#3949ab] transition-colors duration-300" />,
+  'Prettier': <SiPrettier className="text-[#f7b93e] group-hover:text-[#3949ab] transition-colors duration-300" />,
+  'Notion': <SiNotion className="text-[#000] dark:text-[#fff] group-hover:text-[#3949ab] transition-colors duration-300" />,
+  'Heroku': <SiHeroku className="text-[#430098] group-hover:text-[#3949ab] transition-colors duration-300" />,
+  'Microsoft Azure': <FaCloud className="text-[#0078d4] group-hover:text-[#3949ab] transition-colors duration-300" />,
+  'DigitalOcean': <SiDigitalocean className="text-[#0080ff] group-hover:text-[#3949ab] transition-colors duration-300" />,
+  'Namecheap': <SiNamecheap className="text-[#de3723] group-hover:text-[#3949ab] transition-colors duration-300" />,
+};
+
+// Icon mapping for categories
+const categoryIcons: Record<string, React.ReactNode> = {};
+
 export const Skills: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState(0);
   const t = translations['en'];
@@ -159,7 +205,7 @@ export const Skills: React.FC = () => {
           {t.categories.map((cat, idx) => (
             <button
               key={cat}
-              className={`px-6 py-2 rounded-full font-semibold border transition-colors duration-200 text-sm md:text-base shadow-sm ${selectedCategory === idx ? 'bg-[#201d66] text-white border-[#201d66]' : 'bg-white text-[#201d66] border-[#b3e5fc] hover:bg-[#e3f2fd]'}`}
+              className={`px-6 py-2 rounded-full font-semibold border transition-colors duration-200 text-sm md:text-base shadow-sm flex items-center gap-2 ${selectedCategory === idx ? 'bg-[#201d66] text-white border-[#201d66]' : 'bg-white text-[#201d66] border-[#b3e5fc] hover:bg-[#e3f2fd]'}`}
               onClick={() => setSelectedCategory(idx)}
               aria-label={`Show ${cat} skills`}
             >
@@ -196,6 +242,15 @@ export const Skills: React.FC = () => {
                         isTopSkill ? t.topSkill : '',
                         streak ? t.streak : ''
                       ].filter(Boolean).join(', ')}>
+                        <motion.span
+                          className="inline-flex items-center justify-center w-6 h-6 md:w-7 md:h-7 mr-1"
+                          whileHover={{ rotate: 20, scale: 1.2, color: '#3949ab' }}
+                          whileTap={{ scale: 0.95, rotate: -10 }}
+                          transition={{ type: 'spring', stiffness: 300 }}
+                          tabIndex={-1}
+                        >
+                          {skillIcons[skill.name] || <FaRegDotCircle className="text-[#bdbdbd]" />}
+                        </motion.span>
                         {skill.name}
                         {(selectedCategory === 0 || selectedCategory === 1) && (
                           certification ? (
@@ -275,6 +330,15 @@ export const Skills: React.FC = () => {
                       isTopSkill ? t.topSkill : '',
                       streak ? t.streak : ''
                     ].filter(Boolean).join(', ')}>
+                      <motion.span
+                        className="inline-flex items-center justify-center w-6 h-6 md:w-7 md:h-7 mr-1"
+                        whileHover={{ rotate: 20, scale: 1.2, color: '#3949ab' }}
+                        whileTap={{ scale: 0.95, rotate: -10 }}
+                        transition={{ type: 'spring', stiffness: 300 }}
+                        tabIndex={-1}
+                      >
+                        {skillIcons[skill.name] || <FaRegDotCircle className="text-[#bdbdbd]" />}
+                      </motion.span>
                       {skill.name}
                       {(selectedCategory === 0 || selectedCategory === 1) && (
                         certification ? (

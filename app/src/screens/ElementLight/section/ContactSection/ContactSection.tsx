@@ -117,19 +117,19 @@ export const ContactSection = (): JSX.Element => {
   return (
     <motion.section
       id="contact"
-      className="w-full min-h-screen flex flex-col justify-center items-center relative overflow-hidden px-4 py-0 bg-gradient-to-br from-[#f5f5f5] to-[#e3f2fd]"
+      className="w-full min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-[#f5f5f5] to-[#e3f2fd] py-0 relative overflow-x-hidden"
       initial="hidden"
       animate="visible"
       variants={containerVariants}
     >
-      {/* Animated background gradient */}
-      <motion.div
-        className="absolute inset-0 -z-10 bg-gradient-to-br from-[#e3f2fd] via-[#bbddfa] to-[#e3f2fd] bg-[length:200%_200%] animate-gradient-move"
-        variants={bgVariants}
-        animate="animate"
+      {/* Blog-style overlay background */}
+      <div
+        className="absolute inset-0 z-0 bg-gradient-to-br from-[#e3f2fd] to-[#b3e5fc] opacity-60"
+        style={{ backgroundAttachment: "fixed" }}
       />
+      {/* Main content */}
       <motion.div
-        className="w-full flex flex-col justify-center items-center gap-12 py-16"
+        className="w-full flex flex-col justify-center items-center gap-12 py-16 relative z-10"
         variants={itemVariants}
       >
         <motion.h2

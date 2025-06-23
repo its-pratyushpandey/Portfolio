@@ -3,29 +3,49 @@ import { motion, AnimatePresence } from "framer-motion";
 
 // Dummy data for demonstration (replace with your actual data)
 const experiences = [
+{
+  company: "K L University",
+  role: "B.Tech CSE Student – AI with Computational Intelligence",
+  period: "2022 – Present",
+  location: "Andhra Pradesh, India",
+  tech: ["Java", "Python", "C", "Data Structures", "Algorithms"],
+  details: [
+    "Pursuing a specialization in Artificial Intelligence with strong academic performance in core CS subjects.",
+    "Actively engaged in competitive programming, hackathons, and open-source collaboration."
+  ]
+}
+, 
   {
-    company: "Nayona Consultancy",
-    role: "Full Stack Developer",
-    period: "Nov 2024 - Present",
-    location: "Remote",
-    tech: ["React", "Node.js", "MongoDB", "Express", "Redux", "Firebase", "JWT", "Oracle NetSuite"],
+    company: "K L University",
+    role: "Student Coordinator, GDSE",
+    period: "2023 - Present",
+    location: "Andhra Pradesh, India",
+    tech: ["Leadership", "Event Management", "Team Coordination"],
     details: [
-      "Spearheaded the development of a MERN stack platform for Oracle EPM provider.",
-      "Integrated client website and admin system, improving user experience by 35%.",
-      "Streamlined customer communication processes.",
-      "Implemented secure authentication using JWT.",
-      "Training in Oracle NetSuite and managing client permissions."
+      "Coordinated various technical events and workshops to enhance student engagement.",
+      "Led a team of volunteers to successfully execute multiple large-scale events."
     ]
   },
   {
-    company: "GDSE Core Team",
-    role: "Core Team Member",
-    period: "2023 - 2024",
-    location: "K L University",
+    company: "K L University",
+    role: "Core Team Member, GDSE",
+    period: "2023 - Present",
+    location: "Andhra Pradesh, India",
     tech: ["Leadership", "Teamwork", "Event Management"],
     details: [
-      "Organized and led multiple tech events and workshops.",
-      "Collaborated with cross-functional teams to deliver impactful student programs."
+      "Contributed to the planning and execution of technical events and workshops.",
+      "Collaborated with faculty and students to promote technical skills development."
+    ]
+  },
+  {
+    company: "Undergraduation",
+    role: "Student, B.Tech CSE",
+    period: "2022 - Present",
+    location: "K L University",
+    tech: ["Java", "Python", "C", "Data Structures", "Algorithms"],
+    details: [
+      "Consistent academic performer with a focus on software engineering and problem solving.",
+      "Active participant in coding competitions and hackathons."
     ]
   },
   {
@@ -65,14 +85,14 @@ export const ExperienceSection = (): JSX.Element => {
   return (
     <section
       id="experience"
-      className="w-full min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-[#f5f5f5] to-[#e3f2fd] py-0 relative overflow-x-hidden"
+      className="w-full min-h-[140vh] md:min-h-[120vh] flex flex-col items-center justify-center bg-gradient-to-br from-[#f5f5f5] to-[#e3f2fd] py-16 md:py-28 relative overflow-x-hidden"
     >
       {/* Parallax background */}
       <div
         className="absolute inset-0 z-0 bg-gradient-to-br from-[#e3f2fd] to-[#b3e5fc] opacity-60"
         style={{ backgroundAttachment: "fixed" }}
       />
-      <div className="w-full max-w-5xl mx-auto px-0 md:px-8 relative z-10">
+      <div className="w-full max-w-5xl mx-auto px-2 md:px-8 relative z-10">
         <motion.h2
           className="text-4xl md:text-5xl font-bold text-[#201d66] mb-20 text-center pt-20"
           initial={{ opacity: 0, y: 40 }}
@@ -83,7 +103,7 @@ export const ExperienceSection = (): JSX.Element => {
         </motion.h2>
         {/* Timeline */}
         <motion.div
-          className="relative flex flex-col gap-20 w-full before:absolute before:left-6 before:top-0 before:bottom-0 before:w-1 before:bg-gradient-to-b before:from-[#b3e5fc] before:to-[#201d66] before:rounded-full"
+          className="relative flex flex-col gap-24 md:gap-28 w-full before:absolute before:left-6 before:top-0 before:bottom-0 before:w-1 before:bg-gradient-to-b before:from-[#b3e5fc] before:to-[#201d66] before:rounded-full"
           variants={sectionVariants}
           initial="hidden"
           whileInView="visible"
@@ -92,7 +112,7 @@ export const ExperienceSection = (): JSX.Element => {
           {experiences.map((exp, idx) => (
             <motion.div
               key={idx}
-              className="relative flex flex-col md:flex-row md:items-center gap-8 group px-0 md:px-8"
+              className="relative flex flex-col md:flex-row md:items-center gap-10 md:gap-12 group px-0 md:px-8"
               variants={itemVariants}
               tabIndex={0}
               aria-expanded={expandedIdx === idx}
@@ -104,7 +124,7 @@ export const ExperienceSection = (): JSX.Element => {
               {/* Timeline Dot */}
               <span className="absolute left-0 top-8 md:top-1/2 md:-translate-y-1/2 w-6 h-6 rounded-full bg-white border-4 border-[#201d66] flex items-center justify-center shadow-lg z-10"></span>
               {/* Experience Content - full width, no card */}
-              <div className="ml-14 flex-1 flex flex-col gap-3 bg-transparent rounded-none shadow-none px-0 py-0 transition-transform duration-300 group-hover:scale-[1.01] group-focus:scale-[1.01]">
+              <div className="ml-14 flex-1 flex flex-col gap-4 bg-transparent rounded-none shadow-none px-0 py-0 transition-transform duration-300 group-hover:scale-[1.01] group-focus:scale-[1.01]">
                 <div className="flex flex-col md:flex-row md:items-center md:gap-6 flex-wrap">
                   <span className="text-2xl md:text-3xl font-semibold text-[#201d66]">{exp.company}</span>
                   <span className="text-lg md:text-xl text-[#3949ab] md:ml-4 flex items-center gap-2">{exp.role}</span>
@@ -128,15 +148,13 @@ export const ExperienceSection = (): JSX.Element => {
                 <AnimatePresence>
                   {expandedIdx === idx && (
                     <motion.ul
-                      className="mt-4 pl-2 border-l-4 border-[#201d66] bg-[#f5f5f5]/80 rounded-lg py-3 px-4 text-[#3949ab] text-base md:text-lg shadow-sm"
-                      initial={{ opacity: 0, y: 20 }}
+                      className="mt-2 pl-4 list-disc text-[#201d66] text-base md:text-lg"
+                      initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 20 }}
+                      exit={{ opacity: 0, y: 10 }}
                     >
-                      {exp.details.map((d, i) => (
-                        <li key={i} className="mb-2 last:mb-0 list-disc ml-4">
-                          {d}
-                        </li>
+                      {exp.details.map((detail, i) => (
+                        <li key={i}>{detail}</li>
                       ))}
                     </motion.ul>
                   )}

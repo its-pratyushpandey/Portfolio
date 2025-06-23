@@ -61,6 +61,42 @@ const itemVariants = {
 	visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 
+// Floating SVG decorations (from Hero/Projects)
+const FloatingDecorations: React.FC = () => (
+  <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
+    <motion.svg
+      className="absolute top-10 left-10 w-32 h-32 opacity-30"
+      initial={{ y: 0 }}
+      animate={{ y: [0, 30, 0] }}
+      transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+      viewBox="0 0 100 100"
+      fill="none"
+    >
+      <circle cx="50" cy="50" r="40" fill="#b2ebf2" />
+    </motion.svg>
+    <motion.svg
+      className="absolute bottom-20 right-20 w-24 h-24 opacity-20"
+      initial={{ x: 0 }}
+      animate={{ x: [0, -40, 0] }}
+      transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
+      viewBox="0 0 100 100"
+      fill="none"
+    >
+      <rect x="20" y="20" width="60" height="60" rx="18" fill="#c5cae9" />
+    </motion.svg>
+    <motion.svg
+      className="absolute top-1/2 left-1/3 w-20 h-20 opacity-25"
+      initial={{ y: 0, rotate: 0 }}
+      animate={{ y: [-10, 20, -10], rotate: [0, 15, 0] }}
+      transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
+      viewBox="0 0 100 100"
+      fill="none"
+    >
+      <polygon points="50,10 90,90 10,90" fill="#ffd6e0" />
+    </motion.svg>
+  </div>
+);
+
 // Helper for lazy icon rendering (simulate for emoji, can be extended for SVGs)
 const LazyIcon = ({ icon, label }: { icon: string; label: string }) => (
 	<span role="img" aria-label={label} className="select-none">
@@ -76,15 +112,18 @@ export const HowICanHelpSection = (): JSX.Element => {
 		setExpandedIdx(expandedIdx === idx ? null : idx);
 	};
 
+	const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+
 	return (
 		<section
 			id="how-i-can-help"
 			className="w-full min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-[#f5f5f5] to-[#e3f2fd] py-0 relative overflow-x-hidden"
 			aria-labelledby="expertise-heading"
 		>
+			<FloatingDecorations />
 			{/* Parallax background */}
 			<div
-				className="absolute inset-0 z-0 bg-gradient-to-br from-[#e3f2fd] to-[#b3e5fc] opacity-60"
+				className="absolute inset-0 z-0 bg-gradient-to-br from-[#e3f2fd] to-[#b3e5fc] opacity-60 animate-gradient-move"
 				style={{ backgroundAttachment: "fixed" }}
 			/>
 			<div className="w-full max-w-5xl mx-auto px-0 md:px-8 relative z-10">
@@ -132,6 +171,15 @@ export const HowICanHelpSection = (): JSX.Element => {
           @media (max-width: 768px) {
             .animate-marquee-expertise { animation-duration: 30s; }
           }
+          @keyframes gradient-move {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+          }
+          .animate-gradient-move {
+            background-size: 200% 200%;
+            animation: gradient-move 8s ease-in-out infinite;
+          }
           @keyframes fade-in {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
@@ -150,9 +198,9 @@ export const HowICanHelpSection = (): JSX.Element => {
 				>
 					My Expertise
 				</motion.h2>
-				{/* Timeline with semantic HTML and micro-interactions */}
+				{/* Timeline/Vertical List with Expandable Details */}
 				<motion.div
-					className="relative flex flex-col gap-12 md:gap-20 w-full before:absolute before:left-6 before:top-0 before:bottom-0 before:w-1 before:bg-gradient-to-b before:from-[#b3e5fc] before:to-[#201d66] before:rounded-full"
+					className="relative flex flex-col gap-20 w-full before:absolute before:left-6 before:top-0 before:bottom-0 before:w-1 before:bg-gradient-to-b before:from-[#b3e5fc] before:to-[#201d66] before:rounded-full"
 					variants={sectionVariants}
 					initial="hidden"
 					whileInView="visible"
@@ -160,9 +208,9 @@ export const HowICanHelpSection = (): JSX.Element => {
 					role="list"
 				>
 					{helpItems.map((item, idx) => (
-						<motion.article
+						<motion.div
 							key={idx}
-							className={`relative flex flex-col md:flex-row md:items-center gap-4 md:gap-8 px-0 md:px-8 transition-all duration-300 cursor-pointer group focus:outline-none focus-visible:ring-4 focus-visible:ring-[#201d66] focus-visible:ring-offset-2 focus-visible:ring-offset-[#e3f2fd] ${
+							className={`relative flex flex-col md:flex-row md:items-center gap-8 group px-0 md:px-8 transition-all duration-300 cursor-pointer focus:outline-none focus-visible:ring-4 focus-visible:ring-[#201d66] focus-visible:ring-offset-2 focus-visible:ring-offset-[#e3f2fd] ${
 								expandedIdx === idx
 									? "bg-white/80 shadow-xl scale-[1.01] ring-2 ring-[#201d66]"
 									: "bg-transparent hover:bg-[#e3f2fd]/60"
@@ -171,40 +219,34 @@ export const HowICanHelpSection = (): JSX.Element => {
 							initial="hidden"
 							whileInView="visible"
 							viewport={{ once: true, amount: 0.2 }}
-							transition={{
-								delay: idx * 0.15,
-								type: "spring",
-								stiffness: 60,
-							}}
+							transition={{ delay: idx * 0.15, type: "spring", stiffness: 60 }}
 							tabIndex={0}
+							aria-expanded={expandedIdx === idx}
 							onClick={() => handleExpand(idx)}
 							onKeyDown={(e) =>
 								(e.key === "Enter" || e.key === " ") && handleExpand(idx)
 							}
-							aria-expanded={expandedIdx === idx}
-							role="button"
-							aria-label={`Expand details for ${item.title}`}
+							onFocus={() => setHoveredIdx(idx)}
+							onBlur={() => setHoveredIdx(null)}
 							onMouseEnter={() => setHoveredIdx(idx)}
 							onMouseLeave={() => setHoveredIdx(null)}
+							role="button"
+							aria-label={`Expand details for ${item.title}`}
 						>
-							{/* Timeline Dot */}
-							<span className="absolute left-0 top-8 md:top-1/2 md:-translate-y-1/2 w-6 h-6 rounded-full bg-white border-4 border-[#201d66] flex items-center justify-center shadow-lg z-10 text-2xl select-none transition-transform duration-200 group-active:scale-110 group-focus:scale-110">
+							{/* Timeline Dot with Icon */}
+							<span className="absolute left-0 top-8 md:top-1/2 md:-translate-y-1/2 w-6 h-6 rounded-full bg-white border-4 border-[#201d66] flex items-center justify-center shadow-lg z-10 text-2xl select-none transition-transform duration-200 group-hover:scale-110 group-focus:scale-110">
 								<Suspense fallback={<span>...</span>}>
-									<LazyIcon
-										icon={item.icon}
-										label={item.title + " icon"}
-									/>
+									<LazyIcon icon={item.icon} label={item.title + " icon"} />
 								</Suspense>
 							</span>
 							{/* Content - full width, not a card */}
-							<div className="ml-14 flex-1 flex flex-col gap-2 md:gap-3 bg-transparent rounded-none shadow-none px-0 py-0">
+							<div className="ml-14 flex-1 flex flex-col gap-3 bg-transparent rounded-none shadow-none px-0 py-0 transition-transform duration-300 group-hover:scale-[1.01] group-focus:scale-[1.01]">
 								<div className="flex flex-col md:flex-row md:items-center md:gap-6 flex-wrap">
-									<span className="text-2xl md:text-3xl font-semibold text-[#201d66] relative font-sans tracking-tight">
+									<span className="text-2xl md:text-3xl font-semibold text-[#201d66] font-sans tracking-tight">
 										{item.title}
 									</span>
-									{/* Badges/Tags */}
 									<ul
-										className="flex flex-wrap gap-2 mt-2"
+										className="flex flex-wrap gap-3 mt-2"
 										aria-label="Skills and tools"
 										role="list"
 									>
@@ -212,7 +254,7 @@ export const HowICanHelpSection = (): JSX.Element => {
 											item.tags.map((tag, tagIdx) => (
 												<li
 													key={tagIdx}
-													className="bg-[#e3f2fd] text-[#3949ab] px-3 py-1 rounded-full text-xs md:text-sm font-medium border border-[#b3e5fc] cursor-pointer hover:bg-[#b3e5fc] transition-colors focus:ring-2 focus:ring-[#201d66] focus:outline-none active:scale-95 font-sans"
+													className="bg-[#e3f2fd] text-[#3949ab] px-3 py-1 rounded-full text-xs md:text-sm font-medium border border-[#b3e5fc] cursor-pointer"
 													tabIndex={0}
 													aria-label={`Skill: ${tag}`}
 													role="listitem"
@@ -223,7 +265,7 @@ export const HowICanHelpSection = (): JSX.Element => {
 									</ul>
 								</div>
 								<AnimatePresence initial={false}>
-									{expandedIdx === idx && (
+									{(hoveredIdx === idx || expandedIdx === idx) && (
 										<motion.div
 											key="expanded"
 											initial={{ opacity: 0, y: 20, height: 0 }}
@@ -240,21 +282,22 @@ export const HowICanHelpSection = (): JSX.Element => {
 											>
 												{item.description}
 											</motion.p>
-											<div className="mt-3 flex flex-col md:flex-row gap-2 md:gap-6">
+											<div className="mt-2 flex flex-wrap gap-4 items-center">
 												<a
 													href={item.portfolio}
 													target="_blank"
 													rel="noopener noreferrer"
-													className="text-sm md:text-base text-[#201d66] font-medium underline hover:text-blue-700 transition-colors focus:ring-2 focus:ring-[#201d66] focus:outline-none active:scale-95 font-sans"
+													className="text-[#201d66] font-semibold underline underline-offset-4 hover:text-[#3949ab] transition-colors text-sm md:text-base focus:outline-none focus:ring-2 focus:ring-[#201d66]"
 													aria-label={`See portfolio project for ${item.title}`}
 												>
 													Project
 												</a>
+												<span className="text-[#b3b3b3] text-lg select-none">|</span>
 												<a
 													href={item.blog}
 													target="_blank"
 													rel="noopener noreferrer"
-													className="text-sm md:text-base text-[#201d66] font-medium underline hover:text-blue-700 transition-colors focus:ring-2 focus:ring-[#201d66] focus:outline-none active:scale-95 font-sans"
+													className="text-[#201d66] font-semibold underline underline-offset-4 hover:text-[#3949ab] transition-colors text-sm md:text-base focus:outline-none focus:ring-2 focus:ring-[#201d66]"
 													aria-label={`Read blog post for ${item.title}`}
 												>
 													Blog Post
@@ -264,7 +307,7 @@ export const HowICanHelpSection = (): JSX.Element => {
 									)}
 								</AnimatePresence>
 							</div>
-						</motion.article>
+						</motion.div>
 					))}
 				</motion.div>
 			</div>

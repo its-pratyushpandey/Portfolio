@@ -1,8 +1,8 @@
 import React from "react";
 import { Button } from "../../components/ui/button";
-import { AboutMeSection } from "./sections/AboutMeSection/AboutMeSection";
-import { ContactSection } from "./sections/ContactSection";
-import { SkillsSection } from "./sections/SkillsSection/SkillsSection";
+import { AboutMeSection } from "./section/AboutMeSection/AboutMeSection";
+import { ContactSection } from "./section/ContactSection/ContactSection";
+import { SkillsSection } from "./section/SkillsSection/SkillsSection";
 import { ExperienceSection } from "./section/ExperienceSection/ExperienceSection";
 import { BlogSection } from "./section/BlogSection/BlogSection";
 import { HowICanHelpSection } from "./section/HowICanHelpSection/HowICanHelpSection";
@@ -16,6 +16,7 @@ const navigationLinks = [
   { text: "Blog", href: "#blog" },
   {
     text: "Certifications",
+    
     href: "#certifications",
   },
 ];

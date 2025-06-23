@@ -2,8 +2,9 @@ import React from 'react';
 
 const Header: React.FC = () => {
   return (
-    <header className="fixed top-0 left-0 w-full bg-[#e3f2fd] z-10">
-      <nav className="container mx-auto px-4 py-3 flex justify-between items-center">
+    <header className="fixed top-0 left-0 w-full bg-gradient-to-br from-[#f5f5f5] to-[#e3f2fd] z-10">
+      <div className="absolute inset-0 z-0 bg-gradient-to-br from-[#e3f2fd] to-[#b3e5fc] opacity-60" style={{ backgroundAttachment: 'fixed' }} />
+      <nav className="container mx-auto px-4 py-3 flex justify-between items-center relative z-10">
         <div className="text-2xl font-bold text-[#201d66]"> </div>
         <ul className="flex space-x-6">
           <li><a href="#about" className="text-[#201d66] hover:text-[#3949ab]">About</a></li>

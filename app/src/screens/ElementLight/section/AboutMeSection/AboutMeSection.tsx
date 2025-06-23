@@ -210,9 +210,11 @@ export const AboutMeSection = (): JSX.Element => {
   };
 
   return (
-    <section className="w-full py-16 relative bg-gradient-to-br from-[#f5f5f5] to-[#e3f2fd] overflow-hidden">
-      <FloatingDecorations />
-      <div className="container mx-auto px-4 max-w-7xl relative z-10">
+    <section
+      className="w-full min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-[#f5f5f5] to-[#e3f2fd] py-0 relative overflow-x-hidden"
+    >
+      <div className="absolute inset-0 z-0 bg-gradient-to-br from-[#e3f2fd] to-[#b3e5fc] opacity-60" style={{ backgroundAttachment: 'fixed' }} />
+      <div className="relative z-10 w-full max-w-5xl mx-auto px-0 md:px-8">
         {/* Animated Section Heading */}
         <motion.h2
           className="text-5xl md:text-6xl font-bold text-[#201d66] mb-16 drop-shadow-lg flex items-center gap-4 justify-center"

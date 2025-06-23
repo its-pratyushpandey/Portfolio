@@ -59,110 +59,108 @@ const Hero: React.FC = () => {
 
   return (
     <section
-      id="hero"
-      className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#f5f5f5] to-[#e3f2fd] relative overflow-hidden"
+      className="w-full min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-[#f5f5f5] to-[#e3f2fd] py-0 relative overflow-x-hidden"
     >
-      <FloatingDecorations />
-      <motion.div
-        className="text-center flex flex-col items-center justify-center gap-6 relative z-10 w-full max-w-4xl px-4 md:px-0"
-        variants={sectionVariants}
-        initial="hidden"
-        animate="visible"
-      >
-        <motion.h2
-          className="text-lg md:text-2xl text-[#201d66] font-semibold mb-2 flex items-center justify-center gap-2 drop-shadow-sm"
-          variants={itemVariants}
-        >
-          <motion.span
-            initial={{ rotate: -10 }}
-            animate={{ rotate: [0, 20, -10, 0] }}
-            transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
-            className="inline-block"
-            aria-label="Waving hand"
-          >
-            👋
-          </motion.span>
-          Hey I'M
-        </motion.h2>
-        <motion.h1
-          className="text-4xl md:text-6xl font-bold text-[#201d66] mb-2 flex items-center justify-center gap-3 drop-shadow-md"
-          variants={itemVariants}
-          tabIndex={0}
-        >
-         
-           
-
-          Pratyush Kumar Pandey
-        </motion.h1>
-        <motion.p
-          className="text-xl md:text-2xl text-[#3949ab] mb-8"
-          variants={itemVariants}
-        >
-          <span className="inline-flex items-center gap-2">
-            <svg className="w-6 h-6 text-[#201d66]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422A12.083 12.083 0 0112 21.5a12.083 12.083 0 01-6.16-10.922L12 14z"/></svg>
-            Software Developer | Full Stack Developer
-          </span>
-        </motion.p>
+      <div className="absolute inset-0 z-0 bg-gradient-to-br from-[#e3f2fd] to-[#b3e5fc] opacity-60" style={{ backgroundAttachment: 'fixed' }} />
+      <div className="relative z-10 w-full max-w-4xl mx-auto px-4 md:px-0">
+        <FloatingDecorations />
         <motion.div
-          className="flex flex-col md:flex-row items-center gap-4 justify-center"
-          variants={itemVariants}
+          className="text-center flex flex-col items-center justify-center gap-6 relative z-10 w-full max-w-4xl px-4 md:px-0"
+          variants={sectionVariants}
+          initial="hidden"
+          animate="visible"
         >
-          <motion.a
-            href="#contact"
-            className="bg-[#201d66] text-white px-6 py-3 rounded-full text-lg hover:bg-[#3949ab] transition shadow-lg font-semibold"
-            whileHover={{ scale: 1.08 }}
-            whileTap={{ scale: 0.96 }}
+          <motion.h2
+            className="text-lg md:text-2xl text-[#201d66] font-semibold mb-2 flex items-center justify-center gap-2 drop-shadow-sm"
+            variants={itemVariants}
           >
-            Get in Touch
-          </motion.a>
-          <motion.a
-            href="https://github.com/its-pratyushpandey"
-            className="bg-white border-2 border-[#201d66] text-[#201d66] px-6 py-3 rounded-full text-lg hover:bg-[#201d66] hover:text-white hover:bg-[#3949ab] transition shadow-lg font-semibold"
-            whileHover={{ scale: 1.08 }}
-            whileTap={{ scale: 0.96 }}
-          >
-            <svg className="w-6 h-6 inline-block mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.49.5.09.66-.22.66-.48 0-.24-.01-.87-.01-1.7-2.78.6-3.37-1.34-3.37-1.34-.45-1.15-1.1-1.46-1.1-1.46-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.56-1.11-4.56-4.95 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02A9.56 9.56 0 0112 6.8c.85.004 1.71.115 2.51.337 1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.85-2.34 4.7-4.57 4.95.36.31.68.92.68 1.85 0 1.33-.01 2.4-.01 2.73 0 .27.16.58.67.48A10.01 10.01 0 0022 12c0-5.52-4.48-10-10-10z"/></svg>
-            GitHub
-          </motion.a>
-          <motion.a
-            href="https://www.linkedin.com/in/pratyush-pandey1/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-white border-2 border-[#201d66] text-[#201d66] px-6 py-3 rounded-full text-lg hover:bg-[#201d66] hover:text-white hover:bg-[#3949ab] transition shadow-lg font-semibold"
-            whileHover={{ scale: 1.08 }}
-            whileTap={{ scale: 0.96 }}
-          >
-            <svg className="w-6 h-6 inline-block mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.29c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm13.5 10.29h-3v-4.5c0-1.08-.02-2.47-1.5-2.47-1.5 0-1.73 1.17-1.73 2.39v4.58h-3v-9h2.89v1.23h.04c.4-.75 1.38-1.54 2.84-1.54 3.04 0 3.6 2 3.6 4.59v4.72z"/></svg>
-            LinkedIn
-          </motion.a>
-          <motion.a
-            href="/presume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-white border-2 border-[#201d66] text-[#201d66] px-6 py-3 rounded-full text-lg hover:bg-[#201d66] hover:text-white hover:bg-[#3949ab] transition shadow-lg font-semibold"
-            whileHover={{ scale: 1.08 }}
-            whileTap={{ scale: 0.96 }}
-            title="View Resume (PDF)"
-          >
-            <svg className="w-6 h-6 inline-block mr-2" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M12 4v16m8-8H4"/></svg>
-            Resume
-          </motion.a>
-        </motion.div>
-        {/* Animated details toggle for demonstration, similar to ExperienceSection */}
-        <AnimatePresence>
-          {showDetails && (
-            <motion.div
-              className="mt-8 bg-[#f5f5f5]/80 rounded-lg py-4 px-6 text-[#3949ab] text-base md:text-lg shadow-sm border-l-4 border-[#201d66]"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 20 }}
+            <motion.span
+              initial={{ rotate: -10 }}
+              animate={{ rotate: [0, 20, -10, 0] }}
+              transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
+              className="inline-block"
+              aria-label="Waving hand"
             >
-              Welcome to my portfolio! I am passionate about building beautiful, performant web applications and delivering great user experiences.
-            </motion.div>
-          )}
-        </AnimatePresence>
-        
-      </motion.div>
+              👋
+            </motion.span>
+            Hey I'M
+          </motion.h2>
+          <motion.h1
+            className="text-4xl md:text-6xl font-bold text-[#201d66] mb-2 flex items-center justify-center gap-3 drop-shadow-md"
+            variants={itemVariants}
+            tabIndex={0}
+          >
+            Pratyush Kumar Pandey
+          </motion.h1>
+          <motion.p
+            className="text-xl md:text-2xl text-[#3949ab] mb-8"
+            variants={itemVariants}
+          >
+            <span className="inline-flex items-center gap-2">
+              <svg className="w-6 h-6 text-[#201d66]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422A12.083 12.083 0 0112 21.5a12.083 12.083 0 01-6.16-10.922L12 14z"/></svg>
+              Software Developer | Full Stack Developer
+            </span>
+          </motion.p>
+          <motion.div
+            className="flex flex-col md:flex-row items-center gap-4 justify-center"
+            variants={itemVariants}
+          >
+            <motion.a
+              href="#contact"
+              className="bg-[#201d66] text-white px-6 py-3 rounded-full text-lg hover:bg-[#3949ab] transition shadow-lg font-semibold"
+              whileHover={{ scale: 1.08 }}
+              whileTap={{ scale: 0.96 }}
+            >
+              Get in Touch
+            </motion.a>
+            <motion.a
+              href="https://github.com/its-pratyushpandey"
+              className="bg-white border-2 border-[#201d66] text-[#201d66] px-6 py-3 rounded-full text-lg hover:bg-[#201d66] hover:text-white hover:bg-[#3949ab] transition shadow-lg font-semibold"
+              whileHover={{ scale: 1.08 }}
+              whileTap={{ scale: 0.96 }}
+            >
+              <svg className="w-6 h-6 inline-block mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.49.5.09.66-.22.66-.48 0-.24-.01-.87-.01-1.7-2.78.6-3.37-1.34-3.37-1.34-.45-1.15-1.1-1.46-1.1-1.46-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.56-1.11-4.56-4.95 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02A9.56 9.56 0 0112 6.8c.85.004 1.71.115 2.51.337 1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.85-2.34 4.7-4.57 4.95.36.31.68.92.68 1.85 0 1.33-.01 2.4-.01 2.73 0 .27.16.58.67.48A10.01 10.01 0 0022 12c0-5.52-4.48-10-10-10z"/></svg>
+              GitHub
+            </motion.a>
+            <motion.a
+              href="https://www.linkedin.com/in/pratyush-pandey1/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white border-2 border-[#201d66] text-[#201d66] px-6 py-3 rounded-full text-lg hover:bg-[#201d66] hover:text-white hover:bg-[#3949ab] transition shadow-lg font-semibold"
+              whileHover={{ scale: 1.08 }}
+              whileTap={{ scale: 0.96 }}
+            >
+              <svg className="w-6 h-6 inline-block mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.29c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm13.5 10.29h-3v-4.5c0-1.08-.02-2.47-1.5-2.47-1.5 0-1.73 1.17-1.73 2.39v4.58h-3v-9h2.89v1.23h.04c.4-.75 1.38-1.54 2.84-1.54 3.04 0 3.6 2 3.6 4.59v4.72z"/></svg>
+              LinkedIn
+            </motion.a>
+            <motion.a
+              href="/presume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white border-2 border-[#201d66] text-[#201d66] px-6 py-3 rounded-full text-lg hover:bg-[#201d66] hover:text-white hover:bg-[#3949ab] transition shadow-lg font-semibold"
+              whileHover={{ scale: 1.08 }}
+              whileTap={{ scale: 0.96 }}
+              title="View Resume (PDF)"
+            >
+              <svg className="w-6 h-6 inline-block mr-2" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M12 4v16m8-8H4"/></svg>
+              Resume
+            </motion.a>
+          </motion.div>
+          {/* Animated details toggle for demonstration, similar to ExperienceSection */}
+          <AnimatePresence>
+            {showDetails && (
+              <motion.div
+                className="mt-8 bg-[#f5f5f5]/80 rounded-lg py-4 px-6 text-[#3949ab] text-base md:text-lg shadow-sm border-l-4 border-[#201d66]"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 20 }}
+              >
+                Welcome to my portfolio! I am passionate about building beautiful, performant web applications and delivering great user experiences.
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </motion.div>
+      </div>
     </section>
   );
 };

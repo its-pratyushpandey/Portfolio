@@ -298,6 +298,8 @@ export const ContactSection = (): JSX.Element => {
                   initial="hidden"
                   animate="visible"
                   variants={containerVariants}
+                  action="https://formspree.io/f/manedlza"
+                  method="POST"
                 >
                   {/* Name Field */}
                   <motion.div className="relative" variants={itemVariants}>

@@ -37,28 +37,36 @@ const experiences = [
       "Collaborated with faculty and students to promote technical skills development."
     ]
   },
+{
+  company: "K L Deemed to be University",
+  role: "B.Tech CSE Student",
+  period: "2023 – 2024",
+  location: "Vaddeswaram, Andhra Pradesh",
+  tech: ["Java", "C", "Data Structures", "Algorithms"],
+  details: [
+    "Strong academic focus on core computer science subjects.",
+    "Hands-on experience with problem solving and coding challenges.",
+    "Participated in hackathons and technical competitions.",
+    "Developing a solid foundation in software development."
+  ]
+}
+
+, 
+
   {
-    company: "Undergraduation",
-    role: "Student, B.Tech CSE",
-    period: "2022 - Present",
-    location: "K L University",
-    tech: ["Java", "Python", "C", "Data Structures", "Algorithms"],
-    details: [
-      "Consistent academic performer with a focus on software engineering and problem solving.",
-      "Active participant in coding competitions and hackathons."
-    ]
-  },
-  {
-    company: "Undergraduation",
-    role: "Student, B.Tech CSE",
-    period: "2022 - Present",
-    location: "K L University",
-    tech: ["Java", "Python", "C", "Data Structures", "Algorithms"],
-    details: [
-      "Consistent academic performer with a focus on software engineering and problem solving.",
-      "Active participant in coding competitions and hackathons."
-    ]
-  }
+  company: "Senior Secondary Education",
+  role: "Student",
+  period: "2021 – 2023",
+  location: "Sedhan",
+  tech: ["C", "HTML", "CSS", "JavaScript"],
+  details: [
+    "Built foundational skills in C, HTML, CSS, and JavaScript.",
+  "Created basic websites, sparking interest in web development.",
+  "Maintained strong academic performance in computer science.",
+    
+  ]
+}
+
   // Add more experiences as needed
 ];
 

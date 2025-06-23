@@ -89,7 +89,7 @@ export const SkillsSection = (): JSX.Element => {
     <>
       {/* Fullscreen Animated Skills Marquee */}
       <section
-        className="w-screen h-screen min-h-[500px] flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-[#201d66] via-[#3949ab] to-[#b3e5fc]"
+        className="w-screen h-screen min-h-[700px] md:min-h-[900px] flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-[#201d66] via-[#3949ab] to-[#b3e5fc]"
         style={{ isolation: 'isolate', zIndex: 50 }}
         aria-label="Expertise Marquee"
       >
@@ -98,7 +98,7 @@ export const SkillsSection = (): JSX.Element => {
         {/* Marquee Content */}
         <div className="relative z-10 w-full flex items-center justify-center">
           <div className="w-full overflow-x-hidden">
-            <div className="relative w-full h-[120px] md:h-[160px] flex items-center">
+            <div className="relative w-full h-[160px] md:h-[220px] flex items-center">
               <div className="absolute left-0 top-0 flex items-center gap-16 h-full animate-marquee-skills-full" style={{ minWidth: '200%', width: 'max-content' }}>
                 {[...allSkills, ...allSkills].map((skill, idx) => (
                   <div

@@ -156,7 +156,7 @@ export const HowICanHelpSection = (): JSX.Element => {
 					variants={sectionVariants}
 					initial="hidden"
 					whileInView="visible"
-					viewport={{ once: true }}
+					viewport={{ once: true, amount: 0.2 }}
 					role="list"
 				>
 					{helpItems.map((item, idx) => (
@@ -168,6 +168,14 @@ export const HowICanHelpSection = (): JSX.Element => {
 									: "bg-transparent hover:bg-[#e3f2fd]/60"
 							} ${hoveredIdx === idx ? "scale-[1.01]" : ""}`}
 							variants={itemVariants}
+							initial="hidden"
+							whileInView="visible"
+							viewport={{ once: true, amount: 0.2 }}
+							transition={{
+								delay: idx * 0.15,
+								type: "spring",
+								stiffness: 60,
+							}}
 							tabIndex={0}
 							onClick={() => handleExpand(idx)}
 							onKeyDown={(e) =>

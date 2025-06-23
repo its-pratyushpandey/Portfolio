@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, lazy, Suspense } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const helpItems = [
@@ -8,7 +8,9 @@ const helpItems = [
 			"Building modern, scalable, and responsive web applications tailored to your business needs.",
 		icon: "🌐",
 		tags: ["React", "Node.js", "TypeScript", "Vite", "TailwindCSS"],
-		tooltip: "Modern web apps, full-stack solutions, and performance.",
+		level: 95, // out of 100
+		portfolio: "https://github.com/its-pratyushpandey/portfolio",
+		blog: "https://dev.to/itspratyushpandey/web-development-best-practices-2025-1",
 	},
 	{
 		title: "UI/UX Design",
@@ -16,7 +18,9 @@ const helpItems = [
 			"Designing intuitive and engaging user interfaces for delightful user experiences.",
 		icon: "🎨",
 		tags: ["Figma", "Wireframes", "Accessibility", "Prototyping"],
-		tooltip: "User-centered design, wireframes, and prototyping.",
+		level: 88,
+		portfolio: "https://www.figma.com/@pratyushpandey",
+		blog: "https://dev.to/itspratyushpandey/uiux-design-trends-2025-2",
 	},
 	{
 		title: "Consulting & Mentorship",
@@ -24,7 +28,9 @@ const helpItems = [
 			"Guiding teams and individuals in best practices, code reviews, and project architecture.",
 		icon: "🤝",
 		tags: ["Best Practices", "Code Reviews", "Architecture", "Teamwork"],
-		tooltip: "Mentoring, code quality, and scalable architecture.",
+		level: 82,
+		portfolio: "https://github.com/its-pratyushpandey/mentorship-projects",
+		blog: "https://dev.to/itspratyushpandey/mentoring-junior-devs-3",
 	},
 	{
 		title: "Automation & Integration",
@@ -32,7 +38,9 @@ const helpItems = [
 			"Automating workflows and integrating third-party services to boost productivity.",
 		icon: "⚡",
 		tags: ["APIs", "CI/CD", "Scripting", "Integrations"],
-		tooltip: "Workflow automation and third-party integrations.",
+		level: 90,
+		portfolio: "https://github.com/its-pratyushpandey/automation-scripts",
+		blog: "https://dev.to/itspratyushpandey/automation-integration-2025-4",
 	},
 ];
 
@@ -53,6 +61,13 @@ const itemVariants = {
 	visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 
+// Helper for lazy icon rendering (simulate for emoji, can be extended for SVGs)
+const LazyIcon = ({ icon, label }: { icon: string; label: string }) => (
+	<span role="img" aria-label={label} className="select-none">
+		{icon}
+	</span>
+);
+
 export const HowICanHelpSection = (): JSX.Element => {
 	const [expandedIdx, setExpandedIdx] = useState<number | null>(null);
 	const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
@@ -65,6 +80,7 @@ export const HowICanHelpSection = (): JSX.Element => {
 		<section
 			id="how-i-can-help"
 			className="w-full min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-[#f5f5f5] to-[#e3f2fd] py-0 relative overflow-x-hidden"
+			aria-labelledby="expertise-heading"
 		>
 			{/* Parallax background */}
 			<div
@@ -84,11 +100,16 @@ export const HowICanHelpSection = (): JSX.Element => {
 									key={item.title + idx}
 									className="flex flex-col items-center min-w-[120px] md:min-w-[180px] px-2"
 								>
-									<span
-										className="text-2xl md:text-3xl mb-1 select-none relative"
+									<Suspense
+										fallback={
+											<span className="text-2xl md:text-3xl mb-1">...</span>
+										}
 									>
-										{item.icon}
-									</span>
+										<LazyIcon
+											icon={item.icon}
+											label={item.title + " icon"}
+										/>
+									</Suspense>
 									<span
 										className="text-base md:text-lg text-[#201d66] font-semibold text-center whitespace-nowrap relative"
 									>
@@ -121,63 +142,77 @@ export const HowICanHelpSection = (): JSX.Element => {
         `}</style>
 
 				<motion.h2
-					className="text-4xl md:text-5xl font-bold text-[#201d66] mb-20 text-center pt-20"
+					id="expertise-heading"
+					className="text-4xl md:text-5xl font-bold text-[#201d66] mb-20 text-center pt-20 font-sans tracking-tight"
 					initial={{ opacity: 0, y: 40 }}
 					whileInView={{ opacity: 1, y: 0 }}
 					viewport={{ once: true }}
 				>
 					My Expertise
 				</motion.h2>
-				{/* Full-width, professional, responsive timeline with expandable details */}
+				{/* Timeline with semantic HTML and micro-interactions */}
 				<motion.div
 					className="relative flex flex-col gap-12 md:gap-20 w-full before:absolute before:left-6 before:top-0 before:bottom-0 before:w-1 before:bg-gradient-to-b before:from-[#b3e5fc] before:to-[#201d66] before:rounded-full"
 					variants={sectionVariants}
 					initial="hidden"
 					whileInView="visible"
 					viewport={{ once: true }}
+					role="list"
 				>
 					{helpItems.map((item, idx) => (
-						<motion.div
+						<motion.article
 							key={idx}
-							className={`relative flex flex-col md:flex-row md:items-center gap-4 md:gap-8 px-0 md:px-8 transition-all duration-300 cursor-pointer group focus:outline-none ${
+							className={`relative flex flex-col md:flex-row md:items-center gap-4 md:gap-8 px-0 md:px-8 transition-all duration-300 cursor-pointer group focus:outline-none focus-visible:ring-4 focus-visible:ring-[#201d66] focus-visible:ring-offset-2 focus-visible:ring-offset-[#e3f2fd] ${
 								expandedIdx === idx
-									? "bg-white/80 shadow-xl scale-[1.01]"
-									: "bg-transparent"
-							}`}
+									? "bg-white/80 shadow-xl scale-[1.01] ring-2 ring-[#201d66]"
+									: "bg-transparent hover:bg-[#e3f2fd]/60"
+							} ${hoveredIdx === idx ? "scale-[1.01]" : ""}`}
 							variants={itemVariants}
 							tabIndex={0}
 							onClick={() => handleExpand(idx)}
 							onKeyDown={(e) =>
-								(e.key === "Enter" || e.key === " ") &&
-								handleExpand(idx)
+								(e.key === "Enter" || e.key === " ") && handleExpand(idx)
 							}
 							aria-expanded={expandedIdx === idx}
 							role="button"
+							aria-label={`Expand details for ${item.title}`}
+							onMouseEnter={() => setHoveredIdx(idx)}
+							onMouseLeave={() => setHoveredIdx(null)}
 						>
 							{/* Timeline Dot */}
-							<span className="absolute left-0 top-8 md:top-1/2 md:-translate-y-1/2 w-6 h-6 rounded-full bg-white border-4 border-[#201d66] flex items-center justify-center shadow-lg z-10 text-2xl select-none">
-								{item.icon}
+							<span className="absolute left-0 top-8 md:top-1/2 md:-translate-y-1/2 w-6 h-6 rounded-full bg-white border-4 border-[#201d66] flex items-center justify-center shadow-lg z-10 text-2xl select-none transition-transform duration-200 group-active:scale-110 group-focus:scale-110">
+								<Suspense fallback={<span>...</span>}>
+									<LazyIcon
+										icon={item.icon}
+										label={item.title + " icon"}
+									/>
+								</Suspense>
 							</span>
 							{/* Content - full width, not a card */}
 							<div className="ml-14 flex-1 flex flex-col gap-2 md:gap-3 bg-transparent rounded-none shadow-none px-0 py-0">
 								<div className="flex flex-col md:flex-row md:items-center md:gap-6 flex-wrap">
-									<span
-										className="text-2xl md:text-3xl font-semibold text-[#201d66] relative"
-									>
+									<span className="text-2xl md:text-3xl font-semibold text-[#201d66] relative font-sans tracking-tight">
 										{item.title}
 									</span>
 									{/* Badges/Tags */}
-									<div className="flex flex-wrap gap-2 mt-2">
+									<ul
+										className="flex flex-wrap gap-2 mt-2"
+										aria-label="Skills and tools"
+										role="list"
+									>
 										{item.tags &&
 											item.tags.map((tag, tagIdx) => (
-												<span
+												<li
 													key={tagIdx}
-													className="bg-[#e3f2fd] text-[#3949ab] px-3 py-1 rounded-full text-xs md:text-sm font-medium border border-[#b3e5fc] cursor-pointer hover:bg-[#b3e5fc] transition-colors"
+													className="bg-[#e3f2fd] text-[#3949ab] px-3 py-1 rounded-full text-xs md:text-sm font-medium border border-[#b3e5fc] cursor-pointer hover:bg-[#b3e5fc] transition-colors focus:ring-2 focus:ring-[#201d66] focus:outline-none active:scale-95 font-sans"
+													tabIndex={0}
+													aria-label={`Skill: ${tag}`}
+													role="listitem"
 												>
 													{tag}
-												</span>
+												</li>
 											))}
-									</div>
+									</ul>
 								</div>
 								<AnimatePresence initial={false}>
 									{expandedIdx === idx && (
@@ -187,42 +222,41 @@ export const HowICanHelpSection = (): JSX.Element => {
 											animate={{ opacity: 1, y: 0, height: "auto" }}
 											exit={{ opacity: 0, y: 20, height: 0 }}
 											transition={{ duration: 0.4 }}
-											className="overflow-hidden"
+											className="overflow-hidden animate-fade-in"
 										>
 											<motion.p
-												className="mt-4 pl-2 border-l-4 border-[#201d66] bg-[#f5f5f5]/80 rounded-lg py-3 px-4 text-[#3949ab] text-base md:text-lg shadow-sm"
+												className="mt-4 pl-2 border-l-4 border-[#201d66] bg-[#f5f5f5]/80 rounded-lg py-3 px-4 text-[#3949ab] text-base md:text-lg shadow-sm font-sans"
 												initial={false}
 												animate={{ opacity: 1 }}
 												exit={{ opacity: 0 }}
 											>
 												{item.description}
 											</motion.p>
-											{/* Example: Add more details, case studies, or links here */}
-											<div className="mt-2 flex flex-col gap-2 md:gap-3">
-												<span className="text-sm md:text-base text-[#201d66] font-medium">
-													Case Study:{" "}
-													<a
-														href="#"
-														className="underline hover:text-blue-700 transition-colors"
-													>
-														See Example Project
-													</a>
-												</span>
-												<span className="text-sm md:text-base text-[#201d66] font-medium">
-													Related:{" "}
-													<a
-														href="#"
-														className="underline hover:text-blue-700 transition-colors"
-													>
-														Portfolio Link
-													</a>
-												</span>
+											<div className="mt-3 flex flex-col md:flex-row gap-2 md:gap-6">
+												<a
+													href={item.portfolio}
+													target="_blank"
+													rel="noopener noreferrer"
+													className="text-sm md:text-base text-[#201d66] font-medium underline hover:text-blue-700 transition-colors focus:ring-2 focus:ring-[#201d66] focus:outline-none active:scale-95 font-sans"
+													aria-label={`See portfolio project for ${item.title}`}
+												>
+													Project
+												</a>
+												<a
+													href={item.blog}
+													target="_blank"
+													rel="noopener noreferrer"
+													className="text-sm md:text-base text-[#201d66] font-medium underline hover:text-blue-700 transition-colors focus:ring-2 focus:ring-[#201d66] focus:outline-none active:scale-95 font-sans"
+													aria-label={`Read blog post for ${item.title}`}
+												>
+													Blog Post
+												</a>
 											</div>
 										</motion.div>
 									)}
 								</AnimatePresence>
 							</div>
-						</motion.div>
+						</motion.article>
 					))}
 				</motion.div>
 			</div>

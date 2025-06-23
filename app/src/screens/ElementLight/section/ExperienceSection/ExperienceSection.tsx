@@ -15,17 +15,7 @@ const experiences = [
   ]
 }
 , 
-  {
-    company: "K L University",
-    role: "Student Coordinator, GDSE",
-    period: "2023 - Present",
-    location: "Andhra Pradesh, India",
-    tech: ["Leadership", "Event Management", "Team Coordination"],
-    details: [
-      "Coordinated various technical events and workshops to enhance student engagement.",
-      "Led a team of volunteers to successfully execute multiple large-scale events."
-    ]
-  },
+
   {
     company: "K L University",
     role: "Core Team Member, GDSE",

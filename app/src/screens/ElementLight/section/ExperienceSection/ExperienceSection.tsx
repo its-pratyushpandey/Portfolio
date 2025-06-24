@@ -18,7 +18,7 @@ const experiences = [
 		company: "Mern Hackathon",
 		role: "Full Stack Developer – NextHire",
 		period: "2024",
-		location: "Remote",
+		location: "K L University",
 		tech: ["MongoDB", "Express", "React", "Node.js", "JWT", "Redux"],
 		details: [
 			"Developed a recruitment platform with user authentication and role-based access.",

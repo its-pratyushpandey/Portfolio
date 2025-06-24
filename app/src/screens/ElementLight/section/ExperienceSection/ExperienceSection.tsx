@@ -15,7 +15,7 @@ const experiences = [
 		],
 	},
 	{
-		company: "Personal Project",
+		company: "Mern Hackathon",
 		role: "Full Stack Developer – NextHire",
 		period: "2024",
 		location: "Remote",
@@ -27,8 +27,8 @@ const experiences = [
 		],
 	},
 	{
-		company: "Academic Project",
-		role: "Project Lead – Video Streaming Platform",
+		company: "FSAD Hackathon",
+		role: "Full Stack Developer – Video Streaming Platform",
 		period: "2024",
 		location: "K L University",
 		tech: ["Java", "Spring Boot", "MySQL", "REST API"],
@@ -36,6 +36,13 @@ const experiences = [
 			"Led the development of a video streaming web application using Spring Boot.",
 			"Designed RESTful APIs for video upload, playback, and user management.",
 			"Managed project workflow, code reviews, and team coordination.",
+      "Implemented user authentication and video streaming features.",
+
+  
+  
+    
+    
+
 		],
 	},
 	{

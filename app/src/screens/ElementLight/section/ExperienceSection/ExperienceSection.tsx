@@ -3,36 +3,54 @@ import { motion, AnimatePresence } from "framer-motion";
 
 // Dummy data for demonstration (replace with your actual data)
 const experiences = [
-{
-  company: "K L University",
-  role: "B.Tech CSE Student – AI with Computational Intelligence",
-  period: "2022 – Present",
-  location: "Andhra Pradesh, India",
-  tech: ["Java", "Python", "C", "Data Structures", "Algorithms"],
+  {
+  company: "Internship",
+  role: "Software Developer Intern – Tech Solutions",
+  period: "2024",
+  location: "Remote",
+  tech: ["Python", "Django", "PostgreSQL", "REST API"],
   details: [
-    "Pursuing a specialization in Artificial Intelligence with strong academic performance in core CS subjects.",
-    "Actively engaged in competitive programming, hackathons, and open-source collaboration."
+    "Contributed to the development of a web application for data analytics.",
+    "Implemented RESTful APIs for data retrieval and manipulation.",
+    "Collaborated with senior developers on code reviews and feature enhancements.",
+  ]
+},
+  {
+  company: "Personal Project",
+  role: "Full Stack Developer – NextHire",
+  period: "2024",
+  location: "Remote",
+  tech: ["MongoDB", "Express", "React", "Node.js", "JWT", "Redux"],
+  details: [
+    "Developed a recruitment platform with user authentication and role-based access.",
+    "Implemented job posting, application tracking, and admin dashboard features.",
+    "Integrated secure backend APIs and dynamic frontend components for smooth UX.",
   ]
 }
 , 
 
-  {
-    company: "K L University",
-    role: "Core Team Member, GDSE",
-    period: "2023 - Present",
-    location: "Andhra Pradesh, India",
-    tech: ["Leadership", "Teamwork", "Event Management"],
-    details: [
-      "Contributed to the planning and execution of technical events and workshops.",
-      "Collaborated with faculty and students to promote technical skills development."
-    ]
-  },
 {
-  company: "K L Deemed to be University",
+  company: "Academic Project",
+  role: "Project Lead – Video Streaming Platform",
+  period: "2024",
+  location: "K L University",
+  tech: ["Java", "Spring Boot", "MySQL", "REST API"],
+  details: [
+    "Led the development of a video streaming web application using Spring Boot.",
+    "Designed RESTful APIs for video upload, playback, and user management.",
+    "Managed project workflow, code reviews, and team coordination.",
+  ]
+}
+
+, 
+
+
+{
+  company: "Smart India Hackathon",
   role: "B.Tech CSE Student",
   period: "2023 – 2024",
   location: "Vaddeswaram, Andhra Pradesh",
-  tech: ["Java", "C", "Data Structures", "Algorithms"],
+  tech: ["HTML","CSS","Javascript", "C", "Data Structures", "Algorithms"],
   details: [
     "Strong academic focus on core computer science subjects.",
     "Hands-on experience with problem solving and coding challenges.",
@@ -40,7 +58,6 @@ const experiences = [
     "Developing a solid foundation in software development."
   ]
 }
-
 , 
 
   {

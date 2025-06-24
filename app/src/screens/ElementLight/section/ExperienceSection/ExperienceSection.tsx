@@ -96,30 +96,31 @@ export const ExperienceSection = (): JSX.Element => {
 				className="absolute inset-0 z-0 bg-gradient-to-br from-[#e3f2fd] to-[#b3e5fc] opacity-60"
 				style={{ backgroundAttachment: "fixed" }}
 			/>
-			{/* Sidebar Selector as vertical stepper, slightly right from edge */}
-			<aside className="relative z-10 md:w-1/4 w-full flex md:flex-col flex-row md:items-start items-center md:justify-center justify-start bg-transparent md:py-24 py-4 px-2 md:px-6 overflow-x-auto md:overflow-x-visible border-b md:border-b-0 md:border-r border-[#b3e5fc]/40 md:ml-20 ml-4">
-				<nav className="flex md:flex-col flex-row w-full md:w-auto gap-0">
+			{/* Timeline/Stepper - no cards, just clean timeline */}
+			<aside className="relative z-10 md:w-1/4 w-full flex md:flex-col flex-row md:items-start items-center md:justify-center justify-start bg-transparent md:py-24 py-4 px-2 md:px-0 overflow-x-auto md:overflow-x-visible border-b md:border-b-0 md:border-r border-[#b3e5fc]/40 md:ml-16 ml-4">
+				<nav className="flex md:flex-col flex-row w-full md:w-auto gap-0 relative">
+					<div className="absolute md:left-6 left-4 md:top-0 top-8 md:bottom-0 bottom-8 w-1 bg-gradient-to-b from-[#b3e5fc] to-[#201d66] rounded-full" style={{ zIndex: 0 }} />
 					{experiences.map((exp, idx) => (
 						<motion.button
 							key={exp.company}
-							className={
-								`group flex items-center md:items-start px-2 py-2 md:px-4 md:py-3 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#201d66] focus:ring-offset-2 bg-transparent text-[#201d66] md:rounded-l-xl rounded-xl md:rounded-r-none`}
+							className={`relative z-10 flex items-center md:items-start px-2 py-3 md:px-4 md:py-6 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#201d66] focus:ring-offset-2 bg-transparent text-[#201d66] rounded-none border-none shadow-none hover:bg-[#e3f2fd]/60 group w-full md:w-auto`}
 							onClick={() => setSelectedIdx(idx)}
 							aria-label={`Show details for ${exp.company}`}
 							tabIndex={0}
 							onKeyDown={e => (e.key === 'Enter' || e.key === ' ') && setSelectedIdx(idx)}
-							style={{ minWidth: '140px', marginBottom: 0, marginLeft: 0, marginRight: 0 }}
+							style={{ minWidth: '160px', marginBottom: 0, marginLeft: 0, marginRight: 0 }}
 							whileHover={{ scale: 1.04, x: 6 }}
 							whileTap={{ scale: 0.98 }}
 							initial="hidden"
 							animate="visible"
 							variants={itemVariants}
 						>
-							<span className="mr-3 flex items-center justify-center w-8 h-8 rounded-full font-bold text-base md:text-lg border-2 border-[#b3e5fc] bg-[#e3f2fd] transition">{String(idx + 1).padStart(2, '0')}</span>
+							{/* Timeline Dot - removed border for a cleaner look */}
+							<span className="flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded-full font-bold text-lg md:text-xl bg-[#e3f2fd] text-[#201d66] shadow-md mr-4 md:mr-6">{String(idx + 1).padStart(2, '0')}</span>
 							<span className="flex flex-col items-start text-left">
-								<span className="font-semibold text-sm md:text-base truncate max-w-[120px]">{exp.company}</span>
-								<span className="text-xs md:text-sm opacity-70 font-normal truncate max-w-[120px]">{exp.role.split('–')[0]}</span>
-								<span className="text-xs md:text-sm opacity-60 font-medium mt-0.5">{exp.period}</span>
+								<span className="font-semibold text-sm md:text-base">{exp.company}</span>
+								<span className="text-xs md:text-sm opacity-70 font-normal">{exp.role.split('–')[0]}</span>
+								<span className="text-xs md:text-sm opacity-60 font-medium mt-1">{exp.period}</span>
 							</span>
 						</motion.button>
 					))}
@@ -152,13 +153,63 @@ export const ExperienceSection = (): JSX.Element => {
 							</span>
 						))}
 					</div>
-					<ul className="list-disc pl-6 text-[#201d66] text-sm md:text-base space-y-1 mt-3">
+					{/* Professional Description List (no card) */}
+					<ul className="list-none mt-6 space-y-4">
 						{selectedExp.details.map((detail, i) => (
-							<li key={i}>{detail}</li>
+							<li key={i} className="flex items-start gap-3 text-[#201d66] text-base md:text-lg font-medium">
+								<span className="mt-1 text-[#80deea] text-xl md:text-2xl">•</span>
+								<span className="leading-relaxed">{detail}</span>
+							</li>
 						))}
 					</ul>
 				</motion.div>
 			</main>
+		</section>
+	);
+};
+
+// Professional single card for Senior Secondary Education
+export const SeniorSecondaryEducationCard = () => {
+	const exp = {
+		company: "Senior Secondary Education",
+		role: "Student",
+		period: "2021 – 2023",
+		location: "Sedhan",
+		tech: ["C", "HTML", "CSS", "JavaScript"],
+		details: [
+			"Built foundational skills in C, HTML, CSS, and JavaScript.",
+			"Created basic websites, sparking interest in web development.",
+			"Maintained strong academic performance in computer science.",
+		],
+	};
+	return (
+		<section className="w-full flex justify-center items-center py-8 px-2 md:px-0">
+			<div className="w-full max-w-xl bg-[#e3f2fd] rounded-2xl shadow-xl border border-[#b3e5fc] p-6 md:p-10 flex flex-col gap-4 transition-all duration-300">
+				<div className="flex items-center gap-3 mb-2">
+					<span className="inline-block bg-[#201d66] text-white rounded-full px-3 py-1 text-xs font-bold tracking-widest shadow">05</span>
+					<h2 className="text-2xl md:text-3xl font-extrabold text-[#201d66] leading-tight">{exp.company}</h2>
+					<span className="text-xs md:text-sm text-[#3949ab] font-medium bg-[#e3f2fd] rounded px-2 py-1 ml-auto">{exp.period}</span>
+				</div>
+				<div className="flex flex-col md:flex-row md:items-center md:gap-6 gap-1 mb-2">
+					<span className="text-base md:text-lg text-[#3949ab] font-semibold">{exp.role}</span>
+					<span className="text-sm md:text-base text-[#201d66] font-medium">{exp.location}</span>
+				</div>
+				<div className="flex flex-wrap gap-2 mt-2">
+					{exp.tech.map((tech, i) => (
+						<span
+							key={i}
+							className="bg-[#e3f2fd] text-[#3949ab] px-2 py-1 rounded text-xs md:text-sm font-medium border border-[#b3e5fc] shadow-sm"
+						>
+							{tech}
+						</span>
+					))}
+				</div>
+				<ul className="list-disc pl-6 text-[#201d66] text-base md:text-lg space-y-2 mt-2">
+					{exp.details.map((detail, i) => (
+						<li key={i}>{detail}</li>
+					))}
+				</ul>
+			</div>
 		</section>
 	);
 };

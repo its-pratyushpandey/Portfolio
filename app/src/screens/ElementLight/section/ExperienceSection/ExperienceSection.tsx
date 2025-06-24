@@ -14,37 +14,45 @@ const experiences = [
 			"Collaborated with senior developers on code reviews and feature enhancements.",
 		],
 	},
-	{
-		company: "Mern Hackathon",
-		role: "Full Stack Developer – NextHire",
-		period: "2024",
-		location: "K L University",
-		tech: ["MongoDB", "Express", "React", "Node.js", "JWT", "Redux"],
-		details: [
-			"Developed a recruitment platform with user authentication and role-based access.",
-			"Implemented job posting, application tracking, and admin dashboard features.",
-			"Integrated secure backend APIs and dynamic frontend components for smooth UX.",
-		],
-	},
-	{
-		company: "FSAD Hackathon",
-		role: "Full Stack Developer – Video Streaming Platform",
-		period: "2024",
-		location: "K L University",
-		tech: ["Java", "Spring Boot", "MySQL", "REST API"],
-		details: [
-			"Led the development of a video streaming web application using Spring Boot.",
-			"Designed RESTful APIs for video upload, playback, and user management.",
-			"Managed project workflow, code reviews, and team coordination.",
-      "Implemented user authentication and video streaming features.",
+{
+  company: "MERN Hackathon",
+  role: "Full Stack Developer – NextHire",
+  period: "2024",
+  location: "K L University",
+  tech: ["MongoDB", "Express", "React", "Node.js", "JWT", "Redux"],
+  details: [
+    "Built a recruitment platform with authentication and role-based access.",
+    "Implemented job posting, application tracking, and admin dashboard.",
+    "Integrated secure APIs with a responsive React frontend.",
+  ],
+},
+{
+  company: "FSAD Hackathon",
+  role: "Full Stack Developer – Video Streaming Platform",
+  period: "2024",
+  location: "K L University",
+  tech: ["Java", "Spring Boot", "MySQL", "REST API"],
+  details: [
+    "Developed a video streaming app with Spring Boot and MySQL.",
+    "Created REST APIs for video upload, playback, and user management.",
+    "Led team coordination and implemented authentication features.",
+  ],
+}
+,
 
-  
-  
-    
-    
-
-		],
-	},
+{
+  company: "PFSD Hackathon",
+  role: "Frontend Developer – CodeSync (Collaborative Code Editor)",
+  period: "2024",
+  location: "K L University",
+  tech: ["Python", "Django", "WebSockets", "SQL"],
+  details: [
+    "Built a real-time collaborative code editor using Django and WebSockets.",
+    "Implemented multi-user editing, session management, and live updates via Django Channels.",
+    "Handled backend logic, user authentication, and real-time synchronization.",
+  ],
+}
+,
 	{
 		company: "Smart India Hackathon",
 		role: "B.Tech CSE Student",

@@ -17,13 +17,16 @@ const experiences = [
 {
   company: "MERN Hackathon",
   role: "Full Stack Developer – NextHire",
-  period: "2024",
+  period: "2025",
   location: "K L University",
   tech: ["MongoDB", "Express", "React", "Node.js", "JWT", "Redux"],
   details: [
     "Built a recruitment platform with authentication and role-based access.",
     "Implemented job posting, application tracking, and admin dashboard.",
     "Integrated secure APIs with a responsive React frontend.",
+    "Optimized performance and user experience.",
+    "Utilized Git for version control and collaboration.",
+   
   ],
 },
 {
@@ -48,7 +51,7 @@ const experiences = [
   tech: ["Python", "Django", "WebSockets", "SQL"],
   details: [
     "Built a real-time collaborative code editor using Django and WebSockets.",
-    "Implemented multi-user editing, session management, and live updates via Django Channels.",
+    "Implemented multi-user editing, group chat,copilot and a compiler in it .",
     "Handled backend logic, user authentication, and real-time synchronization.",
   ],
 }
@@ -56,7 +59,7 @@ const experiences = [
 	{
 		company: "Smart India Hackathon",
 		role: "B.Tech CSE Student",
-		period: "2023 – 2024",
+		period: "2023 ",
 		location: "Vaddeswaram, Andhra Pradesh",
 		tech: ["HTML", "CSS", "Javascript", "C", "Data Structures", "Algorithms"],
 		details: [
@@ -68,7 +71,7 @@ const experiences = [
 
         "Enhanced technical skills through extracurricular activities.",
 
-"Developed a project portfolio showcasing web development and programming expertise.",
+"Developed a portfolio showcasing web development and programming expertise.",
 		],
 	},
 	{

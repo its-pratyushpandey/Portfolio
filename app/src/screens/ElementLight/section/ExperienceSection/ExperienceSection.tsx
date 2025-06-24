@@ -91,6 +91,7 @@ export const ExperienceSection = (): JSX.Element => {
 			id="experience"
 			className="w-full min-h-[100vh] flex flex-col md:flex-row items-stretch justify-center bg-gradient-to-br from-[#f5f5f5] to-[#e3f2fd] py-0 relative overflow-x-hidden"
 		>
+			
 			{/* Parallax background */}
 			<div
 				className="absolute inset-0 z-0 bg-gradient-to-br from-[#e3f2fd] to-[#b3e5fc] opacity-60"
@@ -128,6 +129,13 @@ export const ExperienceSection = (): JSX.Element => {
 			</aside>
 			{/* Main Experience Details */}
 			<main className="relative z-10 flex-1 flex flex-col items-center justify-center px-2 md:px-12 py-12 md:py-24 min-h-[60vh]">
+				{/* Professional Section Header */}
+				<div className="w-full max-w-2xl mx-auto mb-8">
+					<h2 className="text-3xl md:text-4xl font-extrabold text-[#201d66] tracking-tight text-left drop-shadow-sm bg-gradient-to-r from-[#201d66] to-[#3949ab] bg-clip-text text-transparent animate-gradient-x">
+						My Journey
+					</h2>
+					<div className="w-20 h-1 rounded-full bg-gradient-to-r from-[#201d66] via-[#3949ab] to-[#80deea] mt-2 mb-4 animate-pulse"></div>
+				</div>
 				<motion.div
 					className="w-full max-w-2xl mx-auto flex flex-col gap-6"
 					initial={{ opacity: 0, y: 40 }}

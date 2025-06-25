@@ -2,33 +2,37 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 
 const experiences = [
-	{
-		company: "Internship",
-		role: "Software Developer Intern – Tech Solutions",
-		period: "2024",
-		location: "Remote",
-		tech: ["Python", "Django", "PostgreSQL", "REST API"],
-		details: [
-			"Contributed to the development of a web application for data analytics.",
-			"Implemented RESTful APIs for data retrieval and manipulation.",
-			"Collaborated with senior developers on code reviews and feature enhancements.",
-		],
-	},
+{
+  company: "GAO Tek Inc.",
+  role: "Fullstack Developer Intern",
+  period: "2025",
+  location: "Remote",
+  tech: ["React", "Node.js", "Express", "MongoDB", "Firebase", "JWT"],
+  details: [
+ "Developed and maintained dynamic user interfaces using React for a web-based platform.",
+    "Integrated backend APIs using Express and Node.js to support real-time data interaction.",
+    "Implemented secure user authentication and authorization workflows with Firebase and JWT.",
+    "Contributed to feature enhancements, code optimization, and cross-functional collaboration.",
+  ],
+}
+,
+
 {
   company: "MERN Hackathon",
   role: "Full Stack Developer – NextHire",
   period: "2025",
   location: "K L University",
-  tech: ["MongoDB", "Express", "React", "Node.js", "JWT", "Redux"],
+  tech: ["MongoDB", "Express", "React", "Node.js", "JWT", "Redux", "OpenAI API", "Framer Motion"],
   details: [
-    "Built a recruitment platform with authentication and role-based access.",
-    "Implemented job posting, application tracking, and admin dashboard.",
-    "Integrated secure APIs with a responsive React frontend.",
-    "Optimized performance and user experience.",
-    "Utilized Git for version control and collaboration.",
-   
-  ],
+    "Developed *NextHire*, an AI-powered recruitment platform with secure authentication and role-based access.",
+  "Built features including job posting, application tracking, and admin dashboard.",
+  "Integrated *NextChat* for real-time recruiter-applicant communication.",
+  "Implemented AI modules: resume parser, cover letter generator, job matching, interview prep, and fraud detection.",
+  "Enhanced UI/UX with React, Redux, and Framer Motion; ensured responsive, high-performance frontend.",
+
+  ]
 },
+
 {
   company: "FSAD Hackathon",
   role: "Full Stack Developer – Video Streaming Platform",
@@ -39,6 +43,9 @@ const experiences = [
     "Developed a video streaming app with Spring Boot and MySQL.",
     "Created REST APIs for video upload, playback, and user management.",
     "Led team coordination and implemented authentication features.",
+	"Optimized database queries for performance.",
+
+	  "Learned to work under tight deadlines and deliver quality results.",
   ],
 }
 ,
@@ -53,6 +60,10 @@ const experiences = [
     "Built a real-time collaborative code editor using Django and WebSockets.",
     "Implemented multi-user editing, group chat,copilot and a compiler in it .",
     "Handled backend logic, user authentication, and real-time synchronization.",
+	"Collaborated with a team to design and develop the application.",
+
+	"Gained practical experience in software development and teamwork.",	
+
   ],
 }
 ,

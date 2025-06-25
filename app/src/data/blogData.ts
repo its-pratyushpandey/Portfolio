@@ -126,8 +126,8 @@ export const blogPosts: BlogPost[] = [
     featured: true,
     status: 'published',
     coverImage: {
-      url: '/blog/covers/nexthire-ai-cover.svg',
-      alt: 'Building NextHire AI-Powered Recruitment Platform - Cover Image',
+      url: '/blog/covers/nexthire-ai-3d-cover.svg',
+      alt: 'Building NextHire AI-Powered Recruitment Platform - Professional 3D Cover',
       width: 800,
       height: 400
     },
@@ -158,8 +158,8 @@ export const blogPosts: BlogPost[] = [
     featured: false,
     status: 'published',
     coverImage: {
-      url: '/blog/covers/spring-boot-streaming-cover.svg',
-      alt: 'Mastering Spring Boot Video Streaming APIs - Cover Image',
+      url: '/blog/covers/spring-boot-streaming-3d-cover.svg',
+      alt: 'Mastering Spring Boot Video Streaming APIs - Professional 3D Cover',
       width: 800,
       height: 400
     },
@@ -188,8 +188,8 @@ export const blogPosts: BlogPost[] = [
     featured: false,
     status: 'published',
     coverImage: {
-      url: '/blog/covers/django-websockets-cover.svg',
-      alt: 'Real-Time Collaboration with Django and WebSockets - Cover Image',
+      url: '/blog/covers/django-websockets-3d-cover.svg',
+      alt: 'Real-Time Collaboration with Django and WebSockets - Professional 3D Cover',
       width: 800,
       height: 400
     },
@@ -217,8 +217,8 @@ export const blogPosts: BlogPost[] = [
     featured: false,
     status: 'published',
     coverImage: {
-      url: '/blog/covers/ui-ux-design-cover.svg',
-      alt: 'UI/UX Design Principles for Developer-Designers - Cover Image',
+      url: '/blog/covers/ui-ux-design-3d-cover.svg',
+      alt: 'UI/UX Design Principles for Developer-Designers - Professional 3D Cover',
       width: 800,
       height: 400
     },

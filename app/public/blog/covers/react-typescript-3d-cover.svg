@@ -1,32 +1,33 @@
 <svg width="800" height="400" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <!-- Premium 3D gradients -->
+    <!-- Professional dark 3D gradients -->
     <linearGradient id="premium-bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
-      <stop offset="50%" style="stop-color:#764ba2;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#f093fb;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:#0a0a0a;stop-opacity:1" />
+      <stop offset="30%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#16213e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f3460;stop-opacity:1" />
     </linearGradient>
     
-    <!-- 3D glass effect -->
+    <!-- Dark 3D glass effect -->
     <linearGradient id="glass-3d" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.9" />
-      <stop offset="30%" style="stop-color:#ffffff;stop-opacity:0.7" />
-      <stop offset="70%" style="stop-color:#ffffff;stop-opacity:0.5" />
-      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0.3" />
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.12" />
+      <stop offset="30%" style="stop-color:#61dafb;stop-opacity:0.08" />
+      <stop offset="70%" style="stop-color:#3178c6;stop-opacity:0.06" />
+      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0.04" />
     </linearGradient>
     
-    <!-- React logo 3D gradient -->
+    <!-- React logo dark 3D gradient -->
     <radialGradient id="react-3d" cx="50%" cy="40%" r="60%">
       <stop offset="0%" style="stop-color:#61dafb;stop-opacity:1" />
-      <stop offset="50%" style="stop-color:#21232c;stop-opacity:0.8" />
-      <stop offset="100%" style="stop-color:#282c34;stop-opacity:0.6" />
+      <stop offset="50%" style="stop-color:#20b2aa;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#1e90ff;stop-opacity:0.7" />
     </radialGradient>
     
-    <!-- TypeScript 3D gradient -->
+    <!-- TypeScript dark 3D gradient -->
     <linearGradient id="ts-3d" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#3178c6;stop-opacity:1" />
-      <stop offset="50%" style="stop-color:#2562c4;stop-opacity:0.9" />
-      <stop offset="100%" style="stop-color:#1e4a8c;stop-opacity:0.8" />
+      <stop offset="50%" style="stop-color:#235a97;stop-opacity:0.95" />
+      <stop offset="100%" style="stop-color:#1e3a8a;stop-opacity:0.9" />
     </linearGradient>
     
     <!-- 3D depth shadow -->

@@ -1,36 +1,192 @@
 <svg width="800" height="400" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="design-bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#e91e63;stop-opacity:1" />
-      <stop offset="50%" style="stop-color:#9c27b0;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#3f51b5;stop-opacity:1" />
+    <!-- Professional Dark 3D Background -->
+    <linearGradient id="darkBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f0f1a;stop-opacity:1" />
+      <stop offset="30%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#16213e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f3460;stop-opacity:1" />
     </linearGradient>
+    
+    <!-- 3D Glass Card Effect -->
+    <linearGradient id="glassCard" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:rgba(255,255,255,0.15);stop-opacity:1" />
+      <stop offset="50%" style="stop-color:rgba(255,255,255,0.05);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:rgba(255,255,255,0.1);stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Design Accent Gradient -->
+    <linearGradient id="designAccent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#ff8cc8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#c44569;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Creative Tools Gradient -->
+    <linearGradient id="toolsAccent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4834d4;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#6c5ce7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#a29bfe;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Figma Orange -->
+    <linearGradient id="figmaAccent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff7262;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#ff6348;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff4757;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Creative Glow -->
+    <filter id="creativeGlow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- 3D Shadow Filter -->
+    <filter id="shadow3d" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="rgba(0,0,0,0.3)"/>
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="rgba(0,0,0,0.2)"/>
+    </filter>
   </defs>
   
-  <rect width="800" height="400" fill="url(#design-bg)"/>
+  <!-- Professional Dark Background -->
+  <rect width="800" height="400" fill="url(#darkBg)"/>
   
-  <rect x="80" y="80" width="640" height="240" rx="20" fill="rgba(255,255,255,0.95)" stroke="rgba(233,30,99,0.3)" stroke-width="2"/>
+  <!-- Subtle Grid Pattern -->
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="400" fill="url(#grid)"/>
   
-  <!-- Design tools -->
-  <g transform="translate(120, 120)">
-    <rect x="0" y="0" width="50" height="50" rx="12" fill="#ff7262"/>
-    <text x="25" y="32" text-anchor="middle" fill="white" font-family="Arial" font-size="16" font-weight="bold">Fg</text>
+  <!-- Creative Design Elements -->
+  <g opacity="0.4" filter="url(#creativeGlow)">
+    <!-- Bezier Curves -->
+    <path d="M 100 150 Q 150 100 200 150 Q 250 200 300 150" 
+          stroke="url(#designAccent)" stroke-width="2" fill="none" opacity="0.6"/>
+    <path d="M 500 250 Q 550 200 600 250 Q 650 300 700 250" 
+          stroke="url(#toolsAccent)" stroke-width="2" fill="none" opacity="0.6"/>
+    
+    <!-- Design Elements -->
+    <circle cx="120" cy="80" r="6" fill="url(#designAccent)"/>
+    <rect x="680" y="320" width="12" height="12" rx="2" fill="url(#figmaAccent)" transform="rotate(45 686 326)"/>
+    <circle cx="750" cy="100" r="4" fill="url(#toolsAccent)"/>
+    <circle cx="50" cy="350" r="5" fill="url(#designAccent)"/>
+    
+    <!-- Floating UI Elements -->
+    <rect x="40" y="280" width="20" height="3" rx="1.5" fill="url(#designAccent)" opacity="0.5"/>
+    <rect x="720" y="150" width="15" height="3" rx="1.5" fill="url(#toolsAccent)" opacity="0.5"/>
   </g>
   
-  <!-- Mobile and desktop wireframes -->
-  <g transform="translate(550, 130)">
-    <rect x="0" y="0" width="30" height="50" rx="6" fill="#9c27b0" opacity="0.8"/>
-    <rect x="40" y="10" width="50" height="30" rx="4" fill="#3f51b5" opacity="0.8"/>
+  <!-- Main 3D Glass Card -->
+  <g filter="url(#shadow3d)">
+    <rect x="60" y="70" width="680" height="260" rx="24" fill="url(#glassCard)" 
+          stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+    <rect x="60" y="70" width="680" height="1" fill="rgba(255,255,255,0.3)"/>
   </g>
   
-  <text x="400" y="180" text-anchor="middle" fill="#e91e63" font-family="Arial, sans-serif" font-size="28" font-weight="bold">
+  <!-- Modern Figma Icon -->
+  <g transform="translate(130, 135)" filter="url(#creativeGlow)">
+    <rect x="0" y="0" width="50" height="50" rx="12" fill="rgba(255,114,98,0.3)" stroke="url(#figmaAccent)" stroke-width="2"/>
+    <rect x="2" y="2" width="46" height="46" rx="10" fill="url(#figmaAccent)"/>
+    <circle cx="25" cy="25" r="8" fill="white" opacity="0.9"/>
+    <circle cx="25" cy="25" r="5" fill="url(#figmaAccent)"/>
+    <text x="25" y="29" text-anchor="middle" fill="white" font-family="system-ui" font-size="10" font-weight="700">F</text>
+  </g>
+  
+  <!-- Design System Icon -->
+  <g transform="translate(220, 140)" filter="url(#creativeGlow)">
+    <rect x="0" y="0" width="40" height="40" rx="8" fill="rgba(108,92,231,0.3)" stroke="url(#toolsAccent)" stroke-width="2"/>
+    <rect x="2" y="2" width="36" height="36" rx="6" fill="url(#toolsAccent)"/>
+    <rect x="8" y="8" width="8" height="8" rx="2" fill="white" opacity="0.9"/>
+    <rect x="18" y="8" width="8" height="8" rx="2" fill="white" opacity="0.7"/>
+    <rect x="8" y="18" width="8" height="8" rx="2" fill="white" opacity="0.7"/>
+    <rect x="18" y="18" width="8" height="8" rx="2" fill="white" opacity="0.5"/>
+  </g>
+  
+  <!-- Responsive Design Visualization -->
+  <g transform="translate(520, 130)" filter="url(#creativeGlow)">
+    <!-- Mobile Device -->
+    <rect x="0" y="0" width="35" height="55" rx="8" fill="rgba(255,107,107,0.3)" stroke="url(#designAccent)" stroke-width="2"/>
+    <rect x="2" y="2" width="31" height="51" rx="6" fill="url(#designAccent)"/>
+    <rect x="5" y="8" width="25" height="2" rx="1" fill="white" opacity="0.8"/>
+    <rect x="5" y="12" width="20" height="2" rx="1" fill="white" opacity="0.6"/>
+    <rect x="5" y="16" width="25" height="2" rx="1" fill="white" opacity="0.6"/>
+    <circle cx="17.5" cy="45" r="3" fill="white" opacity="0.9"/>
+    
+    <!-- Desktop Device -->
+    <rect x="45" y="15" width="55" height="35" rx="6" fill="rgba(72,52,212,0.3)" stroke="url(#toolsAccent)" stroke-width="2"/>
+    <rect x="47" y="17" width="51" height="31" rx="4" fill="url(#toolsAccent)"/>
+    <rect x="50" y="20" width="15" height="2" rx="1" fill="white" opacity="0.8"/>
+    <rect x="50" y="24" width="25" height="2" rx="1" fill="white" opacity="0.6"/>
+    <rect x="50" y="28" width="20" height="2" rx="1" fill="white" opacity="0.6"/>
+    <rect x="50" y="32" width="30" height="2" rx="1" fill="white" opacity="0.6"/>
+    <rect x="50" y="36" width="25" height="2" rx="1" fill="white" opacity="0.6"/>
+  </g>
+  
+  <!-- Accessibility Icon -->
+  <g transform="translate(320, 145)" filter="url(#creativeGlow)">
+    <circle cx="20" cy="20" r="22" fill="rgba(255,140,200,0.3)" stroke="url(#designAccent)" stroke-width="2"/>
+    <circle cx="20" cy="20" r="18" fill="url(#designAccent)"/>
+    <circle cx="20" cy="12" r="4" fill="white"/>
+    <rect x="18" y="16" width="4" height="12" rx="2" fill="white"/>
+    <ellipse cx="20" cy="30" rx="6" ry="3" fill="white"/>
+  </g>
+  
+  <!-- Color Palette -->
+  <g transform="translate(420, 150)" filter="url(#creativeGlow)">
+    <rect x="0" y="0" width="40" height="30" rx="6" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+    <circle cx="8" cy="8" r="4" fill="url(#designAccent)"/>
+    <circle cx="20" cy="8" r="4" fill="url(#toolsAccent)"/>
+    <circle cx="32" cy="8" r="4" fill="url(#figmaAccent)"/>
+    <circle cx="8" cy="22" r="4" fill="#4ecdc4"/>
+    <circle cx="20" cy="22" r="4" fill="#45b7d1"/>
+    <circle cx="32" cy="22" r="4" fill="#96ceb4"/>
+  </g>
+  
+  <!-- Main Title with Professional Typography -->
+  <text x="400" y="210" text-anchor="middle" fill="rgba(255,255,255,0.95)" 
+        font-family="system-ui, -apple-system, sans-serif" font-size="36" font-weight="700" letter-spacing="-0.02em">
     UI/UX Design Principles
   </text>
-  <text x="400" y="210" text-anchor="middle" fill="#9c27b0" font-family="Arial, sans-serif" font-size="20">
+  <text x="400" y="240" text-anchor="middle" fill="url(#designAccent)" 
+        font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="500">
     For Developer-Designers
   </text>
   
-  <text x="400" y="250" text-anchor="middle" fill="#3f51b5" font-family="Arial, sans-serif" font-size="16">
-    Create intuitive, accessible, and beautiful user interfaces
+  <!-- Subtitle -->
+  <text x="400" y="270" text-anchor="middle" fill="rgba(255,255,255,0.7)" 
+        font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="400">
+    Create Intuitive, Accessible &amp; Beautiful User Interfaces
   </text>
+  
+  <!-- Modern Feature Pills -->
+  <g transform="translate(120, 300)">
+    <rect width="75" height="24" rx="12" fill="rgba(255,114,98,0.2)" stroke="rgba(255,114,98,0.4)" stroke-width="1"/>
+    <text x="37.5" y="16" text-anchor="middle" fill="#ff7262" font-family="system-ui" font-size="12" font-weight="600">Figma</text>
+  </g>
+  
+  <g transform="translate(215, 300)">
+    <rect width="100" height="24" rx="12" fill="rgba(108,92,231,0.2)" stroke="rgba(108,92,231,0.4)" stroke-width="1"/>
+    <text x="50" y="16" text-anchor="middle" fill="#6c5ce7" font-family="system-ui" font-size="12" font-weight="600">User Experience</text>
+  </g>
+  
+  <g transform="translate(335, 300)">
+    <rect width="85" height="24" rx="12" fill="rgba(255,107,107,0.2)" stroke="rgba(255,107,107,0.4)" stroke-width="1"/>
+    <text x="42.5" y="16" text-anchor="middle" fill="#ff6b6b" font-family="system-ui" font-size="12" font-weight="600">Frontend</text>
+  </g>
+  
+  <g transform="translate(440, 300)">
+    <rect width="90" height="24" rx="12" fill="rgba(162,155,254,0.2)" stroke="rgba(162,155,254,0.4)" stroke-width="1"/>
+    <text x="45" y="16" text-anchor="middle" fill="#a29bfe" font-family="system-ui" font-size="12" font-weight="600">Accessibility</text>
+  </g>
+  
+  <g transform="translate(550, 300)">
+    <rect width="80" height="24" rx="12" fill="rgba(255,140,200,0.2)" stroke="rgba(255,140,200,0.4)" stroke-width="1"/>
+    <text x="40" y="16" text-anchor="middle" fill="#ff8cc8" font-family="system-ui" font-size="12" font-weight="600">Design</text>
+  </g>
 </svg>

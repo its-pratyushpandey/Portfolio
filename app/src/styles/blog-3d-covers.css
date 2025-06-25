@@ -1,3 +1,32 @@
+/* Enhanced Professional 3D Blog Cover Styles with Responsive Color System */
+
+/* CSS Custom Properties for Responsive Color Themes */
+:root {
+  /* Light theme colors */
+  --blog-3d-bg-primary: rgba(255, 255, 255, 0.98);
+  --blog-3d-bg-secondary: rgba(248, 250, 252, 0.95);
+  --blog-3d-border: rgba(226, 232, 240, 0.4);
+  --blog-3d-shadow-primary: rgba(32, 29, 102, 0.35);
+  --blog-3d-shadow-secondary: rgba(57, 73, 171, 0.25);
+  --blog-3d-text: rgba(32, 29, 102, 0.95);
+  --blog-3d-glow: rgba(139, 92, 246, 0.3);
+  --blog-3d-accent: rgba(128, 222, 234, 0.8);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Dark theme colors */
+    --blog-3d-bg-primary: rgba(15, 23, 42, 0.95);
+    --blog-3d-bg-secondary: rgba(30, 41, 59, 0.90);
+    --blog-3d-border: rgba(71, 85, 105, 0.4);
+    --blog-3d-shadow-primary: rgba(139, 92, 246, 0.2);
+    --blog-3d-shadow-secondary: rgba(59, 130, 246, 0.15);
+    --blog-3d-text: rgba(248, 250, 252, 0.95);
+    --blog-3d-glow: rgba(139, 92, 246, 0.4);
+    --blog-3d-accent: rgba(168, 85, 247, 0.8);
+  }
+}
+
 /* Professional 3D Blog Cover Styles - Enhanced Responsive Design */
 
 /* 3D Cover Image Container */
@@ -397,21 +426,131 @@
   }
 }
 
-/* Dark mode adaptations */
+/* Enhanced Dark mode adaptations with professional color themes */
 @media (prefers-color-scheme: dark) {
   .blog-card-3d {
     background: linear-gradient(135deg, 
       rgba(15, 23, 42, 0.95) 0%, 
       rgba(30, 41, 59, 0.90) 100%);
     border: 1px solid rgba(71, 85, 105, 0.4);
+    box-shadow: 
+      0 20px 40px -8px rgba(139, 92, 246, 0.2),
+      0 12px 24px -6px rgba(59, 130, 246, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
   }
   
   .blog-3d-cover-container {
     background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    border: 1px solid rgba(71, 85, 105, 0.3);
+  }
+  
+  .blog-3d-cover {
+    /* Enhanced dark mode filters for better contrast */
+    filter: brightness(1.1) contrast(1.05) saturate(1.1);
+  }
+  
+  .blog-card-3d:hover .blog-3d-cover {
+    filter: brightness(1.2) contrast(1.1) saturate(1.15);
   }
   
   .blog-3d-badge {
-    background: rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(12px);
+    color: rgba(255, 255, 255, 0.95);
   }
+  
+  .blog-3d-featured {
+    background: linear-gradient(135deg, 
+      rgba(30, 41, 59, 0.98) 0%, 
+      rgba(51, 65, 85, 0.95) 50%,
+      rgba(71, 85, 105, 0.92) 100%);
+    border: 2px solid rgba(139, 92, 246, 0.3);
+  }
+  
+  .blog-3d-featured::after {
+    background: conic-gradient(from 0deg at 50% 50%, 
+      rgba(139, 92, 246, 0.8) 0deg,
+      rgba(59, 130, 246, 0.6) 45deg,
+      rgba(147, 51, 234, 0.7) 90deg,
+      rgba(168, 85, 247, 0.6) 135deg,
+      rgba(236, 72, 153, 0.8) 180deg,
+      rgba(245, 158, 11, 0.6) 225deg,
+      rgba(16, 185, 129, 0.7) 270deg,
+      rgba(99, 102, 241, 0.6) 315deg,
+      rgba(139, 92, 246, 0.8) 360deg);
+  }
+  
+  .blog-3d-holographic::before {
+    background: conic-gradient(from 0deg, 
+      transparent 0deg,
+      rgba(139, 92, 246, 0.2) 45deg,
+      transparent 90deg,
+      rgba(59, 130, 246, 0.15) 135deg,
+      transparent 180deg,
+      rgba(147, 51, 234, 0.18) 225deg,
+      transparent 270deg,
+      rgba(168, 85, 247, 0.12) 315deg,
+      transparent 360deg);
+  }
+  
+  /* Dark mode text enhancements */
+  .blog-3d-content {
+    color: rgba(248, 250, 252, 0.95);
+  }
+  
+  .blog-3d-content h1,
+  .blog-3d-content h2,
+  .blog-3d-content h3 {
+    color: rgba(255, 255, 255, 0.98);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Dark mode glow effects */
+  .blog-3d-glow::after {
+    background: linear-gradient(45deg, 
+      rgba(139, 92, 246, 0.4), 
+      rgba(59, 130, 246, 0.35), 
+      rgba(147, 51, 234, 0.3), 
+      rgba(168, 85, 247, 0.25));
+    filter: blur(16px);
+  }
+  
+  /* Dark mode loading state */
+  .blog-3d-cover-loading {
+    background: linear-gradient(90deg, 
+      rgba(30, 41, 59, 0.9) 25%, 
+      rgba(51, 65, 85, 0.95) 50%, 
+      rgba(30, 41, 59, 0.9) 75%);
+  }
+}
+
+/* Light mode enhancements for better contrast */
+@media (prefers-color-scheme: light) {
+  .blog-3d-cover {
+    filter: brightness(1.02) contrast(1.03) saturate(1.05);
+  }
+  
+  .blog-card-3d:hover .blog-3d-cover {
+    filter: brightness(1.08) contrast(1.06) saturate(1.12);
+  }
+}
+
+/* Apply responsive colors to existing classes */
+.blog-card-3d {
+  background: linear-gradient(135deg, 
+    var(--blog-3d-bg-primary) 0%, 
+    var(--blog-3d-bg-secondary) 100%);
+  border: 1px solid var(--blog-3d-border);
+  color: var(--blog-3d-text);
+  box-shadow: 
+    0 20px 40px -8px var(--blog-3d-shadow-primary),
+    0 12px 24px -6px var(--blog-3d-shadow-secondary),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.blog-3d-glow::after {
+  background: linear-gradient(45deg, 
+    var(--blog-3d-glow), 
+    var(--blog-3d-accent));
 }

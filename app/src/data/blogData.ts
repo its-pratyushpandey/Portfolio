@@ -22,13 +22,26 @@ export const blogCategories: BlogCategory[] = [
     description: 'Design principles and user experience insights',
     slug: 'ui-ux-design',
     color: '#80deea'
-  },
-  {
+  },  {
     id: '4',
     name: 'Career & Tips',
     description: 'Professional development and coding tips',
     slug: 'career-tips',
     color: '#b3e5fc'
+  },
+  {
+    id: '5',
+    name: 'Artificial Intelligence',
+    description: 'AI development, machine learning, and automation',
+    slug: 'artificial-intelligence',
+    color: '#9c27b0'
+  },
+  {
+    id: '6',
+    name: 'Full-Stack Development',
+    description: 'End-to-end application development and architecture',
+    slug: 'fullstack-development',
+    color: '#ff9800'
   }
 ];
 
@@ -159,8 +172,7 @@ export const blogPosts: BlogPost[] = [
       metaDescription: 'Learn to build real-time collaborative applications with Django and WebSockets. Complete guide to multi-user editing and live synchronization.',
       keywords: ['Django', 'WebSockets', 'Real-time Applications', 'Python', 'Collaborative Editing', 'Code Editor']
     }
-  },
-  {
+  },  {
     id: '6',
     title: 'UI/UX Design Principles for Developer-Designers',
     description: 'Essential design principles every developer should master to create intuitive user interfaces. From my experience using Figma, creating responsive designs, and building user-centric applications.',
@@ -182,6 +194,81 @@ export const blogPosts: BlogPost[] = [
       metaTitle: 'UI/UX Design Principles for Developer-Designers | Pratyush Pandey',
       metaDescription: 'Master essential UI/UX design principles as a developer. Learn to create intuitive, accessible, and beautiful user interfaces.',
       keywords: ['UI/UX Design', 'User Experience', 'Frontend Development', 'Design Principles', 'Figma', 'Accessibility']
+    }
+  },
+  {
+    id: '7',
+    title: 'Building Intelligent AI Chatbots with OpenAI GPT-4 and React',
+    description: 'Comprehensive guide to building production-ready AI chatbots using OpenAI GPT-4 API, React, and modern web technologies. Learn about context management, streaming responses, and creating conversational interfaces.',
+    excerpt: 'Learn to build intelligent AI chatbots with OpenAI GPT-4, React, and advanced conversation management techniques for production applications.',
+    content: '',
+    date: '2024-12-28',
+    publishedDate: new Date('2024-12-28'),
+    tags: ['AI', 'OpenAI', 'GPT-4', 'React', 'Chatbots', 'Machine Learning'],
+    category: 'artificial-intelligence',
+    slug: 'building-intelligent-ai-chatbots-openai-gpt4-react',
+    readTime: 14,
+    featured: true,
+    status: 'published',
+    author: {
+      name: 'Pratyush Kumar Pandey',
+      avatar: '/profile.jpg'
+    },
+    seo: {
+      metaTitle: 'Building AI Chatbots with OpenAI GPT-4 and React | Pratyush Pandey',
+      metaDescription: 'Comprehensive guide to building production-ready AI chatbots using OpenAI GPT-4 API, React, and modern web technologies.',
+      keywords: ['AI Chatbots', 'OpenAI GPT-4', 'React', 'Machine Learning', 'Conversational AI', 'JavaScript']
+    },
+    socialLinks: {
+      devTo: 'https://dev.to/pratyush_kumarpandey_0f5/building-intelligent-ai-chatbots-with-openai-gpt4-and-react'
+    }
+  },
+  {
+    id: '8',
+    title: 'Full-Stack Microservices Architecture with Node.js and Docker',
+    description: 'Deep dive into building scalable microservices architecture using Node.js, Express, Docker, and Kubernetes. Learn about service communication, API gateways, and deployment strategies.',
+    excerpt: 'Master microservices architecture with Node.js, Docker, and Kubernetes. Build scalable, maintainable applications with modern DevOps practices.',
+    content: '',
+    date: '2024-12-25',
+    publishedDate: new Date('2024-12-25'),
+    tags: ['Microservices', 'Node.js', 'Docker', 'Kubernetes', 'DevOps', 'Architecture'],
+    category: 'fullstack-development',
+    slug: 'fullstack-microservices-architecture-nodejs-docker',
+    readTime: 16,
+    featured: true,
+    status: 'published',
+    author: {
+      name: 'Pratyush Kumar Pandey',
+      avatar: '/profile.jpg'
+    },
+    seo: {
+      metaTitle: 'Full-Stack Microservices Architecture with Node.js and Docker | Pratyush Pandey',
+      metaDescription: 'Deep dive into building scalable microservices architecture using Node.js, Express, Docker, and Kubernetes.',
+      keywords: ['Microservices', 'Node.js', 'Docker', 'Kubernetes', 'Full-Stack Architecture', 'DevOps']
+    }
+  },
+  {
+    id: '9',
+    title: 'Advanced Web Performance Optimization: From 3s to 300ms',
+    description: 'Complete guide to web performance optimization covering Core Web Vitals, image optimization, code splitting, caching strategies, and monitoring tools. Real-world case study of optimizing a React application.',
+    excerpt: 'Transform your web application performance from 3 seconds to 300ms load time with advanced optimization techniques and modern best practices.',
+    content: '',
+    date: '2024-12-22',
+    publishedDate: new Date('2024-12-22'),
+    tags: ['Performance', 'Web Optimization', 'Core Web Vitals', 'React', 'Frontend', 'Speed'],
+    category: 'web-development',
+    slug: 'advanced-web-performance-optimization-3s-to-300ms',
+    readTime: 13,
+    featured: false,
+    status: 'published',
+    author: {
+      name: 'Pratyush Kumar Pandey',
+      avatar: '/profile.jpg'
+    },
+    seo: {
+      metaTitle: 'Advanced Web Performance Optimization: From 3s to 300ms | Pratyush Pandey',
+      metaDescription: 'Complete guide to web performance optimization covering Core Web Vitals, image optimization, code splitting, and caching strategies.',
+      keywords: ['Web Performance', 'Core Web Vitals', 'Page Speed', 'React Optimization', 'Frontend Performance', 'SEO']
     }
   }
 ];

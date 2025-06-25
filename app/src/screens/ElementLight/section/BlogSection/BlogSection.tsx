@@ -8,7 +8,7 @@ interface BlogSectionProps {
 }
 
 // Get recent blog posts for display
-const blogs = getRecentBlogs(6);
+const blogs = getRecentBlogs(9);
 
 const sectionVariants = {
 	hidden: { opacity: 0, y: 60 },

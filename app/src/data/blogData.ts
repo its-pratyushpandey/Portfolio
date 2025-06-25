@@ -51,14 +51,13 @@ export const blogPosts: BlogPost[] = [
     author: {
       name: 'Pratyush Kumar Pandey',
       avatar: '/profile.jpg'
-    },
-    seo: {
+    },    seo: {
       metaTitle: 'Building Modern React Applications with TypeScript | Pratyush Pandey',
       metaDescription: 'Learn how to build scalable React applications with TypeScript. A comprehensive guide covering setup, best practices, and advanced patterns.',
       keywords: ['React', 'TypeScript', 'Frontend Development', 'JavaScript', 'Web Development', 'React Best Practices']
     },
     socialLinks: {
-      devTo: 'https://dev.to/itspratyushpandey/building-modern-react-applications-typescript'
+      devTo: 'https://dev.to/pratyush_kumarpandey_0f5/building-modern-react-applications-with-typescript-139j'
     }
   },
   {
@@ -78,11 +77,13 @@ export const blogPosts: BlogPost[] = [
     author: {
       name: 'Pratyush Kumar Pandey',
       avatar: '/profile.jpg'
-    },
-    seo: {
+    },    seo: {
       metaTitle: 'My Journey: From CS Student to Full-Stack Developer | Pratyush Pandey',
       metaDescription: 'Follow my personal journey from computer science student to full-stack developer. Lessons learned, challenges faced, and advice for aspiring developers.',
       keywords: ['Career Journey', 'Full-Stack Developer', 'Computer Science', 'Student Experience', 'Developer Advice']
+    },
+    socialLinks: {
+      devTo: 'https://dev.to/pratyush_kumarpandey_0f5/my-journey-from-computer-science-student-to-full-stack-developer-aln'
     }
   },
   {
@@ -107,9 +108,8 @@ export const blogPosts: BlogPost[] = [
       metaTitle: 'Building NextHire: AI-Powered Recruitment Platform | Pratyush Pandey',
       metaDescription: 'Technical deep dive into building NextHire, an AI-powered recruitment platform with MERN stack, OpenAI integration, and real-time features.',
       keywords: ['MERN Stack', 'AI Development', 'OpenAI API', 'Recruitment Platform', 'Hackathon Project']
-    },
-    socialLinks: {
-      devTo: 'https://dev.to/itspratyushpandey/building-nexthire-ai-recruitment-platform'
+    },    socialLinks: {
+      devTo: 'https://dev.to/pratyush_kumarpandey_0f5/building-nexthire-ai-powered-recruitment-platform-with-mern-stack-4505'
     }
   },
   {

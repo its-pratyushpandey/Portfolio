@@ -12,6 +12,12 @@ export interface BlogPost {
   readTime: number; // Estimated read time in minutes
   featured: boolean;
   status: 'draft' | 'published' | 'archived';
+  coverImage: {
+    url: string;
+    alt: string;
+    width?: number;
+    height?: number;
+  };
   author: {
     name: string;
     avatar?: string;

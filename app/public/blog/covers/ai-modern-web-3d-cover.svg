@@ -1,0 +1,167 @@
+<svg width="800" height="400" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Advanced 3D gradients -->
+    <linearGradient id="bg-3d" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f0f23;stop-opacity:1" />
+      <stop offset="30%" style="stop-color:#1a1a3e;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#2d2d5f;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4a4a8a;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- 3D Card gradient -->
+    <linearGradient id="card-3d" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.95" />
+      <stop offset="50%" style="stop-color:#f8f9fa;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#e3f2fd;stop-opacity:0.85" />
+    </linearGradient>
+    
+    <!-- Neural network glow -->
+    <radialGradient id="neural-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#80deea;stop-opacity:0.8" />
+      <stop offset="70%" style="stop-color:#3949ab;stop-opacity:0.4" />
+      <stop offset="100%" style="stop-color:#201d66;stop-opacity:0.1" />
+    </radialGradient>
+    
+    <!-- 3D Brain gradient -->
+    <linearGradient id="brain-3d" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:0.9" />
+      <stop offset="50%" style="stop-color:#4ecdc4;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#45b7d1;stop-opacity:0.7" />
+    </linearGradient>
+    
+    <!-- Shadow filter -->
+    <filter id="drop-shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#201d66" flood-opacity="0.3"/>
+    </filter>
+    
+    <!-- 3D emboss filter -->
+    <filter id="emboss" x="-50%" y="-50%" width="200%" height="200%">
+      <feConvolveMatrix order="3" kernelMatrix="1 1 1 1 1 1 1 1 1" divisor="1"/>
+      <feOffset dx="2" dy="2"/>
+      <feFlood flood-color="#ffffff" flood-opacity="0.5"/>
+      <feComposite operator="multiply"/>
+    </filter>
+  </defs>
+  
+  <!-- 3D Background with depth -->
+  <rect width="800" height="400" fill="url(#bg-3d)"/>
+  
+  <!-- Floating 3D geometric shapes -->
+  <g transform="translate(0,0)" opacity="0.15">
+    <!-- 3D cubes with perspective -->
+    <g transform="translate(100,50) rotateX(15deg) rotateY(25deg)">
+      <polygon points="0,0 50,0 60,10 10,10" fill="#80deea" opacity="0.6"/>
+      <polygon points="50,0 50,50 60,60 60,10" fill="#3949ab" opacity="0.8"/>
+      <polygon points="0,0 0,50 10,60 10,10" fill="#201d66" opacity="0.7"/>
+    </g>
+    
+    <!-- 3D spheres -->
+    <ellipse cx="650" cy="80" rx="40" ry="35" fill="url(#neural-glow)" opacity="0.6"/>
+    <ellipse cx="650" cy="85" rx="35" ry="30" fill="#80deea" opacity="0.4"/>
+    
+    <!-- 3D triangular prisms -->
+    <g transform="translate(200,320)">
+      <polygon points="0,0 40,0 45,5 5,5" fill="#b3e5fc" opacity="0.7"/>
+      <polygon points="40,0 20,25 25,30 45,5" fill="#80deea" opacity="0.8"/>
+      <polygon points="0,0 20,25 25,30 5,5" fill="#3949ab" opacity="0.6"/>
+    </g>
+  </g>
+  
+  <!-- Main 3D content card with perspective -->
+  <g transform="translate(60,60)">
+    <!-- Card shadow (3D depth) -->
+    <rect x="10" y="10" width="660" height="280" rx="25" fill="#201d66" opacity="0.2" filter="url(#drop-shadow)"/>
+    
+    <!-- Main card surface -->
+    <rect x="0" y="0" width="660" height="280" rx="20" fill="url(#card-3d)" stroke="rgba(128,222,234,0.3)" stroke-width="2" filter="url(#emboss)"/>
+    
+    <!-- 3D AI Brain visualization -->
+    <g transform="translate(50,40)">
+      <!-- Brain outline with 3D effect -->
+      <g fill="none" stroke="url(#brain-3d)" stroke-width="3">
+        <path d="M40,60 Q20,20 60,20 Q100,20 120,40 Q140,60 120,80 Q100,100 80,120 Q60,140 40,120 Q20,100 20,80 Q20,60 40,60"/>
+        <path d="M60,40 Q80,30 100,40 Q120,50 100,70 Q80,80 60,70 Q40,60 60,40"/>
+      </g>
+      
+      <!-- Neural network nodes (3D spheres) -->
+      <circle cx="60" cy="50" r="4" fill="#ff6b6b" opacity="0.9"/>
+      <circle cx="80" cy="40" r="3" fill="#4ecdc4" opacity="0.8"/>
+      <circle cx="100" cy="60" r="3.5" fill="#45b7d1" opacity="0.85"/>
+      <circle cx="90" cy="80" r="3" fill="#96ceb4" opacity="0.8"/>
+      <circle cx="70" cy="75" r="3.5" fill="#feca57" opacity="0.9"/>
+      
+      <!-- 3D connecting lines with glow -->
+      <g stroke="url(#neural-glow)" stroke-width="2" opacity="0.6">
+        <line x1="60" y1="50" x2="80" y2="40"/>
+        <line x1="80" y1="40" x2="100" y2="60"/>
+        <line x1="100" y1="60" x2="90" y2="80"/>
+        <line x1="90" y1="80" x2="70" y2="75"/>
+        <line x1="70" y1="75" x2="60" y2="50"/>
+      </g>
+      
+      <!-- Pulsing animation circles -->
+      <circle cx="60" cy="50" r="8" fill="none" stroke="#80deea" stroke-width="1" opacity="0.3">
+        <animate attributeName="r" values="8;15;8" dur="2s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.3;0;0.3" dur="2s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+    
+    <!-- 3D Code blocks with perspective -->
+    <g transform="translate(200,50)">
+      <!-- Background code window -->
+      <rect x="0" y="0" width="400" height="180" rx="12" fill="#1e1e1e" stroke="#80deea" stroke-width="1" opacity="0.9"/>
+      
+      <!-- Window controls (3D buttons) -->
+      <circle cx="20" cy="20" r="6" fill="#ff5f57"/>
+      <circle cx="40" cy="20" r="6" fill="#ffbd2e"/>
+      <circle cx="60" cy="20" r="6" fill="#28ca42"/>
+      
+      <!-- 3D Code text with syntax highlighting -->
+      <text x="20" y="50" fill="#569cd6" font-family="Monaco, Consolas, monospace" font-size="12">
+        <tspan>const</tspan> <tspan fill="#4fc1ff">AIModel</tspan> <tspan fill="#d4d4d4">=</tspan> <tspan fill="#ce9178">{</tspan>
+      </text>
+      <text x="30" y="70" fill="#9cdcfe" font-family="Monaco, Consolas, monospace" font-size="12">
+        <tspan>neural:</tspan> <tspan fill="#ce9178">'GPT-4'</tspan><tspan fill="#d4d4d4">,</tspan>
+      </text>
+      <text x="30" y="90" fill="#9cdcfe" font-family="Monaco, Consolas, monospace" font-size="12">
+        <tspan>learn:</tspan> <tspan fill="#569cd6">async</tspan> <tspan fill="#dcdcaa">()</tspan> <tspan fill="#d4d4d4">=></tspan> <tspan fill="#ce9178">{</tspan>
+      </text>
+      <text x="40" y="110" fill="#c586c0" font-family="Monaco, Consolas, monospace" font-size="12">
+        <tspan>return</tspan> <tspan fill="#4fc1ff">intelligence</tspan><tspan fill="#d4d4d4">;</tspan>
+      </text>
+      <text x="30" y="130" fill="#ce9178" font-family="Monaco, Consolas, monospace" font-size="12">}</text>
+      <text x="20" y="150" fill="#ce9178" font-family="Monaco, Consolas, monospace" font-size="12">};</text>
+      
+      <!-- Cursor blink animation -->
+      <rect x="85" y="140" width="2" height="15" fill="#80deea">
+        <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>
+      </rect>
+    </g>
+    
+    <!-- 3D Title with depth -->
+    <text x="330" y="220" text-anchor="middle" fill="#201d66" font-family="Arial, sans-serif" font-size="36" font-weight="bold">
+      Mastering Artificial Intelligence
+    </text>
+    <text x="330" y="250" text-anchor="middle" fill="#3949ab" font-family="Arial, sans-serif" font-size="24">
+      in Modern Web Development
+    </text>
+    
+    <!-- 3D subtitle with glow effect -->
+    <text x="330" y="275" text-anchor="middle" fill="#80deea" font-family="Arial, sans-serif" font-size="16" opacity="0.9">
+      Building intelligent applications with cutting-edge AI
+    </text>
+  </g>
+  
+  <!-- Floating particles with 3D motion -->
+  <g opacity="0.4">
+    <circle cx="150" cy="100" r="2" fill="#80deea">
+      <animateTransform attributeName="transform" type="translate" values="0,0; 20,-10; 0,0" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="680" cy="150" r="1.5" fill="#b3e5fc">
+      <animateTransform attributeName="transform" type="translate" values="0,0; -15,8; 0,0" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="120" cy="300" r="2.5" fill="#3949ab">
+      <animateTransform attributeName="transform" type="translate" values="0,0; 10,12; 0,0" dur="5s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+</svg>

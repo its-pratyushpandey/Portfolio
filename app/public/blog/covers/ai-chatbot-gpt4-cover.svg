@@ -1,0 +1,37 @@
+<svg width="800" height="400" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="ai-chatbot-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00c853;stop-opacity:1" />
+      <stop offset="30%" style="stop-color:#00acc1;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#3949ab;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#5e35b1;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <rect width="800" height="400" fill="url(#ai-chatbot-bg)"/>
+  
+  <rect x="80" y="80" width="640" height="240" rx="20" fill="rgba(255,255,255,0.95)" stroke="rgba(0,200,83,0.3)" stroke-width="2"/>
+  
+  <!-- OpenAI logo representation -->
+  <g transform="translate(120, 120)">
+    <circle cx="25" cy="25" r="20" fill="#00c853"/>
+    <text x="25" y="32" text-anchor="middle" fill="white" font-family="Arial" font-size="16" font-weight="bold">AI</text>
+  </g>
+  
+  <!-- Chat bubbles -->
+  <g transform="translate(500, 130)">
+    <rect x="0" y="0" width="60" height="20" rx="10" fill="#00acc1" opacity="0.8"/>
+    <rect x="20" y="25" width="60" height="20" rx="10" fill="#3949ab" opacity="0.8"/>
+  </g>
+  
+  <text x="400" y="180" text-anchor="middle" fill="#00c853" font-family="Arial, sans-serif" font-size="28" font-weight="bold">
+    AI Chatbots with GPT-4
+  </text>
+  <text x="400" y="210" text-anchor="middle" fill="#00acc1" font-family="Arial, sans-serif" font-size="20">
+    OpenAI &amp; React Integration
+  </text>
+  
+  <text x="400" y="250" text-anchor="middle" fill="#3949ab" font-family="Arial, sans-serif" font-size="16">
+    Production-ready conversational AI with streaming responses
+  </text>
+</svg>

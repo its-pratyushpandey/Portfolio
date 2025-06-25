@@ -1,0 +1,65 @@
+<svg width="800" height="400" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="career-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9c27b0;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#3949ab;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#80deea;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="career-card" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.95" />
+      <stop offset="100%" style="stop-color:#f3e5f5;stop-opacity:0.9" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="400" fill="url(#career-bg)"/>
+  
+  <!-- Decorative elements -->
+  <circle cx="100" cy="320" r="60" fill="rgba(255,255,255,0.1)"/>
+  <circle cx="700" cy="100" r="50" fill="rgba(255,255,255,0.08)"/>
+  <rect x="650" y="250" width="80" height="80" rx="15" fill="rgba(255,255,255,0.1)" transform="rotate(45 690 290)"/>
+  
+  <!-- Main content card -->
+  <rect x="80" y="80" width="640" height="240" rx="20" fill="url(#career-card)" stroke="rgba(156,39,176,0.2)" stroke-width="2"/>
+  
+  <!-- Journey path -->
+  <path d="M 120 200 Q 250 150 400 180 Q 550 210 680 160" fill="none" stroke="#9c27b0" stroke-width="4" stroke-dasharray="10,5"/>
+  
+  <!-- Milestone circles -->
+  <circle cx="120" cy="200" r="12" fill="#9c27b0"/>
+  <circle cx="250" cy="170" r="10" fill="#3949ab"/>
+  <circle cx="400" cy="180" r="10" fill="#3949ab"/>
+  <circle cx="550" cy="195" r="10" fill="#3949ab"/>
+  <circle cx="680" cy="160" r="12" fill="#80deea"/>
+  
+  <!-- Icons -->
+  <!-- Student icon -->
+  <g transform="translate(100, 120)">
+    <rect x="0" y="20" width="40" height="30" rx="5" fill="#9c27b0"/>
+    <rect x="8" y="0" width="24" height="24" rx="12" fill="#9c27b0"/>
+    <text x="20" y="38" text-anchor="middle" fill="white" font-family="Arial" font-size="12">🎓</text>
+  </g>
+  
+  <!-- Developer icon -->
+  <g transform="translate(640, 120)">
+    <rect x="0" y="0" width="40" height="40" rx="8" fill="#80deea"/>
+    <text x="20" y="28" text-anchor="middle" fill="#201d66" font-family="Arial" font-size="20">💻</text>
+  </g>
+  
+  <!-- Title -->
+  <text x="400" y="140" text-anchor="middle" fill="#201d66" font-family="Arial, sans-serif" font-size="28" font-weight="bold">
+    My Developer Journey
+  </text>
+  <text x="400" y="170" text-anchor="middle" fill="#9c27b0" font-family="Arial, sans-serif" font-size="20">
+    From Student to Full-Stack Developer
+  </text>
+  
+  <!-- Subtitle -->
+  <text x="400" y="250" text-anchor="middle" fill="#201d66" font-family="Arial, sans-serif" font-size="16">
+    Lessons learned, challenges faced, and advice for aspiring developers
+  </text>
+  
+  <!-- Progress indicators -->
+  <text x="120" y="220" text-anchor="middle" fill="#9c27b0" font-family="Arial" font-size="12" font-weight="bold">Student</text>
+  <text x="680" y="180" text-anchor="middle" fill="#80deea" font-family="Arial" font-size="12" font-weight="bold">Developer</text>
+</svg>

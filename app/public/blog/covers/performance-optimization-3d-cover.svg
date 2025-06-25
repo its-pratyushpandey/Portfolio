@@ -1,0 +1,229 @@
+<svg width="800" height="400" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Professional dark theme gradient -->
+    <linearGradient id="dark-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0c0c0c;stop-opacity:1" />
+      <stop offset="30%" style="stop-color:#1a1a1a;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#2d2d2d;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1a1a;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Holographic card effect -->
+    <linearGradient id="holo-card" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.1" />
+      <stop offset="25%" style="stop-color:#80deea;stop-opacity:0.2" />
+      <stop offset="50%" style="stop-color:#ffffff;stop-opacity:0.15" />
+      <stop offset="75%" style="stop-color:#3949ab;stop-opacity:0.2" />
+      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0.1" />
+    </linearGradient>
+    
+    <!-- Performance chart gradient -->
+    <linearGradient id="perf-gradient" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ff4757;stop-opacity:0.8" />
+      <stop offset="30%" style="stop-color:#ffa502;stop-opacity:0.9" />
+      <stop offset="70%" style="stop-color:#2ed573;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#1e90ff;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Neon glow effect -->
+    <filter id="neon-glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/> 
+      </feMerge>
+    </filter>
+    
+    <!-- 3D emboss -->
+    <filter id="emboss-3d" x="-50%" y="-50%" width="200%" height="200%">
+      <feConvolveMatrix order="3" kernelMatrix="-2 -1 0 -1 1 1 0 1 2"/>
+      <feOffset dx="1" dy="1"/>
+      <feFlood flood-color="#80deea" flood-opacity="0.3"/>
+      <feComposite operator="multiply"/>
+    </filter>
+    
+    <!-- Performance meter gradient -->
+    <radialGradient id="meter-bg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#2ed573;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#1e90ff;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#0c0c0c;stop-opacity:0.6" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Dark professional background -->
+  <rect width="800" height="400" fill="url(#dark-bg)"/>
+  
+  <!-- Floating 3D geometric performance indicators -->
+  <g opacity="0.15">
+    <!-- 3D bars representing performance metrics -->
+    <g transform="translate(100,100)">
+      <rect x="0" y="50" width="20" height="100" fill="#ff4757" opacity="0.7"/>
+      <rect x="25" y="30" width="20" height="120" fill="#ffa502" opacity="0.8"/>
+      <rect x="50" y="10" width="20" height="140" fill="#2ed573" opacity="0.9"/>
+      <rect x="75" y="5" width="20" height="145" fill="#1e90ff" opacity="1"/>
+      
+      <!-- 3D perspective tops -->
+      <polygon points="0,50 10,40 30,40 20,50" fill="#ff6b6b" opacity="0.8"/>
+      <polygon points="25,30 35,20 55,20 45,30" fill="#ffb142" opacity="0.9"/>
+      <polygon points="50,10 60,0 80,0 70,10" fill="#32d583" opacity="1"/>
+      <polygon points="75,5 85,-5 105,-5 95,5" fill="#2eadff" opacity="1"/>
+    </g>
+    
+    <!-- 3D speedometer elements -->
+    <g transform="translate(600,80)">
+      <circle cx="50" cy="50" r="40" fill="none" stroke="#80deea" stroke-width="3" opacity="0.6"/>
+      <circle cx="50" cy="50" r="30" fill="none" stroke="#3949ab" stroke-width="2" opacity="0.7"/>
+      <circle cx="50" cy="50" r="20" fill="none" stroke="#201d66" stroke-width="1" opacity="0.8"/>
+      
+      <!-- Performance needle -->
+      <line x1="50" y1="50" x2="80" y2="30" stroke="#2ed573" stroke-width="3" opacity="0.9"/>
+    </g>
+  </g>
+  
+  <!-- Main holographic content card -->
+  <g transform="translate(60,60)">
+    <!-- Multiple holographic layers for depth -->
+    <rect x="15" y="15" width="650" height="280" rx="20" fill="#80deea" opacity="0.05"/>
+    <rect x="10" y="10" width="650" height="280" rx="20" fill="#3949ab" opacity="0.08"/>
+    <rect x="5" y="5" width="650" height="280" rx="20" fill="#201d66" opacity="0.06"/>
+    
+    <!-- Main holographic surface -->
+    <rect x="0" y="0" width="650" height="280" rx="15" fill="url(#holo-card)" 
+          stroke="rgba(128,222,234,0.3)" stroke-width="1" filter="url(#neon-glow)"/>
+    
+    <!-- 3D Performance visualization dashboard -->
+    <g transform="translate(50,40)">
+      <!-- Performance meter (3D gauge) -->
+      <g>
+        <!-- Meter background -->
+        <circle cx="80" cy="80" r="60" fill="url(#meter-bg)" opacity="0.2"/>
+        <circle cx="80" cy="80" r="55" fill="none" stroke="#2ed573" stroke-width="4" opacity="0.6"/>
+        
+        <!-- Performance arc (3s to 300ms) -->
+        <path d="M 35 80 A 45 45 0 1 1 125 80" fill="none" stroke="url(#perf-gradient)" stroke-width="8" 
+              stroke-linecap="round" filter="url(#neon-glow)"/>
+        
+        <!-- Speed indicators -->
+        <text x="80" y="75" text-anchor="middle" fill="#2ed573" font-family="Arial, sans-serif" font-size="18" font-weight="bold">300ms</text>
+        <text x="80" y="95" text-anchor="middle" fill="#80deea" font-family="Arial, sans-serif" font-size="12">OPTIMIZED</text>
+        
+        <!-- 3D needle pointing to optimized performance -->
+        <line x1="80" y1="80" x2="115" y2="55" stroke="#ffffff" stroke-width="3" filter="url(#neon-glow)"/>
+        <circle cx="80" cy="80" r="5" fill="#ffffff"/>
+      </g>
+      
+      <!-- Performance metrics display -->
+      <g transform="translate(180,20)">
+        <!-- 3D metric cards -->
+        <rect x="0" y="0" width="120" height="40" rx="8" fill="#1a1a1a" stroke="#80deea" stroke-width="1" opacity="0.8"/>
+        <text x="10" y="15" fill="#2ed573" font-family="Monaco, Consolas, monospace" font-size="10">LCP</text>
+        <text x="10" y="30" fill="#ffffff" font-family="Monaco, Consolas, monospace" font-size="14" font-weight="bold">300ms</text>
+        
+        <rect x="130" y="0" width="120" height="40" rx="8" fill="#1a1a1a" stroke="#3949ab" stroke-width="1" opacity="0.8"/>
+        <text x="140" y="15" fill="#1e90ff" font-family="Monaco, Consolas, monospace" font-size="10">FCP</text>
+        <text x="140" y="30" fill="#ffffff" font-family="Monaco, Consolas, monospace" font-size="14" font-weight="bold">180ms</text>
+        
+        <rect x="260" y="0" width="120" height="40" rx="8" fill="#1a1a1a" stroke="#201d66" stroke-width="1" opacity="0.8"/>
+        <text x="270" y="15" fill="#ffa502" font-family="Monaco, Consolas, monospace" font-size="10">TTI</text>
+        <text x="270" y="30" fill="#ffffff" font-family="Monaco, Consolas, monospace" font-size="14" font-weight="bold">250ms</text>
+      </g>
+      
+      <!-- 3D optimization code visualization -->
+      <g transform="translate(200,80)">
+        <!-- Terminal window with 3D effect -->
+        <rect x="0" y="0" width="380" height="120" rx="8" fill="#0d1117" stroke="#80deea" stroke-width="1" filter="url(#emboss-3d)"/>
+        
+        <!-- Terminal header -->
+        <rect x="0" y="0" width="380" height="25" rx="8" fill="#21262d"/>
+        <circle cx="15" cy="12" r="4" fill="#ff5f57"/>
+        <circle cx="30" cy="12" r="4" fill="#ffbd2e"/>
+        <circle cx="45" cy="12" r="4" fill="#28ca42"/>
+        <text x="60" y="16" fill="#7d8590" font-family="Monaco, Consolas, monospace" font-size="10">performance-optimization.js</text>
+        
+        <!-- Optimized code with syntax highlighting -->
+        <text x="10" y="45" fill="#f97583" font-family="Monaco, Consolas, monospace" font-size="11">
+          <tspan>const</tspan> <tspan fill="#79b8ff">optimize</tspan> <tspan fill="#e1e4e8">=</tspan> <tspan fill="#9ecbff">{</tspan>
+        </text>
+        <text x="20" y="60" fill="#ffab70" font-family="Monaco, Consolas, monospace" font-size="11">
+          <tspan>lazy:</tspan> <tspan fill="#b392f0">React.lazy</tspan><tspan fill="#e1e4e8">,</tspan>
+        </text>
+        <text x="20" y="75" fill="#ffab70" font-family="Monaco, Consolas, monospace" font-size="11">
+          <tspan>memo:</tspan> <tspan fill="#b392f0">React.memo</tspan><tspan fill="#e1e4e8">,</tspan>
+        </text>
+        <text x="20" y="90" fill="#ffab70" font-family="Monaco, Consolas, monospace" font-size="11">
+          <tspan>cache:</tspan> <tspan fill="#9ecbff">'aggressive'</tspan>
+        </text>
+        <text x="10" y="105" fill="#9ecbff" font-family="Monaco, Consolas, monospace" font-size="11">};</text>
+        
+        <!-- Blinking cursor -->
+        <rect x="25" y="95" width="2" height="12" fill="#80deea">
+          <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>
+        </rect>
+      </g>
+    </g>
+    
+    <!-- 3D holographic title -->
+    <g transform="translate(325,190)">
+      <!-- Glitch effect shadow -->
+      <text x="3" y="3" text-anchor="middle" fill="#ff4757" font-family="Arial, sans-serif" font-size="36" font-weight="900" opacity="0.3">
+        Advanced Web Performance
+      </text>
+      <text x="-2" y="1" text-anchor="middle" fill="#2ed573" font-family="Arial, sans-serif" font-size="36" font-weight="900" opacity="0.4">
+        Advanced Web Performance
+      </text>
+      <!-- Main title -->
+      <text x="0" y="0" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="36" font-weight="900" filter="url(#neon-glow)">
+        Advanced Web Performance
+      </text>
+    </g>
+    
+    <!-- 3D subtitle with performance emphasis -->
+    <g transform="translate(325,225)">
+      <text x="1" y="1" text-anchor="middle" fill="#80deea" font-family="Arial, sans-serif" font-size="24" font-weight="600" opacity="0.6">
+        From 3s to 300ms Optimization
+      </text>
+      <text x="0" y="0" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="24" font-weight="600">
+        From 3s to 300ms Optimization
+      </text>
+    </g>
+    
+    <!-- Performance improvement indicator -->
+    <text x="325" y="255" text-anchor="middle" fill="#2ed573" font-family="Arial, sans-serif" font-size="16" font-weight="500">
+      Real-world optimization strategies and techniques
+    </text>
+  </g>
+  
+  <!-- 3D floating performance particles -->
+  <g opacity="0.7">
+    <!-- Speed indicators -->
+    <g transform="translate(150,120)">
+      <circle cx="0" cy="0" r="2" fill="#2ed573"/>
+      <text x="8" y="5" fill="#2ed573" font-family="Arial, sans-serif" font-size="12" font-weight="bold">300ms</text>
+      <animateTransform attributeName="transform" type="translate" values="150,120; 180,100; 150,120" dur="3s" repeatCount="indefinite"/>
+    </g>
+    
+    <g transform="translate(600,200)">
+      <circle cx="0" cy="0" r="2" fill="#1e90ff"/>
+      <text x="8" y="5" fill="#1e90ff" font-family="Arial, sans-serif" font-size="12" font-weight="bold">98%</text>
+      <animateTransform attributeName="transform" type="translate" values="600,200; 580,180; 600,200" dur="4s" repeatCount="indefinite"/>
+    </g>
+    
+    <g transform="translate(120,300)">
+      <circle cx="0" cy="0" r="2" fill="#ffa502"/>
+      <text x="8" y="5" fill="#ffa502" font-family="Arial, sans-serif" font-size="12" font-weight="bold">A+</text>
+      <animateTransform attributeName="transform" type="translate" values="120,300; 140,320; 120,300" dur="5s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  
+  <!-- Holographic scan lines -->
+  <g opacity="0.1">
+    <line x1="0" y1="100" x2="800" y2="100" stroke="#80deea" stroke-width="1">
+      <animate attributeName="y1" values="0;400;0" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="y2" values="0;400;0" dur="3s" repeatCount="indefinite"/>
+    </line>
+    <line x1="0" y1="200" x2="800" y2="200" stroke="#3949ab" stroke-width="1">
+      <animate attributeName="y1" values="400;0;400" dur="4s" repeatCount="indefinite"/>
+      <animate attributeName="y2" values="400;0;400" dur="4s" repeatCount="indefinite"/>
+    </line>
+  </g>
+</svg>

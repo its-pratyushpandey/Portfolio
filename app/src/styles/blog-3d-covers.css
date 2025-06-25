@@ -1,0 +1,417 @@
+/* Professional 3D Blog Cover Styles - Enhanced Responsive Design */
+
+/* 3D Cover Image Container */
+.blog-3d-cover-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem 1rem 0 0;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  
+  /* Advanced 3D perspective setup */
+  perspective: 1200px;
+  transform-style: preserve-3d;
+  
+  /* Professional shadows */
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Enhanced 3D Cover Image */
+.blog-3d-cover {
+  width: 100%;
+  height: 12rem; /* 192px for desktop */
+  object-fit: cover;
+  transition: all 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+  
+  /* Advanced 3D transform properties */
+  transform-origin: center center;
+  backface-visibility: hidden;
+  will-change: transform, filter;
+  
+  /* Professional image rendering */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  
+  /* Subtle gradient overlay */
+  position: relative;
+}
+
+/* Professional hover 3D effects */
+.blog-card-3d:hover .blog-3d-cover {
+  transform: scale3d(1.08, 1.08, 1) rotateX(3deg) rotateY(-2deg) translateZ(15px);
+  filter: brightness(1.12) contrast(1.08) saturate(1.15);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* Dynamic 3D depth overlay */
+.blog-3d-cover::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    145deg,
+    rgba(139, 92, 246, 0.08) 0%,
+    rgba(6, 182, 212, 0.06) 25%,
+    transparent 50%,
+    rgba(59, 130, 246, 0.06) 75%,
+    rgba(147, 51, 234, 0.08) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.blog-card-3d:hover .blog-3d-cover::before {
+  opacity: 1;
+}
+
+/* Advanced 3D Blog Card Container */
+.blog-card-3d {
+  transform-style: preserve-3d;
+  perspective: 1200px;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.98) 0%, 
+    rgba(248, 250, 252, 0.95) 100%);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(226, 232, 240, 0.4);
+}
+
+/* Professional 3D card hover effects */
+.blog-card-3d:hover {
+  transform: translateY(-16px) rotateX(8deg) rotateY(-4deg) scale(1.03);
+  box-shadow: 
+    0 32px 64px -12px rgba(32, 29, 102, 0.35),
+    0 20px 40px -8px rgba(57, 73, 171, 0.25),
+    0 12px 24px -6px rgba(139, 92, 246, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* Holographic shimmer effect */
+.blog-card-3d::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.1) 0%, 
+    rgba(255, 255, 255, 0.02) 25%,
+    rgba(139, 92, 246, 0.03) 50%,
+    rgba(6, 182, 212, 0.02) 75%,
+    rgba(255, 255, 255, 0.1) 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.blog-card-3d:hover::before {
+  opacity: 1;
+}
+
+/* Enhanced 3D Badge Styles */
+.blog-3d-badge {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.blog-3d-badge::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: conic-gradient(from 0deg, 
+    rgba(139, 92, 246, 0.4) 0deg,
+    rgba(6, 182, 212, 0.4) 90deg,
+    rgba(59, 130, 246, 0.4) 180deg,
+    rgba(147, 51, 234, 0.4) 270deg,
+    rgba(139, 92, 246, 0.4) 360deg);
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  animation: rotate-holo 3s linear infinite;
+}
+
+.blog-card-3d:hover .blog-3d-badge::before {
+  opacity: 1;
+}
+
+/* Featured Card Special Effects */
+.blog-3d-featured {
+  position: relative;
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 1) 0%, 
+    rgba(248, 250, 252, 0.98) 50%,
+    rgba(241, 245, 249, 0.96) 100%);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+.blog-3d-featured::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: conic-gradient(from 0deg at 50% 50%, 
+    rgba(139, 92, 246, 0.6) 0deg,
+    rgba(6, 182, 212, 0.4) 45deg,
+    rgba(59, 130, 246, 0.5) 90deg,
+    rgba(147, 51, 234, 0.4) 135deg,
+    rgba(236, 72, 153, 0.5) 180deg,
+    rgba(245, 158, 11, 0.4) 225deg,
+    rgba(16, 185, 129, 0.5) 270deg,
+    rgba(99, 102, 241, 0.4) 315deg,
+    rgba(139, 92, 246, 0.6) 360deg);
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+  z-index: -1;
+  animation: rotate-featured 6s linear infinite;
+}
+
+.blog-3d-featured:hover::after {
+  opacity: 1;
+}
+
+/* Holographic Effect for Premium Cards */
+.blog-3d-holographic {
+  position: relative;
+  overflow: hidden;
+}
+
+.blog-3d-holographic::before {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 300%;
+  height: 300%;
+  background: conic-gradient(from 0deg, 
+    transparent 0deg,
+    rgba(139, 92, 246, 0.12) 45deg,
+    transparent 90deg,
+    rgba(6, 182, 212, 0.08) 135deg,
+    transparent 180deg,
+    rgba(59, 130, 246, 0.10) 225deg,
+    transparent 270deg,
+    rgba(147, 51, 234, 0.06) 315deg,
+    transparent 360deg);
+  animation: holographic-sweep 4s linear infinite;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.blog-3d-holographic:hover::before {
+  opacity: 1;
+}
+
+/* Professional Loading States */
+.blog-3d-cover-loading {
+  background: linear-gradient(90deg, 
+    rgba(226, 232, 240, 0.9) 25%, 
+    rgba(241, 245, 249, 1) 50%, 
+    rgba(226, 232, 240, 0.9) 75%);
+  background-size: 200% 100%;
+  animation: shimmer-load 1.8s ease-in-out infinite;
+}
+
+/* Professional Animations */
+@keyframes rotate-holo {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes rotate-featured {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.02); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+@keyframes holographic-sweep {
+  0% { transform: rotate(0deg) translate(-50%, -50%); }
+  100% { transform: rotate(360deg) translate(-50%, -50%); }
+}
+
+@keyframes shimmer-load {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Content Depth Layers */
+.blog-3d-content {
+  position: relative;
+  z-index: 10;
+  transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.blog-card-3d:hover .blog-3d-content {
+  transform: translateZ(20px);
+}
+
+/* Responsive 3D Design */
+@media (min-width: 768px) {
+  .blog-3d-cover {
+    height: 13rem; /* 208px for tablets */
+  }
+}
+
+@media (min-width: 1024px) {
+  .blog-3d-cover {
+    height: 14rem; /* 224px for desktop */
+  }
+  
+  .blog-card-3d:hover {
+    transform: translateY(-20px) rotateX(10deg) rotateY(-5deg) scale(1.04);
+  }
+}
+
+@media (max-width: 768px) {
+  .blog-3d-cover {
+    height: 11rem; /* 176px for mobile */
+  }
+  
+  .blog-card-3d:hover {
+    transform: translateY(-12px) rotateX(4deg) rotateY(-2deg) scale(1.02);
+  }
+}
+
+@media (max-width: 480px) {
+  .blog-3d-cover {
+    height: 10rem; /* 160px for small mobile */
+  }
+  
+  .blog-card-3d:hover {
+    transform: translateY(-8px) scale(1.01);
+  }
+  
+  .blog-card-3d:hover .blog-3d-cover {
+    transform: scale3d(1.04, 1.04, 1) translateZ(8px);
+  }
+}
+
+/* Performance Optimizations */
+.blog-3d-cover,
+.blog-card-3d,
+.blog-3d-badge {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform;
+}
+
+/* GPU Acceleration */
+.blog-3d-optimized {
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  perspective: 1000px;
+  -webkit-perspective: 1000px;
+}
+
+/* Professional Glow Effects */
+.blog-3d-glow {
+  position: relative;
+}
+
+.blog-3d-glow::after {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  right: -8px;
+  bottom: -8px;
+  background: linear-gradient(45deg, 
+    rgba(139, 92, 246, 0.3), 
+    rgba(6, 182, 212, 0.25), 
+    rgba(59, 130, 246, 0.2), 
+    rgba(147, 51, 234, 0.15));
+  border-radius: calc(1rem + 8px);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  filter: blur(12px);
+}
+
+.blog-3d-glow:hover::after {
+  opacity: 1;
+}
+
+/* Accessibility - Respect user preferences */
+@media (prefers-reduced-motion: reduce) {
+  .blog-3d-cover,
+  .blog-card-3d,
+  .blog-3d-badge,
+  .blog-3d-featured::after,
+  .blog-3d-holographic::before {
+    transition: none !important;
+    animation: none !important;
+  }
+  
+  .blog-card-3d:hover {
+    transform: translateY(-4px) scale(1.01) !important;
+  }
+  
+  .blog-card-3d:hover .blog-3d-cover {
+    transform: scale(1.02) !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .blog-card-3d {
+    border: 2px solid currentColor;
+    background: Canvas;
+    color: CanvasText;
+  }
+  
+  .blog-3d-badge {
+    background: ButtonFace;
+    border: 1px solid ButtonText;
+    color: ButtonText;
+  }
+}
+
+/* Dark mode adaptations */
+@media (prefers-color-scheme: dark) {
+  .blog-card-3d {
+    background: linear-gradient(135deg, 
+      rgba(15, 23, 42, 0.95) 0%, 
+      rgba(30, 41, 59, 0.90) 100%);
+    border: 1px solid rgba(71, 85, 105, 0.4);
+  }
+  
+  .blog-3d-cover-container {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  }
+  
+  .blog-3d-badge {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+  }
+}

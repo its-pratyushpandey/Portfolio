@@ -1,0 +1,36 @@
+<svg width="800" height="400" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="design-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e91e63;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#9c27b0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3f51b5;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <rect width="800" height="400" fill="url(#design-bg)"/>
+  
+  <rect x="80" y="80" width="640" height="240" rx="20" fill="rgba(255,255,255,0.95)" stroke="rgba(233,30,99,0.3)" stroke-width="2"/>
+  
+  <!-- Design tools -->
+  <g transform="translate(120, 120)">
+    <rect x="0" y="0" width="50" height="50" rx="12" fill="#ff7262"/>
+    <text x="25" y="32" text-anchor="middle" fill="white" font-family="Arial" font-size="16" font-weight="bold">Fg</text>
+  </g>
+  
+  <!-- Mobile and desktop wireframes -->
+  <g transform="translate(550, 130)">
+    <rect x="0" y="0" width="30" height="50" rx="6" fill="#9c27b0" opacity="0.8"/>
+    <rect x="40" y="10" width="50" height="30" rx="4" fill="#3f51b5" opacity="0.8"/>
+  </g>
+  
+  <text x="400" y="180" text-anchor="middle" fill="#e91e63" font-family="Arial, sans-serif" font-size="28" font-weight="bold">
+    UI/UX Design Principles
+  </text>
+  <text x="400" y="210" text-anchor="middle" fill="#9c27b0" font-family="Arial, sans-serif" font-size="20">
+    For Developer-Designers
+  </text>
+  
+  <text x="400" y="250" text-anchor="middle" fill="#3f51b5" font-family="Arial, sans-serif" font-size="16">
+    Create intuitive, accessible, and beautiful user interfaces
+  </text>
+</svg>

@@ -61,6 +61,12 @@ export const blogPosts: BlogPost[] = [
     readTime: 8,
     featured: true,
     status: 'published',
+    coverImage: {
+      url: '/blog/covers/react-typescript-3d-cover.svg',
+      alt: 'Building Modern React Applications with TypeScript - Professional 3D Cover',
+      width: 800,
+      height: 400
+    },
     author: {
       name: 'Pratyush Kumar Pandey',
       avatar: '/profile.jpg'
@@ -87,6 +93,12 @@ export const blogPosts: BlogPost[] = [
     readTime: 10,
     featured: true,
     status: 'published',
+    coverImage: {
+      url: '/blog/covers/developer-journey-3d-cover.svg',
+      alt: 'My Journey From Student to Full-Stack Developer - Professional 3D Cover',
+      width: 800,
+      height: 400
+    },
     author: {
       name: 'Pratyush Kumar Pandey',
       avatar: '/profile.jpg'
@@ -113,6 +125,12 @@ export const blogPosts: BlogPost[] = [
     readTime: 12,
     featured: true,
     status: 'published',
+    coverImage: {
+      url: '/blog/covers/nexthire-ai-cover.svg',
+      alt: 'Building NextHire AI-Powered Recruitment Platform - Cover Image',
+      width: 800,
+      height: 400
+    },
     author: {
       name: 'Pratyush Kumar Pandey',
       avatar: '/profile.jpg'
@@ -139,6 +157,12 @@ export const blogPosts: BlogPost[] = [
     readTime: 9,
     featured: false,
     status: 'published',
+    coverImage: {
+      url: '/blog/covers/spring-boot-streaming-cover.svg',
+      alt: 'Mastering Spring Boot Video Streaming APIs - Cover Image',
+      width: 800,
+      height: 400
+    },
     author: {
       name: 'Pratyush Kumar Pandey',
       avatar: '/profile.jpg'
@@ -163,6 +187,12 @@ export const blogPosts: BlogPost[] = [
     readTime: 11,
     featured: false,
     status: 'published',
+    coverImage: {
+      url: '/blog/covers/django-websockets-cover.svg',
+      alt: 'Real-Time Collaboration with Django and WebSockets - Cover Image',
+      width: 800,
+      height: 400
+    },
     author: {
       name: 'Pratyush Kumar Pandey',
       avatar: '/profile.jpg'
@@ -186,6 +216,12 @@ export const blogPosts: BlogPost[] = [
     readTime: 7,
     featured: false,
     status: 'published',
+    coverImage: {
+      url: '/blog/covers/ui-ux-design-cover.svg',
+      alt: 'UI/UX Design Principles for Developer-Designers - Cover Image',
+      width: 800,
+      height: 400
+    },
     author: {
       name: 'Pratyush Kumar Pandey',
       avatar: '/profile.jpg'
@@ -210,6 +246,12 @@ export const blogPosts: BlogPost[] = [
     readTime: 14,
     featured: true,
     status: 'published',
+    coverImage: {
+      url: '/blog/covers/ai-chatbot-3d-cover.svg',
+      alt: 'Building AI Chatbots with OpenAI GPT-4 and React - Professional 3D Cover',
+      width: 800,
+      height: 400
+    },
     author: {
       name: 'Pratyush Kumar Pandey',
       avatar: '/profile.jpg'
@@ -237,6 +279,12 @@ export const blogPosts: BlogPost[] = [
     readTime: 14,
     featured: true,
     status: 'published',
+    coverImage: {
+      url: '/blog/covers/ai-modern-web-3d-cover.svg',
+      alt: 'Mastering AI in Modern Web Development - Professional 3D Cover',
+      width: 800,
+      height: 400
+    },
     author: {
       name: 'Pratyush Kumar Pandey',
       avatar: '/profile.jpg'
@@ -264,6 +312,12 @@ export const blogPosts: BlogPost[] = [
     readTime: 16,
     featured: true,
     status: 'published',
+    coverImage: {
+      url: '/blog/covers/modern-web-future-3d-cover.svg',
+      alt: 'Modern Web Development Building Future Digital Experiences - Professional 3D Cover',
+      width: 800,
+      height: 400
+    },
     author: {
       name: 'Pratyush Kumar Pandey',
       avatar: '/profile.jpg'
@@ -291,6 +345,12 @@ export const blogPosts: BlogPost[] = [
     readTime: 18,
     featured: true,
     status: 'published',
+    coverImage: {
+      url: '/blog/covers/advanced-fullstack-3d-cover.svg',
+      alt: 'Advanced Full-Stack Development Scalable Applications - Professional 3D Cover',
+      width: 800,
+      height: 400
+    },
     author: {
       name: 'Pratyush Kumar Pandey',
       avatar: '/profile.jpg'
@@ -302,6 +362,72 @@ export const blogPosts: BlogPost[] = [
     },
     socialLinks: {
       devTo: 'https://dev.to/pratyush_kumarpandey_0f5/advanced-fullstack-development-scalable-web-applications'
+    }
+  },
+  {
+    id: '11',
+    title: 'Advanced Web Performance Optimization: From 3s to 300ms',
+    description: 'Master advanced web performance optimization techniques to dramatically reduce load times. Learn image optimization, bundle splitting, caching strategies, and modern performance APIs.',
+    excerpt: 'Learn cutting-edge performance optimization techniques that reduced load times from 3 seconds to 300ms. Practical strategies for real-world applications.',
+    content: '',
+    date: '2025-01-22',
+    publishedDate: new Date('2025-01-22'),
+    tags: ['Performance', 'Optimization', 'Web Vitals', 'JavaScript', 'Caching', 'Images'],
+    category: 'web-development',
+    slug: 'advanced-web-performance-optimization-3s-to-300ms',
+    readTime: 15,
+    featured: true,
+    status: 'published',
+    coverImage: {
+      url: '/blog/covers/web-performance-3d-cover.svg',
+      alt: 'Advanced Web Performance Optimization 3s to 300ms - Professional 3D Cover',
+      width: 800,
+      height: 400
+    },
+    author: {
+      name: 'Pratyush Kumar Pandey',
+      avatar: '/profile.jpg'
+    },
+    seo: {
+      metaTitle: 'Advanced Web Performance: From 3s to 300ms | Pratyush Pandey',
+      metaDescription: 'Master advanced performance optimization techniques. Learn to reduce load times from 3 seconds to 300ms with proven strategies.',
+      keywords: ['Web Performance', 'Performance Optimization', 'Core Web Vitals', 'Page Speed', 'JavaScript Optimization', 'Image Optimization']
+    },
+    socialLinks: {
+      devTo: 'https://dev.to/pratyush_kumarpandey_0f5/advanced-web-performance-optimization-3s-to-300ms'
+    }
+  },
+  {
+    id: '12',
+    title: 'Full-Stack Microservices Architecture with Node.js and Docker',
+    description: 'Build and deploy production-ready microservices using Node.js, Docker, and Kubernetes. Learn architecture patterns, service communication, and containerization strategies.',
+    excerpt: 'Complete guide to building scalable microservices architecture with Node.js, Docker containers, and Kubernetes orchestration for enterprise applications.',
+    content: '',
+    date: '2025-01-10',
+    publishedDate: new Date('2025-01-10'),
+    tags: ['Microservices', 'Node.js', 'Docker', 'Kubernetes', 'Architecture', 'DevOps'],
+    category: 'fullstack-development',
+    slug: 'fullstack-microservices-architecture-nodejs-docker',
+    readTime: 20,
+    featured: true,
+    status: 'published',
+    coverImage: {
+      url: '/blog/covers/microservices-fullstack-3d-cover.svg',
+      alt: 'Full-Stack Microservices Architecture Node.js Docker - Professional 3D Cover',
+      width: 800,
+      height: 400
+    },
+    author: {
+      name: 'Pratyush Kumar Pandey',
+      avatar: '/profile.jpg'
+    },
+    seo: {
+      metaTitle: 'Microservices Architecture with Node.js and Docker | Pratyush Pandey',
+      metaDescription: 'Build scalable microservices with Node.js, Docker, and Kubernetes. Complete guide to enterprise architecture patterns.',
+      keywords: ['Microservices Architecture', 'Node.js', 'Docker', 'Kubernetes', 'System Design', 'DevOps', 'Containerization']
+    },
+    socialLinks: {
+      devTo: 'https://dev.to/pratyush_kumarpandey_0f5/fullstack-microservices-architecture-nodejs-docker'
     }
   }
 ];

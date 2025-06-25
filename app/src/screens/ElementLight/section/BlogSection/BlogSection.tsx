@@ -238,7 +238,7 @@ export const BlogSection = ({ onBlogSelect }: BlogSectionProps): JSX.Element => 
             filteredBlogs.map((blog, idx) => (
               <motion.article
                 key={blog.id}
-                className="group relative bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-[#e3f2fd]/50 hover:shadow-xl transition-all duration-300 cursor-pointer overflow-hidden"
+                className={`group relative bg-white/95 backdrop-blur-sm rounded-2xl shadow-lg border border-[#e3f2fd]/50 hover:shadow-xl transition-all duration-300 cursor-pointer overflow-hidden blog-card-3d ${blog.featured ? 'blog-3d-featured blog-3d-holographic' : ''}`}
                 variants={itemVariants}
                 whileHover={cardVariants.hover}
                 onClick={() => onBlogSelect?.(blog)}
@@ -246,74 +246,90 @@ export const BlogSection = ({ onBlogSelect }: BlogSectionProps): JSX.Element => 
                 {/* Gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-br from-[#e3f2fd]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl" />
                 
-                {/* Blog Status Indicators */}
-                <div className="flex items-center justify-between mb-4 relative z-10">
-                  <div className="flex items-center gap-3">
-                    {blog.featured && (
-                      <span className="inline-flex items-center gap-2 bg-gradient-to-r from-[#80deea] to-[#b3e5fc] text-[#201d66] px-3 py-1 rounded-full text-xs font-bold shadow-sm">
-                        <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                        </svg>
-                        Featured
+                {/* Cover Image Section with 3D effects */}
+                <div className="blog-3d-cover-container relative overflow-hidden rounded-t-2xl blog-3d-optimized">
+                  <img
+                    src={blog.coverImage.url}
+                    alt={blog.coverImage.alt}
+                    className="blog-3d-cover w-full h-40 sm:h-44 md:h-48 lg:h-52 xl:h-56 object-cover transition-all duration-500 blog-3d-cover-loading"
+                    loading="lazy"
+                    onLoad={(e) => {
+                      // Remove loading state when image loads
+                      e.currentTarget.classList.remove('blog-3d-cover-loading');
+                      e.currentTarget.classList.add('blog-3d-optimized');
+                    }}
+                    onError={(e) => {
+                      // Fallback for broken images with professional gradient
+                      e.currentTarget.style.background = 'linear-gradient(135deg, #201d66 0%, #3949ab 50%, #80deea 100%)';
+                      e.currentTarget.classList.remove('blog-3d-cover-loading');
+                    }}
+                  />
+                  
+                  {/* Professional 3D overlay gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  
+                  {/* Enhanced featured badge with 3D effects */}
+                  {blog.featured && (
+                    <div className="absolute top-4 left-4 z-10">
+                      <span className="blog-3d-badge bg-gradient-to-r from-[#80deea] to-[#b3e5fc] text-[#201d66] px-3 py-1 rounded-full text-xs font-bold shadow-lg backdrop-blur-sm">
+                        ⭐ Featured
                       </span>
-                    )}
-                    <span className="inline-flex items-center gap-2 bg-[#e3f2fd] text-[#3949ab] px-3 py-1 rounded-full text-xs font-medium border border-[#b3e5fc]">
-                      <svg className="w-3 h-3" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                        <path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                      </svg>
-                      {formatDate(blog.date)}
+                    </div>
+                  )}
+                  
+                  {/* Enhanced read time badge */}
+                  <div className="absolute top-4 right-4 z-10">
+                    <span className="bg-black/60 backdrop-blur-md text-white px-3 py-1 rounded-full text-xs font-medium border border-white/20 shadow-lg">
+                      {blog.readTime} min read
                     </span>
                   </div>
-                  <span className="text-[#3949ab] font-medium text-xs bg-[#f8f9fa] px-3 py-1 rounded-full border border-[#e3f2fd]">
-                    {blog.readTime} min read
-                  </span>
-                </div>
-                
-                {/* Blog Content */}
-                <div className="relative z-10">
-                  {/* Title */}
-                  <h3 className="text-xl font-bold text-[#201d66] mb-3 leading-tight hover:text-[#3949ab] transition-colors duration-300 line-clamp-2">
-                    {blog.title}
-                  </h3>
-
-                  {/* Category Badge */}
-                  <div className="mb-3">
+                  
+                  {/* Enhanced category badge with 3D depth */}
+                  <div className="absolute bottom-4 left-4 z-10">
                     {blogCategories.find(cat => cat.slug === blog.category) && (
                       <span 
-                        className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold border"
-                        style={{
-                          backgroundColor: `${blogCategories.find(cat => cat.slug === blog.category)?.color}15`,
-                          borderColor: `${blogCategories.find(cat => cat.slug === blog.category)?.color}30`,
-                          color: blogCategories.find(cat => cat.slug === blog.category)?.color
+                        className="blog-3d-badge px-3 py-1 rounded-full text-xs font-bold text-white shadow-lg backdrop-blur-sm border border-white/30"
+                        style={{ 
+                          backgroundColor: blogCategories.find(cat => cat.slug === blog.category)?.color + 'E6' 
                         }}
                       >
-                        <div 
-                          className="w-2 h-2 rounded-full"
-                          style={{ backgroundColor: blogCategories.find(cat => cat.slug === blog.category)?.color }}
-                        />
                         {blogCategories.find(cat => cat.slug === blog.category)?.name}
                       </span>
                     )}
                   </div>
+                </div>
+
+                {/* Content Section */}
+                <div className="p-6 relative z-10 blog-3d-content">{/* Blog Meta Info */}
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-[#80deea] text-sm font-medium">
+                      {formatDate(blog.date)}
+                    </span>
+                  </div>
                   
-                  {/* Description */}
+                  {/* Blog Title */}
+                  <h3 className="text-xl font-bold text-[#201d66] mb-3 leading-tight group-hover:text-[#3949ab] transition-colors duration-300 line-clamp-2">
+                    {blog.title}
+                  </h3>
+
+                  {/* Blog Excerpt */}
                   <p className="text-[#3949ab] text-sm leading-relaxed mb-4 line-clamp-3">
                     {blog.excerpt}
                   </p>
                   
                   {/* Tags */}
                   <div className="flex flex-wrap gap-2 mb-4">
-                    {blog.tags.slice(0, 3).map((tag, i) => (
+                    {blog.tags.slice(0, 3).map((tag: string, index: number) => (
                       <span
-                        key={i}
-                        className="px-2 py-1 rounded-full text-xs font-medium bg-[#f8f9fa] text-[#3949ab] border border-[#e3f2fd]"
+                        key={index}
+                        className="bg-[#e3f2fd] text-[#3949ab] px-3 py-1 rounded-full text-xs font-medium border border-[#b3e5fc] hover:bg-[#b3e5fc] transition-colors duration-200"
                       >
-                        #{tag}
+                        {tag}
                       </span>
                     ))}
                     {blog.tags.length > 3 && (
-                      <span className="px-2 py-1 text-xs text-[#3949ab] bg-[#f8f9fa] rounded-full border border-[#e3f2fd]">
-                        +{blog.tags.length - 3} more
+                      <span className="text-[#3949ab] text-xs font-medium px-2 py-1">
+                        +{blog.tags.length - 3}
                       </span>
                     )}
                   </div>
@@ -328,7 +344,7 @@ export const BlogSection = ({ onBlogSelect }: BlogSectionProps): JSX.Element => 
                       }}
                     >
                       <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                        <path d="M15 12h6m-6 0l-3-3m3 3l-3 3"/>
+                        <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
                       </svg>
                       Read Article
                     </button>
@@ -342,7 +358,7 @@ export const BlogSection = ({ onBlogSelect }: BlogSectionProps): JSX.Element => 
                         onClick={(e) => e.stopPropagation()}
                       >
                         <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M7.42 10.05c-.18-.16-.46-.23-.84-.23H6l.02 2.44.04 2.45.56-.02c.41 0 .63-.07.83-.26.24-.24.26-.36.26-2.2 0-1.91-.02-1.96-.29-2.18zM0 4.94v14.12h24V4.94H0zM8.56 15.3c-.44.58-1.06.77-2.53.77H4.71V8.53h1.4c1.67 0 2.16.18 2.6.9.27.43.29.6.32 2.57.05 2.23-.02 2.73-.47 3.3zm5.09-5.47h-2.47v1.77h1.52v1.28l-.72.04-.75.03v1.77l1.22.03 1.2.04v1.28h-1.6c-1.53 0-1.6-.01-1.87-.3l-.3-.28v-3.16c0-3.02.01-3.18.25-3.48.23-.31.25-.31 1.88-.31H13.65v1.3zm4.68 2.23c0 2.24-.02 2.32-.3 2.57-.43.38-.94.44-2.94.44-1.11 0-1.48-.02-1.67-.1-.32-.14-.37-.26-.37-2.91 0-2.65.05-2.77.37-2.91.19-.08.56-.1 1.67-.1 2 0 2.51.06 2.94.44.28.25.3.33.3 2.57z"/>
+                          <path d="M7.826 10.083a.784.784 0 0 0-.468-.175h-.701v4.198h.701a.786.786 0 0 0 .468-.175c.155-.117.233-.292.233-.525v-2.798c.001-.233-.078-.408-.233-.525zM19.236 3H4.764C3.791 3 3.002 3.787 3.002 4.760v14.48c0 .973.789 1.760 1.762 1.760h14.472c.973 0 1.762-.787 1.762-1.760V4.760C21.998 3.787 21.209 3 20.236 3zM9.195 13.414c0 .755-.466 1.901-1.942 1.898H5.389V8.665h1.903c1.424 0 1.903 1.144 1.903 1.899v2.85zm4.045-3.562H11.1v1.544h1.909v.901H11.1v1.615h2.14v.901h-3.202V8.665h3.202v.901-.001zm2.156 2.448v1.718c0 1.549.021 1.911 1.618 1.911 1.598 0 1.619-.362 1.619-1.911v-1.718c0-1.548-.021-1.911-1.619-1.911-1.597 0-1.618.363-1.618 1.911zm2.87-.362v2.503c0 .647-.171 1.353-1.252 1.353-1.081 0-1.253-.706-1.253-1.353V12.5c0-.647.172-1.353 1.253-1.353 1.081 0 1.252.706 1.252 1.353z"/>
                         </svg>
                         Dev.to
                       </a>
@@ -354,7 +370,7 @@ export const BlogSection = ({ onBlogSelect }: BlogSectionProps): JSX.Element => 
                     <img
                       src={blog.author.avatar || '/profile.jpg'}
                       alt={blog.author.name}
-                      className="w-8 h-8 rounded-full border-2 border-[#e3f2fd]"
+                      className="w-8 h-8 rounded-full border-2 border-[#e3f2fd] object-cover"
                     />
                     <div>
                       <h4 className="font-semibold text-[#201d66] text-sm">{blog.author.name}</h4>

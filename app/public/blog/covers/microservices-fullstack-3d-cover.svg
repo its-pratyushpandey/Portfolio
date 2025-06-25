@@ -1,0 +1,162 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <!-- Professional gradients -->
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d1421;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#1a2332;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2a3441;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="card-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4f46e5;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#7c3aed;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#9333ea;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="accent-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#06b6d4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0891b2;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- 3D shadows -->
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="4" dy="8" stdDeviation="12" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
+    
+    <!-- Glowing effect -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="400" fill="url(#bg-gradient)"/>
+  
+  <!-- Background circuit pattern -->
+  <g opacity="0.1">
+    <circle cx="100" cy="100" r="2" fill="#06b6d4"/>
+    <circle cx="200" cy="80" r="2" fill="#06b6d4"/>
+    <circle cx="300" cy="120" r="2" fill="#06b6d4"/>
+    <line x1="100" y1="100" x2="200" y2="80" stroke="#06b6d4" stroke-width="1"/>
+    <line x1="200" y1="80" x2="300" y2="120" stroke="#06b6d4" stroke-width="1"/>
+    
+    <circle cx="150" cy="300" r="2" fill="#4f46e5"/>
+    <circle cx="250" cy="280" r="2" fill="#4f46e5"/>
+    <circle cx="350" cy="320" r="2" fill="#4f46e5"/>
+    <line x1="150" y1="300" x2="250" y2="280" stroke="#4f46e5" stroke-width="1"/>
+    <line x1="250" y1="280" x2="350" y2="320" stroke="#4f46e5" stroke-width="1"/>
+  </g>
+  
+  <!-- Main 3D microservices architecture diagram -->
+  <g transform="translate(100, 80)">
+    <!-- API Gateway (front) -->
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="120" height="80" rx="8" fill="url(#card-gradient)" filter="url(#shadow)"/>
+      <rect x="4" y="4" width="112" height="72" rx="6" fill="rgba(255,255,255,0.1)"/>
+      <text x="60" y="35" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="14" font-weight="bold">API</text>
+      <text x="60" y="50" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Gateway</text>
+    </g>
+    
+    <!-- Microservice 1 -->
+    <g transform="translate(180, -20)">
+      <rect x="0" y="0" width="100" height="60" rx="6" fill="url(#accent-gradient)" filter="url(#shadow)"/>
+      <rect x="3" y="3" width="94" height="54" rx="4" fill="rgba(255,255,255,0.1)"/>
+      <text x="50" y="25" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Auth</text>
+      <text x="50" y="40" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Service</text>
+    </g>
+    
+    <!-- Microservice 2 -->
+    <g transform="translate(180, 60)">
+      <rect x="0" y="0" width="100" height="60" rx="6" fill="url(#accent-gradient)" filter="url(#shadow)"/>
+      <rect x="3" y="3" width="94" height="54" rx="4" fill="rgba(255,255,255,0.1)"/>
+      <text x="50" y="25" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="12" font-weight="bold">User</text>
+      <text x="50" y="40" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Service</text>
+    </g>
+    
+    <!-- Microservice 3 -->
+    <g transform="translate(180, 140)">
+      <rect x="0" y="0" width="100" height="60" rx="6" fill="url(#accent-gradient)" filter="url(#shadow)"/>
+      <rect x="3" y="3" width="94" height="54" rx="4" fill="rgba(255,255,255,0.1)"/>
+      <text x="50" y="25" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Data</text>
+      <text x="50" y="40" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Service</text>
+    </g>
+    
+    <!-- Database -->
+    <g transform="translate(350, 80)">
+      <ellipse cx="50" cy="40" rx="50" ry="20" fill="#f59e0b" filter="url(#shadow)"/>
+      <ellipse cx="50" cy="35" rx="50" ry="20" fill="#fbbf24"/>
+      <text x="50" y="40" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Database</text>
+    </g>
+    
+    <!-- Connection lines -->
+    <g stroke="rgba(255,255,255,0.4)" stroke-width="2" fill="none">
+      <!-- Gateway to services -->
+      <line x1="120" y1="20" x2="180" y2="10" opacity="0.6"/>
+      <line x1="120" y1="40" x2="180" y2="90" opacity="0.6"/>
+      <line x1="120" y1="60" x2="180" y2="170" opacity="0.6"/>
+      
+      <!-- Services to database -->
+      <line x1="280" y1="30" x2="350" y2="100" opacity="0.6"/>
+      <line x1="280" y1="90" x2="350" y2="110" opacity="0.6"/>
+      <line x1="280" y1="170" x2="350" y2="120" opacity="0.6"/>
+    </g>
+  </g>
+  
+  <!-- Docker containers (3D effect) -->
+  <g transform="translate(500, 150)">
+    <!-- Container 1 -->
+    <g transform="translate(0, 0)">
+      <rect x="8" y="8" width="60" height="40" rx="4" fill="rgba(0,0,0,0.3)"/>
+      <rect x="0" y="0" width="60" height="40" rx="4" fill="#0ea5e9" filter="url(#shadow)"/>
+      <rect x="2" y="2" width="56" height="36" rx="3" fill="rgba(255,255,255,0.1)"/>
+      <text x="30" y="25" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Docker</text>
+    </g>
+    
+    <!-- Container 2 -->
+    <g transform="translate(80, -10)">
+      <rect x="8" y="8" width="60" height="40" rx="4" fill="rgba(0,0,0,0.3)"/>
+      <rect x="0" y="0" width="60" height="40" rx="4" fill="#0ea5e9" filter="url(#shadow)"/>
+      <rect x="2" y="2" width="56" height="36" rx="3" fill="rgba(255,255,255,0.1)"/>
+      <text x="30" y="25" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="10" font-weight="bold">K8s</text>
+    </g>
+    
+    <!-- Container 3 -->
+    <g transform="translate(160, 5)">
+      <rect x="8" y="8" width="60" height="40" rx="4" fill="rgba(0,0,0,0.3)"/>
+      <rect x="0" y="0" width="60" height="40" rx="4" fill="#0ea5e9" filter="url(#shadow)"/>
+      <rect x="2" y="2" width="56" height="36" rx="3" fill="rgba(255,255,255,0.1)"/>
+      <text x="30" y="25" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="10" font-weight="bold">CI/CD</text>
+    </g>
+  </g>
+  
+  <!-- Title section -->
+  <g transform="translate(50, 300)">
+    <text x="0" y="0" fill="white" font-family="Arial, sans-serif" font-size="28" font-weight="bold" opacity="0.9">
+      Full-Stack Microservices
+    </text>
+    <text x="0" y="35" fill="#06b6d4" font-family="Arial, sans-serif" font-size="18" font-weight="500">
+      Architecture & Docker Deployment
+    </text>
+  </g>
+  
+  <!-- Decorative elements -->
+  <g opacity="0.3">
+    <!-- Floating particles -->
+    <circle cx="650" cy="80" r="3" fill="#06b6d4" filter="url(#glow)"/>
+    <circle cx="720" cy="120" r="2" fill="#4f46e5" filter="url(#glow)"/>
+    <circle cx="680" cy="180" r="4" fill="#f59e0b" filter="url(#glow)"/>
+    <circle cx="750" cy="220" r="2" fill="#06b6d4" filter="url(#glow)"/>
+  </g>
+  
+  <!-- Professional badge -->
+  <g transform="translate(650, 30)">
+    <rect x="0" y="0" width="100" height="30" rx="15" fill="rgba(6, 182, 212, 0.2)" stroke="#06b6d4" stroke-width="1"/>
+    <text x="50" y="20" text-anchor="middle" fill="#06b6d4" font-family="Arial, sans-serif" font-size="12" font-weight="bold">
+      Architecture
+    </text>
+  </g>
+</svg>

@@ -1,0 +1,187 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <!-- Professional gradients -->
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e1b4b;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#312e81;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e3a8a;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="performance-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#f97316;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ea580c;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="speed-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- 3D shadows -->
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="6" dy="10" stdDeviation="15" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+    
+    <!-- Glowing effect -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Speed lines animation -->
+    <animateTransform id="speedLines" attributeName="transform" type="translate" 
+                     values="-100 0; 900 0" dur="2s" repeatCount="indefinite"/>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="400" fill="url(#bg-gradient)"/>
+  
+  <!-- Performance dashboard background -->
+  <g opacity="0.1">
+    <rect x="50" y="50" width="700" height="300" rx="20" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  </g>
+  
+  <!-- Main performance metrics display -->
+  <g transform="translate(80, 100)">
+    <!-- Speed indicator (3D gauge) -->
+    <g transform="translate(0, 0)">
+      <!-- Gauge background -->
+      <circle cx="100" cy="100" r="80" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="8"/>
+      <circle cx="100" cy="100" r="70" fill="rgba(16, 185, 129, 0.1)" filter="url(#shadow)"/>
+      
+      <!-- Speed arc -->
+      <path d="M 40 140 A 80 80 0 0 1 160 140" fill="none" stroke="url(#speed-gradient)" stroke-width="12" stroke-linecap="round" filter="url(#glow)"/>
+      
+      <!-- Speed value -->
+      <text x="100" y="85" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="24" font-weight="bold">300ms</text>
+      <text x="100" y="105" text-anchor="middle" fill="#10b981" font-family="Arial, sans-serif" font-size="14" font-weight="500">Load Time</text>
+      <text x="100" y="125" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-family="Arial, sans-serif" font-size="12">vs 3s before</text>
+    </g>
+    
+    <!-- Performance bars -->
+    <g transform="translate(250, 20)">
+      <!-- Bar 1: Core Web Vitals -->
+      <g transform="translate(0, 0)">
+        <rect x="0" y="0" width="200" height="30" rx="15" fill="rgba(255,255,255,0.1)" filter="url(#shadow)"/>
+        <rect x="0" y="0" width="180" height="30" rx="15" fill="url(#performance-gradient)"/>
+        <text x="100" y="20" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Core Web Vitals: 95%</text>
+      </g>
+      
+      <!-- Bar 2: Image Optimization -->
+      <g transform="translate(0, 50)">
+        <rect x="0" y="0" width="200" height="30" rx="15" fill="rgba(255,255,255,0.1)" filter="url(#shadow)"/>
+        <rect x="0" y="0" width="160" height="30" rx="15" fill="url(#speed-gradient)"/>
+        <text x="100" y="20" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Image Optimization: 85%</text>
+      </g>
+      
+      <!-- Bar 3: Bundle Size -->
+      <g transform="translate(0, 100)">
+        <rect x="0" y="0" width="200" height="30" rx="15" fill="rgba(255,255,255,0.1)" filter="url(#shadow)"/>
+        <rect x="0" y="0" width="170" height="30" rx="15" fill="#8b5cf6"/>
+        <text x="100" y="20" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Bundle Reduction: 70%</text>
+      </g>
+      
+      <!-- Bar 4: Caching -->
+      <g transform="translate(0, 150)">
+        <rect x="0" y="0" width="200" height="30" rx="15" fill="rgba(255,255,255,0.1)" filter="url(#shadow)"/>
+        <rect x="0" y="0" width="190" height="30" rx="15" fill="#06b6d4"/>
+        <text x="100" y="20" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Caching Strategy: 98%</text>
+      </g>
+    </g>
+  </g>
+  
+  <!-- 3D optimization icons -->
+  <g transform="translate(500, 50)">
+    <!-- Lightning bolt (speed) -->
+    <g transform="translate(0, 0)">
+      <path d="M20 5 L10 20 L15 20 L12 35 L25 15 L18 15 Z" fill="url(#performance-gradient)" filter="url(#shadow)"/>
+      <path d="M20 5 L10 20 L15 20 L12 35 L25 15 L18 15 Z" fill="rgba(255,255,255,0.2)" transform="translate(-2, -2)"/>
+    </g>
+    
+    <!-- Rocket (performance) -->
+    <g transform="translate(60, 0)">
+      <ellipse cx="15" cy="25" rx="8" ry="20" fill="url(#speed-gradient)" filter="url(#shadow)"/>
+      <ellipse cx="15" cy="25" rx="6" ry="18" fill="rgba(255,255,255,0.2)"/>
+      <polygon points="15,5 10,15 20,15" fill="#f59e0b"/>
+      <circle cx="15" cy="20" r="3" fill="white"/>
+    </g>
+    
+    <!-- Gear (optimization) -->
+    <g transform="translate(120, 5)">
+      <circle cx="12" cy="12" r="10" fill="none" stroke="url(#performance-gradient)" stroke-width="3" filter="url(#shadow)"/>
+      <circle cx="12" cy="12" r="4" fill="url(#performance-gradient)"/>
+      <g stroke="url(#performance-gradient)" stroke-width="2">
+        <line x1="12" y1="2" x2="12" y2="6"/>
+        <line x1="12" y1="18" x2="12" y2="22"/>
+        <line x1="2" y1="12" x2="6" y2="12"/>
+        <line x1="18" y1="12" x2="22" y2="12"/>
+      </g>
+    </g>
+  </g>
+  
+  <!-- Performance improvement timeline -->
+  <g transform="translate(100, 280)">
+    <!-- Timeline line -->
+    <line x1="0" y1="40" x2="600" y2="40" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+    
+    <!-- Timeline points -->
+    <g fill="white" font-family="Arial, sans-serif" font-size="10">
+      <!-- Before -->
+      <circle cx="0" cy="40" r="6" fill="#ef4444" filter="url(#shadow)"/>
+      <text x="0" y="25" text-anchor="middle" fill="#ef4444" font-weight="bold">3000ms</text>
+      <text x="0" y="60" text-anchor="middle" fill="rgba(255,255,255,0.7)">Before</text>
+      
+      <!-- Optimization 1 -->
+      <circle cx="150" cy="40" r="6" fill="#f59e0b" filter="url(#shadow)"/>
+      <text x="150" y="25" text-anchor="middle" fill="#f59e0b" font-weight="bold">1500ms</text>
+      <text x="150" y="60" text-anchor="middle" fill="rgba(255,255,255,0.7)">Images</text>
+      
+      <!-- Optimization 2 -->
+      <circle cx="300" cy="40" r="6" fill="#eab308" filter="url(#shadow)"/>
+      <text x="300" y="25" text-anchor="middle" fill="#eab308" font-weight="bold">800ms</text>
+      <text x="300" y="60" text-anchor="middle" fill="rgba(255,255,255,0.7)">Bundle</text>
+      
+      <!-- Optimization 3 -->
+      <circle cx="450" cy="40" r="6" fill="#10b981" filter="url(#shadow)"/>
+      <text x="450" y="25" text-anchor="middle" fill="#10b981" font-weight="bold">500ms</text>
+      <text x="450" y="60" text-anchor="middle" fill="rgba(255,255,255,0.7)">Caching</text>
+      
+      <!-- Final -->
+      <circle cx="600" cy="40" r="8" fill="#06b6d4" filter="url(#glow)"/>
+      <text x="600" y="25" text-anchor="middle" fill="#06b6d4" font-weight="bold">300ms</text>
+      <text x="600" y="60" text-anchor="middle" fill="rgba(255,255,255,0.7)">Final</text>
+    </g>
+  </g>
+  
+  <!-- Speed lines animation -->
+  <g opacity="0.3">
+    <g>
+      <animateTransform attributeName="transform" type="translate" values="-100 0; 900 0" dur="1.5s" repeatCount="indefinite"/>
+      <line x1="0" y1="100" x2="80" y2="100" stroke="#10b981" stroke-width="2"/>
+      <line x1="0" y1="150" x2="60" y2="150" stroke="#06b6d4" stroke-width="2"/>
+      <line x1="0" y1="200" x2="70" y2="200" stroke="#f59e0b" stroke-width="2"/>
+    </g>
+  </g>
+  
+  <!-- Title section -->
+  <g transform="translate(50, 30)">
+    <text x="0" y="0" fill="white" font-family="Arial, sans-serif" font-size="26" font-weight="bold" opacity="0.9">
+      Advanced Web Performance
+    </text>
+    <text x="0" y="30" fill="#f59e0b" font-family="Arial, sans-serif" font-size="16" font-weight="500">
+      From 3 Seconds to 300ms Optimization
+    </text>
+  </g>
+  
+  <!-- Professional badge -->
+  <g transform="translate(650, 20)">
+    <rect x="0" y="0" width="120" height="30" rx="15" fill="rgba(245, 158, 11, 0.2)" stroke="#f59e0b" stroke-width="1"/>
+    <text x="60" y="20" text-anchor="middle" fill="#f59e0b" font-family="Arial, sans-serif" font-size="12" font-weight="bold">
+      Performance
+    </text>
+  </g>
+</svg>

@@ -1,0 +1,39 @@
+<svg width="800" height="400" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="collab-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d4f3c;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#3949ab;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#80deea;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <rect width="800" height="400" fill="url(#collab-bg)"/>
+  
+  <!-- Main card -->
+  <rect x="80" y="80" width="640" height="240" rx="20" fill="rgba(255,255,255,0.95)" stroke="rgba(13,79,60,0.3)" stroke-width="2"/>
+  
+  <!-- Django logo -->
+  <g transform="translate(120, 120)">
+    <rect x="0" y="0" width="60" height="40" rx="8" fill="#092e20"/>
+    <text x="30" y="28" text-anchor="middle" fill="white" font-family="Arial" font-size="14" font-weight="bold">Django</text>
+  </g>
+  
+  <!-- WebSocket connection visualization -->
+  <g transform="translate(500, 120)">
+    <circle cx="30" cy="20" r="15" fill="#80deea" opacity="0.8"/>
+    <circle cx="60" cy="20" r="15" fill="#3949ab" opacity="0.8"/>
+    <path d="M 45 20 Q 50 10 55 20" fill="none" stroke="#0d4f3c" stroke-width="3"/>
+    <path d="M 45 20 Q 50 30 55 20" fill="none" stroke="#0d4f3c" stroke-width="3"/>
+  </g>
+  
+  <text x="400" y="180" text-anchor="middle" fill="#0d4f3c" font-family="Arial, sans-serif" font-size="28" font-weight="bold">
+    Real-Time CodeSync
+  </text>
+  <text x="400" y="210" text-anchor="middle" fill="#3949ab" font-family="Arial, sans-serif" font-size="20">
+    Django &amp; WebSockets Collaboration
+  </text>
+  
+  <text x="400" y="250" text-anchor="middle" fill="#0d4f3c" font-family="Arial, sans-serif" font-size="16">
+    Multi-user editing and live synchronization techniques
+  </text>
+</svg>

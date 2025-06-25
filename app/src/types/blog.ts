@@ -39,6 +39,5 @@ export interface BlogCategory {
 export interface BlogFilters {
   category?: string;
   tags?: string[];
-  search?: string;
   featured?: boolean;
 }

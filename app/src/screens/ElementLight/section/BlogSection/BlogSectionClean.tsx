@@ -67,9 +67,9 @@ export const BlogSection = ({ onBlogSelect }: BlogSectionProps): JSX.Element => 
       day: 'numeric'
     });
   };
+
   const clearFilters = () => {
     setActiveCategory(null);
-    setShowAll(false); // Reset showAll when clearing filters
   };
 
   return (
@@ -158,7 +158,8 @@ export const BlogSection = ({ onBlogSelect }: BlogSectionProps): JSX.Element => 
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-        >          {/* All Posts button */}
+        >
+          {/* All Posts button */}
           <motion.button
             onClick={clearFilters}
             className={`px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 transform ${
@@ -182,11 +183,7 @@ export const BlogSection = ({ onBlogSelect }: BlogSectionProps): JSX.Element => 
           {blogCategories.map((category, index) => (
             <motion.button
               key={category.id}
-              onClick={() => {
-                const newCategory = activeCategory === category.slug ? null : category.slug;
-                setActiveCategory(newCategory);
-                setShowAll(false); // Reset showAll when changing category
-              }}
+              onClick={() => setActiveCategory(activeCategory === category.slug ? null : category.slug)}
               className={`px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 transform ${
                 activeCategory === category.slug
                   ? 'bg-[#201d66] text-white shadow-lg'
@@ -365,13 +362,10 @@ export const BlogSection = ({ onBlogSelect }: BlogSectionProps): JSX.Element => 
               </motion.article>
             ))
           )}
-        </motion.div>        {/* Show More/Less Button */}
-        {(() => {
-          const totalAvailable = activeCategory 
-            ? blogs.filter(blog => blog.category === activeCategory).length 
-            : blogs.length;
-          return totalAvailable > 6;
-        })() && (
+        </motion.div>
+
+        {/* Show More/Less Button */}
+        {blogs.length > 6 && (
           <motion.div 
             className="text-center mt-12"
             initial={{ opacity: 0 }}
@@ -387,10 +381,10 @@ export const BlogSection = ({ onBlogSelect }: BlogSectionProps): JSX.Element => 
               <svg className={`w-5 h-5 transition-transform duration-300 ${showAll ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                 <path d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
               </svg>
-              {showAll ? 'Show Less' : `Explore All ${activeCategory ? blogs.filter(blog => blog.category === activeCategory).length : blogs.length} Articles`}
+              {showAll ? 'Show Less' : `Explore All ${blogs.length} Articles`}
               {!showAll && (
                 <span className="bg-white/20 px-3 py-1 rounded-full text-sm">
-                  +{(activeCategory ? blogs.filter(blog => blog.category === activeCategory).length : blogs.length) - 6}
+                  +{blogs.length - 6}
                 </span>
               )}
             </motion.button>

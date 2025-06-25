@@ -225,15 +225,42 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: '8',
-    title: 'Full-Stack Microservices Architecture with Node.js and Docker',
-    description: 'Deep dive into building scalable microservices architecture using Node.js, Express, Docker, and Kubernetes. Learn about service communication, API gateways, and deployment strategies.',
-    excerpt: 'Master microservices architecture with Node.js, Docker, and Kubernetes. Build scalable, maintainable applications with modern DevOps practices.',
+    title: 'Mastering Artificial Intelligence in Modern Web Development',
+    description: 'Comprehensive guide to integrating AI technologies into web applications. Covering machine learning APIs, intelligent features, and practical implementation strategies for modern developers.',
+    excerpt: 'Discover how to integrate AI into web applications with practical examples, from OpenAI API integration to building intelligent user interfaces and automated features.',
     content: '',
-    date: '2024-12-25',
-    publishedDate: new Date('2024-12-25'),
-    tags: ['Microservices', 'Node.js', 'Docker', 'Kubernetes', 'DevOps', 'Architecture'],
-    category: 'fullstack-development',
-    slug: 'fullstack-microservices-architecture-nodejs-docker',
+    date: '2025-01-20',
+    publishedDate: new Date('2025-01-20'),
+    tags: ['AI', 'Machine Learning', 'OpenAI API', 'Web Development', 'JavaScript', 'Python'],
+    category: 'artificial-intelligence',
+    slug: 'mastering-artificial-intelligence-modern-web-development',
+    readTime: 14,
+    featured: true,
+    status: 'published',
+    author: {
+      name: 'Pratyush Kumar Pandey',
+      avatar: '/profile.jpg'
+    },
+    seo: {
+      metaTitle: 'Mastering AI in Modern Web Development | Pratyush Pandey',
+      metaDescription: 'Learn how to integrate AI technologies into web applications with practical examples and implementation strategies.',
+      keywords: ['AI Development', 'Machine Learning', 'OpenAI API', 'Web Development', 'Artificial Intelligence', 'JavaScript AI']
+    },
+    socialLinks: {
+      devTo: 'https://dev.to/pratyush_kumarpandey_0f5/mastering-artificial-intelligence-modern-web-development'
+    }
+  },
+  {
+    id: '9',
+    title: 'Modern Web Development: Building the Future of Digital Experiences',
+    description: 'Explore the cutting-edge technologies and best practices shaping modern web development. From React to serverless architecture, discover how to build next-generation web applications.',
+    excerpt: 'Complete guide to modern web development covering React, TypeScript, performance optimization, security, and emerging technologies.',
+    content: '',
+    date: '2025-01-18',
+    publishedDate: new Date('2025-01-18'),
+    tags: ['Web Development', 'React', 'TypeScript', 'Performance', 'PWA', 'Modern CSS'],
+    category: 'web-development',
+    slug: 'modern-web-development-building-future-digital-experiences',
     readTime: 16,
     featured: true,
     status: 'published',
@@ -242,33 +269,39 @@ export const blogPosts: BlogPost[] = [
       avatar: '/profile.jpg'
     },
     seo: {
-      metaTitle: 'Full-Stack Microservices Architecture with Node.js and Docker | Pratyush Pandey',
-      metaDescription: 'Deep dive into building scalable microservices architecture using Node.js, Express, Docker, and Kubernetes.',
-      keywords: ['Microservices', 'Node.js', 'Docker', 'Kubernetes', 'Full-Stack Architecture', 'DevOps']
+      metaTitle: 'Modern Web Development: Building the Future | Pratyush Pandey',
+      metaDescription: 'Explore cutting-edge web development technologies and best practices for building next-generation digital experiences.',
+      keywords: ['Modern Web Development', 'React', 'TypeScript', 'Web Performance', 'PWA', 'Frontend Development']
+    },
+    socialLinks: {
+      devTo: 'https://dev.to/pratyush_kumarpandey_0f5/modern-web-development-building-future-digital-experiences'
     }
   },
   {
-    id: '9',
-    title: 'Advanced Web Performance Optimization: From 3s to 300ms',
-    description: 'Complete guide to web performance optimization covering Core Web Vitals, image optimization, code splitting, caching strategies, and monitoring tools. Real-world case study of optimizing a React application.',
-    excerpt: 'Transform your web application performance from 3 seconds to 300ms load time with advanced optimization techniques and modern best practices.',
+    id: '10',
+    title: 'Advanced Full-Stack Development: Building Scalable Web Applications',
+    description: 'Master advanced full-stack development concepts including microservices, database optimization, real-time features, and deployment strategies for enterprise-scale applications.',
+    excerpt: 'Deep dive into advanced full-stack development covering architecture patterns, database optimization, real-time features, and scalable deployment strategies.',
     content: '',
-    date: '2024-12-22',
-    publishedDate: new Date('2024-12-22'),
-    tags: ['Performance', 'Web Optimization', 'Core Web Vitals', 'React', 'Frontend', 'Speed'],
-    category: 'web-development',
-    slug: 'advanced-web-performance-optimization-3s-to-300ms',
-    readTime: 13,
-    featured: false,
+    date: '2025-01-16',
+    publishedDate: new Date('2025-01-16'),
+    tags: ['Full-Stack', 'Microservices', 'Database', 'Node.js', 'Architecture', 'DevOps'],
+    category: 'fullstack-development',
+    slug: 'advanced-fullstack-development-scalable-web-applications',
+    readTime: 18,
+    featured: true,
     status: 'published',
     author: {
       name: 'Pratyush Kumar Pandey',
       avatar: '/profile.jpg'
     },
     seo: {
-      metaTitle: 'Advanced Web Performance Optimization: From 3s to 300ms | Pratyush Pandey',
-      metaDescription: 'Complete guide to web performance optimization covering Core Web Vitals, image optimization, code splitting, and caching strategies.',
-      keywords: ['Web Performance', 'Core Web Vitals', 'Page Speed', 'React Optimization', 'Frontend Performance', 'SEO']
+      metaTitle: 'Advanced Full-Stack Development: Scalable Applications | Pratyush Pandey',
+      metaDescription: 'Master advanced full-stack development with microservices, database optimization, and scalable deployment strategies.',
+      keywords: ['Full-Stack Development', 'Microservices', 'Database Optimization', 'Node.js', 'System Architecture', 'DevOps']
+    },
+    socialLinks: {
+      devTo: 'https://dev.to/pratyush_kumarpandey_0f5/advanced-fullstack-development-scalable-web-applications'
     }
   }
 ];

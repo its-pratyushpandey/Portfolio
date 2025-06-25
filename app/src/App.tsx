@@ -1,4 +1,4 @@
-import React, { useEffect, ReactNode } from 'react';
+import React, { useEffect, ReactNode, useState } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import Header from './components/Header';
@@ -12,6 +12,8 @@ import { ExperienceSection } from './screens/ElementLight/section/ExperienceSect
 import { BlogSection } from './screens/ElementLight/section/BlogSection/BlogSection';
 import { HowICanHelpSection } from './screens/ElementLight/section/HowICanHelpSection/HowICanHelpSection';
 import { ProjectsDarkModeProvider } from './theme/ProjectsDarkModeContext';
+import { BlogPostPage } from './components/BlogPostPage';
+import { BlogPost } from './types/blog';
 
 interface SectionProps {
   children: ReactNode;
@@ -47,6 +49,22 @@ const Section: React.FC<SectionProps> = ({ children }) => {
 };
 
 const App: React.FC = () => {
+  const [selectedBlog, setSelectedBlog] = useState<BlogPost | null>(null);
+
+  const handleBlogSelect = (blog: BlogPost) => {
+    setSelectedBlog(blog);
+    // Scroll to top for better UX
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleBackToBlog = () => {
+    setSelectedBlog(null);
+    // Scroll to blog section
+    setTimeout(() => {
+      document.getElementById('blog')?.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
+  };
+
   useEffect(() => {
     // Smooth scrolling
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -65,6 +83,16 @@ const App: React.FC = () => {
     });
   }, []);
 
+  // If a blog is selected, show the blog post page
+  if (selectedBlog) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-[#f5f5f5] to-[#e3f2fd]">
+        <Header />
+        <BlogPostPage blog={selectedBlog} onBack={handleBackToBlog} />
+      </div>
+    );
+  }
+
   return (
     <div className="bg-[#e3f2fd]">
       <Header />
@@ -77,7 +105,7 @@ const App: React.FC = () => {
       </ProjectsDarkModeProvider>
       <Section><Certificates /></Section>
       <Section><ExperienceSection /></Section>
-      <Section><BlogSection /></Section>
+      <Section><BlogSection onBlogSelect={handleBlogSelect} /></Section>
       <Section><ContactSection /></Section>
     </div>
   );

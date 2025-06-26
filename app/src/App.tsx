@@ -13,6 +13,7 @@ import { BlogSection } from './screens/ElementLight/section/BlogSection/BlogSect
 import { HowICanHelpSection } from './screens/ElementLight/section/HowICanHelpSection/HowICanHelpSection';
 import { ProjectsDarkModeProvider } from './theme/ProjectsDarkModeContext';
 import { BlogPostPage } from './components/BlogPostPage';
+import { AllBlogsPage } from './components/AllBlogsPage';
 import { BlogPost } from './types/blog';
 
 interface SectionProps {
@@ -50,6 +51,7 @@ const Section: React.FC<SectionProps> = ({ children }) => {
 
 const App: React.FC = () => {
   const [selectedBlog, setSelectedBlog] = useState<BlogPost | null>(null);
+  const [showAllBlogs, setShowAllBlogs] = useState(false);
 
   const handleBlogSelect = (blog: BlogPost) => {
     setSelectedBlog(blog);
@@ -59,6 +61,20 @@ const App: React.FC = () => {
 
   const handleBackToBlog = () => {
     setSelectedBlog(null);
+    // Scroll to blog section
+    setTimeout(() => {
+      document.getElementById('blog')?.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
+  };
+
+  const handleShowAllBlogs = () => {
+    setShowAllBlogs(true);
+    // Scroll to top for better UX
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleBackToHome = () => {
+    setShowAllBlogs(false);
     // Scroll to blog section
     setTimeout(() => {
       document.getElementById('blog')?.scrollIntoView({ behavior: 'smooth' });
@@ -83,6 +99,16 @@ const App: React.FC = () => {
     });
   }, []);
 
+  // If showing all blogs page
+  if (showAllBlogs) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-[#f5f5f5] to-[#e3f2fd]">
+        <Header />
+        <AllBlogsPage onBlogSelect={handleBlogSelect} onBack={handleBackToHome} />
+      </div>
+    );
+  }
+
   // If a blog is selected, show the blog post page
   if (selectedBlog) {
     return (
@@ -105,7 +131,7 @@ const App: React.FC = () => {
       </ProjectsDarkModeProvider>
       <Section><Certificates /></Section>
       <Section><ExperienceSection /></Section>
-      <Section><BlogSection onBlogSelect={handleBlogSelect} /></Section>
+      <Section><BlogSection onBlogSelect={handleBlogSelect} onShowAllBlogs={handleShowAllBlogs} /></Section>
       <Section><ContactSection /></Section>
     </div>
   );

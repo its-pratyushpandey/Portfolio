@@ -54,9 +54,16 @@ const App: React.FC = () => {
   const [showAllBlogs, setShowAllBlogs] = useState(false);
 
   const handleBlogSelect = (blog: BlogPost) => {
+    console.log('App.tsx handleBlogSelect called with:', blog.title);
+    
+    // Use functional updates to ensure we get the latest state
+    setShowAllBlogs(false); // Ensure we're not showing all blogs when selecting a specific blog
     setSelectedBlog(blog);
-    // Scroll to top for better UX
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    
+    // Scroll to top for better UX after a small delay
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 100);
   };
 
   const handleBackToBlog = () => {
@@ -101,6 +108,7 @@ const App: React.FC = () => {
 
   // If showing all blogs page
   if (showAllBlogs) {
+    console.log('App.tsx: Rendering AllBlogsPage');
     return (
       <div className="min-h-screen bg-gradient-to-br from-[#f5f5f5] to-[#e3f2fd]">
         <Header />
@@ -111,13 +119,20 @@ const App: React.FC = () => {
 
   // If a blog is selected, show the blog post page
   if (selectedBlog) {
+    console.log('App.tsx: Rendering BlogPostPage for:', selectedBlog.title);
     return (
       <div className="min-h-screen bg-gradient-to-br from-[#f5f5f5] to-[#e3f2fd]">
         <Header />
-        <BlogPostPage blog={selectedBlog} onBack={handleBackToBlog} />
+        <BlogPostPage 
+          key={selectedBlog.id} 
+          blog={selectedBlog} 
+          onBack={handleBackToBlog} 
+        />
       </div>
     );
   }
+
+  console.log('App.tsx: Rendering main page with showAllBlogs:', showAllBlogs, 'selectedBlog:', selectedBlog);
 
   return (
     <div className="bg-[#e3f2fd]">

@@ -304,7 +304,7 @@ export const blogPosts: BlogPost[] = [
       keywords: ['Web Performance', 'Performance Optimization', 'Core Web Vitals', 'Page Speed', 'JavaScript Optimization', 'Image Optimization']
     },
     socialLinks: {
-      devTo: 'https://dev.to/pratyush_kumarpandey_0f5/advanced-web-performance-optimization-3s-to-300ms'
+      devTo: 'https://dev.to/pratyush_kumarpandey_0f5/advanced-web-performance-optimization-from-3s-to-300ms-3mh4'
     }
   },
   {

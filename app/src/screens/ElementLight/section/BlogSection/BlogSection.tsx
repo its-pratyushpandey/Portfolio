@@ -12,7 +12,7 @@ interface BlogSectionProps {
 const getFeaturedMainBlogs = (): BlogPost[] => {
   const featuredTitles = [
     'Advanced Web Performance Optimization: From 3s to 300ms',
-    'Mastering Artificial Intelligence in Modern Web Development', 
+    'Advanced Full-Stack Development: Building Scalable Web Applications', 
     'Modern Web Development: Building the Future of Digital Experiences'
   ];
   

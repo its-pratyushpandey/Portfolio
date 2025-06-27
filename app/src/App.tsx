@@ -54,8 +54,6 @@ const App: React.FC = () => {
   const [showAllBlogs, setShowAllBlogs] = useState(false);
 
   const handleBlogSelect = (blog: BlogPost) => {
-    console.log('App.tsx handleBlogSelect called with:', blog.title);
-    
     // Use functional updates to ensure we get the latest state
     setShowAllBlogs(false); // Ensure we're not showing all blogs when selecting a specific blog
     setSelectedBlog(blog);

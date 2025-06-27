@@ -1,5 +1,5 @@
-import React, { useState, useMemo, useRef } from "react";
-import { motion, AnimatePresence, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion";
+import React, { useState, useMemo, useRef, useEffect } from "react";
+import { motion, AnimatePresence, useScroll, useTransform, useMotionValue, useSpring, useAnimation } from "framer-motion";
 import { blogPosts, blogCategories, getRecentBlogs, getFeaturedBlogs } from "../../../../data/blogData";
 import { BlogPost, BlogFilters } from "../../../../types/blog";
 
@@ -71,10 +71,65 @@ const floatingVariants = {
   }
 };
 
+// NEW: Advanced premium variants for enhanced features
+const magneticVariants = {
+  hover: {
+    scale: 1.1,
+    rotate: [0, 5, -5, 0],
+    transition: {
+      type: "spring",
+      stiffness: 300,
+      damping: 20
+    }
+  }
+};
+
+const tiltVariants = {
+  hover: {
+    rotateX: 15,
+    rotateY: 15,
+    scale: 1.05,
+    transition: {
+      type: "spring",
+      stiffness: 200,
+      damping: 20
+    }
+  }
+};
+
+const morphVariants = {
+  initial: { borderRadius: "24px" },
+  hover: { 
+    borderRadius: ["24px", "40px", "16px", "32px", "24px"],
+    transition: {
+      duration: 2,
+      repeat: Infinity,
+      ease: "easeInOut"
+    }
+  }
+};
+
 export const BlogSection = ({ onBlogSelect, onShowAllBlogs }: BlogSectionProps): JSX.Element => {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
   const [selectedBlogIndex, setSelectedBlogIndex] = useState<number>(0);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [likedBlogs, setLikedBlogs] = useState<Set<string>>(new Set());
+  const [bookmarkedBlogs, setBookmarkedBlogs] = useState<Set<string>>(new Set());
+  const [readingProgress, setReadingProgress] = useState<number>(0);
+  const [viewMode, setViewMode] = useState<'grid' | 'list' | 'magazine'>('magazine');
+  
+  // NEW: Enhanced state for premium features
+  const [isHoverMode, setIsHoverMode] = useState(false);
+  const [activeHoverIndex, setActiveHoverIndex] = useState<number | null>(null);
+  const [particleCount, setParticleCount] = useState(25);
+  const [showReadingTime, setShowReadingTime] = useState(true);
+  const [dynamicBackground, setDynamicBackground] = useState(true);
+  const [enableSoundEffects, setEnableSoundEffects] = useState(false);
+  
   const containerRef = useRef<HTMLDivElement>(null);
+  const heroRef = useRef<HTMLDivElement>(null);
+  const controls = useAnimation();
   
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -83,14 +138,84 @@ export const BlogSection = ({ onBlogSelect, onShowAllBlogs }: BlogSectionProps):
   
   const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.95, 1, 1, 0.95]);
+
+  // Mouse tracking for interactive effects
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const springConfig = { damping: 25, stiffness: 700 };
+  const mouseXSpring = useSpring(mouseX, springConfig);
+  const mouseYSpring = useSpring(mouseY, springConfig);
+
+  // NEW: Enhanced mouse tracking for premium effects
+  const magneticX = useSpring(0, { stiffness: 100, damping: 10 });
+  const magneticY = useSpring(0, { stiffness: 100, damping: 10 });
+  
+  // NEW: Advanced dynamic color system
+  const dynamicColors = useMemo(() => [
+    { primary: '#201d66', secondary: '#3949ab', accent: '#80deea' },
+    { primary: '#6a1b9a', secondary: '#8e24aa', accent: '#ba68c8' },
+    { primary: '#1565c0', secondary: '#1976d2', accent: '#42a5f5' },
+    { primary: '#2e7d32', secondary: '#388e3c', accent: '#66bb6a' },
+    { primary: '#f57c00', secondary: '#ff9800', accent: '#ffb74d' }
+  ], []);
+  
+  const [currentColorScheme, setCurrentColorScheme] = useState(dynamicColors[0]);
 
   // Filter blogs based on active category (for the 3 featured blogs)
-  const filteredBlogs = useMemo(() => {
+  const filteredBlogs = useMemo((): BlogPost[] => {
+    let filtered = blogs;
     if (activeCategory) {
-      return blogs.filter(blog => blog.category === activeCategory);
+      filtered = blogs.filter((blog: BlogPost) => blog.category === activeCategory);
     }
-    return blogs;
+    return filtered;
   }, [activeCategory]);
+
+  // Enhanced search functionality
+  const searchResults = useMemo((): BlogPost[] => {
+    if (!searchQuery.trim()) return filteredBlogs;
+    
+    return filteredBlogs.filter((blog: BlogPost) => 
+      blog.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      blog.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      blog.tags.some((tag: string) => tag.toLowerCase().includes(searchQuery.toLowerCase())) ||
+      blog.author.name.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+  }, [filteredBlogs, searchQuery]);
+
+  // Final filtered blogs for display
+  const displayBlogs = useMemo((): BlogPost[] => {
+    return searchQuery ? searchResults : filteredBlogs;
+  }, [searchQuery, searchResults, filteredBlogs]);
+
+  // Auto-rotation for featured blogs
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSelectedBlogIndex((prev) => (prev + 1) % displayBlogs.length);
+    }, 8000);
+    return () => clearInterval(interval);
+  }, [displayBlogs.length]);
+
+  // NEW: Dynamic color scheme rotation
+  useEffect(() => {
+    if (dynamicBackground) {
+      const interval = setInterval(() => {
+        setCurrentColorScheme(prev => {
+          const currentIndex = dynamicColors.indexOf(prev);
+          return dynamicColors[(currentIndex + 1) % dynamicColors.length];
+        });
+      }, 15000);
+      return () => clearInterval(interval);
+    }
+  }, [dynamicBackground, dynamicColors]);
+
+  // NEW: Particle system animation
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setParticleCount(prev => prev + (Math.random() > 0.5 ? 1 : -1));
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
 
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString('en-US', {
@@ -102,18 +227,99 @@ export const BlogSection = ({ onBlogSelect, onShowAllBlogs }: BlogSectionProps):
 
   const clearFilters = () => {
     setActiveCategory(null);
+    setSearchQuery('');
+  };
+
+  // NEW: Advanced interaction handlers
+  const handleBlogInteraction = (blog: BlogPost, interactionType: 'like' | 'bookmark' | 'share') => {
+    if (enableSoundEffects) {
+      // Placeholder for sound effect trigger
+      console.log(`Sound effect: ${interactionType}`);
+    }
+
+    switch (interactionType) {
+      case 'like':
+        setLikedBlogs(prev => {
+          const newSet = new Set(prev);
+          if (newSet.has(blog.id)) {
+            newSet.delete(blog.id);
+          } else {
+            newSet.add(blog.id);
+          }
+          return newSet;
+        });
+        break;
+      case 'bookmark':
+        setBookmarkedBlogs(prev => {
+          const newSet = new Set(prev);
+          if (newSet.has(blog.id)) {
+            newSet.delete(blog.id);
+          } else {
+            newSet.add(blog.id);
+          }
+          return newSet;
+        });
+        break;
+      case 'share':
+        if (navigator.share) {
+          navigator.share({
+            title: blog.title,
+            text: blog.excerpt,
+            url: window.location.href
+          });
+        } else {
+          navigator.clipboard.writeText(window.location.href);
+        }
+        break;
+    }
   };
 
   const shareArticle = (blog: BlogPost) => {
-    if (navigator.share) {
-      navigator.share({
-        title: blog.title,
-        text: blog.excerpt,
-        url: window.location.href
-      });
-    } else {
-      navigator.clipboard.writeText(window.location.href);
+    handleBlogInteraction(blog, 'share');
+  };
+
+  const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
+    if (containerRef.current) {
+      const rect = containerRef.current.getBoundingClientRect();
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
+      mouseX.set(x);
+      mouseY.set(y);
+      
+      // NEW: Enhanced magnetic effect
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const deltaX = (x - centerX) * 0.1;
+      const deltaY = (y - centerY) * 0.1;
+      magneticX.set(deltaX);
+      magneticY.set(deltaY);
     }
+  };
+
+  // NEW: Generate floating particles
+  const generateParticles = () => {
+    return Array.from({ length: Math.min(particleCount, 30) }, (_, i) => (
+      <motion.div
+        key={`particle-${i}`}
+        className="absolute w-2 h-2 bg-gradient-to-r from-blue-400 to-cyan-300 rounded-full opacity-20"
+        style={{
+          left: `${Math.random() * 100}%`,
+          top: `${Math.random() * 100}%`,
+        }}
+        animate={{
+          y: [0, -30, 0],
+          x: [0, Math.random() * 20 - 10, 0],
+          scale: [1, 1.2, 1],
+          opacity: [0.2, 0.6, 0.2]
+        }}
+        transition={{
+          duration: 4 + Math.random() * 4,
+          repeat: Infinity,
+          delay: Math.random() * 2,
+          ease: "easeInOut"
+        }}
+      />
+    ));
   };
 
   return (
@@ -121,17 +327,31 @@ export const BlogSection = ({ onBlogSelect, onShowAllBlogs }: BlogSectionProps):
       ref={containerRef}
       id="blog"
       className="relative min-h-screen w-full bg-gradient-to-br from-[#fafafa] via-[#f5f7fa] to-[#e3f2fd] dark:from-gray-900 dark:via-gray-800 dark:to-blue-900 overflow-hidden"
+      onMouseMove={handleMouseMove}
     >
       {/* Advanced Background Elements */}
       <div className="absolute inset-0">
+        {/* NEW: Dynamic particles */}
+        {generateParticles()}
+        
         {/* Animated gradient orbs */}
         <motion.div 
           className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-r from-[#80deea]/20 to-[#b3e5fc]/30 rounded-full blur-3xl"
           animate={floatingVariants.float}
+          style={{
+            background: dynamicBackground 
+              ? `linear-gradient(135deg, ${currentColorScheme.accent}20, ${currentColorScheme.secondary}30)`
+              : undefined
+          }}
         />
         <motion.div 
           className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-r from-[#3949ab]/20 to-[#80deea]/25 rounded-full blur-3xl"
           animate={{ ...floatingVariants.float, transition: { ...floatingVariants.float.transition, delay: 2 } }}
+          style={{
+            background: dynamicBackground 
+              ? `linear-gradient(135deg, ${currentColorScheme.primary}20, ${currentColorScheme.accent}25)`
+              : undefined
+          }}
         />
         <motion.div 
           className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-[#e3f2fd]/15 to-[#b3e5fc]/20 rounded-full blur-3xl"
@@ -144,6 +364,14 @@ export const BlogSection = ({ onBlogSelect, onShowAllBlogs }: BlogSectionProps):
                backgroundImage: `radial-gradient(circle at 1px 1px, #201d66 1px, transparent 0)`,
                backgroundSize: '50px 50px'
              }} 
+        />
+        
+        {/* NEW: Interactive light rays */}
+        <motion.div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: `radial-gradient(circle at ${mouseXSpring}px ${mouseYSpring}px, rgba(128, 222, 234, 0.15) 0%, transparent 50%)`
+          }}
         />
       </div>
 
@@ -163,6 +391,7 @@ export const BlogSection = ({ onBlogSelect, onShowAllBlogs }: BlogSectionProps):
           <motion.div
             className="inline-flex items-center gap-3 bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl text-[#201d66] dark:text-blue-300 px-8 py-4 rounded-full border border-[#80deea]/30 dark:border-blue-400/30 mb-8 shadow-2xl"
             variants={heroVariants}
+            whileHover={magneticVariants.hover}
           >
             <div className="w-3 h-3 bg-gradient-to-r from-[#80deea] to-[#b3e5fc] rounded-full animate-pulse" />
             <span className="font-bold text-sm tracking-wider uppercase">Featured Articles</span>
@@ -173,6 +402,13 @@ export const BlogSection = ({ onBlogSelect, onShowAllBlogs }: BlogSectionProps):
           <motion.h1 
             className="text-6xl md:text-8xl lg:text-9xl font-black bg-gradient-to-r from-[#201d66] via-[#3949ab] to-[#80deea] dark:from-blue-400 dark:via-cyan-300 dark:to-blue-200 bg-clip-text text-transparent mb-6 leading-none tracking-tight"
             variants={heroVariants}
+            style={{
+              background: dynamicBackground 
+                ? `linear-gradient(135deg, ${currentColorScheme.primary}, ${currentColorScheme.secondary}, ${currentColorScheme.accent})`
+                : undefined,
+              backgroundClip: 'text',
+              WebkitBackgroundClip: 'text'
+            }}
           >
             Latest
             <br />
@@ -210,6 +446,32 @@ export const BlogSection = ({ onBlogSelect, onShowAllBlogs }: BlogSectionProps):
               <div className="w-3 h-3 bg-gradient-to-r from-[#201d66] to-[#3949ab] rounded-full animate-pulse" />
               <span className="font-semibold">{blogPosts.filter(blog => blog.status === 'published').length} Total Posts</span>
             </div>
+          </motion.div>
+          
+          {/* NEW: Enhanced control panel */}
+          <motion.div 
+            className="flex justify-center gap-4 mt-8"
+            variants={heroVariants}
+          >
+            <motion.button
+              onClick={() => setDynamicBackground(!dynamicBackground)}
+              className="group flex items-center gap-2 px-4 py-2 bg-white/20 dark:bg-gray-800/20 backdrop-blur-sm rounded-full border border-white/30 text-sm font-medium hover:bg-white/30 transition-all duration-300"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <div className={`w-2 h-2 rounded-full ${dynamicBackground ? 'bg-green-400' : 'bg-gray-400'}`} />
+              Dynamic BG
+            </motion.button>
+            
+            <motion.button
+              onClick={() => setShowReadingTime(!showReadingTime)}
+              className="group flex items-center gap-2 px-4 py-2 bg-white/20 dark:bg-gray-800/20 backdrop-blur-sm rounded-full border border-white/30 text-sm font-medium hover:bg-white/30 transition-all duration-300"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <div className={`w-2 h-2 rounded-full ${showReadingTime ? 'bg-blue-400' : 'bg-gray-400'}`} />
+              Read Time
+            </motion.button>
           </motion.div>
         </motion.div>
 
@@ -277,7 +539,7 @@ export const BlogSection = ({ onBlogSelect, onShowAllBlogs }: BlogSectionProps):
 
         {/* Premium Blog Layout */}
         <AnimatePresence mode="wait">
-          {filteredBlogs.length === 0 ? (
+          {displayBlogs.length === 0 ? (
             <motion.div
               key="empty"
               className="text-center py-32"
@@ -311,23 +573,28 @@ export const BlogSection = ({ onBlogSelect, onShowAllBlogs }: BlogSectionProps):
               animate="visible"
               exit="hidden"
             >
-              {filteredBlogs.map((blog, index) => {
+              {displayBlogs.map((blog: BlogPost, index: number) => {
                 const isReversed = index % 2 === 1;
                 const category = blogCategories.find(cat => cat.slug === blog.category);
                 
                 return (
                   <motion.article
                     key={blog.id}
-                    className={`group relative flex flex-col ${isReversed ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-12 lg:gap-16 items-center`}
+                    className={`group relative flex flex-col ${isReversed ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-12 lg:gap-16 items-center cursor-pointer`}
                     variants={itemVariants}
                     whileHover={{ y: -8 }}
                     onClick={() => onBlogSelect?.(blog)}
+                    onHoverStart={() => setActiveHoverIndex(index)}
+                    onHoverEnd={() => setActiveHoverIndex(null)}
+                    style={morphVariants.initial}
+                    animate={activeHoverIndex === index ? morphVariants.hover : morphVariants.initial}
                   >
                     {/* Image Section */}
                     <div className="w-full lg:w-1/2 relative">
                       <motion.div 
                         className="relative overflow-hidden rounded-3xl shadow-2xl cursor-pointer bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900"
                         whileHover={{ scale: 1.05, rotateY: isReversed ? -5 : 5 }}
+                        variants={tiltVariants}
                         transition={{ duration: 0.6, ease: "easeOut" }}
                       >
                         <img
@@ -358,9 +625,50 @@ export const BlogSection = ({ onBlogSelect, onShowAllBlogs }: BlogSectionProps):
                         </div>
                         
                         <div className="absolute top-6 right-6">
-                          <span className="bg-black/70 backdrop-blur-md text-white px-4 py-2 rounded-xl text-sm font-semibold">
-                            {blog.readTime} min read
-                          </span>
+                          {showReadingTime && (
+                            <span className="bg-black/70 backdrop-blur-md text-white px-4 py-2 rounded-xl text-sm font-semibold">
+                              {blog.readTime} min read
+                            </span>
+                          )}
+                        </div>
+                        
+                        {/* NEW: Interactive like/bookmark buttons */}
+                        <div className="absolute bottom-6 right-6 flex gap-2">
+                          <motion.button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleBlogInteraction(blog, 'like');
+                            }}
+                            className={`w-10 h-10 rounded-full flex items-center justify-center backdrop-blur-md border transition-all duration-300 ${
+                              likedBlogs.has(blog.id) 
+                                ? 'bg-red-500 border-red-400 text-white' 
+                                : 'bg-white/20 border-white/30 text-white hover:bg-red-500/20'
+                            }`}
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.9 }}
+                          >
+                            <svg className="w-5 h-5" fill={likedBlogs.has(blog.id) ? "currentColor" : "none"} stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                            </svg>
+                          </motion.button>
+                          
+                          <motion.button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleBlogInteraction(blog, 'bookmark');
+                            }}
+                            className={`w-10 h-10 rounded-full flex items-center justify-center backdrop-blur-md border transition-all duration-300 ${
+                              bookmarkedBlogs.has(blog.id) 
+                                ? 'bg-yellow-500 border-yellow-400 text-white' 
+                                : 'bg-white/20 border-white/30 text-white hover:bg-yellow-500/20'
+                            }`}
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.9 }}
+                          >
+                            <svg className="w-5 h-5" fill={bookmarkedBlogs.has(blog.id) ? "currentColor" : "none"} stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                              <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+                            </svg>
+                          </motion.button>
                         </div>
                       </motion.div>
                     </div>

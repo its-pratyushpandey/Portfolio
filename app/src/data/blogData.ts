@@ -238,7 +238,7 @@ export const blogPosts: BlogPost[] = [
       keywords: ['Modern Web Development', 'React', 'TypeScript', 'Web Performance', 'PWA', 'Frontend Development']
     },
     socialLinks: {
-      devTo: 'https://dev.to/pratyush_kumarpandey_0f5/modern-web-development-building-future-digital-experiences'
+      devTo: 'https://dev.to/pratyush_kumarpandey_0f5/modern-web-development-building-the-future-of-digital-experiences-35a'
     }
   },
   {

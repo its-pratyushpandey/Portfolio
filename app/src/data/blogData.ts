@@ -142,98 +142,8 @@ export const blogPosts: BlogPost[] = [
     },    socialLinks: {
       devTo: 'https://dev.to/pratyush_kumarpandey_0f5/building-nexthire-ai-powered-recruitment-platform-with-mern-stack-4505'
     }
-  },
-  {
-    id: '4',
-    title: 'Mastering Spring Boot: Building Scalable Video Streaming APIs',
-    description: 'Learn how to build robust video streaming APIs with Spring Boot and MySQL. Covers file upload handling, streaming optimization, authentication, and database design patterns from my hackathon experience.',
-    excerpt: 'Complete guide to building video streaming APIs with Spring Boot, covering file handling, optimization, and database design patterns.',
-    content: '',
-    date: '2025-01-05',
-    publishedDate: new Date('2025-01-05'),
-    tags: ['Spring Boot', 'Java', 'REST API', 'Video Streaming', 'MySQL'],
-    category: 'web-development',
-    slug: 'mastering-spring-boot-video-streaming-apis',
-    readTime: 9,
-    featured: false,
-    status: 'published',
-    coverImage: {
-      url: '/blog/covers/spring-boot-streaming-3d-cover.svg',
-      alt: 'Mastering Spring Boot Video Streaming APIs - Professional 3D Cover',
-      width: 800,
-      height: 400
-    },
-    author: {
-      name: 'Pratyush Kumar Pandey',
-      avatar: '/profile.jpg'
-    },
-    seo: {
-      metaTitle: 'Mastering Spring Boot: Building Video Streaming APIs | Pratyush Pandey',
-      metaDescription: 'Learn to build robust video streaming APIs with Spring Boot and MySQL. Complete guide covering file handling, optimization, and best practices.',
-      keywords: ['Spring Boot', 'REST API', 'Video Streaming', 'Java Development', 'MySQL', 'Backend Development']
-    }
-  },
-  {
-    id: '5',
-    title: 'Real-Time Collaboration: Building CodeSync with Django and WebSockets',
-    description: 'Technical exploration of building CodeSync, a real-time collaborative code editor using Django and WebSockets. Covers real-time synchronization, multi-user editing, and collaborative features implementation.',
-    excerpt: 'Dive into building real-time collaborative applications with Django and WebSockets, featuring multi-user editing and live synchronization.',
-    content: '',
-    date: '2025-01-03',
-    publishedDate: new Date('2025-01-03'),
-    tags: ['Django', 'WebSockets', 'Real-time', 'Python', 'Collaboration'],
-    category: 'web-development',
-    slug: 'real-time-collaboration-codesync-django-websockets',
-    readTime: 11,
-    featured: false,
-    status: 'published',
-    coverImage: {
-      url: '/blog/covers/django-websockets-3d-cover.svg',
-      alt: 'Real-Time Collaboration with Django and WebSockets - Professional 3D Cover',
-      width: 800,
-      height: 400
-    },
-    author: {
-      name: 'Pratyush Kumar Pandey',
-      avatar: '/profile.jpg'
-    },
-    seo: {
-      metaTitle: 'Real-Time Collaboration: Building CodeSync with Django | Pratyush Pandey',
-      metaDescription: 'Learn to build real-time collaborative applications with Django and WebSockets. Complete guide to multi-user editing and live synchronization.',
-      keywords: ['Django', 'WebSockets', 'Real-time Applications', 'Python', 'Collaborative Editing', 'Code Editor']
-    }
   },  {
-    id: '6',
-    title: 'UI/UX Design Principles for Developer-Designers',
-    description: 'Essential design principles every developer should master to create intuitive user interfaces. From my experience using Figma, creating responsive designs, and building user-centric applications.',
-    excerpt: 'Master essential UI/UX design principles as a developer. Learn to create intuitive, accessible, and beautiful user interfaces.',
-    content: '',
-    date: '2025-01-01',
-    publishedDate: new Date('2025-01-01'),
-    tags: ['UI/UX', 'Design', 'Figma', 'User Experience', 'Frontend'],
-    category: 'ui-ux-design',
-    slug: 'ui-ux-design-principles-developer-designers',
-    readTime: 7,
-    featured: false,
-    status: 'published',
-    coverImage: {
-      url: '/blog/covers/ui-ux-design-3d-cover.svg',
-      alt: 'UI/UX Design Principles for Developer-Designers - Professional 3D Cover',
-      width: 800,
-      height: 400
-    },
-    author: {
-      name: 'Pratyush Kumar Pandey',
-      avatar: '/profile.jpg'
-    },
-    seo: {
-      metaTitle: 'UI/UX Design Principles for Developer-Designers | Pratyush Pandey',
-      metaDescription: 'Master essential UI/UX design principles as a developer. Learn to create intuitive, accessible, and beautiful user interfaces.',
-      keywords: ['UI/UX Design', 'User Experience', 'Frontend Development', 'Design Principles', 'Figma', 'Accessibility']
-    }
-  },
-  {
-    id: '7',
+    id: '4',
     title: 'Building Intelligent AI Chatbots with OpenAI GPT-4 and React',
     description: 'Comprehensive guide to building production-ready AI chatbots using OpenAI GPT-4 API, React, and modern web technologies. Learn about context management, streaming responses, and creating conversational interfaces.',
     excerpt: 'Learn to build intelligent AI chatbots with OpenAI GPT-4, React, and advanced conversation management techniques for production applications.',
@@ -266,7 +176,7 @@ export const blogPosts: BlogPost[] = [
     }
   },
   {
-    id: '8',
+    id: '5',
     title: 'Mastering Artificial Intelligence in Modern Web Development',
     description: 'Comprehensive guide to integrating AI technologies into web applications. Covering machine learning APIs, intelligent features, and practical implementation strategies for modern developers.',
     excerpt: 'Discover how to integrate AI into web applications with practical examples, from OpenAI API integration to building intelligent user interfaces and automated features.',
@@ -299,7 +209,7 @@ export const blogPosts: BlogPost[] = [
     }
   },
   {
-    id: '9',
+    id: '6',
     title: 'Modern Web Development: Building the Future of Digital Experiences',
     description: 'Explore the cutting-edge technologies and best practices shaping modern web development. From React to serverless architecture, discover how to build next-generation web applications.',
     excerpt: 'Complete guide to modern web development covering React, TypeScript, performance optimization, security, and emerging technologies.',
@@ -332,7 +242,7 @@ export const blogPosts: BlogPost[] = [
     }
   },
   {
-    id: '10',
+    id: '7',
     title: 'Advanced Full-Stack Development: Building Scalable Web Applications',
     description: 'Master advanced full-stack development concepts including microservices, database optimization, real-time features, and deployment strategies for enterprise-scale applications.',
     excerpt: 'Deep dive into advanced full-stack development covering architecture patterns, database optimization, real-time features, and scalable deployment strategies.',
@@ -365,7 +275,7 @@ export const blogPosts: BlogPost[] = [
     }
   },
   {
-    id: '11',
+    id: '8',
     title: 'Advanced Web Performance Optimization: From 3s to 300ms',
     description: 'Master advanced web performance optimization techniques to dramatically reduce load times. Learn image optimization, bundle splitting, caching strategies, and modern performance APIs.',
     excerpt: 'Learn cutting-edge performance optimization techniques that reduced load times from 3 seconds to 300ms. Practical strategies for real-world applications.',
@@ -398,7 +308,7 @@ export const blogPosts: BlogPost[] = [
     }
   },
   {
-    id: '12',
+    id: '9',
     title: 'Full-Stack Microservices Architecture with Node.js and Docker',
     description: 'Build and deploy production-ready microservices using Node.js, Docker, and Kubernetes. Learn architecture patterns, service communication, and containerization strategies.',
     excerpt: 'Complete guide to building scalable microservices architecture with Node.js, Docker containers, and Kubernetes orchestration for enterprise applications.',

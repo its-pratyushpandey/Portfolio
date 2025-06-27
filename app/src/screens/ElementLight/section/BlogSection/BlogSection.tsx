@@ -119,12 +119,10 @@ export const BlogSection = ({ onBlogSelect, onShowAllBlogs }: BlogSectionProps):
   const [readingProgress, setReadingProgress] = useState<number>(0);
   const [viewMode, setViewMode] = useState<'grid' | 'list' | 'magazine'>('magazine');
   
-  // NEW: Enhanced state for premium features
+  // Enhanced state for premium features
   const [isHoverMode, setIsHoverMode] = useState(false);
   const [activeHoverIndex, setActiveHoverIndex] = useState<number | null>(null);
-  const [particleCount, setParticleCount] = useState(25);
   const [showReadingTime, setShowReadingTime] = useState(true);
-  const [dynamicBackground, setDynamicBackground] = useState(true);
   const [enableSoundEffects, setEnableSoundEffects] = useState(false);
   
   const containerRef = useRef<HTMLDivElement>(null);
@@ -147,20 +145,9 @@ export const BlogSection = ({ onBlogSelect, onShowAllBlogs }: BlogSectionProps):
   const mouseXSpring = useSpring(mouseX, springConfig);
   const mouseYSpring = useSpring(mouseY, springConfig);
 
-  // NEW: Enhanced mouse tracking for premium effects
+  // Enhanced mouse tracking for premium effects
   const magneticX = useSpring(0, { stiffness: 100, damping: 10 });
   const magneticY = useSpring(0, { stiffness: 100, damping: 10 });
-  
-  // NEW: Advanced dynamic color system
-  const dynamicColors = useMemo(() => [
-    { primary: '#201d66', secondary: '#3949ab', accent: '#80deea' },
-    { primary: '#6a1b9a', secondary: '#8e24aa', accent: '#ba68c8' },
-    { primary: '#1565c0', secondary: '#1976d2', accent: '#42a5f5' },
-    { primary: '#2e7d32', secondary: '#388e3c', accent: '#66bb6a' },
-    { primary: '#f57c00', secondary: '#ff9800', accent: '#ffb74d' }
-  ], []);
-  
-  const [currentColorScheme, setCurrentColorScheme] = useState(dynamicColors[0]);
 
   // Filter blogs based on active category (for the 3 featured blogs)
   const filteredBlogs = useMemo((): BlogPost[] => {
@@ -195,27 +182,6 @@ export const BlogSection = ({ onBlogSelect, onShowAllBlogs }: BlogSectionProps):
     }, 8000);
     return () => clearInterval(interval);
   }, [displayBlogs.length]);
-
-  // NEW: Dynamic color scheme rotation
-  useEffect(() => {
-    if (dynamicBackground) {
-      const interval = setInterval(() => {
-        setCurrentColorScheme(prev => {
-          const currentIndex = dynamicColors.indexOf(prev);
-          return dynamicColors[(currentIndex + 1) % dynamicColors.length];
-        });
-      }, 15000);
-      return () => clearInterval(interval);
-    }
-  }, [dynamicBackground, dynamicColors]);
-
-  // NEW: Particle system animation
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setParticleCount(prev => prev + (Math.random() > 0.5 ? 1 : -1));
-    }, 3000);
-    return () => clearInterval(interval);
-  }, []);
 
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString('en-US', {
@@ -296,62 +262,26 @@ export const BlogSection = ({ onBlogSelect, onShowAllBlogs }: BlogSectionProps):
     }
   };
 
-  // NEW: Generate floating particles
-  const generateParticles = () => {
-    return Array.from({ length: Math.min(particleCount, 30) }, (_, i) => (
-      <motion.div
-        key={`particle-${i}`}
-        className="absolute w-2 h-2 bg-gradient-to-r from-blue-400 to-cyan-300 rounded-full opacity-20"
-        style={{
-          left: `${Math.random() * 100}%`,
-          top: `${Math.random() * 100}%`,
-        }}
-        animate={{
-          y: [0, -30, 0],
-          x: [0, Math.random() * 20 - 10, 0],
-          scale: [1, 1.2, 1],
-          opacity: [0.2, 0.6, 0.2]
-        }}
-        transition={{
-          duration: 4 + Math.random() * 4,
-          repeat: Infinity,
-          delay: Math.random() * 2,
-          ease: "easeInOut"
-        }}
-      />
-    ));
-  };
+
 
   return (
     <section
       ref={containerRef}
       id="blog"
-      className="relative min-h-screen w-full bg-gradient-to-br from-[#fafafa] via-[#f5f7fa] to-[#e3f2fd] dark:from-gray-900 dark:via-gray-800 dark:to-blue-900 overflow-hidden"
+      className="relative min-h-screen w-full bg-gradient-to-br from-[#f5f5f5] to-[#e3f2fd] dark:from-gray-900 dark:via-gray-800 dark:to-blue-900 overflow-hidden"
       onMouseMove={handleMouseMove}
     >
-      {/* Advanced Background Elements */}
+      {/* Background Elements */}
+      <div className="absolute inset-0 z-0 bg-gradient-to-br from-[#e3f2fd] to-[#b3e5fc] opacity-60" style={{ backgroundAttachment: 'fixed' }} />
       <div className="absolute inset-0">
-        {/* NEW: Dynamic particles */}
-        {generateParticles()}
-        
-        {/* Animated gradient orbs */}
+        {/* Animated gradient orbs with Skills section colors */}
         <motion.div 
           className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-r from-[#80deea]/20 to-[#b3e5fc]/30 rounded-full blur-3xl"
           animate={floatingVariants.float}
-          style={{
-            background: dynamicBackground 
-              ? `linear-gradient(135deg, ${currentColorScheme.accent}20, ${currentColorScheme.secondary}30)`
-              : undefined
-          }}
         />
         <motion.div 
           className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-r from-[#3949ab]/20 to-[#80deea]/25 rounded-full blur-3xl"
           animate={{ ...floatingVariants.float, transition: { ...floatingVariants.float.transition, delay: 2 } }}
-          style={{
-            background: dynamicBackground 
-              ? `linear-gradient(135deg, ${currentColorScheme.primary}20, ${currentColorScheme.accent}25)`
-              : undefined
-          }}
         />
         <motion.div 
           className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-[#e3f2fd]/15 to-[#b3e5fc]/20 rounded-full blur-3xl"
@@ -366,7 +296,7 @@ export const BlogSection = ({ onBlogSelect, onShowAllBlogs }: BlogSectionProps):
              }} 
         />
         
-        {/* NEW: Interactive light rays */}
+        {/* Interactive light rays */}
         <motion.div
           className="absolute inset-0 pointer-events-none"
           style={{
@@ -402,13 +332,6 @@ export const BlogSection = ({ onBlogSelect, onShowAllBlogs }: BlogSectionProps):
           <motion.h1 
             className="text-6xl md:text-8xl lg:text-9xl font-black bg-gradient-to-r from-[#201d66] via-[#3949ab] to-[#80deea] dark:from-blue-400 dark:via-cyan-300 dark:to-blue-200 bg-clip-text text-transparent mb-6 leading-none tracking-tight"
             variants={heroVariants}
-            style={{
-              background: dynamicBackground 
-                ? `linear-gradient(135deg, ${currentColorScheme.primary}, ${currentColorScheme.secondary}, ${currentColorScheme.accent})`
-                : undefined,
-              backgroundClip: 'text',
-              WebkitBackgroundClip: 'text'
-            }}
           >
             Latest
             <br />
@@ -446,32 +369,6 @@ export const BlogSection = ({ onBlogSelect, onShowAllBlogs }: BlogSectionProps):
               <div className="w-3 h-3 bg-gradient-to-r from-[#201d66] to-[#3949ab] rounded-full animate-pulse" />
               <span className="font-semibold">{blogPosts.filter(blog => blog.status === 'published').length} Total Posts</span>
             </div>
-          </motion.div>
-          
-          {/* NEW: Enhanced control panel */}
-          <motion.div 
-            className="flex justify-center gap-4 mt-8"
-            variants={heroVariants}
-          >
-            <motion.button
-              onClick={() => setDynamicBackground(!dynamicBackground)}
-              className="group flex items-center gap-2 px-4 py-2 bg-white/20 dark:bg-gray-800/20 backdrop-blur-sm rounded-full border border-white/30 text-sm font-medium hover:bg-white/30 transition-all duration-300"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <div className={`w-2 h-2 rounded-full ${dynamicBackground ? 'bg-green-400' : 'bg-gray-400'}`} />
-              Dynamic BG
-            </motion.button>
-            
-            <motion.button
-              onClick={() => setShowReadingTime(!showReadingTime)}
-              className="group flex items-center gap-2 px-4 py-2 bg-white/20 dark:bg-gray-800/20 backdrop-blur-sm rounded-full border border-white/30 text-sm font-medium hover:bg-white/30 transition-all duration-300"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <div className={`w-2 h-2 rounded-full ${showReadingTime ? 'bg-blue-400' : 'bg-gray-400'}`} />
-              Read Time
-            </motion.button>
           </motion.div>
         </motion.div>
 

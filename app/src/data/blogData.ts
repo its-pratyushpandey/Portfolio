@@ -271,7 +271,7 @@ export const blogPosts: BlogPost[] = [
       keywords: ['Full-Stack Development', 'Microservices', 'Database Optimization', 'Node.js', 'System Architecture', 'DevOps']
     },
     socialLinks: {
-      devTo: 'https://dev.to/pratyush_kumarpandey_0f5/advanced-fullstack-development-scalable-web-applications'
+      devTo: 'https://dev.to/pratyush_kumarpandey_0f5/advanced-full-stack-development-building-scalable-web-applications-19eh'
     }
   },
   {

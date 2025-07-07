@@ -6,12 +6,14 @@ import { SkillsSection } from "./section/SkillsSection/SkillsSection";
 import { ExperienceSection } from "./section/ExperienceSection/ExperienceSection";
 import { BlogSection } from "./section/BlogSection/BlogSection";
 import { HowICanHelpSection } from "./section/HowICanHelpSection/HowICanHelpSection";
+import { HeroSection } from "./section/HeroSection/HeroSection";
 import { BlogPostPage } from "../../components/BlogPostPage";
 import { AllBlogsPage } from "../../components/AllBlogsPage";
 import { BlogPost } from "../../types/blog";
 
 // Navigation links data
 const navigationLinks = [
+  { text: "Home", href: "#hero" },
   { text: "About", href: "#aboutme" },
   { text: "Skills", href: "#skills" },
   { text: "Projects", href: "#works" },
@@ -136,34 +138,9 @@ export const ElementLight = (): JSX.Element => {
       className="flex flex-col w-full min-h-screen items-start relative bg-gradient-to-br from-[#f5f5f5] to-[#e3f2fd] text-[#201d66] font-inter"
       data-model-id="2:273"
     >
-      {/* Hero Section */}
-      <section className="w-full flex flex-col items-center justify-center min-h-[90vh] pt-32 pb-16 px-4 md:px-0 relative bg-gradient-to-br from-[#f5f5f5] to-[#e3f2fd] overflow-hidden">
-        <div className="absolute inset-0 z-0 bg-gradient-to-br from-[#e3f2fd] to-[#b3e5fc] opacity-60" style={{ backgroundAttachment: 'fixed' }} />
-        <div className="relative z-10 flex flex-col items-center w-full max-w-4xl mx-auto gap-6">
-          <img
-            className="w-40 h-40 md:w-56 md:h-56 rounded-full border-4 border-[#201d66] shadow-lg object-cover mb-4"
-            alt="Profile"
-            src="/profile.jpg"
-          />
-          <h1 className="text-4xl md:text-6xl font-extrabold text-[#201d66] text-center drop-shadow-md leading-tight">Pratyush Kumar Pandey</h1>
-          <h2 className="text-xl md:text-2xl text-[#3949ab] font-semibold text-center mb-2">Software Developer | Full Stack Developer</h2>
-          <div className="flex flex-col md:flex-row items-center gap-4 justify-center mt-4">
-            <a
-              href="#contact"
-              className="bg-[#201d66] text-white px-6 py-3 rounded-full text-lg hover:bg-[#3949ab] transition shadow-lg font-semibold"
-            >
-              Get in Touch
-            </a>
-            <a
-              href="https://github.com/its-pratyushpandey"
-              className="bg-white border-2 border-[#201d66] text-[#201d66] px-6 py-3 rounded-full text-lg hover:bg-[#201d66] hover:text-white hover:bg-[#3949ab] transition shadow-lg font-semibold"
-              target="_blank" rel="noopener noreferrer"
-            >
-              GitHub
-            </a>
-          </div>
-        </div>
-      </section>
+      {/* Professional Hero Section */}
+      <HeroSection />
+      
       {/* Main content sections */}
       <AboutMeSection />
       <SkillsSection />

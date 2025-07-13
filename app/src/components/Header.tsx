@@ -11,7 +11,7 @@ const Header: React.FC = () => {
           <li><a href="#skills" className="text-[#201d66] hover:text-[#3949ab]">Skills</a></li>
           <li><a href="#projects" className="text-[#201d66] hover:text-[#3949ab]">Projects</a></li>
           <li><a href="#certificates" className="text-[#201d66] hover:text-[#3949ab]">Certificates</a></li>
-          <li><a href="#experienc" className="text-[#201d66] hover:text-[#3949ab]">My Journey </a></li>
+          <li><a href="#experience" className="text-[#201d66] hover:text-[#3949ab]">My Journey </a></li>
           <li><a href="#blog" className="text-[#201d66] hover:text-[#3949ab]">Blog</a></li>
           <li><a href="#contact" className="text-[#201d66] hover:text-[#3949ab]">Contact</a></li>
         </ul>
@@ -21,3 +21,8 @@ const Header: React.FC = () => {
 };
 
 export default Header;
+
+// Move the following CSS to your global stylesheet (e.g., styles/globals.css):
+// html {
+//   scroll-behavior: smooth;
+// }

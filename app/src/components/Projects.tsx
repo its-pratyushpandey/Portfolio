@@ -658,17 +658,15 @@ const Projects: React.FC = () => {
               </motion.div>
             )}
           </AnimatePresence>
-          {/* View More Projects Button */}
+          {/* View All Projects Button */}
           <div className="w-full flex justify-center mt-16 md:mt-24">
             <a
-              href="https://manishraj.netlify.app/projectsarchive"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/ViewAllProjects"
               className="inline-block bg-[#201d66] text-white px-8 py-3 rounded-full text-lg md:text-xl font-semibold border-2 border-[#80deea] shadow-lg hover:bg-[#3949ab] hover:text-[#e3f2fd] transition-all focus:outline-none focus:ring-2 focus:ring-[#201d66]"
               style={{ minWidth: 220 }}
-              aria-label="View more projects in new tab"
+              aria-label="View all projects"
             >
-              View More Projects
+              View All Projects
             </a>
           </div>
           {/* Custom styles for scrollbars and snap */}
@@ -849,6 +847,24 @@ const MobileProjectCard: React.FC<MobileProjectCardProps> = ({ project, setModal
         </motion.p>
       </motion.div>
     </motion.div>
+  );
+};
+
+const ViewAllProjects: React.FC = () => {
+  return (
+    <section className="w-full min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-[#f5f5f5] to-[#e3f2fd] py-20">
+      <h1 className="text-5xl md:text-6xl font-bold text-[#201d66] mb-8 drop-shadow-lg">All Projects</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4 md:px-8">
+        {projects.map((project, idx) => (
+          <div key={idx} className="bg-white rounded-lg shadow-lg p-6">
+            <img src={project.image} alt={project.title} className="w-full h-48 object-cover rounded-md mb-4" />
+            <h2 className="text-xl font-semibold text-[#201d66] mb-2">{project.title}</h2>
+            <p className="text-[#3949ab] mb-4">{project.description}</p>
+            <a href={project.link} target="_blank" rel="noopener noreferrer" className="inline-block bg-[#201d66] text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-[#3949ab] transition">Visit</a>
+          </div>
+        ))}
+      </div>
+    </section>
   );
 };
 

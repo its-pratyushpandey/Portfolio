@@ -351,15 +351,12 @@ const Projects: React.FC = () => {
                           id={`project-img-${idx}`}
                           src={project.image}
                           alt={project.title}
-                          className="w-full max-w-2xl h-auto rounded-3xl shadow-3xl object-cover border-6 border-[#3949ab] bg-white transition-transform duration-300 cursor-pointer hover:scale-110 group-hover:shadow-[0_12px_48px_0_rgba(32,29,102,0.25)] parallax-img focus:outline-none focus:ring-4 focus:ring-[#201d66] focus:ring-offset-4"
+                          className="w-full max-w-3xl h-auto rounded-3xl shadow-3xl object-cover border-6 border-[#3949ab] bg-white transition-transform duration-300 cursor-pointer hover:scale-110 group-hover:shadow-[0_12px_48px_0_rgba(32,29,102,0.25)] parallax-img focus:outline-none focus:ring-4 focus:ring-[#201d66] focus:ring-offset-4"
                           tabIndex={0}
                           aria-label={`Play video demo for ${project.title}`}
                           onClick={() => setIsPlaying(true)}
                           onKeyDown={e => {
-                            if (e.key === 'Enter' || e.key === ' ') {
-                              e.preventDefault();
-                              setIsPlaying(true);
-                            }
+                              if (e.key === 'Enter' || e.key === ' ') setIsPlaying(true);
                           }}
                           whileHover={shouldReduceMotion ? {} : { scale: 1.1, rotate: 2 }}
                           initial={{ opacity: 0, scale: 0.9 }}

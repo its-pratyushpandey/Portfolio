@@ -1,0 +1,54 @@
+/* Hero Section Styles */
+
+.hero-section {
+  position: relative;
+  overflow: hidden;
+  background-color: #E6F4FE; /* Updated background color */
+}
+
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.hero-section .text-center {
+  color: #201d66;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.hero-section .bg-gradient-to-br {
+  background: linear-gradient(to bottom right, #E6F4FE, #e3f2fd);
+}
+
+.hero-section .cta-button {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background-color: #3949ab;
+  color: #ffffff;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.hero-section .cta-button:hover {
+  background-color: #80deea;
+}
+
+@media (max-width: 768px) {
+  .hero-section .text-center {
+    font-size: 1.5rem;
+  }
+
+  .hero-section .cta-button {
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+  }
+}

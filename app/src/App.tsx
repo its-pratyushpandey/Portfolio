@@ -1,7 +1,6 @@
 import React, { useEffect, ReactNode, useState } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
 import Skills from './components/Skills';
@@ -109,7 +108,6 @@ const App: React.FC = () => {
     console.log('App.tsx: Rendering AllBlogsPage');
     return (
       <div className="min-h-screen bg-gradient-to-br from-[#f5f5f5] to-[#e3f2fd]">
-        <Header />
         <AllBlogsPage onBlogSelect={handleBlogSelect} onBack={handleBackToHome} />
       </div>
     );
@@ -120,7 +118,6 @@ const App: React.FC = () => {
     console.log('App.tsx: Rendering BlogPostPage for:', selectedBlog.title);
     return (
       <div className="min-h-screen bg-gradient-to-br from-[#f5f5f5] to-[#e3f2fd]">
-        <Header />
         <BlogPostPage 
           key={selectedBlog.id} 
           blog={selectedBlog} 
@@ -134,7 +131,6 @@ const App: React.FC = () => {
 
   return (
     <div className="bg-[#e3f2fd]">
-      <Header />
       <Hero />
       <Section><About /></Section>
       <Section><HowICanHelpSection /></Section>

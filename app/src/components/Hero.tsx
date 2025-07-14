@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import './Hero.css';
 
 // Animation variants similar to ExperienceSection
 const sectionVariants = {
@@ -58,14 +59,25 @@ const Hero: React.FC = () => {
   const [showDetails, setShowDetails] = useState(false);
 
   return (
-    <section
-      className="w-full min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-[#f5f5f5] to-[#e3f2fd] py-0 relative overflow-x-hidden"
+    <motion.section
+      className="w-full min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-[#f5f5f5] to-[#e3f2fd] py-0 relative overflow-hidden hero-section"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1 }}
     >
-      <div className="absolute inset-0 z-0 bg-gradient-to-br from-[#e3f2fd] to-[#b3e5fc] opacity-60" style={{ backgroundAttachment: 'fixed' }} />
-      <div className="relative z-10 w-full max-w-4xl mx-auto px-4 md:px-0">
+      <video
+        className="absolute inset-0 w-full h-full object-cover z-0"
+        src="/public/animations.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+      ></video>
+      <div className="absolute inset-0 z-10 bg-gradient-to-br from-[#e3f2fd] to-[#b3e5fc] opacity-60" style={{ backgroundAttachment: 'fixed' }} />
+      <div className="relative z-20 w-full max-w-4xl mx-auto px-4 md:px-0">
         <FloatingDecorations />
         <motion.div
-          className="text-center flex flex-col items-center justify-center gap-6 relative z-10 w-full max-w-4xl px-4 md:px-0"
+          className="text-center flex flex-col items-center justify-center gap-6 relative z-20 w-full max-w-4xl px-4 md:px-0"
           variants={sectionVariants}
           initial="hidden"
           animate="visible"
@@ -161,7 +173,7 @@ const Hero: React.FC = () => {
           </AnimatePresence>
         </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

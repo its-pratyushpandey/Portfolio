@@ -11,21 +11,6 @@ import { BlogPostPage } from "../../components/BlogPostPage";
 import { AllBlogsPage } from "../../components/AllBlogsPage";
 import { BlogPost } from "../../types/blog";
 
-// Navigation links data
-const navigationLinks = [
-  { text: "Home", href: "#hero" },
-  { text: "About", href: "#aboutme" },
-  { text: "Skills", href: "#skills" },
-  { text: "Projects", href: "#works" },
-  { text: "Experience", href: "#experience" },
-  { text: "Blog", href: "#blog" },
-  {
-    text: "Certifications",
-    
-    href: "#certifications",
-  },
-];
-
 export const ElementLight = (): JSX.Element => {
   const [selectedBlog, setSelectedBlog] = useState<BlogPost | null>(null);
   const [showAllBlogs, setShowAllBlogs] = useState<boolean>(false);
@@ -177,17 +162,6 @@ export const ElementLight = (): JSX.Element => {
         </div>
         {/* Navigation links */}
         <nav className="inline-flex items-center gap-7 relative flex-[0_0_auto]">
-          {navigationLinks.map((link, index) => (
-            <a
-              key={index}
-              className="relative w-fit font-semibold text-[#201d66] hover:text-[#3949ab] transition-colors text-[16px] leading-[26.4px] whitespace-nowrap"
-              href={link.href}
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              {link.text}
-            </a>
-          ))}
           <Button
             className="inline-flex items-center justify-center px-8 py-3 bg-[#201d66] text-white rounded-full hover:bg-[#3949ab] transition-colors shadow-lg font-semibold text-base"
             asChild

@@ -278,7 +278,7 @@ export const AboutMeSection = (): JSX.Element => {
           >
             <motion.div
               style={{ rotateX, rotateY }}
-              className="w-[340px] h-[340px] md:w-[400px] md:h-[400px] rounded-3xl shadow-2xl border-4 border-[#e3f2fd] bg-cover bg-center bg-[url(https://c.animaapp.com/mc46fmevF9sLme/img/manish-s-profile-picture.png)]"
+              className="w-[340px] h-[340px] md:w-[400px] md:h-[400px] rounded-3xl shadow-2xl border-4 border-[#e3f2fd] bg-cover bg-center bg-[url(https://c.animaapp.com/mc46fmevF9sLme/img/pratyush-s-profile-picture.png)]"
               initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.7, ease: 'easeOut' }}

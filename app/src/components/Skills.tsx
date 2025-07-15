@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 // Icon imports
 import { FaJava, FaReact, FaNodeJs, FaAws, FaGitAlt, FaGithub, FaGitlab, FaDatabase, FaPython, FaJs, FaHtml5, FaCss3Alt, FaTools, FaCogs, FaCloud, FaCode, FaTerminal, FaVial, FaRocket, FaRegFileCode, FaRegKeyboard, FaRegObjectGroup, FaRegDotCircle } from 'react-icons/fa';
-import { SiCplusplus, SiTypescript, SiRedux, SiMongodb, SiMysql, SiFirebase, SiNextdotjs, SiSpringboot, SiExpress, SiTailwindcss, SiVercel, SiHeroku, SiDigitalocean, SiNotion, SiPrettier, SiFramer, SiPostman, SiIntellijidea, SiRender, SiDatagrip, SiNamecheap } from 'react-icons/si';
+import { SiCplusplus, SiTypescript, SiRedux, SiMongodb, SiMysql, SiFirebase, SiNextdotjs, SiSpringboot, SiExpress, SiTailwindcss, SiVercel, SiHeroku, SiDigitalocean, SiNotion, SiPrettier, SiFramer, SiPostman, SiIntellijidea, SiRender, SiDatagrip, SiNamecheap, SiTensorflow } from 'react-icons/si';
 
 const translations = {
   en: {
@@ -10,7 +10,6 @@ const translations = {
     categories: ['Languages I Code In', 'Core Technologies', 'Developer Tools'],
     sync: 'Sync ',
     topSkill: 'Top Skill',
-    streak: 'Streak',
   },
 };
 
@@ -24,57 +23,53 @@ interface SkillCategory {
   skills: Skill[];
 }
 
-const skillCategories: SkillCategory[] = [
+const skillCategories = [
   {
     title: 'Languages I Code In',
     skills: [
-      { name: 'Java', level: 90 },
-      { name: 'C++', level: 80 },
-      { name: 'JavaScript', level: 85 },
+      { name: 'Java', icon: <FaJava className="text-[#e76f00]" /> },
+      { name: 'C++', icon: <SiCplusplus className="text-[#00599c]" /> },
+      { name: 'JavaScript', icon: <FaJs className="text-[#f7df1e]" /> },
     ],
   },
   {
     title: 'Core Technologies',
     skills: [
-      { name: 'ReactJS', level: 90 },
-      { name: 'NextJS', level: 80 },
-      { name: 'React Native', level: 70 },
-      { name: 'Typescript', level: 85 },
-      { name: 'NodeJS', level: 80 },
-      { name: 'ExpressJS', level: 80 },
-      { name: 'SpringBoot', level: 70 },
-      { name: 'REST API', level: 85 },
-      { name: 'WebSockets', level: 70 },
-      { name: 'OOP', level: 90 },
-      { name: 'MongoDB', level: 80 },
-      { name: 'MySQL', level: 75 },
-      { name: 'Firebase', level: 75 },
-      { name: 'AWS', level: 60 },
-      { name: 'NLP', level: 60 },
-      { name: 'Git', level: 90 },
-      { name: 'Redux', level: 80 },
+      { name: 'ReactJS', icon: <FaReact className="text-[#61dafb]" /> },
+      { name: 'React Native', icon: <FaReact className="text-[#61dafb]" /> },
+      { name: 'NextJS', icon: <SiNextdotjs className="text-[#000] dark:text-[#fff]" /> },
+      { name: 'Typescript', icon: <SiTypescript className="text-[#3178c6]" /> },
+      { name: 'NodeJS', icon: <FaNodeJs className="text-[#3c873a]" /> },
+      { name: 'ExpressJS', icon: <SiExpress className="text-[#000] dark:text-[#fff]" /> },
+      { name: 'SpringBoot', icon: <SiSpringboot className="text-[#6db33f]" /> },
+      { name: 'MongoDB', icon: <SiMongodb className="text-[#47a248]" /> },
+      { name: 'MySQL', icon: <SiMysql className="text-[#00758f]" /> },
+      { name: 'Firebase', icon: <SiFirebase className="text-[#ffca28]" /> },
+      { name: 'AWS', icon: <FaAws className="text-[#ff9900]" /> },
+      { name: 'Git', icon: <FaGitAlt className="text-[#f34f29]" /> },
+      { name: 'REST API', icon: <SiPostman className="text-[#ff6c37]" /> },
+      { name: 'OOP', icon: <FaJava className="text-[#e76f00]" /> },
+      { name: 'NLP', icon: <SiTensorflow className="text-[#ff6f00]" /> },
     ],
   },
   {
     title: 'Developer Tools',
     skills: [
-      { name: 'TailwindCSS', level: 85 },
-      { name: 'Firebase', level: 75 },
-      { name: 'GitHub', level: 90 },
-      { name: 'GitLab', level: 70 },
-      { name: 'VS Code', level: 95 },
-      { name: 'Cursor AI', level: 60 },
-      { name: 'IntelliJ IDEA', level: 70 },
-      { name: 'Render', level: 60 },
-      { name: 'DataGrip', level: 60 },
-      { name: 'Postman', level: 80 },
-      { name: 'Framer Motion', level: 75 },
-      { name: 'Prettier', level: 80 },
-      { name: 'Notion', level: 70 },
-      { name: 'Heroku', level: 65 },
-      { name: 'Microsoft Azure', level: 60 },
-      { name: 'DigitalOcean', level: 60 },
-      { name: 'Namecheap', level: 60 },
+      { name: 'TailwindCSS', icon: <SiTailwindcss className="text-[#38bdf8]" /> },
+      { name: 'GitHub', icon: <FaGithub className="text-[#181717]" /> },
+      { name: 'GitLab', icon: <FaGitlab className="text-[#fc6d26]" /> },
+      { name: 'VS Code', icon: <FaRegDotCircle className="text-[#007acc]" /> },
+      { name: 'IntelliJ IDEA', icon: <SiIntellijidea className="text-[#000] dark:text-[#fff]" /> },
+      { name: 'Render', icon: <SiRender className="text-[#3949ab]" /> },
+      { name: 'DataGrip', icon: <SiDatagrip className="text-[#21d789]" /> },
+      { name: 'Postman', icon: <SiPostman className="text-[#ff6c37]" /> },
+      { name: 'Framer Motion', icon: <SiFramer className="text-[#0055ff]" /> },
+      { name: 'Prettier', icon: <SiPrettier className="text-[#f7b93e]" /> },
+      { name: 'Notion', icon: <SiNotion className="text-[#000] dark:text-[#fff]" /> },
+      { name: 'Heroku', icon: <SiHeroku className="text-[#430098]" /> },
+      { name: 'Microsoft Azure', icon: <FaAws className="text-[#0078d4]" /> },
+      { name: 'DigitalOcean', icon: <SiDigitalocean className="text-[#0080ff]" /> },
+      { name: 'Namecheap', icon: <SiNamecheap className="text-[#de3723]" /> },
     ],
   },
 ];
@@ -97,7 +92,7 @@ const itemVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 };
 
-const getDotCount = (level: number) => Math.round(level / 20);
+const getDotCount = () => 0; // Placeholder function
 
 // Mock endorsements and certifications data
 const skillEndorsements: Record<string, { count: number; avatars: string[] }> = {
@@ -246,9 +241,6 @@ export const Skills: React.FC = () => {
                 <div className="text-center text-[#bdbdbd] w-full">No skills found.</div>
               )}
               {filteredSkills.map((skill, i) => {
-                const certification = skillCertifications[skill.name];
-                const isTopSkill = skill.level >= 90;
-                const streak = skillCategories[selectedCategory].skills.filter(s => s.level >= 90).length >= 2 && isTopSkill;
                 return (
                   <motion.div
                     key={i}
@@ -257,15 +249,12 @@ export const Skills: React.FC = () => {
                     whileHover={{ scale: 1.04, boxShadow: '0 6px 24px 0 rgba(32,29,102,0.10)' }}
                     transition={{ type: 'spring', stiffness: 300, damping: 20 }}
                     tabIndex={0}
-                    aria-label={`${skill.name}, proficiency ${skill.level}%`}
+                    aria-label={`${skill.name}`}
                     onKeyDown={e => handleKeyDown(e, i)}
                   >
                     <div className="flex items-center justify-between gap-2 mb-2">
-                      <span className="font-medium text-[#201d66] text-base md:text-lg truncate flex items-center gap-2" title={[
-                        certification ? 'Certified' : '',
-                        isTopSkill ? t.topSkill : '',
-                        streak ? t.streak : ''
-                      ].filter(Boolean).join(', ')}>
+                      <span className="font-medium text-[#201d66] text-base md:text-lg truncate flex items-center gap-2" title={
+                        ''}>
                         <motion.span
                           className="inline-flex items-center justify-center w-6 h-6 md:w-7 md:h-7 mr-1"
                           whileHover={{ rotate: 20, scale: 1.2, color: '#3949ab' }}
@@ -276,52 +265,7 @@ export const Skills: React.FC = () => {
                           {skillIcons[skill.name] || <FaRegDotCircle className="text-[#bdbdbd]" />}
                         </motion.span>
                         {skill.name}
-                        {(selectedCategory === 0 || selectedCategory === 1) && (
-                          certification ? (
-                            <a href={certification.url} target="_blank" rel="noopener noreferrer" title="View Certificate" className="ml-1" aria-label={`View ${skill.name} certificate`}>
-                              <svg className="inline w-5 h-5 text-[#43a047]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="#43a047" strokeWidth="2" fill="#e8f5e9"/><path d="M9 12l2 2 4-4" stroke="#43a047" strokeWidth="2" fill="none"/></svg>
-                            </a>
-                          ) : (
-                            <svg className="inline w-5 h-5 text-[#bdbdbd] ml-1" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="#bdbdbd" strokeWidth="2" fill="#f5f5f5"/><path d="M9 12l2 2 4-4" stroke="#bdbdbd" strokeWidth="2" fill="none"/></svg>
-                          )
-                        )}
-                        {isTopSkill && (
-                          <span className="ml-2 inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-gradient-to-r from-[#43a047] to-[#80deea] text-white animate-pulse" title={t.topSkill}>
-                            <svg className="w-3.5 h-3.5 mr-1" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32-3.87-3.77 5.34-.78z" /></svg>
-                            {t.topSkill}
-                          </span>
-                        )}
-                        {streak && (
-                          <span className="ml-2 inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-gradient-to-r from-[#3949ab] to-[#80deea] text-white animate-bounce" title={t.streak}>
-                            <svg className="w-3.5 h-3.5 mr-1" fill="currentColor" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" /><path d="M10 4v8l4 2" stroke="#fff" strokeWidth="2" fill="none"/></svg>
-                            {t.streak}
-                          </span>
-                        )}
                       </span>
-                      <span className="text-xs text-[#3949ab] font-semibold">{skill.level}%</span>
-                    </div>
-                    {/* Animated Progress Bar */}
-                    <div className="w-full h-2 bg-[#e3f2fd] rounded-full overflow-hidden mt-1 mb-2" aria-label={`Proficiency bar for ${skill.name}`}> 
-                      <motion.div
-                        className="h-full rounded-full bg-gradient-to-r from-[#201d66] via-[#3949ab] to-[#80deea]"
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${skill.level}%` }}
-                        transition={{ duration: 0.8, delay: i * 0.05 }}
-                        style={{ width: `${skill.level}%` }}
-                        aria-valuenow={skill.level}
-                        aria-valuemin={0}
-                        aria-valuemax={100}
-                        role="progressbar"
-                      />
-                    </div>
-                    {/* Dots Indicator */}
-                    <div className="flex gap-1 mt-1" aria-label={`Proficiency dots for ${skill.name}`}> 
-                      {Array.from({ length: 5 }).map((_, idx) => (
-                        <span
-                          key={idx}
-                          className={`w-2 h-2 rounded-full ${idx < getDotCount(skill.level) ? 'bg-[#201d66]' : 'bg-[#e3f2fd] border border-[#b3e5fc]'}`}
-                        />
-                      ))}
                     </div>
                   </motion.div>
                 );
@@ -334,9 +278,6 @@ export const Skills: React.FC = () => {
               <div className="col-span-full text-center text-[#bdbdbd] py-8">No skills found.</div>
             )}
             {filteredSkills.map((skill, i) => {
-              const certification = skillCertifications[skill.name];
-              const isTopSkill = skill.level >= 90;
-              const streak = skillCategories[selectedCategory].skills.filter(s => s.level >= 90).length >= 2 && isTopSkill;
               return (
                 <motion.div
                   key={i}
@@ -345,15 +286,12 @@ export const Skills: React.FC = () => {
                   whileHover={{ scale: 1.04, boxShadow: '0 6px 24px 0 rgba(32,29,102,0.10)' }}
                   transition={{ type: 'spring', stiffness: 300, damping: 20 }}
                   tabIndex={0}
-                  aria-label={`${skill.name}, proficiency ${skill.level}%`}
+                  aria-label={`${skill.name}`}
                   onKeyDown={e => handleKeyDown(e, i)}
                 >
                   <div className="flex items-center justify-between gap-2">
-                    <span className="font-medium text-[#201d66] text-base md:text-lg truncate flex items-center gap-2" title={[
-                      certification ? 'Certified' : '',
-                      isTopSkill ? t.topSkill : '',
-                      streak ? t.streak : ''
-                    ].filter(Boolean).join(', ')}>
+                    <span className="font-medium text-[#201d66] text-base md:text-lg truncate flex items-center gap-2" title={
+                      ''}>
                       <motion.span
                         className="inline-flex items-center justify-center w-6 h-6 md:w-7 md:h-7 mr-1"
                         whileHover={{ rotate: 20, scale: 1.2, color: '#3949ab' }}
@@ -364,52 +302,7 @@ export const Skills: React.FC = () => {
                         {skillIcons[skill.name] || <FaRegDotCircle className="text-[#bdbdbd]" />}
                       </motion.span>
                       {skill.name}
-                      {(selectedCategory === 0 || selectedCategory === 1) && (
-                        certification ? (
-                          <a href={certification.url} target="_blank" rel="noopener noreferrer" title="View Certificate" className="ml-1" aria-label={`View ${skill.name} certificate`}>
-                            <svg className="inline w-5 h-5 text-[#43a047]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="#43a047" strokeWidth="2" fill="#e8f5e9"/><path d="M9 12l2 2 4-4" stroke="#43a047" strokeWidth="2" fill="none"/></svg>
-                          </a>
-                        ) : (
-                          <svg className="inline w-5 h-5 text-[#bdbdbd] ml-1" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="#bdbdbd" strokeWidth="2" fill="#f5f5f5"/><path d="M9 12l2 2 4-4" stroke="#bdbdbd" strokeWidth="2" fill="none"/></svg>
-                        )
-                      )}
-                      {isTopSkill && (
-                        <span className="ml-2 inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-gradient-to-r from-[#43a047] to-[#80deea] text-white animate-pulse" title={t.topSkill}>
-                          <svg className="w-3.5 h-3.5 mr-1" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32-3.87-3.77 5.34-.78z" /></svg>
-                          {t.topSkill}
-                        </span>
-                      )}
-                      {streak && (
-                        <span className="ml-2 inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-gradient-to-r from-[#3949ab] to-[#80deea] text-white animate-bounce" title={t.streak}>
-                          <svg className="w-3.5 h-3.5 mr-1" fill="currentColor" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" /><path d="M10 4v8l4 2" stroke="#fff" strokeWidth="2" fill="none"/></svg>
-                          {t.streak}
-                        </span>
-                      )}
                     </span>
-                    <span className="text-xs text-[#3949ab] font-semibold">{skill.level}%</span>
-                  </div>
-                  {/* Animated Progress Bar */}
-                  <div className="w-full h-2 md:h-3 bg-[#e3f2fd] rounded-full overflow-hidden mt-1 mb-2" aria-label={`Proficiency bar for ${skill.name}`}> 
-                    <motion.div
-                      className="h-full rounded-full bg-gradient-to-r from-[#201d66] via-[#3949ab] to-[#80deea]"
-                      initial={{ width: 0 }}
-                      whileInView={{ width: `${skill.level}%` }}
-                      transition={{ duration: 0.8, delay: i * 0.05 }}
-                      style={{ width: `${skill.level}%` }}
-                      aria-valuenow={skill.level}
-                      aria-valuemin={0}
-                      aria-valuemax={100}
-                      role="progressbar"
-                    />
-                  </div>
-                  {/* Dots Indicator */}
-                  <div className="flex gap-1 mt-1" aria-label={`Proficiency dots for ${skill.name}`}> 
-                    {Array.from({ length: 5 }).map((_, idx) => (
-                      <span
-                        key={idx}
-                        className={`w-2 h-2 md:w-2.5 md:h-2.5 rounded-full ${idx < getDotCount(skill.level) ? 'bg-[#201d66]' : 'bg-[#e3f2fd] border border-[#b3e5fc]'}`}
-                      />
-                    ))}
                   </div>
                 </motion.div>
               );

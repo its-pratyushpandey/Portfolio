@@ -134,6 +134,36 @@ export const ExperienceSection = (): JSX.Element => {
 				className="absolute inset-0 z-0 bg-gradient-to-br from-[#e3f2fd] to-[#b3e5fc] opacity-60"
 				style={{ backgroundAttachment: "fixed" }}
 			/>
+			{/* Timeline/Stepper - no cards, just clean timeline */}
+			<aside className="relative z-10 md:w-1/4 w-full flex md:flex-col flex-row md:items-start items-center md:justify-center justify-start bg-transparent md:py-24 py-4 px-2 md:px-0 overflow-x-auto md:overflow-x-visible border-b md:border-b-0 md:border-r border-[#b3e5fc]/40 md:ml-16 ml-4">
+				<nav className="flex md:flex-col flex-row w-full md:w-auto gap-0 relative">
+					<div className="absolute md:left-6 left-4 md:top-0 top-8 md:bottom-0 bottom-8 w-1 bg-gradient-to-b from-[#b3e5fc] to-[#201d66] rounded-full" style={{ zIndex: 0 }} />
+					{experiences.map((exp, idx) => (
+						<motion.button
+							key={exp.company}
+							className={`relative z-10 flex items-center md:items-start px-2 py-3 md:px-4 md:py-6 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#201d66] focus:ring-offset-2 bg-transparent text-[#201d66] rounded-none border-none shadow-none hover:bg-[#e3f2fd]/60 group w-full md:w-auto`}
+							onClick={() => setSelectedIdx(idx)}
+							aria-label={`Show details for ${exp.company}`}
+							tabIndex={0}
+							onKeyDown={e => (e.key === 'Enter' || e.key === ' ') && setSelectedIdx(idx)}
+							style={{ minWidth: '160px', marginBottom: 0, marginLeft: 0, marginRight: 0 }}
+							whileHover={{ scale: 1.04, x: 6 }}
+							whileTap={{ scale: 0.98 }}
+							initial="hidden"
+							animate="visible"
+							variants={itemVariants}
+						>
+							{/* Timeline Dot - removed border for a cleaner look */}
+							<span className="flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded-full font-bold text-lg md:text-xl bg-[#e3f2fd] text-[#201d66] shadow-md mr-4 md:mr-6">{String(idx + 1).padStart(2, '0')}</span>
+							<span className="flex flex-col items-start text-left">
+								<span className="font-semibold text-sm md:text-base">{exp.company}</span>
+								<span className="text-xs md:text-sm opacity-70 font-normal">{exp.role.split('–')[0]}</span>
+								<span className="text-xs md:text-sm opacity-60 font-medium mt-1">{exp.period}</span>
+							</span>
+						</motion.button>
+					))}
+				</nav>
+			</aside>
 			{/* Main Experience Details */}
 			<main className="relative z-10 flex-1 flex flex-col items-center justify-center px-2 md:px-12 py-12 md:py-24 min-h-[60vh]">
 				{/* Professional Section Header */}

@@ -59,16 +59,16 @@ export const SkillsSection = (): JSX.Element => {
       word: "LEARN",
       fontSize: "text-[54.3px]",
       highlightColors: [
-        "text-manishrajnetlifyapplucky-point",
-        "text-manishrajnetlifyappsail",
+        "text-pratyushpandeynetlifyapplucky-point",
+        "text-pratyushpandeynetlifyappsail",
       ],
     },
     {
       word: "ADAPT",
       fontSize: "text-[52.3px]",
       highlightColors: [
-        "text-manishrajnetlifyappsail",
-        "text-manishrajnetlifyappwild-watermelon",
+        "text-pratyushpandeynetlifyappsail",
+        "text-pratyushpandeynetlifyappwild-watermelon",
       ],
       
     },
@@ -76,8 +76,8 @@ export const SkillsSection = (): JSX.Element => {
       word: "THRIVE",
       fontSize: "text-[52.5px]",
       highlightColors: [
-        "text-manishrajnetlifyappspring-green",
-        "text-manishrajnetlifyappsail",
+        "text-pratyushpandeynetlifyappspring-green",
+        "text-pratyushpandeynetlifyappsail",
       ],
     },
   ];

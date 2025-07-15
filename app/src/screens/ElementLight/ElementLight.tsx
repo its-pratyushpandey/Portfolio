@@ -168,7 +168,7 @@ export const ElementLight = (): JSX.Element => {
           >
             <a
               className="w-fit text-white text-[15.125px] font-semibold whitespace-nowrap"
-              href="https://manishraj.netlify.app/contact"
+              href="https://pratyush.netlify.app/contact"
               rel="noopener noreferrer"
               target="_blank"
             >

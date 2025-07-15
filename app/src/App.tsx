@@ -14,6 +14,7 @@ import { ProjectsDarkModeProvider } from './theme/ProjectsDarkModeContext';
 import { BlogPostPage } from './components/BlogPostPage';
 import { AllBlogsPage } from './components/AllBlogsPage';
 import { BlogPost } from './types/blog';
+import Preloader from './components/Preloader';
 
 interface SectionProps {
   children: ReactNode;
@@ -51,6 +52,12 @@ const Section: React.FC<SectionProps> = ({ children }) => {
 const App: React.FC = () => {
   const [selectedBlog, setSelectedBlog] = useState<BlogPost | null>(null);
   const [showAllBlogs, setShowAllBlogs] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 3000);
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleBlogSelect = (blog: BlogPost) => {
     // Use functional updates to ensure we get the latest state
@@ -129,19 +136,23 @@ const App: React.FC = () => {
 
   console.log('App.tsx: Rendering main page with showAllBlogs:', showAllBlogs, 'selectedBlog:', selectedBlog);
 
+  if (loading) {
+    return <Preloader />;
+  }
+
   return (
     <div className="bg-[#e3f2fd]">
-      <Hero />
-      <Section><About /></Section>
-      <Section><HowICanHelpSection /></Section>
-      <Section><Skills /></Section>
       <ProjectsDarkModeProvider>
+        <Hero />
+        <Section><About /></Section>
+        <Section><HowICanHelpSection /></Section>
+        <Section><Skills /></Section>
         <Section><Projects /></Section>
+        <Section><Certificates /></Section>
+        <Section><ExperienceSection /></Section>
+        <Section><BlogSection onBlogSelect={handleBlogSelect} onShowAllBlogs={handleShowAllBlogs} /></Section>
+        <Section><ContactSection /></Section>
       </ProjectsDarkModeProvider>
-      <Section><Certificates /></Section>
-      <Section><ExperienceSection /></Section>
-      <Section><BlogSection onBlogSelect={handleBlogSelect} onShowAllBlogs={handleShowAllBlogs} /></Section>
-      <Section><ContactSection /></Section>
     </div>
   );
 };

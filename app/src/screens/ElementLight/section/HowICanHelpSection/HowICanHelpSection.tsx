@@ -3,45 +3,37 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const helpItems = [
 	{
-		title: "Web Development",
-		description:
-			"Building modern, scalable, and responsive web applications tailored to your business needs.",
-		icon: "🌐",
-		tags: ["React", "Node.js", "TypeScript", "Vite", "TailwindCSS"],
-		level: 95, // out of 100
-		portfolio: "https://github.com/its-pratyushpandey/portfolio",
-		blog: "https://dev.to/itspratyushpandey/web-development-best-practices-2025-1",
-	},
-	{
-		title: "UI/UX Design",
-		description:
-			"Designing intuitive and engaging user interfaces for delightful user experiences.",
-		icon: "🎨",
-		tags: ["Figma", "Wireframes", "Accessibility", "Prototyping"],
-		level: 88,
-		portfolio: "https://www.figma.com/@pratyushpandey",
-		blog: "https://dev.to/itspratyushpandey/uiux-design-trends-2025-2",
-	},
-	{
-		title: "Consulting & Mentorship",
-		description:
-			"Guiding teams and individuals in best practices, code reviews, and project architecture.",
-		icon: "🤝",
-		tags: ["Best Practices", "Code Reviews", "Architecture", "Teamwork"],
-		level: 82,
-		portfolio: "https://github.com/its-pratyushpandey/mentorship-projects",
-		blog: "https://dev.to/itspratyushpandey/mentoring-junior-devs-3",
-	},
-	{
-		title: "Automation & Integration",
-		description:
-			"Automating workflows and integrating third-party services to boost productivity.",
-		icon: "⚡",
-		tags: ["APIs", "CI/CD", "Scripting", "Integrations"],
-		level: 90,
-		portfolio: "https://github.com/its-pratyushpandey/automation-scripts",
-		blog: "https://dev.to/itspratyushpandey/automation-integration-2025-4",
-	},
+    title: "Web Development",
+    description:
+      "Building modern, scalable, and responsive web applications tailored to business needs. Strong focus on performance, maintainability, and seamless user experience using cutting-edge technologies.",
+    icon: "🌐",
+    tags: ["React", "Node.js", "TypeScript", "Vite", "TailwindCSS"],
+    level: 95, // out of 100
+  },
+  {
+    title: "Full-Stack App Development",
+    description:
+      "Engineering robust, scalable web and mobile applications with end-to-end architecture. Leveraging modern JavaScript frameworks, cloud services, and databases to build performant full-stack solutions.",
+    icon: "💻",
+    tags: ["React", "Node.js", "MongoDB", "React Native", "Firebase"],
+    level: 93, // out of 100
+  },
+  {
+    title: "Product Interface Design",
+    description:
+      "Crafting clean, responsive, and user-centered interfaces with a sharp focus on usability, accessibility, and design consistency across platforms. Strong command over component libraries and design tools.",
+    icon: "🧩",
+    tags: ["Figma", "Material UI", "Tailwind CSS", "Design Systems", "Accessibility"],
+    level: 89, // out of 100
+  },
+  {
+    title: "Team Collaboration & Agile Development",
+    description:
+      "Working seamlessly within cross-functional teams using Agile methodologies. Emphasizing code quality, peer reviews, communication, and rapid delivery through well-structured workflows.",
+    icon: "🤝",
+    tags: ["Agile", "Scrum", "Git & Version Control", "Code Reviews", "Team Communication"],
+    level: 91, // out of 100
+  },
 ];
 
 const sectionVariants = {
@@ -282,27 +274,6 @@ export const HowICanHelpSection = (): JSX.Element => {
 											>
 												{item.description}
 											</motion.p>
-											<div className="mt-2 flex flex-wrap gap-4 items-center">
-												<a
-													href={item.portfolio}
-													target="_blank"
-													rel="noopener noreferrer"
-													className="text-[#201d66] font-semibold underline underline-offset-4 hover:text-[#3949ab] transition-colors text-sm md:text-base focus:outline-none focus:ring-2 focus:ring-[#201d66]"
-													aria-label={`See portfolio project for ${item.title}`}
-												>
-													Project
-												</a>
-												<span className="text-[#b3b3b3] text-lg select-none">|</span>
-												<a
-													href={item.blog}
-													target="_blank"
-													rel="noopener noreferrer"
-													className="text-[#201d66] font-semibold underline underline-offset-4 hover:text-[#3949ab] transition-colors text-sm md:text-base focus:outline-none focus:ring-2 focus:ring-[#201d66]"
-													aria-label={`Read blog post for ${item.title}`}
-												>
-													Blog Post
-												</a>
-											</div>
 										</motion.div>
 									)}
 								</AnimatePresence>

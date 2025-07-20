@@ -11,7 +11,6 @@ export default {
         primary: "#201d66",
         secondary: "#3949ab",
         accent: "#64b5f6",
-        background: "#e3f2fd",
         darkBg: "#18192b",
         darkCard: "#23243a",
         darkText: "#e3f2fd",

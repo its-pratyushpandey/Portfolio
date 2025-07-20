@@ -226,11 +226,11 @@ const Projects: React.FC = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   return (
-    <section id="projects" className="w-full min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-[#f5f5f5] to-[#e3f2fd] py-0 relative overflow-hidden">
+    <section id="projects" className="w-screen h-screen flex flex-col items-center justify-center bg-gradient-to-br from-[#f5f5f5] to-[#e3f2fd] py-0 relative overflow-hidden">
       {/* Parallax background */}
       <div className="absolute inset-0 z-0 bg-gradient-to-br from-[#e3f2fd] to-[#b3e5fc] opacity-60" style={{ backgroundAttachment: 'fixed' }} />
-      <div className="w-full max-w-5xl mx-auto px-0 md:px-8 relative z-10">
-        <motion.h2 className="text-4xl md:text-5xl font-bold text-[#201d66] mb-20 text-center pt-20" initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+      <div className="w-full max-w-7xl mx-auto px-0 md:px-8 relative z-10">
+        <motion.h2 className="text-5xl md:text-6xl font-bold text-[#201d66] mb-20 text-center pt-20" initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
           Work Showcase
         </motion.h2>
         {/* Floating/Drifting Decorative Elements */}
@@ -291,7 +291,7 @@ const Projects: React.FC = () => {
                     aria-label={`Play video demo for ${project.title}`}
                     onClick={() => setIsPlaying(true)}
                     onKeyDown={e => {
-                        if (e.key === 'Enter' || e.key === ' ') setIsPlaying(true);
+                    if (e.key === 'Enter' || e.key === ' ') setIsPlaying(true);
                     }}
                     whileHover={shouldReduceMotion ? {} : { scale: 1.1, rotate: 2 }}
                     initial={{ opacity: 0, scale: 0.9 }}

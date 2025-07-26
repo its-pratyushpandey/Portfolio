@@ -17,10 +17,12 @@ interface Project {
 }
 //  previewModal?: string; // Optional live preview URL
 
+//I want to add a heading Text as My workspace
+
             
 const projects: Project[] = [
   {
-    title: 'NAYONA CONSULTANCY SERVICE',
+    title: 'Project Alpha',
     description: 'Consulting • Engineering',
     image: 'https://c.animaapp.com/mc46fmevF9sLme/img/nayona-consultancy-service.png',
     link: 'https://nayona.netlify.app/',
@@ -31,7 +33,7 @@ const projects: Project[] = [
     videoDemo: 'https://www.w3schools.com/html/mov_bbb.mp4' // Example video
   },
   {
-    title: 'DEVCLI - CLI TOOL',
+    title: 'Project Beta',
     description: 'NPM Library • CLI Tool',
     image: 'https://c.animaapp.com/mc46fmevF9sLme/img/devcli---cli-tool.png',
     link: 'https://devcli.vercel.app/',
@@ -225,11 +227,62 @@ const Projects: React.FC = () => {
 
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
+  // Adjusting the styles for the project section to make it full screen and responsive
+  const projectContainerStyle = {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+    gap: '1rem',
+    padding: '2rem',
+    maxWidth: '100%',
+    height: '100vh', // Full screen height
+    overflowY: 'auto',
+  };
+
+  const projectCardStyle = {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: '1rem',
+    borderRadius: '8px',
+    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+    backgroundColor: '#fff',
+    transition: 'transform 0.3s ease',
+  };
+
+  const projectImageStyle = {
+    width: '80%', // Reduced size
+    height: 'auto',
+    marginBottom: '1rem',
+  };
+
+  const projectTitleStyle = {
+    fontSize: '1.2rem', // Reduced size
+    fontWeight: 'bold',
+    marginBottom: '0.5rem',
+  };
+
+  const projectDescriptionStyle = {
+    fontSize: '0.9rem', // Reduced size
+    textAlign: 'center',
+    color: '#555',
+  };
+
   return (
     <section id="projects" className="w-screen h-screen flex flex-col items-center justify-center bg-gradient-to-br from-[#f5f5f5] to-[#e3f2fd] py-0 relative overflow-hidden">
       {/* Parallax background */}
       <div className="absolute inset-0 z-0 bg-gradient-to-br from-[#e3f2fd] to-[#b3e5fc] opacity-60" style={{ backgroundAttachment: 'fixed' }} />
       <div className="w-full max-w-7xl mx-auto px-0 md:px-8 relative z-10">
+        
+        {/* Heading */}
+        <motion.h1 
+          className="text-4xl md:text-5xl font-extrabold text-[#201d66] mb-10 text-center pt-20" // Increased padding-top
+          initial={{ opacity: 0, y: -20 }} 
+          whileInView={{ opacity: 1, y: 0 }} 
+          viewport={{ once: true }}
+        >
+          My Workspace
+        </motion.h1>
         <motion.h2 className="text-5xl md:text-6xl font-bold text-[#201d66] mb-20 text-center pt-20" initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
           Work Showcase
         </motion.h2>

@@ -39,6 +39,7 @@
   transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   transform-origin: center center;
   will-change: transform;
+  transform: scale3d(1.05, 1.05, 1) rotateX(3deg) rotateY(-2deg); /* Reduced scale and rotation */
 }
 
 .premium-blog-image:hover {
@@ -253,6 +254,11 @@
 @keyframes shimmer {
   0% { background-position: -200% 0; }
   100% { background-position: 200% 0; }
+}
+
+/* Adjusting premium blog section for smaller elements */
+.premium-blog-container {
+  padding: 1rem; /* Added padding for better spacing */
 }
 
 /* Advanced grid layouts */

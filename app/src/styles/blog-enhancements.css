@@ -1,17 +1,17 @@
 /* Enhanced Blog Section CSS - Professional Animations & Effects */
 
-/* Advanced keyframe animations */
+/* Adjusting animations for smaller elements */
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
+  50% { transform: translateY(-10px); } /* Reduced float distance */
 }
 
 @keyframes pulse-glow {
   0%, 100% { 
-    box-shadow: 0 0 5px rgba(128, 222, 234, 0.5); 
+    box-shadow: 0 0 3px rgba(128, 222, 234, 0.5); 
   }
   50% { 
-    box-shadow: 0 0 20px rgba(128, 222, 234, 0.8), 0 0 30px rgba(179, 229, 252, 0.6); 
+    box-shadow: 0 0 10px rgba(128, 222, 234, 0.8), 0 0 15px rgba(179, 229, 252, 0.6); 
   }
 }
 

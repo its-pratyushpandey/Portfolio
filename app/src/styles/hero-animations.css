@@ -28,8 +28,8 @@
 
 .hero-particle {
   position: absolute;
-  width: 4px;
-  height: 4px;
+  width: 2px; /* Reduced size */
+  height: 2px; /* Reduced size */
   background: radial-gradient(circle, rgba(128, 222, 234, 0.8) 0%, transparent 70%);
   border-radius: 50%;
   animation: particleFloat 15s infinite linear;
@@ -47,7 +47,7 @@
     opacity: 0.8;
   }
   100% {
-    transform: translateY(-100px) translateX(100px) rotate(360deg);
+    transform: translateY(-50px) translateX(50px) rotate(360deg); /* Reduced distance */
     opacity: 0;
   }
 }

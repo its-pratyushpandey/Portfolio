@@ -38,6 +38,7 @@
     "@types/chart.js": "^2.9.41",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
+    "@types/three": "^0.178.1",
     "@vitejs/plugin-react": "^4.0.3",
     "autoprefixer": "^10.4.16",
     "postcss": "^8.4.31",

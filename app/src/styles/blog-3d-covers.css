@@ -44,14 +44,16 @@
   box-shadow: 
     inset 0 1px 0 rgba(255, 255, 255, 0.1),
     0 2px 8px rgba(0, 0, 0, 0.05);
+  
+  padding: 1rem; /* Added padding for better spacing */
 }
 
 /* Enhanced 3D Cover Image */
 .blog-3d-cover {
-  width: 100%;
-  height: 12rem; /* 192px for desktop */
+  width: 80%; /* Reduced size */
+  height: 10rem; /* Adjusted height */
   object-fit: cover;
-  transition: all 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: all 0.5s ease-in-out;
   
   /* Advanced 3D transform properties */
   transform-origin: center center;

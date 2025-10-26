@@ -590,7 +590,7 @@ export const HeroSection: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#80deea]/10 to-transparent animate-pulse" style={{ animationDelay: '1s' }} />
       </div>
 
-      <FloatingElements />
+      <FloatingElements mousePosition={mousePosition} />
 
       {/* Main Content */}
       <motion.div

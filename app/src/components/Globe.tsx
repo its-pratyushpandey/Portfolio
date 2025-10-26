@@ -33,6 +33,7 @@ const Globe = () => {
       }}
     >
       <Suspense fallback={<CanvasLoader />}>
+        {/* @ts-ignore */}
         <OrbitControls
           autoRotate
           enableZoom={false}

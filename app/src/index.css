@@ -1,13 +1,13 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 @import './styles/blog-3d-covers.css';
 @import './styles/premium-blog-section.css';
 @import './styles/hero-animations.css';
 @import './styles/navbar.css';
 @import './styles/mobile-responsive.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 html {
   scroll-behavior: smooth;

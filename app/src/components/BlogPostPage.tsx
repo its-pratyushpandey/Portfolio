@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { BlogPost } from '../types/blog';
 import { blogCMS } from '../lib/blogCMS';
+import Navbar from './Navbar';
 
 interface BlogPostPageProps {
   blog: BlogPost;
@@ -32,12 +33,14 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ blog, onBack }) => {
   };
 
   return (
-    <motion.article
-      className="w-full max-w-4xl mx-auto px-4 md:px-8 py-12"
-      initial={{ opacity: 0, y: 40 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-    >
+    <>
+      <Navbar />
+      <motion.article
+        className="w-full max-w-4xl mx-auto px-4 md:px-8 py-12 mt-20"
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
       {/* Back Button */}
       <motion.button
         onClick={onBack}
@@ -191,5 +194,6 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ blog, onBack }) => {
         </div>
       </motion.div>
     </motion.article>
+    </>
   );
 };

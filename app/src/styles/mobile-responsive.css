@@ -1,0 +1,443 @@
+/* Mobile Responsive Styles for Portfolio */
+
+/* Base responsive setup */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+}
+
+/* Prevent horizontal scroll */
+.overflow-x-hidden {
+  overflow-x: hidden !important;
+}
+
+/* Mobile Navigation - Ensure proper sizing */
+@media (max-width: 767px) {
+  nav {
+    padding: 0 !important;
+  }
+  
+  nav .max-w-7xl {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* Hero Section - Mobile Optimization */
+@media (max-width: 640px) {
+  .hero-section {
+    min-height: 100vh;
+    padding: 1rem !important;
+  }
+  
+  .hero-section h1 {
+    font-size: 2rem !important;
+    line-height: 1.2;
+  }
+  
+  .hero-section h2 {
+    font-size: 1.125rem !important;
+  }
+  
+  .hero-section p {
+    font-size: 1rem !important;
+  }
+  
+  .hero-section .text-center {
+    padding: 1rem;
+  }
+}
+
+/* About Section - Mobile */
+@media (max-width: 768px) {
+  #about {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  
+  #about .flex-col {
+    gap: 2rem;
+  }
+  
+  #about img {
+    width: 16rem !important;
+    height: 20rem !important;
+    max-width: 100%;
+  }
+  
+  #about p {
+    font-size: 1rem !important;
+    line-height: 1.6;
+    text-align: left;
+  }
+}
+
+/* Skills Section - Mobile Grid */
+@media (max-width: 640px) {
+  #skills .grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.75rem;
+  }
+  
+  #skills .skill-card {
+    padding: 0.75rem !important;
+  }
+  
+  #skills .skill-icon {
+    font-size: 1.5rem !important;
+  }
+  
+  #skills h3 {
+    font-size: 1.5rem !important;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  #skills .grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+
+/* Projects Section - Mobile Cards */
+@media (max-width: 768px) {
+  #projects {
+    padding: 2rem 1rem !important;
+    min-height: auto !important;
+  }
+  
+  #projects .project-card {
+    width: 100% !important;
+    margin: 0 auto 1.5rem auto;
+  }
+  
+  #projects img {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 200px;
+    object-fit: cover;
+  }
+  
+  #projects h3 {
+    font-size: 1.25rem !important;
+  }
+  
+  #projects p {
+    font-size: 0.875rem !important;
+  }
+  
+  #projects .tags {
+    font-size: 0.75rem !important;
+  }
+}
+
+/* Certificates Section - Mobile */
+@media (max-width: 768px) {
+  #certificates {
+    padding: 2rem 1rem !important;
+  }
+  
+  #certificates .grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem;
+  }
+  
+  #certificates .cert-card {
+    width: 100% !important;
+  }
+  
+  #certificates img {
+    width: 100% !important;
+    height: auto !important;
+  }
+}
+
+/* Experience Section - Mobile Timeline */
+@media (max-width: 768px) {
+  #experience {
+    padding: 2rem 1rem !important;
+  }
+  
+  #experience .timeline-item {
+    padding-left: 1rem !important;
+  }
+  
+  #experience h3 {
+    font-size: 1.125rem !important;
+  }
+  
+  #experience p {
+    font-size: 0.875rem !important;
+  }
+}
+
+/* Blog Section - Mobile Cards */
+@media (max-width: 768px) {
+  #blog {
+    padding: 2rem 1rem !important;
+  }
+  
+  #blog .blog-card {
+    width: 100% !important;
+    margin-bottom: 1.5rem;
+  }
+  
+  #blog img {
+    width: 100% !important;
+    height: 200px !important;
+    object-fit: cover;
+  }
+  
+  #blog h3 {
+    font-size: 1.25rem !important;
+  }
+}
+
+/* Contact Section - Mobile Form */
+@media (max-width: 768px) {
+  #contact {
+    padding: 2rem 1rem !important;
+  }
+  
+  #contact input,
+  #contact textarea {
+    font-size: 16px !important; /* Prevents zoom on iOS */
+  }
+  
+  #contact button {
+    width: 100%;
+    padding: 1rem !important;
+  }
+}
+
+/* Modal - Mobile Optimization */
+@media (max-width: 768px) {
+  .modal-content {
+    width: 95% !important;
+    max-width: 95% !important;
+    margin: 1rem auto;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+  
+  .modal-image {
+    max-height: 60vh;
+  }
+}
+
+/* Text Sizing - Mobile First */
+@media (max-width: 640px) {
+  .text-4xl {
+    font-size: 2rem !important;
+  }
+  
+  .text-3xl {
+    font-size: 1.75rem !important;
+  }
+  
+  .text-2xl {
+    font-size: 1.5rem !important;
+  }
+  
+  .text-xl {
+    font-size: 1.25rem !important;
+  }
+  
+  .text-lg {
+    font-size: 1.125rem !important;
+  }
+}
+
+/* Spacing - Mobile Adjustments */
+@media (max-width: 640px) {
+  .px-8 {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+  
+  .py-20 {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+  
+  .gap-12 {
+    gap: 2rem !important;
+  }
+  
+  .space-y-6 > * + * {
+    margin-top: 1rem !important;
+  }
+}
+
+/* Buttons - Touch Friendly */
+button,
+a.button,
+.btn {
+  min-height: 44px;
+  min-width: 44px;
+  touch-action: manipulation;
+}
+
+@media (max-width: 768px) {
+  button,
+  a.button,
+  .btn {
+    padding: 0.75rem 1.5rem !important;
+    font-size: 1rem !important;
+  }
+}
+
+/* Images - Responsive */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Prevent Text Selection Issues on Mobile */
+@media (max-width: 768px) {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* Safe Area for Notched Devices */
+@supports (padding: max(0px)) {
+  body {
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+}
+
+/* Video - Mobile Optimization */
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  video {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+/* Grid Layouts - Mobile Fallback */
+@media (max-width: 640px) {
+  .grid-cols-2,
+  .grid-cols-3,
+  .grid-cols-4 {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .grid-cols-3,
+  .grid-cols-4 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* Flex Adjustments */
+@media (max-width: 768px) {
+  .md\:flex-row {
+    flex-direction: column !important;
+  }
+  
+  .md\:w-1\/2 {
+    width: 100% !important;
+  }
+}
+
+/* Section Padding Mobile */
+section {
+  scroll-margin-top: 80px;
+}
+
+@media (max-width: 768px) {
+  section {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    min-height: auto !important;
+  }
+}
+
+/* Performance - Reduce Animations on Mobile */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Landscape Mobile Adjustments */
+@media (max-width: 896px) and (orientation: landscape) {
+  section {
+    min-height: auto !important;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+}
+
+/* Tablets - Portrait */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+  .container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  
+  section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+}
+
+/* Tablets - Landscape */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  section {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+}
+
+/* Small Mobile Devices */
+@media (max-width: 375px) {
+  html {
+    font-size: 14px;
+  }
+  
+  .text-base {
+    font-size: 0.875rem !important;
+  }
+  
+  button,
+  .btn {
+    padding: 0.5rem 1rem !important;
+    font-size: 0.875rem !important;
+  }
+}
+
+/* Large Mobile Devices */
+@media (min-width: 414px) and (max-width: 767px) {
+  .container {
+    max-width: 100%;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}

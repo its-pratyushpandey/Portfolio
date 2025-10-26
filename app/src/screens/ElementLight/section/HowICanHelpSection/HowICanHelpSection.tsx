@@ -108,7 +108,7 @@ export const HowICanHelpSection = (): JSX.Element => {
 
 	return (
 		<section
-			id="how-i-can-help"
+			id="help"
 			className="w-full min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-[#f5f5f5] to-[#e3f2fd] py-0 relative overflow-x-hidden"
 			aria-labelledby="expertise-heading"
 		>

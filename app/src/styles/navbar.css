@@ -1,0 +1,22 @@
+/* Navbar Custom Styles */
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+/* Navbar backdrop blur support */
+.navbar-blur {
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+}
+
+/* Accessibility - Focus states */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #3949ab;
+  outline-offset: 4px;
+  border-radius: 0.5rem;
+}
+

@@ -22,25 +22,36 @@ interface Project {
             
 const projects: Project[] = [
   {
-    title: 'Project Alpha',
-    description: 'Consulting • Engineering',
-    image: 'https://c.animaapp.com/mc46fmevF9sLme/img/nayona-consultancy-service.png',
-    link: 'https://nayona.netlify.app/',
-    github: 'https://github.com/its-pratyushpandey/nayona-consultancy', // Example repo
-    tags: ['Design', 'Development', 'React', 'Consulting'],
-    year: '2025',
-    details: 'Led the development of a consulting platform with a modern UI, integrating real-time data and client dashboards. Used React, Node.js, and cloud services for scalability.',
+    title: 'NextHire',
+    description: 'AI Job Portal • Real-time Interviews',
+    image: '/nexthire.png',
+    link: 'https://nexthireap.netlify.app/',
+    github: 'https://github.com/its-pratyushpandey/NextHire.git',
+    tags: ['React.js', 'Node.js', 'MongoDB', 'WebSockets', 'AI'],
+    year: '2024',
+    details: 'Full-stack job portal connecting job seekers and employers with secure JWT and Bcrypt authentication. Features real-time chat and video interviews using WebSockets, AI-driven job recommendations and resume parsing, mock tests, smart notifications, premium dashboards, and seamless one-click application process.',
     videoDemo: 'https://www.w3schools.com/html/mov_bbb.mp4' // Example video
   },
   {
-    title: 'Project Beta',
-    description: 'NPM Library • CLI Tool',
-    image: 'https://c.animaapp.com/mc46fmevF9sLme/img/devcli---cli-tool.png',
-    link: 'https://devcli.vercel.app/',
-    github: 'https://github.com/its-pratyushpandey/devcli', // Example repo
-    tags: ['MERN', 'Package', 'CLI', 'Open Source'],
+    title: 'Cogniview',
+    description: 'AI Interview Platform • Voice AI',
+    image: '/cogniview.png',
+    link: 'https://cogniview.pratyushpandey.me/',
+    github: 'https://github.com/its-pratyushpandey/Cogniview.git',
+    tags: ['Next.js', 'TypeScript', 'AI', 'Firebase', 'Voice AI'],
     year: '2024',
-    details: 'Created a developer CLI tool for rapid project scaffolding and automation. Published on NPM, with a focus on DX and extensibility.',
+    details: 'AI-powered interview platform with voice-enabled interviews using VAPI, intelligent chat assistance powered by Google Gemini, and secure Firebase authentication. Features real-time interview management, interactive dashboards, GitHub profile evaluation, and task management with a modern responsive UI.',
+    videoDemo: 'https://www.w3schools.com/html/mov_bbb.mp4' // Example video
+  },
+  {
+    title: 'Arise',
+    description: 'AI Career Platform • Resume Builder',
+    image: '/arise.png',
+    link: 'https://arise.pratyushpandey.me/',
+    github: 'https://github.com/its-pratyushpandey/Arise.git',
+    tags: ['Next.js', 'MongoDB', 'Gemini AI', 'Prisma', 'Clerk'],
+    year: '2024',
+    details: 'Full-stack AI platform for building optimized resumes, generating tailored cover letters, and practicing mock interviews with instant feedback. Features secure Clerk authentication, GitHub README and portfolio generators, ATS score checker, smart notifications, and a modern responsive UI built with Shadcn UI and WebSockets.',
     videoDemo: 'https://www.w3schools.com/html/movie.mp4' // Example video
   },
   // Add more projects here
@@ -339,7 +350,8 @@ const Projects: React.FC = () => {
                     id={`project-img-${idx}`}
                     src={project.image}
                     alt={project.title}
-                    className="w-full max-w-3xl h-auto rounded-3xl shadow-3xl object-cover border-6 border-[#3949ab] bg-white transition-transform duration-300 cursor-pointer hover:scale-110 group-hover:shadow-[0_12px_48px_0_rgba(32,29,102,0.25)] parallax-img focus:outline-none focus:ring-4 focus:ring-[#201d66] focus:ring-offset-4"
+                    className="w-full max-w-xl h-auto rounded-3xl shadow-3xl object-cover border-6 border-[#3949ab] bg-white transition-transform duration-300 cursor-pointer hover:scale-110 group-hover:shadow-[0_12px_48px_0_rgba(32,29,102,0.25)] parallax-img focus:outline-none focus:ring-4 focus:ring-[#201d66] focus:ring-offset-4"
+                    style={{ maxHeight: '400px' }}
                     tabIndex={0}
                     aria-label={`Play video demo for ${project.title}`}
                     onClick={() => setIsPlaying(true)}

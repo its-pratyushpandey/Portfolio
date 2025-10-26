@@ -6,11 +6,19 @@
 @import './styles/blog-3d-covers.css';
 @import './styles/premium-blog-section.css';
 @import './styles/hero-animations.css';
+@import './styles/navbar.css';
+@import './styles/mobile-responsive.css';
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* Account for fixed navbar */
+}
 
 body {
   font-family: 'Inter', sans-serif;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 /* Add any global styles here */

@@ -2,6 +2,7 @@ import React, { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { blogPosts, blogCategories, getRecentBlogs } from "../data/blogData";
 import { BlogPost } from "../types/blog";
+import Navbar from "./Navbar";
 
 interface AllBlogsPageProps {
   onBlogSelect?: (blog: BlogPost) => void;
@@ -84,7 +85,9 @@ export const AllBlogsPage = ({ onBlogSelect, onBack }: AllBlogsPageProps): JSX.E
   };
 
   return (
-    <div className="w-full min-h-screen bg-gradient-to-br from-[#f5f5f5] to-[#e3f2fd] py-20 relative overflow-hidden">
+    <>
+      <Navbar />
+      <div className="w-full min-h-screen bg-gradient-to-br from-[#f5f5f5] to-[#e3f2fd] py-20 mt-20 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-r from-[#80deea] to-[#b3e5fc] rounded-full blur-xl"></div>
@@ -484,5 +487,6 @@ export const AllBlogsPage = ({ onBlogSelect, onBack }: AllBlogsPageProps): JSX.E
         </motion.div>
       </div>
     </div>
+    </>
   );
 };

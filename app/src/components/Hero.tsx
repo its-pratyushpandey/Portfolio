@@ -60,6 +60,7 @@ const Hero: React.FC = () => {
 
   return (
     <motion.section
+      id="home"
       className="w-full min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-[#f5f5f5] to-[#e3f2fd] py-0 relative overflow-hidden hero-section"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -67,13 +68,20 @@ const Hero: React.FC = () => {
     >
       <video
         className="absolute inset-0 w-full h-full object-cover z-0"
-        src="/public/animations.mp4"
+        src="/animations.mp4"
         autoPlay
         loop
         muted
         playsInline
+        aria-hidden="true"
       ></video>
-      <div className="absolute inset-0 z-10 bg-gradient-to-br from-[#e3f2fd] to-[#b3e5fc] opacity-60" style={{ backgroundAttachment: 'fixed' }} />
+      <div className="absolute inset-0 z-10 pointer-events-none overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#e3f2fd]/65 via-[#dbe9ff]/60 to-[#b3e5fc]/65" style={{ backgroundAttachment: 'fixed' }} />
+        <div className="absolute inset-0 bg-gradient-to-t from-white/15 via-transparent to-white/5" />
+        <div className="absolute -top-32 -left-32 w-72 h-72 bg-[#b3e5fc]/45 rounded-full blur-3xl" />
+        <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-[#c5cae9]/40 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[480px] h-[480px] bg-white/12 rounded-[48px] blur-3xl" />
+      </div>
       <div className="relative z-20 w-full max-w-4xl mx-auto px-4 md:px-0">
         <FloatingDecorations />
         <motion.div
@@ -119,7 +127,7 @@ const Hero: React.FC = () => {
           >
             <motion.a
               href="#contact"
-              className="bg-[#201d66] text-white px-6 py-3 rounded-full text-lg hover:bg-[#3949ab] transition shadow-lg font-semibold"
+              className="px-7 py-3 rounded-full text-lg font-semibold text-white shadow-lg bg-gradient-to-r from-[#201d66] via-[#2f3c9e] to-[#3949ab] transition-all hover:shadow-xl"
               whileHover={{ scale: 1.08 }}
               whileTap={{ scale: 0.96 }}
             >
@@ -127,7 +135,7 @@ const Hero: React.FC = () => {
             </motion.a>
             <motion.a
               href="https://github.com/its-pratyushpandey"
-              className="bg-white border-2 border-[#201d66] text-[#201d66] px-6 py-3 rounded-full text-lg hover:bg-[#201d66] hover:text-white hover:bg-[#3949ab] transition shadow-lg font-semibold"
+              className="px-6 py-3 rounded-full text-lg font-semibold text-[#201d66] bg-white/80 border border-white/70 backdrop-blur-sm shadow-md transition-all hover:bg-[#201d66] hover:text-white hover:border-transparent hover:shadow-xl"
               whileHover={{ scale: 1.08 }}
               whileTap={{ scale: 0.96 }}
             >
@@ -138,7 +146,7 @@ const Hero: React.FC = () => {
               href="https://www.linkedin.com/in/pratyush-pandey1/"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white border-2 border-[#201d66] text-[#201d66] px-6 py-3 rounded-full text-lg hover:bg-[#201d66] hover:text-white hover:bg-[#3949ab] transition shadow-lg font-semibold"
+              className="px-6 py-3 rounded-full text-lg font-semibold text-[#201d66] bg-white/80 border border-white/70 backdrop-blur-sm shadow-md transition-all hover:bg-[#201d66] hover:text-white hover:border-transparent hover:shadow-xl"
               whileHover={{ scale: 1.08 }}
               whileTap={{ scale: 0.96 }}
             >
@@ -149,7 +157,7 @@ const Hero: React.FC = () => {
               href="/presume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white border-2 border-[#201d66] text-[#201d66] px-6 py-3 rounded-full text-lg hover:bg-[#201d66] hover:text-white hover:bg-[#3949ab] transition shadow-lg font-semibold"
+              className="px-6 py-3 rounded-full text-lg font-semibold text-[#201d66] bg-white/80 border border-white/70 backdrop-blur-sm shadow-md transition-all hover:bg-[#201d66] hover:text-white hover:border-transparent hover:shadow-xl"
               whileHover={{ scale: 1.08 }}
               whileTap={{ scale: 0.96 }}
               title="View Resume (PDF)"

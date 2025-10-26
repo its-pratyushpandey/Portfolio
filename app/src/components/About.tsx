@@ -4,21 +4,21 @@ import { FaEnvelope, FaGithub, FaLinkedin, FaFileAlt } from 'react-icons/fa';
 
 const About: React.FC = () => {
   return (
-    <section id="about" className="w-full min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-[#f5f5f5] to-[#e3f2fd] py-0 relative overflow-x-hidden">
+    <section id="about" className="w-full min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-[#f5f5f5] to-[#e3f2fd] py-12 md:py-0 relative overflow-x-hidden">
       {/* Parallax background */}
       <div className="absolute inset-0 z-0 bg-gradient-to-br from-[#e3f2fd] to-[#b3e5fc] opacity-60" style={{ backgroundAttachment: 'fixed' }} />
-      <div className="w-full max-w-5xl mx-auto px-0 md:px-8 relative z-10">
-        <div className="flex flex-col md:flex-row items-center gap-12 md:gap-20">
+      <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 md:px-8 relative z-10">
+        <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 lg:gap-20">
           {/* Text on the left */}
           <motion.div 
-            className="md:w-1/2 order-2 md:order-1"
+            className="w-full md:w-1/2 order-2 md:order-1 px-4 md:px-0"
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <div className="space-y-6">
-              <motion.p className="text-lg md:text-xl text-[#201d66] font-medium" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.3 }}>
+            <div className="space-y-4 md:space-y-6">
+              <motion.p className="text-base sm:text-lg md:text-xl text-[#201d66] font-medium leading-relaxed" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.3 }}>
             I am a third-year B.Tech student in Computer Science and Engineering at KL University, India, with a strong interest in full-stack and cross-platform development. I have hands-on experience in modern technologies including React, React Native, Next.js, Express.js, TypeScript, Django, and Spring Boot.
               </motion.p>
               <motion.p className="text-lg md:text-xl text-[#201d66] font-medium" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.4 }}>

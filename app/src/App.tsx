@@ -1,6 +1,7 @@
 import React, { useEffect, ReactNode, useState } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
 import Skills from './components/Skills';
@@ -142,6 +143,7 @@ const App: React.FC = () => {
 
   return (
     <div className="bg-[#e3f2fd]">
+      <Navbar />
       <ProjectsDarkModeProvider>
         <Hero />
         <Section><About /></Section>

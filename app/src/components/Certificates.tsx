@@ -13,12 +13,12 @@ interface Certificate {
 
 const certificates: Certificate[] = [
   {
-    title: 'Accenture Developer Virtual Experience',
-    image: '/accenture.png', // Updated to match public folder
+    title: 'MongoDB Associate Developer',
+    image: '/mongodb.png',
     year: '2024',
-    link: '/Accenture.pdf',
+    link: 'https://learn.mongodb.com/c/eZQppECFQrWvTg_kzoa8iQ',
     type: 'Other',
-    issuer: 'Accenture',
+    issuer: 'MongoDB',
   },
   {
     title: 'Aviatrix Certified Engineer (ACE) Multicloud Network Associate',
@@ -264,11 +264,19 @@ const Certificates: React.FC = () => {
             >
               <Card className="bg-white/90 shadow-xl hover:shadow-2xl transition rounded-2xl border border-[#e3f2fd] h-full flex flex-col">
                 <CardHeader className="flex flex-col items-center justify-center gap-2 p-6 pb-2">
-                  <img
-                    src={certificate.image}
-                    alt={certificate.title}
-                    className="w-24 h-24 object-contain rounded-xl border border-[#e3f2fd] bg-[#f5f5f5] mb-2"
-                  />
+                  <div className="w-24 h-24 flex items-center justify-center rounded-xl border border-[#e3f2fd] bg-[#f5f5f5] mb-2 overflow-hidden">
+                    <img
+                      src={certificate.image}
+                      alt={certificate.title}
+                      className={`${
+                        certificate.issuer === 'MongoDB' 
+                          ? 'w-[120%] h-[120%] object-cover' 
+                          : certificate.issuer === 'Salesforce'
+                          ? 'w-[115%] h-[115%] object-contain'
+                          : 'w-full h-full object-contain p-2'
+                      }`}
+                    />
+                  </div>
                   <CardTitle className="text-lg font-semibold text-[#201d66] text-center">
                     {certificate.title}
                   </CardTitle>
@@ -316,11 +324,19 @@ const Certificates: React.FC = () => {
                 exit={{ scale: 0.95, opacity: 0 }}
                 onClick={e => e.stopPropagation()}
               >
-                <img
-                  src={modalCert.image}
-                  alt={modalCert.title}
-                  className="w-40 h-40 object-contain mb-4 rounded-xl border border-[#e3f2fd] bg-[#f5f5f5]"
-                />
+                <div className="w-40 h-40 flex items-center justify-center rounded-xl border border-[#e3f2fd] bg-[#f5f5f5] mb-4 overflow-hidden">
+                  <img
+                    src={modalCert.image}
+                    alt={modalCert.title}
+                    className={`${
+                      modalCert.issuer === 'MongoDB' 
+                        ? 'w-[120%] h-[120%] object-cover' 
+                        : modalCert.issuer === 'Salesforce'
+                        ? 'w-[115%] h-[115%] object-contain'
+                        : 'w-full h-full object-contain p-3'
+                    }`}
+                  />
+                </div>
                 <div className="flex items-center gap-2 mb-2">
                   {getTypeIcon(modalCert.type)}
                   <span className="text-[#3949ab] font-medium">{modalCert.type}</span>

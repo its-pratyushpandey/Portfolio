@@ -82,7 +82,7 @@ const profiles = [
   {
     icon: "https://c.animaapp.com/mc46fmevF9sLme/img/component-2-3.svg",
     text: "Leetcode",
-    url: "https://leetcode.com/klu2300030557/",
+    url: "https://leetcode.com/u/klu2300030557/",
   },
 ];
 

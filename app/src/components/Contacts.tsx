@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import Globe from "../components/Globe";
 
 
 interface ContactItem {
@@ -41,11 +40,6 @@ const ContactItem: React.FC<ContactItemProps> = ({ icon, text, link }) => (
 
 const Contact: React.FC = () => {
   return (
-     <div style={{ height: "100vh", background: "#000" }}>
-      <Globe />
-    </div>
-  );
-};
     <section id="contact" className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <motion.h2 
@@ -63,7 +57,6 @@ const Contact: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {contactInfo.map((item, index) => (
               <ContactItem key={index} {...item} />
-              
             ))}
           </div>
         </div>
@@ -71,7 +64,6 @@ const Contact: React.FC = () => {
       <footer className="mt-20 pt-8">
         <div className="container mx-auto px-4 text-center">
           <p className="text-[#3949ab]">© 2025 Pratyush Kumar Pandey. All rights reserved.</p>
-    
         </div>
       </footer>
     </section>

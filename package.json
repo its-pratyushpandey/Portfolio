@@ -1,4 +1,13 @@
 {
+  "name": "pratyush-portfolio-root",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "install": "cd app && npm install",
+    "build": "cd app && npm run build",
+    "dev": "cd app && npm run dev",
+    "preview": "cd app && npm run preview"
+  },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.3",
     "@react-three/drei": "^10.5.1",

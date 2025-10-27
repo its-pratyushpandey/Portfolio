@@ -63,50 +63,102 @@ body {
 /* About Section - Mobile */
 @media (max-width: 768px) {
   #about {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+    padding: 3rem 1rem !important;
+    min-height: auto !important;
   }
   
-  #about .flex-col {
-    gap: 2rem;
+  #about .flex-col,
+  #about .md\:flex-row {
+    flex-direction: column !important;
+    gap: 2rem !important;
+  }
+  
+  #about .md\:w-1\/2 {
+    width: 100% !important;
   }
   
   #about img {
     width: 16rem !important;
     height: 20rem !important;
-    max-width: 100%;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+  }
+  
+  #about h2 {
+    font-size: 2rem !important;
+    text-align: center !important;
+    margin-bottom: 1.5rem !important;
   }
   
   #about p {
     font-size: 1rem !important;
-    line-height: 1.6;
-    text-align: left;
+    line-height: 1.6 !important;
+    text-align: left !important;
+    padding: 0 0.5rem !important;
+  }
+  
+  /* Social icons */
+  #about .flex.gap-4,
+  #about .flex.space-x-4 {
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+    gap: 1rem !important;
+  }
+  
+  #about a svg {
+    width: 1.5rem !important;
+    height: 1.5rem !important;
   }
 }
 
 /* Skills Section - Mobile Grid */
 @media (max-width: 640px) {
+  #skills {
+    padding: 2rem 1rem !important;
+  }
+  
+  #skills h2 {
+    font-size: 2rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+  
   #skills .grid {
     grid-template-columns: repeat(2, 1fr) !important;
-    gap: 0.75rem;
+    gap: 0.875rem !important;
   }
   
-  #skills .skill-card {
-    padding: 0.75rem !important;
+  #skills .skill-card,
+  #skills > div > div > div {
+    padding: 1rem !important;
+    min-height: 120px !important;
   }
   
-  #skills .skill-icon {
-    font-size: 1.5rem !important;
+  #skills .skill-icon,
+  #skills svg {
+    font-size: 1.75rem !important;
+    width: 1.75rem !important;
+    height: 1.75rem !important;
   }
   
   #skills h3 {
-    font-size: 1.5rem !important;
+    font-size: 0.9375rem !important;
+    margin-top: 0.5rem !important;
+  }
+  
+  #skills p {
+    font-size: 0.75rem !important;
+    display: none; /* Hide descriptions on small mobile */
   }
 }
 
 @media (min-width: 641px) and (max-width: 1024px) {
   #skills .grid {
     grid-template-columns: repeat(3, 1fr) !important;
+    gap: 1rem !important;
+  }
+  
+  #skills .skill-card {
+    padding: 1.25rem !important;
   }
 }
 
@@ -117,6 +169,7 @@ body {
     min-height: auto !important;
     height: auto !important;
     overflow-y: visible !important;
+    overflow-x: hidden !important;
   }
   
   /* Fix heading spacing on mobile */
@@ -127,38 +180,53 @@ body {
     padding-top: 1rem !important;
   }
   
-  /* Convert horizontal scroll to vertical stack */
-  #projects > div > div:has(.overflow-x-scroll) {
+  /* Convert horizontal scroll to vertical stack - Target the scroll container */
+  #projects .overflow-x-scroll,
+  #projects .no-scrollbar,
+  #projects > div > div:has(.overflow-x-scroll),
+  #projects [class*="overflow-x"] {
     display: flex !important;
     flex-direction: column !important;
     overflow-x: visible !important;
     overflow-y: visible !important;
-    gap: 2rem !important;
-    padding: 0 !important;
+    overflow: visible !important;
+    gap: 3rem !important;
+    padding: 1rem 0 !important;
+    scroll-snap-type: none !important;
   }
   
   /* Make each project card vertical and full-width */
-  #projects .snap-center {
+  #projects .snap-center,
+  #projects [class*="snap-"] {
     min-width: 100% !important;
     width: 100% !important;
     flex-direction: column !important;
-    padding: 1.5rem 0 !important;
+    padding: 2rem 1rem !important;
     scroll-snap-align: none !important;
+    margin-bottom: 2rem !important;
+    background: rgba(255, 255, 255, 0.5) !important;
+    border-radius: 1rem !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
   }
   
   /* Stack image and content vertically */
-  #projects .md\:flex-row {
+  #projects .md\:flex-row,
+  #projects .flex-col,
+  #projects .flex {
     flex-direction: column !important;
-    gap: 1rem !important;
+    gap: 1.5rem !important;
+    align-items: center !important;
   }
   
   /* Project image container mobile fixes */
   #projects .flex-1:has(img),
-  #projects .flex-1:has(video) {
+  #projects .flex-1:has(video),
+  #projects div:has(> img),
+  #projects div:has(> video) {
     width: 100% !important;
     max-width: 100% !important;
     padding: 0 !important;
-    margin-bottom: 1rem;
+    margin-bottom: 1rem !important;
   }
   
   #projects img,
@@ -166,91 +234,131 @@ body {
     width: 100% !important;
     max-width: 100% !important;
     height: auto !important;
-    max-height: 250px !important;
+    max-height: 280px !important;
     object-fit: cover !important;
     border-radius: 1rem !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
   }
   
   /* Project content area */
-  #projects .flex-1:has(h2) {
+  #projects .flex-1:has(h2),
+  #projects div:has(> h2) {
     max-width: 100% !important;
+    width: 100% !important;
     padding: 0 1rem !important;
-    text-align: left !important;
+    text-align: center !important;
   }
   
   #projects h2 {
-    font-size: 1.75rem !important;
-    margin-bottom: 0.75rem !important;
+    font-size: 1.875rem !important;
+    margin-bottom: 1rem !important;
+    line-height: 1.3 !important;
   }
   
   #projects p {
     font-size: 1rem !important;
-    line-height: 1.5 !important;
+    line-height: 1.6 !important;
     margin-bottom: 1rem !important;
+    text-align: center !important;
   }
   
   /* Tags - wrap properly on mobile */
   #projects .flex-wrap {
     gap: 0.5rem !important;
+    justify-content: center !important;
+    margin: 1rem 0 !important;
   }
   
   #projects .flex-wrap span {
     font-size: 0.75rem !important;
-    padding: 0.375rem 0.75rem !important;
+    padding: 0.5rem 1rem !important;
+    white-space: nowrap !important;
   }
   
   /* Buttons - make touch-friendly */
   #projects a,
   #projects button {
-    min-width: 44px !important;
-    min-height: 44px !important;
-    padding: 0.75rem 1.5rem !important;
+    min-width: 48px !important;
+    min-height: 48px !important;
+    padding: 0.875rem 1.75rem !important;
     font-size: 0.875rem !important;
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
+    margin: 0.5rem !important;
   }
   
   /* Action buttons container */
-  #projects .flex.items-center.gap-3 {
+  #projects .flex.items-center.gap-3,
+  #projects div:has(> a):has(> button) {
     flex-wrap: wrap !important;
-    gap: 0.75rem !important;
-    margin-top: 1rem !important;
+    gap: 1rem !important;
+    margin-top: 1.5rem !important;
+    justify-content: center !important;
   }
   
   /* View All Projects button */
-  #projects .text-center a {
-    width: 100% !important;
-    max-width: 280px !important;
-    margin: 2rem auto !important;
+  #projects .text-center a,
+  #projects > div > div:has(a[aria-label*="projects"]) a {
+    width: 90% !important;
+    max-width: 320px !important;
+    margin: 3rem auto 2rem !important;
+    display: block !important;
   }
   
   /* Hide decorative floating elements on mobile for performance */
-  #projects .absolute:has(svg),
-  #projects .absolute:has(.blur-2xl) {
+  #projects .absolute:has(svg):not(:has(video)):not(:has(img)),
+  #projects .absolute:has(.blur-2xl),
+  #projects .absolute:has(.blur-3xl),
+  #projects [class*="floating"],
+  #projects [class*="parallax"]:not(:has(img)) {
     display: none !important;
   }
   
   /* Modal fixes for mobile */
   #projects .fixed {
     padding: 1rem !important;
+    z-index: 9999 !important;
   }
   
-  #projects .max-w-lg {
+  #projects .max-w-lg,
+  #projects [role="dialog"] {
     max-width: calc(100vw - 2rem) !important;
     padding: 1.5rem !important;
+    margin: 1rem !important;
+    max-height: 90vh !important;
+    overflow-y: auto !important;
   }
   
-  #projects .max-w-lg img {
+  #projects .max-w-lg img,
+  #projects [role="dialog"] img {
     max-height: 200px !important;
+    width: 100% !important;
+    object-fit: cover !important;
   }
   
-  #projects .max-w-lg h3 {
+  #projects .max-w-lg h3,
+  #projects [role="dialog"] h3 {
     font-size: 1.5rem !important;
+    margin-bottom: 1rem !important;
   }
   
-  #projects .max-w-lg p {
+  #projects .max-w-lg p,
+  #projects [role="dialog"] p {
     font-size: 0.875rem !important;
+    line-height: 1.5 !important;
+  }
+  
+  /* Ensure drag functionality is disabled on mobile */
+  #projects [draggable],
+  #projects [class*="drag"] {
+    pointer-events: none !important;
+    cursor: default !important;
+  }
+  
+  #projects .snap-center,
+  #projects [class*="snap"] {
+    pointer-events: auto !important;
   }
 }
 
@@ -296,28 +404,43 @@ body {
 @media (max-width: 480px) {
   #projects h1,
   #projects h2 {
-    font-size: 1.5rem !important;
+    font-size: 1.625rem !important;
     padding-top: 0.5rem !important;
     margin-bottom: 1rem !important;
   }
   
   #projects img,
   #projects video {
-    max-height: 200px !important;
+    max-height: 220px !important;
+  }
+  
+  #projects .snap-center,
+  #projects [class*="snap-"] {
+    padding: 1.5rem 0.75rem !important;
+    margin-bottom: 1.5rem !important;
   }
   
   #projects h2 {
     font-size: 1.5rem !important;
+    line-height: 1.25 !important;
   }
   
   #projects p {
     font-size: 0.875rem !important;
+    line-height: 1.5 !important;
   }
   
   #projects a,
   #projects button {
-    font-size: 0.75rem !important;
-    padding: 0.625rem 1rem !important;
+    font-size: 0.8125rem !important;
+    padding: 0.75rem 1.25rem !important;
+    min-width: 44px !important;
+    min-height: 44px !important;
+  }
+  
+  #projects .flex-wrap span {
+    font-size: 0.6875rem !important;
+    padding: 0.375rem 0.75rem !important;
   }
 }
 
@@ -325,20 +448,47 @@ body {
 @media (max-width: 768px) {
   #certificates {
     padding: 2rem 1rem !important;
+    min-height: auto !important;
+  }
+  
+  #certificates h2 {
+    font-size: 2rem !important;
+    margin-bottom: 2rem !important;
   }
   
   #certificates .grid {
     grid-template-columns: 1fr !important;
-    gap: 1rem;
+    gap: 1.5rem !important;
   }
   
-  #certificates .cert-card {
+  #certificates .cert-card,
+  #certificates > div > div > div {
     width: 100% !important;
+    max-width: 100% !important;
+    padding: 1.5rem !important;
   }
   
   #certificates img {
     width: 100% !important;
     height: auto !important;
+    max-height: 200px !important;
+    object-fit: cover !important;
+  }
+  
+  #certificates h3 {
+    font-size: 1.25rem !important;
+    margin-top: 1rem !important;
+  }
+  
+  #certificates p {
+    font-size: 0.875rem !important;
+  }
+  
+  #certificates button,
+  #certificates a {
+    width: 100% !important;
+    justify-content: center !important;
+    margin-top: 1rem !important;
   }
 }
 
@@ -346,18 +496,42 @@ body {
 @media (max-width: 768px) {
   #experience {
     padding: 2rem 1rem !important;
+    min-height: auto !important;
   }
   
-  #experience .timeline-item {
-    padding-left: 1rem !important;
+  #experience h2 {
+    font-size: 2rem !important;
+    margin-bottom: 2rem !important;
+  }
+  
+  #experience .timeline-item,
+  #experience > div > div {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
   }
   
   #experience h3 {
     font-size: 1.125rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+  
+  #experience h4 {
+    font-size: 1rem !important;
   }
   
   #experience p {
     font-size: 0.875rem !important;
+    line-height: 1.5 !important;
+  }
+  
+  #experience .flex.gap-2,
+  #experience .flex-wrap {
+    gap: 0.5rem !important;
+  }
+  
+  #experience span {
+    font-size: 0.75rem !important;
+    padding: 0.375rem 0.75rem !important;
   }
 }
 
@@ -365,21 +539,57 @@ body {
 @media (max-width: 768px) {
   #blog {
     padding: 2rem 1rem !important;
+    min-height: auto !important;
   }
   
-  #blog .blog-card {
+  #blog h2 {
+    font-size: 2rem !important;
+    margin-bottom: 2rem !important;
+  }
+  
+  #blog .blog-card,
+  #blog > div > div {
     width: 100% !important;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.5rem !important;
+    padding: 1rem !important;
   }
   
   #blog img {
     width: 100% !important;
-    height: 200px !important;
-    object-fit: cover;
+    height: 220px !important;
+    max-height: 220px !important;
+    object-fit: cover !important;
+    border-radius: 0.5rem !important;
   }
   
   #blog h3 {
-    font-size: 1.25rem !important;
+    font-size: 1.375rem !important;
+    margin-top: 1rem !important;
+    margin-bottom: 0.75rem !important;
+    line-height: 1.3 !important;
+  }
+  
+  #blog p {
+    font-size: 0.9375rem !important;
+    line-height: 1.6 !important;
+  }
+  
+  #blog .flex.gap-2,
+  #blog .flex-wrap {
+    gap: 0.5rem !important;
+    margin: 0.75rem 0 !important;
+  }
+  
+  #blog span {
+    font-size: 0.75rem !important;
+    padding: 0.375rem 0.875rem !important;
+  }
+  
+  #blog button,
+  #blog a.button {
+    width: 100% !important;
+    padding: 0.875rem 1.5rem !important;
+    font-size: 0.9375rem !important;
   }
 }
 
@@ -387,16 +597,55 @@ body {
 @media (max-width: 768px) {
   #contact {
     padding: 2rem 1rem !important;
+    min-height: auto !important;
+  }
+  
+  #contact h2 {
+    font-size: 2rem !important;
+    margin-bottom: 2rem !important;
+  }
+  
+  #contact .flex-col,
+  #contact .md\:flex-row {
+    flex-direction: column !important;
+    gap: 2rem !important;
+  }
+  
+  #contact .md\:w-1\/2 {
+    width: 100% !important;
   }
   
   #contact input,
   #contact textarea {
     font-size: 16px !important; /* Prevents zoom on iOS */
+    padding: 0.875rem 1rem !important;
+    width: 100% !important;
+  }
+  
+  #contact textarea {
+    min-height: 150px !important;
   }
   
   #contact button {
-    width: 100%;
+    width: 100% !important;
     padding: 1rem !important;
+    font-size: 1rem !important;
+    min-height: 48px !important;
+  }
+  
+  #contact .contact-info,
+  #contact .flex.items-center {
+    justify-content: center !important;
+    text-align: center !important;
+  }
+  
+  #contact svg {
+    width: 1.25rem !important;
+    height: 1.25rem !important;
+  }
+  
+  #contact a {
+    font-size: 1rem !important;
   }
 }
 

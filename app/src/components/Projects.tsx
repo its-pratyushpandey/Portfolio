@@ -689,31 +689,54 @@ const Projects: React.FC = () => {
                 WebkitOverflowScrolling: 'touch'
               }}
             >
-              <div className="min-h-screen bg-gradient-to-br from-[#f5f5f5] via-[#e3f2fd] to-[#b3e5fc] py-8 md:py-12 px-4 md:px-8 lg:px-12">
-                {/* Header with Close Button */}
-                <div className="max-w-7xl mx-auto mb-6 md:mb-10 flex items-center justify-between sticky top-0 bg-white/80 backdrop-blur-md z-50 p-4 rounded-2xl shadow-lg">
-                  <motion.div
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.2 }}
-                  >
-                    <h1 className="text-3xl md:text-5xl font-bold text-[#201d66]">All Projects</h1>
-                    <p className="text-sm md:text-base text-[#3949ab] mt-1">
-                      {projects.length} Amazing Projects • Click to Explore
-                    </p>
-                  </motion.div>
-                  <button
-                    onClick={() => setShowAllProjects(false)}
-                    className="text-[#201d66] hover:text-white hover:bg-[#201d66] text-3xl md:text-4xl font-bold focus:outline-none focus:ring-2 focus:ring-[#201d66] rounded-full w-10 h-10 md:w-12 md:h-12 flex items-center justify-center transition-all duration-300 flex-shrink-0 ml-4"
-                    aria-label="Close all projects view"
-                  >
-                    ×
-                  </button>
+              <div className="min-h-screen bg-gradient-to-br from-[#f5f5f5] via-[#e3f2fd] to-[#b3e5fc] py-8 md:py-16 px-4 md:px-8 lg:px-12">
+                {/* Enhanced Header with Close Button */}
+                <div className="max-w-7xl mx-auto mb-8 md:mb-14 sticky top-0 z-50">
+                  <div className="bg-white/90 backdrop-blur-xl shadow-2xl rounded-3xl border border-white/40 p-5 md:p-8">
+                    <div className="flex items-start justify-between gap-4">
+                      <motion.div
+                        className="flex-1"
+                        initial={{ opacity: 0, y: -30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, ease: "easeOut" }}
+                      >
+                        <div className="flex items-center gap-3 mb-2">
+                          <div className="w-1.5 h-12 md:h-16 bg-gradient-to-b from-[#201d66] to-[#3949ab] rounded-full"></div>
+                          <div>
+                            <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#201d66] via-[#3949ab] to-[#201d66] leading-tight">
+                              All Projects
+                            </h1>
+                            <div className="flex items-center gap-2 mt-2">
+                              <span className="inline-flex items-center justify-center bg-gradient-to-r from-[#201d66] to-[#3949ab] text-white text-xs md:text-sm font-bold px-3 py-1.5 rounded-full shadow-lg">
+                                {projects.length} Projects
+                              </span>
+                              <span className="text-xs md:text-base text-[#3949ab] font-medium">
+                                • Click any card to explore
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </motion.div>
+                      <motion.button
+                        onClick={() => setShowAllProjects(false)}
+                        className="group relative text-[#201d66] hover:text-white text-3xl md:text-4xl font-bold focus:outline-none focus:ring-4 focus:ring-[#201d66]/30 rounded-2xl w-12 h-12 md:w-14 md:h-14 flex items-center justify-center transition-all duration-300 flex-shrink-0 overflow-hidden"
+                        aria-label="Close all projects view"
+                        initial={{ opacity: 0, rotate: -180 }}
+                        animate={{ opacity: 1, rotate: 0 }}
+                        transition={{ duration: 0.5, ease: "easeOut" }}
+                        whileHover={{ scale: 1.1, rotate: 90 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        <div className="absolute inset-0 bg-gradient-to-br from-[#201d66] to-[#3949ab] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <span className="relative z-10">×</span>
+                      </motion.button>
+                    </div>
+                  </div>
                 </div>
 
-                {/* Projects Grid - Responsive columns */}
+                {/* Enhanced Projects Grid - Responsive Design */}
                 <motion.div 
-                  className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 pb-8"
+                  className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 md:gap-7 lg:gap-8 pb-12"
                   initial="hidden"
                   animate="visible"
                   variants={{
@@ -721,8 +744,8 @@ const Projects: React.FC = () => {
                     visible: {
                       opacity: 1,
                       transition: {
-                        staggerChildren: 0.08,
-                        delayChildren: 0.2
+                        staggerChildren: 0.1,
+                        delayChildren: 0.3
                       }
                     }
                   }}
@@ -730,102 +753,120 @@ const Projects: React.FC = () => {
                   {projects.map((project, idx) => (
                     <motion.div
                       key={idx}
-                      className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col overflow-hidden group border border-[#e3f2fd]"
+                      className="group bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 flex flex-col overflow-hidden border-2 border-white/60 hover:border-[#3949ab]/30 cursor-pointer"
                       variants={{
-                        hidden: { opacity: 0, y: 30, scale: 0.95 },
+                        hidden: { opacity: 0, y: 40, scale: 0.9 },
                         visible: { opacity: 1, y: 0, scale: 1 }
                       }}
-                      whileHover={{ y: -8 }}
+                      whileHover={{ y: -12, scale: 1.02 }}
+                      transition={{ duration: 0.4, ease: "easeOut" }}
                     >
-                      {/* Project Image */}
+                      {/* Enhanced Project Image with Hover Effect */}
                       <div 
-                        className="relative h-48 sm:h-52 md:h-56 overflow-hidden cursor-pointer bg-gradient-to-br from-[#e3f2fd] to-[#b3e5fc]"
+                        className="relative h-52 sm:h-56 md:h-60 overflow-hidden cursor-pointer bg-gradient-to-br from-[#e3f2fd] via-white to-[#b3e5fc]"
                         onClick={() => window.open(project.link, '_blank')}
                       >
                         <img 
                           src={project.image} 
                           alt={project.title} 
-                          className="w-full h-full object-contain p-4 transform group-hover:scale-110 transition-transform duration-500"
+                          className="w-full h-full object-contain p-5 transform group-hover:scale-115 transition-all duration-700 ease-out"
                           loading="lazy"
                           decoding="async"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                          <div className="text-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                            <ArrowTopRightOnSquareIcon className="w-10 h-10 md:w-12 md:h-12 text-white mx-auto mb-2" />
-                            <p className="text-white font-bold text-base md:text-lg">Visit Project</p>
+                        {/* Overlay with Icon and Text */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#201d66]/90 via-[#3949ab]/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center backdrop-blur-sm">
+                          <div className="text-center transform translate-y-6 group-hover:translate-y-0 transition-all duration-500">
+                            <motion.div
+                              className="bg-white/20 backdrop-blur-md rounded-full p-4 mb-3 mx-auto w-16 h-16 flex items-center justify-center"
+                              whileHover={{ scale: 1.15, rotate: 5 }}
+                            >
+                              <ArrowTopRightOnSquareIcon className="w-8 h-8 text-white" />
+                            </motion.div>
+                            <p className="text-white font-bold text-lg px-4">Click to Visit</p>
+                            <p className="text-white/80 text-sm mt-1">Live Project</p>
                           </div>
                         </div>
-                        {/* Year Badge */}
-                        <div className="absolute top-3 right-3 bg-[#201d66] text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
+                        {/* Year Badge with Enhanced Style */}
+                        <div className="absolute top-4 right-4 bg-gradient-to-r from-[#201d66] to-[#3949ab] text-white px-4 py-1.5 rounded-full text-xs font-bold shadow-xl backdrop-blur-sm flex items-center gap-1.5">
+                          <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
+                          </svg>
                           {project.year}
                         </div>
                       </div>
 
-                      {/* Project Info */}
-                      <div className="p-4 md:p-6 flex-1 flex flex-col">
-                        <h2 className="text-xl md:text-2xl font-bold text-[#201d66] mb-2 line-clamp-2 group-hover:text-[#3949ab] transition-colors">
+                      {/* Enhanced Project Info Section */}
+                      <div className="p-5 md:p-6 flex-1 flex flex-col bg-gradient-to-b from-white to-[#f5f5f5]/50">
+                        <h2 className="text-xl md:text-2xl font-extrabold text-[#201d66] mb-2 line-clamp-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#201d66] group-hover:to-[#3949ab] transition-all duration-300">
                           {project.title}
                         </h2>
-                        <p className="text-[#3949ab] text-sm md:text-base mb-3 line-clamp-2">
+                        <p className="text-[#3949ab] text-sm md:text-base mb-4 line-clamp-2 font-medium">
                           {project.description}
                         </p>
                         
-                        {/* Tags */}
+                        {/* Enhanced Tags with Gradient */}
                         <div className="flex flex-wrap gap-2 mb-4">
                           {project.tags.slice(0, 3).map((tag, tagIdx) => (
-                            <span 
+                            <motion.span 
                               key={tagIdx} 
-                              className="bg-[#e3f2fd] text-[#201d66] px-2.5 py-1 rounded-full text-xs font-semibold hover:bg-[#201d66] hover:text-white transition-colors cursor-default"
+                              className="relative bg-gradient-to-r from-[#e3f2fd] to-[#b3e5fc] text-[#201d66] px-3 py-1.5 rounded-full text-xs font-bold hover:from-[#201d66] hover:to-[#3949ab] hover:text-white transition-all duration-300 cursor-default shadow-sm hover:shadow-md"
+                              whileHover={{ scale: 1.05, y: -2 }}
                             >
                               {tag}
-                            </span>
+                            </motion.span>
                           ))}
                           {project.tags.length > 3 && (
-                            <span className="bg-[#b3e5fc] text-[#201d66] px-2.5 py-1 rounded-full text-xs font-semibold">
-                              +{project.tags.length - 3}
+                            <span className="bg-gradient-to-r from-[#3949ab] to-[#201d66] text-white px-3 py-1.5 rounded-full text-xs font-bold shadow-md">
+                              +{project.tags.length - 3} more
                             </span>
                           )}
                         </div>
 
-                        {/* Details - Show more on desktop */}
-                        <p className="text-[#201d66]/70 text-xs md:text-sm mb-4 flex-1 line-clamp-3 hidden md:block">
+                        {/* Details with Better Typography */}
+                        <p className="text-[#201d66]/70 text-xs md:text-sm mb-5 flex-1 line-clamp-3 hidden md:block leading-relaxed">
                           {project.details}
                         </p>
 
-                        {/* Action Buttons */}
-                        <div className="flex gap-2 md:gap-3 mt-auto">
-                          <a
+                        {/* Enhanced Action Buttons */}
+                        <div className="flex gap-2.5 md:gap-3 mt-auto pt-4 border-t border-[#e3f2fd]">
+                          <motion.a
                             href={project.link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex-1 inline-flex items-center justify-center gap-2 bg-[#201d66] text-white px-3 md:px-4 py-2 md:py-2.5 rounded-full text-xs md:text-sm font-semibold hover:bg-[#3949ab] transform hover:scale-105 transition-all duration-300 shadow-md hover:shadow-xl"
+                            className="flex-1 inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#201d66] to-[#3949ab] text-white px-4 md:px-5 py-2.5 md:py-3 rounded-xl text-xs md:text-sm font-bold hover:from-[#3949ab] hover:to-[#201d66] transition-all duration-300 shadow-lg hover:shadow-2xl"
                             onClick={(e) => e.stopPropagation()}
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.98 }}
                           >
-                            <ArrowTopRightOnSquareIcon className="w-4 h-4" />
-                            <span className="hidden sm:inline">Visit</span>
-                            <span className="sm:hidden">View</span>
-                          </a>
-                          <a
+                            <ArrowTopRightOnSquareIcon className="w-4 h-4 md:w-5 md:h-5" />
+                            <span className="hidden sm:inline">Visit Project</span>
+                            <span className="sm:hidden">Visit</span>
+                          </motion.a>
+                          <motion.a
                             href={project.github}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center justify-center bg-white border-2 border-[#201d66] text-[#201d66] rounded-full p-2 md:p-2.5 hover:bg-[#201d66] hover:text-white transform hover:scale-105 transition-all duration-300 shadow-md hover:shadow-xl"
+                            className="inline-flex items-center justify-center bg-white border-2 border-[#201d66] text-[#201d66] rounded-xl p-2.5 md:p-3 hover:bg-gradient-to-r hover:from-[#201d66] hover:to-[#3949ab] hover:text-white hover:border-transparent transition-all duration-300 shadow-md hover:shadow-xl"
                             aria-label={`View ${project.title} on GitHub`}
                             onClick={(e) => e.stopPropagation()}
+                            whileHover={{ scale: 1.1, rotate: 5 }}
+                            whileTap={{ scale: 0.95 }}
                           >
-                            <FaGithub className="w-4 h-4 md:w-5 md:h-5" />
-                          </a>
-                          <button
+                            <FaGithub className="w-5 h-5 md:w-6 md:h-6" />
+                          </motion.a>
+                          <motion.button
                             onClick={(e) => {
                               e.stopPropagation();
                               setModalProject(project);
                               setShowAllProjects(false);
                             }}
-                            className="inline-flex items-center justify-center bg-[#e3f2fd] text-[#201d66] rounded-full p-2 md:p-2.5 hover:bg-[#201d66] hover:text-white transform hover:scale-105 transition-all duration-300 shadow-md hover:shadow-xl"
+                            className="inline-flex items-center justify-center bg-gradient-to-r from-[#e3f2fd] to-[#b3e5fc] text-[#201d66] rounded-xl p-2.5 md:p-3 hover:from-[#201d66] hover:to-[#3949ab] hover:text-white transition-all duration-300 shadow-md hover:shadow-xl"
                             aria-label={`View ${project.title} details`}
+                            whileHover={{ scale: 1.1, rotate: -5 }}
+                            whileTap={{ scale: 0.95 }}
                           >
-                            <InformationCircleIcon className="w-4 h-4 md:w-5 md:h-5" />
-                          </button>
+                            <InformationCircleIcon className="w-5 h-5 md:w-6 md:h-6" />
+                          </motion.button>
                         </div>
                       </div>
                     </motion.div>

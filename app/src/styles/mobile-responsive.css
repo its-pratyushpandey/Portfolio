@@ -1238,6 +1238,7 @@ section {
     opacity: 0.8 !important;
   }
   
+  
   @media (max-width: 768px) {
     /* Make overlay always slightly visible on mobile as a hint */
     section#projects [id*="project-img-container"] > div[class*="bg-black"] {
@@ -1261,3 +1262,196 @@ section {
     backface-visibility: visible !important;
   }
 }
+
+/* ============================================
+   ENHANCED ALL PROJECTS MODAL - PROFESSIONAL DESIGN
+   Premium styling for the View All Projects page
+   ============================================ */
+
+/* Modal base styles */
+.fixed.inset-0.bg-white.z-\[9999\] {
+  background: linear-gradient(135deg, #f5f5f5 0%, #e3f2fd 50%, #b3e5fc 100%) !important;
+}
+
+/* Enhanced header sticky bar */
+.fixed.inset-0 .sticky.top-0 > div {
+  background: rgba(255, 255, 255, 0.9) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.4) !important;
+  box-shadow: 0 10px 40px rgba(32, 29, 102, 0.1), 
+              0 2px 8px rgba(32, 29, 102, 0.05) !important;
+}
+
+/* Grid container enhancements */
+.fixed.inset-0 .max-w-7xl.grid {
+  animation: fadeInUp 0.6s ease-out !important;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Enhanced card styling */
+.fixed.inset-0 .bg-white.rounded-3xl {
+  background: linear-gradient(to bottom, #ffffff 0%, #fafafa 100%) !important;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.fixed.inset-0 .bg-white.rounded-3xl:hover {
+  box-shadow: 0 20px 60px rgba(32, 29, 102, 0.15), 
+              0 8px 24px rgba(57, 73, 171, 0.1) !important;
+}
+
+/* Image container gradient enhancement */
+.fixed.inset-0 .bg-gradient-to-br.from-\[\#e3f2fd\] {
+  background: linear-gradient(135deg, #e3f2fd 0%, #ffffff 50%, #b3e5fc 100%) !important;
+}
+
+/* Button gradient animations */
+.fixed.inset-0 .bg-gradient-to-r {
+  background-size: 200% auto !important;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.fixed.inset-0 .bg-gradient-to-r:hover {
+  background-position: right center !important;
+}
+
+/* Tag hover effects */
+.fixed.inset-0 span[class*="rounded-full"] {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Mobile optimizations for enhanced design */
+@media (max-width: 640px) {
+  .fixed.inset-0 .sticky.top-0 > div {
+    padding: 1.25rem !important;
+    border-radius: 1.5rem !important;
+  }
+  
+  .fixed.inset-0 h1 {
+    font-size: 1.875rem !important;
+    line-height: 1.2 !important;
+  }
+  
+  .fixed.inset-0 .w-1\.5 {
+    width: 0.375rem !important;
+    height: 3rem !important;
+  }
+  
+  .fixed.inset-0 .bg-white.rounded-3xl {
+    border-radius: 1.5rem !important;
+  }
+}
+
+/* Tablet optimizations */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .fixed.inset-0 .grid {
+    gap: 1.75rem !important;
+  }
+  
+  .fixed.inset-0 .sticky.top-0 > div {
+    padding: 2rem !important;
+  }
+}
+
+/* Desktop enhancements */
+@media (min-width: 1025px) {
+  .fixed.inset-0 .grid {
+    gap: 2rem !important;
+  }
+  
+  .fixed.inset-0 .bg-white.rounded-3xl:hover {
+    transform: translateY(-12px) scale(1.02) !important;
+  }
+}
+
+/* Ultra-wide screen optimizations */
+@media (min-width: 1920px) {
+  .fixed.inset-0 .max-w-7xl {
+    max-width: 100rem !important;
+  }
+  
+  .fixed.inset-0 .grid {
+    grid-template-columns: repeat(5, 1fr) !important;
+    gap: 2.5rem !important;
+  }
+}
+
+/* Smooth scroll with easing */
+.fixed.inset-0.overflow-y-auto {
+  scroll-behavior: smooth !important;
+  scroll-padding-top: 8rem !important;
+}
+
+/* Focus visible states for accessibility */
+.fixed.inset-0 button:focus-visible,
+.fixed.inset-0 a:focus-visible {
+  outline: 3px solid #3949ab !important;
+  outline-offset: 2px !important;
+}
+
+/* Loading animation for images */
+.fixed.inset-0 img {
+  animation: imageLoad 0.6s ease-out !important;
+}
+
+@keyframes imageLoad {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Close button enhancement */
+.fixed.inset-0 button[aria-label*="Close"] {
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+}
+
+/* Year badge pulse effect */
+.fixed.inset-0 .absolute.top-4.right-4 {
+  animation: badgePulse 2s ease-in-out infinite !important;
+}
+
+@keyframes badgePulse {
+  0%, 100% {
+    box-shadow: 0 4px 12px rgba(32, 29, 102, 0.3);
+  }
+  50% {
+    box-shadow: 0 6px 20px rgba(57, 73, 171, 0.5);
+  }
+}
+
+/* Prevent text selection on interactive elements */
+.fixed.inset-0 button,
+.fixed.inset-0 .cursor-pointer {
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+}
+
+/* Content selection allowed for text */
+.fixed.inset-0 p,
+.fixed.inset-0 h1,
+.fixed.inset-0 h2,
+.fixed.inset-0 span {
+  -webkit-user-select: text !important;
+  -moz-user-select: text !important;
+  -ms-user-select: text !important;
+  user-select: text !important;
+}
+

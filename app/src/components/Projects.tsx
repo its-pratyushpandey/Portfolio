@@ -116,13 +116,23 @@ const Projects: React.FC = () => {
   const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
   const filteredProjects = selectedTag ? projects.filter(p => p.tags.includes(selectedTag)) : projects;
   const [currentIdx, setCurrentIdx] = useState(0); // For mobile carousel
-  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+  const [isMobile, setIsMobile] = useState(typeof window !== 'undefined' && window.innerWidth < 768);
   const [sidebarOpen, setSidebarOpen] = useState(false); // For mobile sidebar
   const shouldReduceMotionRaw = useReducedMotion();
   const shouldReduceMotion = !!shouldReduceMotionRaw; // always boolean
-  const [isPlaying, setIsPlaying] = useState(false); // <-- Added state
   const containerRef = useRef<HTMLDivElement>(null);
   const controls = useAnimation();
+
+  // Update isMobile on resize
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    handleResize(); // Call immediately
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   // Micro-interaction config for motion buttons
   const microInteraction = shouldReduceMotion
@@ -310,62 +320,56 @@ const Projects: React.FC = () => {
             <motion.div
               key={project.title}
               className="snap-center min-w-[300px] flex-shrink-0 flex flex-col md:flex-row items-center justify-center px-4 py-16 relative group"
-              initial={{ opacity: 0, x: 80 }}
+              initial={isMobile ? { opacity: 1, x: 0 } : { opacity: 0, x: 80 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: true, amount: isMobile ? 0.1 : 0.3 }}
               transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.8, ease: 'easeOut' }}
             >
               {/* Parallax image with video on click and 3D tilt on hover */}
               <motion.div
                 id={`project-img-container-${idx}`}
                 className="flex-1 flex items-center justify-center p-8 relative group"
-                initial={{ opacity: 0, x: 80 }}
-                whileInView={{ opacity: 1, x: 0, transition: shouldReduceMotion ? { duration: 0 } : { delay: 0.2, duration: 0.7 } }}
-                viewport={{ once: true }}
+                initial={isMobile ? { opacity: 1, x: 0 } : { opacity: 0, x: 80 }}
+                whileInView={{ opacity: 1, x: 0, transition: shouldReduceMotion ? { duration: 0 } : { delay: isMobile ? 0 : 0.2, duration: 0.7 } }}
+                viewport={{ once: true, amount: isMobile ? 0.1 : 0.5 }}
                 tabIndex={0}
-                style={{ cursor: project.videoDemo ? 'pointer' : 'default' }}
-                onMouseMove={e => {
-                  if (!isPlaying) handleMouseMove(e, idx);
-                }}
-                onMouseLeave={() => {
-                  if (!isPlaying) handleMouseLeave(idx);
-                }}
+                style={{ cursor: 'pointer' }}
+                onMouseMove={e => handleMouseMove(e, idx)}
+                onMouseLeave={() => handleMouseLeave(idx)}
               >
-                {isPlaying && project.videoDemo ? (
-                  <motion.video
-                    src={project.videoDemo}
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    className="w-full max-w-lg h-auto rounded-2xl shadow-2xl object-contain border-4 border-[#e3f2fd] bg-black transition-transform duration-300 parallax-img focus:outline-none focus:ring-2 focus:ring-[#201d66] focus:ring-offset-2"
-                    style={{ minHeight: '320px', background: '#000' }}
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={shouldReduceMotion ? { duration: 0 } : { delay: 0.3, duration: 0.7 }}
-                    onClick={e => { e.stopPropagation(); setIsPlaying(false); handleMouseLeave(idx); }}
-                  />
-                ) : (
-                  <motion.img
-                    id={`project-img-${idx}`}
-                    src={project.image}
-                    alt={project.title}
-                    loading="lazy"
-                    decoding="async"
-                    className="block w-full max-w-xl h-auto rounded-3xl shadow-3xl object-cover border-6 border-[#3949ab] bg-white transition-transform duration-300 cursor-pointer hover:scale-110 group-hover:shadow-[0_12px_48px_0_rgba(32,29,102,0.25)] parallax-img focus:outline-none focus:ring-4 focus:ring-[#201d66] focus:ring-offset-4"
-                    style={{ maxHeight: '400px', display: 'block' }}
-                    tabIndex={0}
-                    aria-label={`Play video demo for ${project.title}`}
-                    onClick={() => setIsPlaying(true)}
-                    onKeyDown={e => {
-                      if (e.key === 'Enter' || e.key === ' ') setIsPlaying(true);
-                    }}
-                    whileHover={shouldReduceMotion ? {} : { scale: 1.1, rotate: 2 }}
-                    initial={isMobile ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={shouldReduceMotion ? { duration: 0 } : { delay: 0.3, duration: 0.7 }}
-                  />
-                )}
+                <motion.img
+                  id={`project-img-${idx}`}
+                  src={project.image}
+                  alt={project.title}
+                  loading="lazy"
+                  decoding="async"
+                  className="block w-full max-w-xl h-auto rounded-3xl shadow-3xl object-cover border-6 border-[#3949ab] bg-white transition-transform duration-300 cursor-pointer hover:scale-110 group-hover:shadow-[0_12px_48px_0_rgba(32,29,102,0.25)] parallax-img focus:outline-none focus:ring-4 focus:ring-[#201d66] focus:ring-offset-4"
+                  style={{ maxHeight: '400px', display: 'block' }}
+                  tabIndex={0}
+                  aria-label={`Visit ${project.title} project`}
+                  onClick={() => window.open(project.link, '_blank')}
+                  onKeyDown={e => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      window.open(project.link, '_blank');
+                    }
+                  }}
+                  whileHover={shouldReduceMotion ? {} : { scale: 1.1, rotate: 2 }}
+                  initial={isMobile ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={shouldReduceMotion ? { duration: 0 } : { delay: 0.3, duration: 0.7 }}
+                />
+                {/* Click to Visit Overlay */}
+                <motion.div
+                  className="absolute inset-0 rounded-3xl bg-black/60 opacity-0 group-hover:opacity-100 flex items-center justify-center pointer-events-none transition-opacity duration-300"
+                  initial={{ opacity: 0 }}
+                  whileHover={{ opacity: 1 }}
+                >
+                  <div className="text-center">
+                    <ArrowTopRightOnSquareIcon className="w-12 h-12 text-white mx-auto mb-2" />
+                    <p className="text-white font-bold text-lg">Click to Visit</p>
+                  </div>
+                </motion.div>
                 {/* Glare overlay for premium effect */}
                 <div
                   id={`project-glare-${idx}`}
@@ -734,7 +738,10 @@ const MobileProjectCard: React.FC<MobileProjectCardProps> = ({ project, setModal
           <motion.img
             src={project.image}
             alt={project.title}
-            className="w-full max-w-lg h-auto rounded-2xl shadow-2xl object-contain border-4 border-[#e3f2fd] bg-white transition-transform duration-300 cursor-pointer hover:scale-105 group-hover:shadow-[0_8px_32px_0_rgba(32,29,102,0.15)] parallax-img focus:outline-none focus:ring-2 focus:ring-[#201d66] focus:ring-offset-2"
+            loading="lazy"
+            decoding="async"
+            className="block w-full max-w-lg h-auto rounded-2xl shadow-2xl object-contain border-4 border-[#e3f2fd] bg-white transition-transform duration-300 cursor-pointer hover:scale-105 group-hover:shadow-[0_8px_32px_0_rgba(32,29,102,0.15)] parallax-img focus:outline-none focus:ring-2 focus:ring-[#201d66] focus:ring-offset-2"
+            style={{ display: 'block', minHeight: '200px' }}
             tabIndex={0}
             aria-label={`Play video demo for ${project.title}`}
             onClick={() => project.videoDemo ? setVideoModal(project.videoDemo) : setModalProject(project)}
@@ -745,9 +752,9 @@ const MobileProjectCard: React.FC<MobileProjectCardProps> = ({ project, setModal
               }
             }}
             whileHover={shouldReduceMotion ? {} : { scale: 1.05, rotate: 1 }}
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 1, scale: 1 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={shouldReduceMotion ? { duration: 0 } : { delay: 0.3, duration: 0.7 }}
+            transition={shouldReduceMotion ? { duration: 0 } : { delay: 0, duration: 0.3 }}
           />
         )}
         {/* Floating shape */}

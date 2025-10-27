@@ -170,6 +170,12 @@ body {
     height: auto !important;
     overflow-y: visible !important;
     overflow-x: hidden !important;
+    overflow: visible !important;
+  }
+  
+  /* Critical: Remove overflow-hidden on mobile that clips images */
+  #projects.overflow-hidden {
+    overflow: visible !important;
   }
   
   /* Fix heading spacing on mobile */
@@ -207,6 +213,16 @@ body {
     background: rgba(255, 255, 255, 0.5) !important;
     border-radius: 1rem !important;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: flex !important;
+  }
+  
+  /* Ensure project card containers are always visible on mobile */
+  #projects .snap-center > *,
+  #projects [class*="snap-"] > * {
+    opacity: 1 !important;
+    visibility: visible !important;
   }
   
   /* Stack image and content vertically */
@@ -225,19 +241,75 @@ body {
   #projects div:has(> video) {
     width: 100% !important;
     max-width: 100% !important;
-    padding: 0 !important;
+    padding: 1rem !important;
     margin-bottom: 1rem !important;
+    min-height: 200px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
   }
   
   #projects img,
   #projects video {
     width: 100% !important;
     max-width: 100% !important;
+    min-width: 280px !important;
     height: auto !important;
-    max-height: 280px !important;
-    object-fit: cover !important;
+    min-height: 200px !important;
+    max-height: 320px !important;
+    object-fit: contain !important;
     border-radius: 1rem !important;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+    background: white !important;
+    padding: 0.5rem !important;
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    position: relative !important;
+    z-index: 100 !important;
+  }
+  
+  /* CRITICAL: Force all project images to be visible immediately */
+  #projects img[src*="nexthire"],
+  #projects img[src*="cogniview"],
+  #projects img[src*="arise"],
+  #projects img[id*="project-img"] {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    position: relative !important;
+    z-index: 200 !important;
+    background: white !important;
+    border: 3px solid #3949ab !important;
+  }
+  
+  /* Override Framer Motion animation states on mobile */
+  #projects [id*="project-img-container"] {
+    opacity: 1 !important;
+    transform: none !important;
+    visibility: visible !important;
+    position: relative !important;
+    z-index: 50 !important;
+    overflow: visible !important;
+  }
+  
+  /* Ensure all motion divs in projects are visible on mobile */
+  #projects .flex-1,
+  #projects .relative.group {
+    opacity: 1 !important;
+    visibility: visible !important;
+    overflow: visible !important;
+  }
+  
+  /* Force parent containers to show content */
+  #projects .snap-center > div,
+  #projects [class*="snap-"] > div {
+    opacity: 1 !important;
+    visibility: visible !important;
+    overflow: visible !important;
+    position: relative !important;
   }
   
   /* Project content area */
@@ -1029,5 +1101,83 @@ section {
   #projects .absolute:has(svg),
   #projects .absolute:has(.blur-2xl) {
     display: none !important;
+  }
+}
+
+/* ============================================
+   CRITICAL MOBILE FIX - Maximum Specificity
+   Force project images to be visible on mobile
+   ============================================ */
+@media (max-width: 768px) {
+  /* Override ALL possible hiding mechanisms */
+  section#projects img[src*=".png"],
+  section#projects img[src*="nexthire"],
+  section#projects img[src*="cogniview"],
+  section#projects img[src*="arise"] {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    position: relative !important;
+    z-index: 999 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 220px !important;
+    max-height: 350px !important;
+    object-fit: contain !important;
+    background: white !important;
+    border: 4px solid #3949ab !important;
+    border-radius: 1rem !important;
+    padding: 0.75rem !important;
+    margin: 1rem auto !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25) !important;
+    transform: translate3d(0, 0, 0) !important;
+    -webkit-transform: translate3d(0, 0, 0) !important;
+    backface-visibility: visible !important;
+    will-change: auto !important;
+  }
+  
+  /* Force parent containers to not hide children */
+  section#projects div[id*="project-img-container"],
+  section#projects .flex-1:has(img) {
+    display: flex !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    overflow: visible !important;
+    position: relative !important;
+    z-index: 100 !important;
+    min-height: 250px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transform: none !important;
+    -webkit-transform: none !important;
+  }
+  
+  /* Show "Click to Visit" overlay on mobile */
+  section#projects .group .bg-black\/60 {
+    opacity: 0.8 !important;
+  }
+  
+  @media (max-width: 768px) {
+    /* Make overlay always slightly visible on mobile as a hint */
+    section#projects [id*="project-img-container"] > div[class*="bg-black"] {
+      opacity: 0 !important;
+    }
+    
+    section#projects [id*="project-img-container"]:active > div[class*="bg-black"] {
+      opacity: 1 !important;
+    }
+  }
+  
+  /* Ensure section itself doesn't clip */
+  section#projects {
+    overflow: visible !important;
+    min-height: auto !important;
+  }
+  
+  /* Remove any transform that might move images off-screen */
+  section#projects * {
+    -webkit-backface-visibility: visible !important;
+    backface-visibility: visible !important;
   }
 }

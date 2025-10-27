@@ -305,6 +305,12 @@ body {
     margin: 3rem auto 2rem !important;
     display: block !important;
   }
+
+  /* Ensure View All button is clickable on mobile (pointer-events reset) */
+  #projects .w-full .inline-block,
+  #projects .w-full button {
+    pointer-events: auto !important;
+  }
   
   /* Hide decorative floating elements on mobile for performance */
   #projects .absolute:has(svg):not(:has(video)):not(:has(img)),

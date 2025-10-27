@@ -350,16 +350,18 @@ const Projects: React.FC = () => {
                     id={`project-img-${idx}`}
                     src={project.image}
                     alt={project.title}
-                    className="w-full max-w-xl h-auto rounded-3xl shadow-3xl object-cover border-6 border-[#3949ab] bg-white transition-transform duration-300 cursor-pointer hover:scale-110 group-hover:shadow-[0_12px_48px_0_rgba(32,29,102,0.25)] parallax-img focus:outline-none focus:ring-4 focus:ring-[#201d66] focus:ring-offset-4"
-                    style={{ maxHeight: '400px' }}
+                    loading="lazy"
+                    decoding="async"
+                    className="block w-full max-w-xl h-auto rounded-3xl shadow-3xl object-cover border-6 border-[#3949ab] bg-white transition-transform duration-300 cursor-pointer hover:scale-110 group-hover:shadow-[0_12px_48px_0_rgba(32,29,102,0.25)] parallax-img focus:outline-none focus:ring-4 focus:ring-[#201d66] focus:ring-offset-4"
+                    style={{ maxHeight: '400px', display: 'block' }}
                     tabIndex={0}
                     aria-label={`Play video demo for ${project.title}`}
                     onClick={() => setIsPlaying(true)}
                     onKeyDown={e => {
-                    if (e.key === 'Enter' || e.key === ' ') setIsPlaying(true);
+                      if (e.key === 'Enter' || e.key === ' ') setIsPlaying(true);
                     }}
                     whileHover={shouldReduceMotion ? {} : { scale: 1.1, rotate: 2 }}
-                    initial={{ opacity: 0, scale: 0.9 }}
+                    initial={isMobile ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={shouldReduceMotion ? { duration: 0 } : { delay: 0.3, duration: 0.7 }}
                   />
@@ -497,15 +499,17 @@ const Projects: React.FC = () => {
               >
                 <>{modalProject && (
                   <>
-                    <motion.img
-                      src={modalProject.image}
-                      alt={modalProject.title}
-                      className="w-full h-48 object-contain rounded-xl mb-4 bg-[#e3f2fd]"
-                      initial={{ scale: 0.95, opacity: 0 }}
-                      animate={{ scale: 1, opacity: 1 }}
-                      exit={{ scale: 0.95, opacity: 0 }}
-                      transition={{ duration: 0.5, delay: 0.1 }}
-                    />
+                      <motion.img
+                        src={modalProject.image}
+                        alt={modalProject.title}
+                        loading="lazy"
+                        decoding="async"
+                        className="w-full h-48 object-contain rounded-xl mb-4 bg-[#e3f2fd]"
+                        initial={{ scale: 0.95, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        exit={{ scale: 0.95, opacity: 0 }}
+                        transition={{ duration: 0.5, delay: 0.1 }}
+                      />
                     <motion.h3 className="text-3xl font-bold text-[#201d66] mb-2" initial={{ y: 30, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.15 }}>
                       {modalProject.title}
                     </motion.h3>
@@ -655,14 +659,15 @@ const Projects: React.FC = () => {
         </AnimatePresence>
         {/* View All Projects Button */}
         <div className="w-full flex justify-center mt-16 md:mt-24">
-          <a
-            href="/ViewAllProjects"
+          <button
+            onClick={() => { window.location.pathname = '/ViewAllProjects'; }}
             className="inline-block bg-[#201d66] text-white px-8 py-3 rounded-full text-lg md:text-xl font-semibold border-2 border-[#80deea] shadow-lg hover:bg-[#3949ab] hover:text-[#e3f2fd] transition-all focus:outline-none focus:ring-2 focus:ring-[#201d66]"
-            style={{ minWidth: 220 }}
+            style={{ minWidth: 220, cursor: 'pointer' }}
             aria-label="View all projects"
+            role="link"
           >
             View All Projects
-          </a>
+          </button>
         </div>
         {/* Custom styles for scrollbars and snap */}
         <style>{`

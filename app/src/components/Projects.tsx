@@ -113,6 +113,7 @@ const Projects: React.FC = () => {
   const [modalProject, setModalProject] = useState<Project | null>(null);
   const [videoModal, setVideoModal] = useState<string | null>(null); // video URL
   const [previewModal, setPreviewModal] = useState<string | null>(null); // live preview URL
+  const [showAllProjects, setShowAllProjects] = useState(false); // Show all projects grid
   const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
   const filteredProjects = selectedTag ? projects.filter(p => p.tags.includes(selectedTag)) : projects;
   const [currentIdx, setCurrentIdx] = useState(0); // For mobile carousel
@@ -290,10 +291,10 @@ const Projects: React.FC = () => {
   };
 
   return (
-    <section id="projects" className="w-screen h-screen flex flex-col items-center justify-center bg-gradient-to-br from-[#f5f5f5] to-[#e3f2fd] py-0 relative overflow-hidden">
+    <section id="projects" className="w-screen min-h-screen flex flex-col items-center justify-start bg-gradient-to-br from-[#f5f5f5] to-[#e3f2fd] py-12 relative overflow-visible">
       {/* Parallax background */}
       <div className="absolute inset-0 z-0 bg-gradient-to-br from-[#e3f2fd] to-[#b3e5fc] opacity-60" style={{ backgroundAttachment: 'fixed' }} />
-      <div className="w-full max-w-7xl mx-auto px-0 md:px-8 relative z-10">
+      <div className="w-full max-w-7xl mx-auto px-0 md:px-8 relative z-10 overflow-visible pb-24">
         
         {/* Heading */}
         <motion.h1 
@@ -664,15 +665,177 @@ const Projects: React.FC = () => {
         {/* View All Projects Button */}
         <div className="w-full flex justify-center mt-16 md:mt-24">
           <button
-            onClick={() => { window.location.pathname = '/ViewAllProjects'; }}
+            onClick={() => setShowAllProjects(true)}
             className="inline-block bg-[#201d66] text-white px-8 py-3 rounded-full text-lg md:text-xl font-semibold border-2 border-[#80deea] shadow-lg hover:bg-[#3949ab] hover:text-[#e3f2fd] transition-all focus:outline-none focus:ring-2 focus:ring-[#201d66]"
             style={{ minWidth: 220, cursor: 'pointer' }}
             aria-label="View all projects"
-            role="link"
+            role="button"
           >
             View All Projects
           </button>
         </div>
+
+        {/* All Projects Modal/Fullscreen View */}
+        <AnimatePresence>
+          {showAllProjects && (
+            <motion.div
+              className="fixed inset-0 bg-white z-[9999] overflow-y-auto"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+              style={{ 
+                scrollBehavior: 'smooth',
+                WebkitOverflowScrolling: 'touch'
+              }}
+            >
+              <div className="min-h-screen bg-gradient-to-br from-[#f5f5f5] via-[#e3f2fd] to-[#b3e5fc] py-8 md:py-12 px-4 md:px-8 lg:px-12">
+                {/* Header with Close Button */}
+                <div className="max-w-7xl mx-auto mb-6 md:mb-10 flex items-center justify-between sticky top-0 bg-white/80 backdrop-blur-md z-50 p-4 rounded-2xl shadow-lg">
+                  <motion.div
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.2 }}
+                  >
+                    <h1 className="text-3xl md:text-5xl font-bold text-[#201d66]">All Projects</h1>
+                    <p className="text-sm md:text-base text-[#3949ab] mt-1">
+                      {projects.length} Amazing Projects • Click to Explore
+                    </p>
+                  </motion.div>
+                  <button
+                    onClick={() => setShowAllProjects(false)}
+                    className="text-[#201d66] hover:text-white hover:bg-[#201d66] text-3xl md:text-4xl font-bold focus:outline-none focus:ring-2 focus:ring-[#201d66] rounded-full w-10 h-10 md:w-12 md:h-12 flex items-center justify-center transition-all duration-300 flex-shrink-0 ml-4"
+                    aria-label="Close all projects view"
+                  >
+                    ×
+                  </button>
+                </div>
+
+                {/* Projects Grid - Responsive columns */}
+                <motion.div 
+                  className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 pb-8"
+                  initial="hidden"
+                  animate="visible"
+                  variants={{
+                    hidden: { opacity: 0 },
+                    visible: {
+                      opacity: 1,
+                      transition: {
+                        staggerChildren: 0.08,
+                        delayChildren: 0.2
+                      }
+                    }
+                  }}
+                >
+                  {projects.map((project, idx) => (
+                    <motion.div
+                      key={idx}
+                      className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col overflow-hidden group border border-[#e3f2fd]"
+                      variants={{
+                        hidden: { opacity: 0, y: 30, scale: 0.95 },
+                        visible: { opacity: 1, y: 0, scale: 1 }
+                      }}
+                      whileHover={{ y: -8 }}
+                    >
+                      {/* Project Image */}
+                      <div 
+                        className="relative h-48 sm:h-52 md:h-56 overflow-hidden cursor-pointer bg-gradient-to-br from-[#e3f2fd] to-[#b3e5fc]"
+                        onClick={() => window.open(project.link, '_blank')}
+                      >
+                        <img 
+                          src={project.image} 
+                          alt={project.title} 
+                          className="w-full h-full object-contain p-4 transform group-hover:scale-110 transition-transform duration-500"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                          <div className="text-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                            <ArrowTopRightOnSquareIcon className="w-10 h-10 md:w-12 md:h-12 text-white mx-auto mb-2" />
+                            <p className="text-white font-bold text-base md:text-lg">Visit Project</p>
+                          </div>
+                        </div>
+                        {/* Year Badge */}
+                        <div className="absolute top-3 right-3 bg-[#201d66] text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
+                          {project.year}
+                        </div>
+                      </div>
+
+                      {/* Project Info */}
+                      <div className="p-4 md:p-6 flex-1 flex flex-col">
+                        <h2 className="text-xl md:text-2xl font-bold text-[#201d66] mb-2 line-clamp-2 group-hover:text-[#3949ab] transition-colors">
+                          {project.title}
+                        </h2>
+                        <p className="text-[#3949ab] text-sm md:text-base mb-3 line-clamp-2">
+                          {project.description}
+                        </p>
+                        
+                        {/* Tags */}
+                        <div className="flex flex-wrap gap-2 mb-4">
+                          {project.tags.slice(0, 3).map((tag, tagIdx) => (
+                            <span 
+                              key={tagIdx} 
+                              className="bg-[#e3f2fd] text-[#201d66] px-2.5 py-1 rounded-full text-xs font-semibold hover:bg-[#201d66] hover:text-white transition-colors cursor-default"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                          {project.tags.length > 3 && (
+                            <span className="bg-[#b3e5fc] text-[#201d66] px-2.5 py-1 rounded-full text-xs font-semibold">
+                              +{project.tags.length - 3}
+                            </span>
+                          )}
+                        </div>
+
+                        {/* Details - Show more on desktop */}
+                        <p className="text-[#201d66]/70 text-xs md:text-sm mb-4 flex-1 line-clamp-3 hidden md:block">
+                          {project.details}
+                        </p>
+
+                        {/* Action Buttons */}
+                        <div className="flex gap-2 md:gap-3 mt-auto">
+                          <a
+                            href={project.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex-1 inline-flex items-center justify-center gap-2 bg-[#201d66] text-white px-3 md:px-4 py-2 md:py-2.5 rounded-full text-xs md:text-sm font-semibold hover:bg-[#3949ab] transform hover:scale-105 transition-all duration-300 shadow-md hover:shadow-xl"
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            <ArrowTopRightOnSquareIcon className="w-4 h-4" />
+                            <span className="hidden sm:inline">Visit</span>
+                            <span className="sm:hidden">View</span>
+                          </a>
+                          <a
+                            href={project.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center justify-center bg-white border-2 border-[#201d66] text-[#201d66] rounded-full p-2 md:p-2.5 hover:bg-[#201d66] hover:text-white transform hover:scale-105 transition-all duration-300 shadow-md hover:shadow-xl"
+                            aria-label={`View ${project.title} on GitHub`}
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            <FaGithub className="w-4 h-4 md:w-5 md:h-5" />
+                          </a>
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setModalProject(project);
+                              setShowAllProjects(false);
+                            }}
+                            className="inline-flex items-center justify-center bg-[#e3f2fd] text-[#201d66] rounded-full p-2 md:p-2.5 hover:bg-[#201d66] hover:text-white transform hover:scale-105 transition-all duration-300 shadow-md hover:shadow-xl"
+                            aria-label={`View ${project.title} details`}
+                          >
+                            <InformationCircleIcon className="w-4 h-4 md:w-5 md:h-5" />
+                          </button>
+                        </div>
+                      </div>
+                    </motion.div>
+                  ))}
+                </motion.div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
         {/* Custom styles for scrollbars and snap */}
         <style>{`
           .no-scrollbar::-webkit-scrollbar { display: none; }

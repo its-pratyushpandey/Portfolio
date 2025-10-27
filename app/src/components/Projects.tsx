@@ -297,14 +297,7 @@ const Projects: React.FC = () => {
       <div className="w-full max-w-7xl mx-auto px-0 md:px-8 relative z-10 overflow-visible pb-24">
         
         {/* Heading */}
-        <motion.h1 
-          className="text-4xl md:text-5xl font-extrabold text-[#201d66] mb-10 text-center pt-20" // Increased padding-top
-          initial={{ opacity: 0, y: -20 }} 
-          whileInView={{ opacity: 1, y: 0 }} 
-          viewport={{ once: true }}
-        >
-          My Workspace
-        </motion.h1>
+        
         <motion.h2 className="text-5xl md:text-6xl font-bold text-[#201d66] mb-20 text-center pt-20" initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
           Work Showcase
         </motion.h2>

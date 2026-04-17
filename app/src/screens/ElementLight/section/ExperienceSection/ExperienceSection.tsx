@@ -3,16 +3,16 @@
 
 	const experiences = [
 	{
-	company: "GAO Tek Inc.",
-	role: "Fullstack Developer Intern",
-	period: "2025",
+	company: "EtharaAI",
+	role: "AI Intern",
+	period: "2026",
 	location: "Remote",
-	tech: ["React", "Node.js", "Express", "MongoDB", "Firebase", "JWT"],
+	tech: ["Java", "Spring Boot", "REST APIs", "Microservices", "Redis", "Docker", "Azure", "CI/CD"],
 	details: [
-	"Developed and maintained dynamic user interfaces using React for a web-based platform.",
-		"Integrated backend APIs using Express and Node.js to support real-time data interaction.",
-		"Implemented secure user authentication and authorization workflows with Firebase and JWT.",
-		"Contributed to feature enhancements, code optimization, and cross-functional collaboration.",
+		"Developed scalable ML-powered backend microservices and REST APIs using Java and Spring Boot, improving system performance and reducing latency by 30% through Redis caching and query optimization.",
+		"Built distributed evaluation pipelines, enhancing model accuracy by 25% and enabling scalable processing across multiple Azure instances.",
+		"Designed fault-tolerant, cloud-native systems using Docker and CI/CD pipelines, reducing deployment time by 35%.",
+		"Implemented unit and integration testing while contributing to system design, code reviews, and agile development practices.",
 	],
 	}
 	,

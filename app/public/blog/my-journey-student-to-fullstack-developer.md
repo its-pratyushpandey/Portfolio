@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Looking back at my journey from being a computer science student at KL University to becoming a full-stack developer has been nothing short of transformative. When I started my undergraduate degree in 2022, I had basic knowledge of C and HTML/CSS, but I never imagined I'd be building AI-powered recruitment platforms and working with companies like GAO Tek Inc. within just a few years.
+Looking back at my journey from being a computer science student at KL University to becoming a full-stack developer has been nothing short of transformative. When I started my undergraduate degree in 2022, I had basic knowledge of C and HTML/CSS, but I never imagined I'd be building AI-powered recruitment platforms and working as an AI Intern at 01 EtharaAI within just a few years.
 
 In this post, I want to share my authentic journey - the struggles, the breakthroughs, the late nights debugging code, and the immense satisfaction of seeing your applications come to life.
 
@@ -168,41 +168,34 @@ const parseResume = async (resumeText) => {
 };
 ```
 
-## Professional Experience: GAO Tek Inc.
+## Professional Experience: 01 EtharaAI
 
-Starting my internship at **GAO Tek Inc.** as a Full-Stack Developer has been incredible. Working on production applications taught me:
+Starting my internship at **01 EtharaAI** as an AI Intern has been incredible. Working on highly scalable backend microservices and evaluation pipelines taught me:
 
-### Professional Development Practices
+### Cloud-Native Systems and Microservices
 
-```javascript
-// Clean, maintainable code with proper error handling
-const authenticateUser = async (req, res, next) => {
-    try {
-        const token = req.headers.authorization?.split(' ')[1];
-        
-        if (!token) {
-            return res.status(401).json({ 
-                error: 'Authentication token required' 
-            });
+```java
+// Scalable machine learning microservice using Spring Boot
+@RestController
+@RequestMapping("/api/v1/evaluation")
+public class EvaluationController {
+
+    @Autowired
+    private EvaluationPipelineService pipelineService;
+
+    @PostMapping("/run")
+    public ResponseEntity<EvaluationResult> runPipeline(@RequestBody ModelData modelData) {
+        try {
+            // Processing logic across distributed Azure instances
+            EvaluationResult result = pipelineService.process(modelData);
+            return ResponseEntity.ok(result);
+        } catch (Exception e) {
+            log.error("Pipeline failure: ", e);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                                 .body(new EvaluationResult("Failed: " + e.getMessage()));
         }
-        
-        const decoded = jwt.verify(token, process.env.JWT_SECRET);
-        const user = await User.findById(decoded.userId);
-        
-        if (!user) {
-            return res.status(401).json({ 
-                error: 'User not found' 
-            });
-        }
-        
-        req.user = user;
-        next();
-    } catch (error) {
-        res.status(401).json({ 
-            error: 'Invalid authentication token' 
-        });
     }
-};
+}
 ```
 
 ### Key Technologies I Master Now

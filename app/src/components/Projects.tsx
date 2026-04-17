@@ -22,6 +22,17 @@ interface Project {
             
 const projects: Project[] = [
   {
+    title: 'Cogniview',
+    description: 'AI Interview Platform • Voice AI',
+    image: '/cogniview.png',
+    link: 'https://cogniview-frontend.vercel.app/',
+    github: 'https://github.com/its-pratyushpandey/cogniview-frontend-.git',
+    tags: ['Next.js', 'TypeScript', 'AI', 'Firebase', 'Voice AI'],
+    year: '2024',
+    details: 'AI-powered interview platform with voice-enabled interviews using VAPI, intelligent chat assistance powered by Google Gemini, and secure Firebase authentication. Features real-time interview management, interactive dashboards, GitHub profile evaluation, and task management with a modern responsive UI.',
+    videoDemo: 'https://www.w3schools.com/html/mov_bbb.mp4' // Example video
+  },
+  {
     title: 'NextHire',
     description: 'AI Job Portal • Real-time Interviews',
     image: '/nexthire.png',
@@ -30,17 +41,6 @@ const projects: Project[] = [
     tags: ['React.js', 'Node.js', 'MongoDB', 'WebSockets', 'AI'],
     year: '2024',
     details: 'Full-stack job portal connecting job seekers and employers with secure JWT and Bcrypt authentication. Features real-time chat and video interviews using WebSockets, AI-driven job recommendations and resume parsing, mock tests, smart notifications, premium dashboards, and seamless one-click application process.',
-    videoDemo: 'https://www.w3schools.com/html/mov_bbb.mp4' // Example video
-  },
-  {
-    title: 'Cogniview',
-    description: 'AI Interview Platform • Voice AI',
-    image: '/cogniview.png',
-    link: 'https://cogniview.pratyushpandey.me/',
-    github: 'https://github.com/its-pratyushpandey/Cogniview.git',
-    tags: ['Next.js', 'TypeScript', 'AI', 'Firebase', 'Voice AI'],
-    year: '2024',
-    details: 'AI-powered interview platform with voice-enabled interviews using VAPI, intelligent chat assistance powered by Google Gemini, and secure Firebase authentication. Features real-time interview management, interactive dashboards, GitHub profile evaluation, and task management with a modern responsive UI.',
     videoDemo: 'https://www.w3schools.com/html/mov_bbb.mp4' // Example video
   },
   {

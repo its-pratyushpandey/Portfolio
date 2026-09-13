@@ -1,8 +1,8 @@
 import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
-// Icon imports
-import { FaJava, FaReact, FaNodeJs, FaAws, FaGitAlt, FaGithub, FaGitlab, FaDatabase, FaPython, FaJs, FaHtml5, FaCss3Alt, FaTools, FaCogs, FaCloud, FaCode, FaTerminal, FaVial, FaRocket, FaRegFileCode, FaRegKeyboard, FaRegObjectGroup, FaRegDotCircle } from 'react-icons/fa';
-import { SiCplusplus, SiTypescript, SiRedux, SiMongodb, SiMysql, SiFirebase, SiNextdotjs, SiSpringboot, SiExpress, SiTailwindcss, SiVercel, SiHeroku, SiDigitalocean, SiNotion, SiPrettier, SiFramer, SiPostman, SiIntellijidea, SiRender, SiDatagrip, SiNamecheap, SiTensorflow } from 'react-icons/si';
+// Icon imports (only the ones actually rendered below)
+import { FaJava, FaReact, FaNodeJs, FaAws, FaGitAlt, FaGithub, FaGitlab, FaJs, FaCloud, FaRegFileCode, FaRegKeyboard, FaRegObjectGroup, FaRegDotCircle } from 'react-icons/fa';
+import { SiCplusplus, SiTypescript, SiRedux, SiMongodb, SiMysql, SiFirebase, SiNextdotjs, SiSpringboot, SiExpress, SiTailwindcss, SiHeroku, SiDigitalocean, SiNotion, SiPrettier, SiFramer, SiPostman, SiIntellijidea, SiRender, SiDatagrip, SiNamecheap, SiTensorflow } from 'react-icons/si';
 
 const translations = {
   en: {
@@ -195,8 +195,8 @@ export const Skills: React.FC = () => {
       id="skills"
       className="w-full min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-[#f5f5f5] to-[#e3f2fd] py-0 relative overflow-x-hidden"
     >
-      {/* Parallax background */}
-      <div className="absolute inset-0 z-0 bg-gradient-to-br from-[#e3f2fd] to-[#b3e5fc] opacity-60" style={{ backgroundAttachment: 'fixed' }} />
+      {/* Background */}
+      <div className="absolute inset-0 z-0 bg-gradient-to-br from-[#e3f2fd] to-[#b3e5fc] opacity-60" />
       <div className="w-full max-w-7xl mx-auto px-2 md:px-8 relative z-10">
         <motion.h2
           className="text-4xl md:text-5xl font-bold text-[#201d66] mb-12 text-center pt-10"

@@ -18,24 +18,31 @@ const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setScrolled(window.scrollY > 20);
 
-      // Detect active section
-      const sections = navLinks.map(link => link.href.substring(1));
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top <= 150 && rect.bottom >= 150) {
-            setActiveSection(section);
-            break;
+          // Detect active section
+          const sections = navLinks.map(link => link.href.substring(1));
+          for (const section of sections) {
+            const element = document.getElementById(section);
+            if (element) {
+              const rect = element.getBoundingClientRect();
+              if (rect.top <= 150 && rect.bottom >= 150) {
+                setActiveSection(section);
+                break;
+              }
+            }
           }
-        }
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);

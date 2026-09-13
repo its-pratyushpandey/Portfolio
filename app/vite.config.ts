@@ -17,5 +17,28 @@ export default defineConfig({
     alias: {
       '@': '/src'
     }
+  },
+  build: {
+    target: 'es2020',
+    cssCodeSplit: true,
+    minify: 'esbuild',
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'react-vendor': ['react', 'react-dom'],
+          'motion': ['framer-motion'],
+          'icons': [
+            'react-icons/fa',
+            'react-icons/si',
+            '@heroicons/react/24/outline'
+          ]
+        }
+      }
+    }
+  },
+  server: {
+    headers: {
+      'Cache-Control': 'public, max-age=600'
+    }
   }
 });

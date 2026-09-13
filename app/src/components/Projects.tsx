@@ -188,12 +188,19 @@ const Projects: React.FC = () => {
   // Progress bar
   const [scrollIdx, setScrollIdx] = useState(0);
   useEffect(() => {
+    let ticking = false;
     const onScroll = () => {
-      const offsets = sectionRefs.current.map(ref => ref?.getBoundingClientRect().top || 0);
-      const idx = offsets.findIndex(offset => offset > window.innerHeight * 0.2);
-      setScrollIdx(idx === -1 ? filteredProjects.length - 1 : Math.max(0, idx - 1));
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const offsets = sectionRefs.current.map(ref => ref?.getBoundingClientRect().top || 0);
+          const idx = offsets.findIndex(offset => offset > window.innerHeight * 0.2);
+          setScrollIdx(idx === -1 ? filteredProjects.length - 1 : Math.max(0, idx - 1));
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
-    window.addEventListener('scroll', onScroll);
+    window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, [filteredProjects.length]);
 
@@ -292,8 +299,8 @@ const Projects: React.FC = () => {
 
   return (
     <section id="projects" className="w-screen min-h-screen flex flex-col items-center justify-start bg-gradient-to-br from-[#f5f5f5] to-[#e3f2fd] py-12 relative overflow-visible">
-      {/* Parallax background */}
-      <div className="absolute inset-0 z-0 bg-gradient-to-br from-[#e3f2fd] to-[#b3e5fc] opacity-60" style={{ backgroundAttachment: 'fixed' }} />
+      {/* Background */}
+      <div className="absolute inset-0 z-0 bg-gradient-to-br from-[#e3f2fd] to-[#b3e5fc] opacity-60" />
       <div className="w-full max-w-7xl mx-auto px-0 md:px-8 relative z-10 overflow-visible pb-24">
         
         {/* Heading */}

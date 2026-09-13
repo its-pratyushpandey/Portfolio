@@ -73,10 +73,12 @@ const Hero: React.FC = () => {
         loop
         muted
         playsInline
+        preload="none"
         aria-hidden="true"
+        poster="/project1.jpg"
       ></video>
       <div className="absolute inset-0 z-10 pointer-events-none overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#e3f2fd]/65 via-[#dbe9ff]/60 to-[#b3e5fc]/65" style={{ backgroundAttachment: 'fixed' }} />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#e3f2fd]/65 via-[#dbe9ff]/60 to-[#b3e5fc]/65" />
         <div className="absolute inset-0 bg-gradient-to-t from-white/15 via-transparent to-white/5" />
         <div className="absolute -top-32 -left-32 w-72 h-72 bg-[#b3e5fc]/45 rounded-full blur-3xl" />
         <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-[#c5cae9]/40 rounded-full blur-3xl" />

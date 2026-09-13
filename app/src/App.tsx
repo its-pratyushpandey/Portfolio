@@ -11,7 +11,6 @@ import { ContactSection } from './screens/ElementLight/section/ContactSection/Co
 import { ExperienceSection } from './screens/ElementLight/section/ExperienceSection/ExperienceSection';
 import { HowICanHelpSection } from './screens/ElementLight/section/HowICanHelpSection/HowICanHelpSection';
 import { ProjectsDarkModeProvider } from './theme/ProjectsDarkModeContext';
-import Preloader from './components/Preloader';
 
 interface SectionProps {
   children: ReactNode;
@@ -47,17 +46,6 @@ const Section: React.FC<SectionProps> = ({ children }) => {
 };
 
 const App: React.FC = () => {
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 3000);
-    return () => clearTimeout(timer);
-  }, []);
-
-  if (loading) {
-    return <Preloader />;
-  }
-
   return (
     <div className="bg-[#e3f2fd]">
       <Navbar />

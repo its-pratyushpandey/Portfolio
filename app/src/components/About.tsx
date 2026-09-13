@@ -5,8 +5,8 @@ import { FaEnvelope, FaGithub, FaLinkedin, FaFileAlt } from 'react-icons/fa';
 const About: React.FC = () => {
   return (
     <section id="about" className="w-full min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-[#f5f5f5] to-[#e3f2fd] py-12 md:py-0 relative overflow-x-hidden">
-      {/* Parallax background */}
-      <div className="absolute inset-0 z-0 bg-gradient-to-br from-[#e3f2fd] to-[#b3e5fc] opacity-60" style={{ backgroundAttachment: 'fixed' }} />
+      {/* Background */}
+      <div className="absolute inset-0 z-0 bg-gradient-to-br from-[#e3f2fd] to-[#b3e5fc] opacity-60" />
       <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 md:px-8 relative z-10">
         <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 lg:gap-20">
           {/* Text on the left */}
@@ -47,9 +47,11 @@ Outside of academics and technology, I pursue creative and recreational interest
             whileHover={{ scale: 1.05 }}
           >
             <div className="relative flex flex-col items-center">
-              <motion.img 
-                src="/profile.jpg" 
-                alt="Pratyush Kumar Pandey" 
+              <motion.img
+                src="/profile.jpg"
+                alt="Pratyush Kumar Pandey"
+                loading="lazy"
+                decoding="async"
                 className="rounded-2xl object-cover shadow-2xl border-4 border-[#e3f2fd] max-w-full h-auto md:w-[480px] md:h-[560px] w-80 h-96 transition-all duration-300 bg-white dark:bg-darkCard hover:shadow-[0_8px_32px_rgba(32,29,102,0.18)] hover:scale-105"
                 style={{ objectFit: 'cover', border: '4px solid #e3f2fd' }}
                 initial={{ scale: 0.95, opacity: 0 }}

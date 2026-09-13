@@ -3,36 +3,62 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const helpItems = [
 	{
-    title: "Web Development",
+    title: "AI & Machine Learning",
+
     description:
-      "Building modern, scalable, and responsive web applications tailored to business needs. Strong focus on performance, maintainability, and seamless user experience using cutting-edge technologies.",
-    icon: "🌐",
-    tags: ["React", "Node.js", "TypeScript", "Vite", "TailwindCSS"],
-    level: 95, // out of 100
+      "Building practical AI-powered solutions using modern machine learning and Generative AI technologies. Strong focus on LLMs, RAG, prompt engineering, AI agents, and applying AI to real-world use cases.",
+
+    icon: "🤖",
+
+    tags: ["Python", "Machine Learning", "LLMs", "RAG", "AI Agents"],
+
+    level: 90, // out of 100
+
   },
+
   {
-    title: "Full-Stack App Development",
+
+    title: "Full-Stack & Backend Development",
+
     description:
-      "Engineering robust, scalable web and mobile applications with end-to-end architecture. Leveraging modern JavaScript frameworks, cloud services, and databases to build performant full-stack solutions.",
+      "Engineering scalable full-stack and backend applications with robust APIs, databases, and modern frameworks. Strong focus on performance, clean architecture, security, and reliable user experiences.",
+
     icon: "💻",
-    tags: ["React", "Node.js", "MongoDB", "React Native", "Firebase"],
-    level: 93, // out of 100
+
+    tags: ["Java", "Spring Boot", "Node.js", "React", "Next.js"],
+
+    level: 94, // out of 100
+
   },
+
   {
-    title: "Product Interface Design",
+
+    title: "Data & AI Engineering",
+
     description:
-      "Crafting clean, responsive, and user-centered interfaces with a sharp focus on usability, accessibility, and design consistency across platforms. Strong command over component libraries and design tools.",
-    icon: "🧩",
-    tags: ["Figma", "Material UI", "Tailwind CSS", "Design Systems", "Accessibility"],
-    level: 89, // out of 100
+      "Working with data processing, AI workflows, and backend systems that support intelligent applications. Focused on data preparation, APIs, scalable pipelines, model evaluation, and efficient AI integration.",
+
+    icon: "📊",
+
+    tags: ["SQL", "MongoDB", "Data Processing", "REST APIs", "AI Workflows"],
+
+    level: 87, // out of 100
+
   },
+
   {
-    title: "Team Collaboration & Agile Development",
+
+    title: "Cloud, DevOps & System Design",
+
     description:
-      "Working seamlessly within cross-functional teams using Agile methodologies. Emphasizing code quality, peer reviews, communication, and rapid delivery through well-structured workflows.",
-    icon: "🤝",
-    tags: ["Agile", "Scrum", "Git & Version Control", "Code Reviews", "Team Communication"],
-    level: 91, // out of 100
+      "Developing and deploying scalable applications using cloud and DevOps practices. Focused on containerization, CI/CD, microservices, system design, performance optimization, and reliable application delivery.",
+
+    icon: "☁️",
+
+    tags: ["AWS", "Azure", "Docker", "Kubernetes", "Microservices"],
+
+    level: 88, // out of 100
+
   },
 ];
 

@@ -19,14 +19,13 @@ const About: React.FC = () => {
           >
             <div className="space-y-4 md:space-y-6">
               <motion.p className="text-base sm:text-lg md:text-xl text-[#201d66] font-medium leading-relaxed" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.3 }}>
-            I am a third-year B.Tech student in Computer Science and Engineering at KL University, India, with a strong interest in full-stack and cross-platform development. I have hands-on experience in modern technologies including React, React Native, Next.js, Express.js, TypeScript, Django, and Spring Boot.
+I am a fourth-year B.Tech student in Computer Science and Engineering at KL University, India, with a strong interest in software development and artificial intelligence. I have hands-on experience with Java, Spring Boot, Node.js, React, TypeScript, MongoDB, and modern AI technologies.
               </motion.p>
               <motion.p className="text-lg md:text-xl text-[#201d66] font-medium" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.4 }}>
-I specialize in web and app development, supported by a strong foundation in data structures, algorithms, and system design, with a focus on building efficient and user-centric solutions.
+I enjoy building full-stack and AI-powered applications that solve real-world problems. My experience includes LLMs, RAG, REST APIs, and cloud technologies. Through my projects and AI internship, I have gained practical experience in developing scalable systems and exploring how AI can create meaningful solutions.
               </motion.p>
               <motion.p className="text-lg md:text-xl text-[#201d66] font-medium" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.5 }}>
-Outside of academics and technology, I pursue creative and recreational interests that contribute to a balanced lifestyle. I’m passionate about cricket and running, which help build discipline and focus, while music serves as a source of relaxation and inspiration in my day-to-day routine.
-
+Outside of academics and technology, I enjoy cricket, running, and music. I am always eager to learn, build, connect with people, and turn ideas into useful solutions.
               </motion.p>
             
               <div className="flex gap-4 mt-4">

@@ -2,6 +2,22 @@
 	import { motion } from "framer-motion";
 
 	const experiences = [
+		{
+    company: "Calibo",
+    role: "AI Trainee",
+    period: "2026",
+    location: "India",
+    tech: ["Python", "Machine Learning", "Generative AI", "LLMs", "RAG", "Prompt Engineering", "Data Engineering", "Azure"],
+    details: [
+        "Worked on practical AI and ML use cases, exploring how machine learning and Generative AI can be applied to solve real-world business problems and improve decision-making.",
+
+        "Built and experimented with AI workflows involving LLMs, prompt engineering, RAG, and structured data processing to develop practical and scalable AI-driven solutions.",
+
+        "Gained hands-on exposure to data engineering concepts including data preparation, transformation, validation, pipeline design, and efficient processing of data for AI and ML applications.",
+
+        "Collaborated with mentors and industry professionals to understand AI solution architecture, business use cases, model evaluation, responsible AI practices, and the process of turning ideas into deployable solutions."
+    ],
+},
 	{
 	company: "EtharaAI",
 	role: "AI Intern",
